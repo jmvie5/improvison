@@ -1,49 +1,56 @@
 import * as React from "react"
-import NavLinks from "../components/NavLinks"
+import Layout from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { StaticImage } from "gatsby-plugin-image"
-import useWindowSize from "../hooks/useWindowSize"
+import { BookOpenIcon, PresentationChartLineIcon, PuzzlePieceIcon, UsersIcon } from '@heroicons/react/24/outline'
+import { MusicalNoteIcon } from '@heroicons/react/24/solid'
+import regles from "../../downloads/test.pdf"
+
 
 const IndexPage = () => {
 
-    let isMobile
-
-    var windowWidth = useWindowSize().width
-
-    if ( windowWidth < 700) {
-        isMobile = true;
-    } else if (windowWidth > 700) {
-        isMobile = false;
-    };
-
     return (
-        <main className="bg-bleu-pale flex flex-col min-h-screen">
-            <NavLinks />
-            <div className="flex m-4">
-                {isMobile ? <div/>: 
-                    <div className="flex flex-col justify-center float-left">
-                        <StaticImage src="../images/fantastique.png" className="lg:w-60 lg:h-32 w-44 h-24 -rotate-12"/>
-                        <StaticImage src="../images/surpris.png" className="lg:w-60 lg:h-32 w-44 h-24 rotate-12" />
-                    </div>
-                }
-                <StaticImage src="../images/improvison_accueil.png" className="m-8"/>
-                {isMobile ? <dix/> : 
-                    <div className="flex flex-col justify-center">
-                        <div className="grid place-content-center text-2xl font-bold border-4 lg:w-60 lg:h-32 w-44 h-24 rounded-xl bg-white text-bleu-fonce rotate-12">Crescendo</div>
-                        <div className="grid place-content-center text-2xl font-bold border-4 lg:w-60 lg:h-32 w-44 h-24 rounded-xl bg-white text-bleu-fonce -rotate-12 "><p className="border">3/4</p></div>
-                    </div>}
+        <Layout>
+            <div className="grid nlg:grid-cols-3 nmd:grid-cols-2 grid-col-1 justify-center gap-4 xl:ml-52">
+                <div className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 gap-2 items-center">
+                    <h1 className="font-bold text-xl">C'est quoi?</h1>
+                    <MusicalNoteIcon className="w-32"/>
+                    <p>Un jeu musical collaboratif pour apprendre à improviser. </p>
+                </div>
                 
-            </div>
-            
-            <div className="flex flex-col gap-4 pb-4">
-                <div className="mx-8 p-6 bg-bleu-fonce rounded-xl text-white w-9/12">
-                    <p>Jeu d'improvisation musicale développé et testé à l'aide d'une approche de recherche-développement.</p>
+                <div className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 gap-2 items-center">
+                    <h1 className="font-bold text-xl">C'est pour qui?</h1>
+                    <UsersIcon className="w-32"/>
+                    <p>Deux joueurs. Dyade prof-élève ou pour deux élèves. Joueurs de tous les âges et tous les niveaux. </p>
+                </div>
+                
+                <a href="https://www.roblox.com/games/5984084686/Improvisondon" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 gap-2 items-center">
+                    <h1 className="font-bold text-xl">Jouer en ligne</h1>
+                    <StaticImage src="../images/Roblox_Logo.svg" className="w-32 self-center" alt="Logo Roblox"/>
+                    <p>Version en ligne : la version en ligne est accessible gratuitement sur Roblox. Cliquez ici pour s'y rendre!</p>
+                </a>
+
+                <a href={regles} target="_blank" rel="noreferrer" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 gap-2 items-center">
+                    <h1 className="font-bold text-xl">Règles du jeu</h1>
+                    <BookOpenIcon className=" w-32"/>
+                    <p>Consulter et téléchargez les règles ici.</p>
+                </a>
+
+                <div className="flex flex-col border border-neutral-500 rounded-lg bg-gray-500 p-4 shadow-md shadow-black w-64 gap-2 items-center">
+                    <h1 className="font-bold text-xl">Version physique</h1>
+                    <PuzzlePieceIcon className="w-32"/>
+                    <p>La version physique du jeu est en cours de développement. Restez à l’affût!</p>
+                </div>
+
+                <div className="flex flex-col border border-neutral-500 rounded-lg bg-gray-500 p-4 shadow-md shadow-black w-64 gap-2 items-center">
+                    <h1 className="font-bold text-xl">Résultats</h1>
+                    <PresentationChartLineIcon className="w-32"/>
+                    <p>Nous analysons présentement nos données de recherche. Les résultats seront disponibles ici sous peu.</p>
                 </div>
             </div>
             
             
-        </main>
-
+        </Layout>
   )
 }
 

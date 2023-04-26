@@ -21,8 +21,8 @@ module.exports = {
         link: "/jeu"
       },
       {
-        name: "Références",
-        link: "/references"
+        name: "Pour en savoir plus",
+        link: "/savoir-plus"
       }
     ]
   },

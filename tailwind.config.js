@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        'josef': ['Josefin+Sans'],
-        'cardo': ['Cardo']
+        'josef': ['"Josefin Sans"', 'sans-serif'],
+        'cardo': ['Cardo', 'sans-serif']
         },
         colors: {
           "bleu-pale": "#485D9B",
@@ -17,7 +17,18 @@ module.exports = {
         },
         maxWidth: {
             'xxs': '15rem',
-          }
+          },
+        screens: {
+          'xxs': '430px',
+    
+          'xs': '850px',
+
+          'nmd': '776px',
+
+          'nlg': '1036px',
+          
+          'nxl': '1288px'
+        },
     },
   },
   plugins: [],

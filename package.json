@@ -15,6 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.17",
     "@mdx-js/react": "^2.3.0",
     "browser-monads": "^1.0.0",
     "gatsby": "^5.8.1",
