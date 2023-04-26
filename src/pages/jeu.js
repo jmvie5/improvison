@@ -3,7 +3,7 @@ import Layout from "../components/Layout"
 import { PuzzlePieceIcon } from '@heroicons/react/24/outline'
 import { Seo } from "../components/Seo"
 import { StaticImage } from "gatsby-plugin-image"
-import regles from "../../downloads/test.pdf"
+import regles from "../../downloads/regles_fr.pdf"
 
 const GamePage = () => {
   return (
@@ -24,16 +24,16 @@ const GamePage = () => {
 			<div className="py-8 flex flex-col">           
 				<div className="">
 					<div className="md:float-right flex flex-col p-8 items-center">
-						<StaticImage src="../images/champi.png" className="max-w-xxs -rotate-12"/>
-						<StaticImage src="../images/tortue.png" className="max-w-xxs rotate-12" />
+						<StaticImage src="../images/champi.png" className="max-w-xxs -rotate-12" alt="Exemple de carte thème d'improvison: Champignons"/>
+						<StaticImage src="../images/tortue.png" className="max-w-xxs rotate-12" alt="Exemple de carte thème d'improvison: Tortue de mer" />
 					</div>
 					Improvisondon est un jeu collaboratif qui se joue à 2 joueurs. À chaque tour, les joueurs s’échangent les rôles d’improvisateur et de devineur. L’improvisateur choisi des cartes « thèmes » et « contraintes » qu’il devra faire deviner au devineur grâce à une improvisation musicale. Le but du jeu est de deviner collectivement un nombre prédéterminé de cartes « thème » et « contraintes » avant que le minuteur arrive à 00:00.
 					<p className="italic pt-2">Vous pouvez aussi jouer en mode infini pour enlever la contrainte de temps. </p>
 				</div>
 				<div>
 					<div className="md:float-left flex flex-col p-8 items-center">
-						<StaticImage src="../images/modulation.png" className="max-w-xxs border-2 border-bleu-fonce rounded-lg rotate-12"/>
-						<StaticImage src="../images/latin-jazz.png" className="max-w-xxs border-2 border-bleu-fonce rounded-lg -rotate-12" />
+						<StaticImage src="../images/modulation.png" className="max-w-xxs border-2 border-bleu-fonce rounded-lg rotate-12" alt="Exemple de carte contrainte d'improvison: Modulation"/>
+						<StaticImage src="../images/latin-jazz.png" className="max-w-xxs border-2 border-bleu-fonce rounded-lg -rotate-12" alt="Exemple de carte contrainte d'improvison: Latin Jazz"/>
 					</div>
 					<h1 className="text-lg font-bold">Déroulement d'une partie</h1>
 					<ol className="ml-4">
@@ -60,5 +60,5 @@ const GamePage = () => {
 export default GamePage
 
 export const Head = () => {
-  <Seo title="Jeu"/>
+  <Seo title="Jeu" description="Description du jeu, lien vers le jeu en ligne et lien pour consulter et télécharger les règles."/>
 }

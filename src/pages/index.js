@@ -4,7 +4,7 @@ import { Seo } from "../components/Seo"
 import { StaticImage } from "gatsby-plugin-image"
 import { BookOpenIcon, PresentationChartLineIcon, PuzzlePieceIcon, UsersIcon } from '@heroicons/react/24/outline'
 import { MusicalNoteIcon } from '@heroicons/react/24/solid'
-import regles from "../../downloads/test.pdf"
+import regles from "../../downloads/regles_fr.pdf"
 
 
 const IndexPage = () => {

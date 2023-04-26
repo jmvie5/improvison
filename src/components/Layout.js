@@ -13,7 +13,7 @@ const Layout = ({pageTitle, children}) => {
                     <header>
                         <div className="flex flex-col justify-center sm:justify-start sm:w-60 shrink-0">
                             <Link to="/" className="m-4 max-w-xxs self-center sm:self-start">
-                                <StaticImage src="../images/improvison_accueil.png"/>
+                                <StaticImage src="../images/improvison_accueil.png" alt="Logo Improvison"/>
                             </Link>
                             <NavLinks/>
                         </div>
@@ -24,7 +24,7 @@ const Layout = ({pageTitle, children}) => {
                             <h1 className="text-4xl font-bold p-4 sm:my-10 my-6 mx-4 border-b">Apprendre à improviser en jouant</h1>
                         </div>
                         
-                        <div className="mx-4">
+                        <div className="mx-6">
                             <h1 className="text-2xl font-bold mb-6">{pageTitle}</h1>
                             <main>
                                 {children}

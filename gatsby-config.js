@@ -4,9 +4,9 @@
 module.exports = {
   siteMetadata: {
     title: "Improvison",
-    siteUrl: `https://improvison.ca`,
+    siteUrl: `https://www.improvison.ca`,
     image: `/src/images/improvison-logo.png`,
-    description: "Improvison est un jeu favorisant l'apprentissage de l'improvisation musicale.",
+    description: "Improvison est un jeu favorisant l'apprentissage de l'improvisation musicale disponible en ligne pour des joueurs de tous les âges et tous les niveaux.",
     menuLinks: [
       {
         name: "Accueil",

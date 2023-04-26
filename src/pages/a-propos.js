@@ -14,7 +14,7 @@ const AboutPage = () => {
 
 			<h2 className="font-semi-bold text-xl mt-4">Idéation</h2>
 			<p>
-				Improvison découle des résultats de mon projet doctoral (FRQ-SC, CRSH et OICRM), intitulé <a href="https://corpus.ulaval.ca/jspui/handle/20.500.11794/27566">Processus d’apprentissage et de création des improvisateurs experts en musique classique</a> qui a offert un nouvel éclairage sur le parcours d’apprentissage, les stratégies de création et les approches d’enseignement des improvisateurs experts en musique classique. 
+				Improvison découle des résultats de mon projet doctoral (FRQ-SC, CRSH et OICRM), intitulé <a href=" https://doi.org/10.7202/1040300ar" className="underline">Processus d’apprentissage et de création des improvisateurs experts en musique classique</a> qui a offert un nouvel éclairage sur le parcours d’apprentissage, les stratégies de création et les approches d’enseignement des improvisateurs experts en musique classique. 
 			</p>
 			<p>
 				Plus précisément, les résultats de mon projet doctoral ont montré un certain écart entre les méthodes pédagogiques disponibles et la pratique des experts en improvisation musicale (Després, 2017; Després, Burnard, Dubé et Stévance, 2015, 2017). En effet, selon mes résultats, les experts font appel à bon nombre de stratégies d’improvisation musicale qui ne sont pas centrées sur le choix de la hauteur des notes, alors que les méthodes d’improvisation actuellement disponibles se concentrent principalement sur l’acquisition de stratégies centrées sur celui-ci. Ce projet s’intéresse également à l’apport de l’apprentissage par le jeu pour soutenir le développement de compétences créatives, telles que manifestées lors de l’improvisation musicale.
@@ -32,5 +32,5 @@ const AboutPage = () => {
 export default AboutPage
 
 export const Head = () => {
-  <Seo title="À propos"/>
+  <Seo title="À propos" description="Ce projet vise à développer du matériel pédagogique basé sur les principes de l’apprentissage par le jeu afin de faciliter l’acquisition, chez les instrumentistes de niveau débutant ou intermédiaire, de stratégies d’improvisation musicale qui sont mises en œuvre par les experts du domaine et à documenter les impacts perçus de ce matériel."/>
 }
