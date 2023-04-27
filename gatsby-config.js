@@ -33,6 +33,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
+        name: `Improvison`,
+        short_name: `Improvison`,
+        start_url: `/`,
+        background_color: `#222F4D`,
+        theme_color: `#222F4D`,
+        display: `standalone`,
         "icon": "src/images/improvison_logo.png"
       },
     },
@@ -55,6 +61,14 @@ module.exports = {
       },
       __key: "pages"
     },
-    "gatsby-plugin-postcss"
+    "gatsby-plugin-postcss",
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.improvison.ca',
+        sitemap: 'https://www.improvison.ca/sitemap-index.xml',
+        policy: [{userAgent: '*', allow: '/'}]
+      }
+    },
     ]
 };
