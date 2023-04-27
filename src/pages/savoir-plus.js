@@ -37,6 +37,6 @@ const SavoirPlusPage = () => {
 
 export default SavoirPlusPage
 
-export const Head = () => {
+export const Head = () => (
   <Seo title="Pour en savoir plus" description="Matériel supplémentaire à consulter ainsi que les références théoriques et scientifiques"/>
-}
+)

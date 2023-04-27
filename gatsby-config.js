@@ -33,12 +33,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `Improvison`,
-        short_name: `Improvison`,
-        start_url: `/`,
-        background_color: `#222F4D`,
-        theme_color: `#222F4D`,
-        display: `standalone`,
+        "name": `Improvison`,
+        "short_name": `Improvison`,
+        "start_url": `/`,
+        "background_color": `#222F4D`,
+        "theme_color": `#222F4D`,
+        "display": `standalone`,
         "icon": "src/images/improvison_logo.png"
       },
     },

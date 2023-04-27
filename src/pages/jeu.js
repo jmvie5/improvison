@@ -59,6 +59,8 @@ const GamePage = () => {
 
 export default GamePage
 
-export const Head = () => {
-  <Seo title="Jeu" description="Description du jeu, lien vers le jeu en ligne et lien pour consulter et télécharger les règles."/>
-}
+export const Head = () => (
+	<Seo title="Jeu" description="Description du jeu, lien vers le jeu en ligne et lien pour consulter et télécharger les règles."/>
+)
+
+	
