@@ -7,7 +7,7 @@ import regles from "../../downloads/regles_fr.pdf"
 
 const GamePage = () => {
   return (
-    <Layout pageTitle="Jeu">
+    <Layout pageTitle="Le jeu">
         <div className="flex flex-col xs:flex-row gap-4 justify-center items-center mb-4">
 			<a href="https://www.roblox.com/games/5984084686/Improvisondon" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 gap-2 items-center">
 				<h1 className="font-bold text-xl">Jouer en ligne</h1>

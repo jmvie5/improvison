@@ -17,7 +17,7 @@ module.exports = {
         link: "/a-propos"
       },
       {
-        name: "Jeu",
+        name: "Le jeu",
         link: "/jeu"
       },
       {

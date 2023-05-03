@@ -24,7 +24,7 @@ const Layout = ({pageTitle, children}) => {
                             <h1 className="text-4xl font-bold p-4 sm:my-10 my-6 mx-4 border-b">Apprendre à improviser en jouant</h1>
                         </div>
                         
-                        <div className="mx-6">
+                        <div className="mx-6 ">
                             <h1 className="text-2xl font-bold mb-6">{pageTitle}</h1>
                             <main>
                                 {children}
