@@ -36,7 +36,7 @@ const Layout = ({pageTitle, children}) => {
                 
                 <footer className="mx-4 mt-4 p-4 border-t">
                     <p>Contact :</p>
-                    <a href="mailto:jean-philippe.despres@mus.ulaval.ca">jean-philippe.despres@mus.ulaval.ca</a>
+                    <a href="mailto:info@improvison.ca">info@improvison.ca</a>
                 </footer>
             </div>
             

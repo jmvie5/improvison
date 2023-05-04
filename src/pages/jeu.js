@@ -51,6 +51,13 @@ const GamePage = () => {
 			</div>
 			
 			<a href={regles} target="_blank" rel="noreferrer" className="underline">Consulter et télécharger les règles complètes ici.</a>
+
+			<div className="flex flex-col gap-2 mt-8 self-end">
+				Voici un apperçu du jeu en ligne : 
+				<StaticImage src="../images/jeu_num.png" className="w-fit self-end rounded-md" alt="Capture d'écran d'Improvison sur Roblox : page principale."/>
+				<StaticImage src="../images/jeu_num2.png" className="w-fit rounded-md" alt="Capture d'écran d'Improvison sur Roblox : pop-up."/>
+				<StaticImage src="../images/jeu_num3.png" className="w-fit self-end rounded-md" alt="Capture d'écran d'Improvison sur Roblox : menu d'accueil"/>
+			</div>
 		</div>    
         
     </Layout>
