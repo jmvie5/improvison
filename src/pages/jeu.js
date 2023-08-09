@@ -3,18 +3,17 @@ import Layout from "../components/Layout"
 import { PuzzlePieceIcon } from '@heroicons/react/24/outline'
 import { Seo } from "../components/Seo"
 import { StaticImage } from "gatsby-plugin-image"
-import regles from "../../downloads/regles_fr.pdf"
 
 const GamePage = () => {
   return (
     <Layout pageTitle="Le jeu">
         <div className="flex flex-col xs:flex-row gap-4 justify-center items-center mb-4">
-			<a href="https://www.roblox.com/games/5984084686/Improvisondon" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 gap-2 items-center">
+			<a href="https://www.roblox.com/games/5984084686/Improvisondon" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 gap-2 items-center hover:ring-2">
 				<h1 className="font-bold text-xl">Jouer en ligne</h1>
 				<StaticImage src="../images/Roblox_Logo.svg" className="w-32 self-center" alt="Logo Roblox"/>
 				<p>Version en ligne : la version en ligne est accessible gratuitement sur Roblox. Cliquez ici pour s'y rendre!</p>
 			</a>
-			<div className="flex flex-col border border-neutral-500 rounded-lg bg-gray-500 p-4 shadow-md shadow-black w-64 gap-2 items-center">
+			<div className="flex flex-col border border-neutral-500 rounded-lg bg-neutral-400 p-4 shadow-md shadow-black w-64 gap-2 items-center">
 				<h1 className="font-bold text-xl">Version physique</h1>
 				<PuzzlePieceIcon className="w-32"/>
 				<p>La version physique du jeu est en cours de développement. Restez à l’affût!</p>
@@ -50,7 +49,7 @@ const GamePage = () => {
 				</div>
 			</div>
 			
-			<a href={regles} target="_blank" rel="noreferrer" className="underline">Consulter et télécharger les règles complètes ici.</a>
+			<a href="/Improvison_Règles numériques.pdf" className="underline hover:text-neutral-400">Consulter et télécharger les règles complètes ici.</a>
 
 			<div className="flex flex-col gap-2 mt-8 self-end">
 				Voici un apperçu du jeu en ligne : 

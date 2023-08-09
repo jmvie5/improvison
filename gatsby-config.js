@@ -65,8 +65,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://www.improvison.ca',
-        sitemap: 'https://www.improvison.ca/sitemap-index.xml',
+        host: 'https://improvison.ca',
+        sitemap: 'https://improvison.ca/sitemap-index.xml',
         policy: [{userAgent: '*', allow: '/'}]
       }
     },
