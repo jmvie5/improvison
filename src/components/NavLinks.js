@@ -1,11 +1,11 @@
 import * as React from "react"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
-import { Link } from "gatsby"
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 
 const NavLinks = () => {
 
     const siteMetadata = useSiteMetadata()
-
+    const {languages, changeLanguage} = useI18next();
     return (
         <nav className="sm:p-4">
             <ul className="flex flex-row sm:flex-col divide-x sm:divide-x-0 sm:divide-y sm:max-w-xxs justify-center">
@@ -15,6 +15,20 @@ const NavLinks = () => {
                             {link.name}
                         </Link>
                     </li>
+                ))}
+            </ul>
+            <ul className="">
+                {languages.map((lng) => (
+                <li key={lng}>
+                    <a
+                    href="#"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        changeLanguage(lng);
+                    }}>
+                    {lng}
+                    </a>
+                </li>
                 ))}
             </ul>
         </nav>

@@ -70,5 +70,31 @@ module.exports = {
         policy: [{userAgent: '*', allow: '/'}]
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/locales`,
+        name: `local`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `local`, // name given to `gatsby-source-filesystem` plugin.
+        languages: [`fr`, `en`],
+        defaultLanguage: `fr`,
+        siteUrl: `https://improvison.ca`,
+        // if you are using trailingSlash gatsby config include it here, as well (the default is 'always')
+        trailingSlash: 'always',
+        // you can pass any i18next options
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false // not needed for react as it escapes by default
+          },
+          keySeparator: false,
+          nsSeparator: false
+        },
+      }
+    }
     ]
 };

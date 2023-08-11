@@ -4,6 +4,8 @@ import { Seo } from "../components/Seo"
 import { StaticImage } from "gatsby-plugin-image"
 import { BookOpenIcon, PresentationChartLineIcon, PuzzlePieceIcon, UsersIcon } from '@heroicons/react/24/outline'
 import { MusicalNoteIcon } from '@heroicons/react/24/solid'
+import { Trans } from 'gatsby-plugin-react-i18next';
+import { graphql } from "gatsby"
 
 
 const IndexPage = () => {
@@ -12,9 +14,9 @@ const IndexPage = () => {
         <Layout>
             <div className="grid nlg:grid-cols-3 nmd:grid-cols-2 grid-col-1 justify-center gap-4 xl:ml-52">
                 <div className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 gap-2 items-center">
-                    <h1 className="font-bold text-xl">C'est quoi?</h1>
+                    <p className="font-bold text-xl"><Trans>C'est quoi?</Trans></p>
                     <MusicalNoteIcon className="w-32"/>
-                    <p>Un jeu musical collaboratif pour apprendre à improviser. </p>
+                    <Trans>Un jeu musical collaboratif pour apprendre à improviser.</Trans>
                 </div>
                 
                 <div className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 gap-2 items-center">
@@ -54,6 +56,20 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: {language: {eq: $language}}) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
 
 export const Head = () => (
   <Seo />
