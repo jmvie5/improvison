@@ -16,7 +16,7 @@ const Layout = ({pageTitle, children}) => {
                 <div className="flex flex-col sm:flex-row justify-between xl:mt-4 w-full">
                     <header>
                         <div className="flex flex-col justify-center sm:justify-start sm:w-60 shrink-0">
-                            <LocalizedLink to="/" className="m-4 max-w-xxs self-center sm:self-start">
+                            <LocalizedLink to="/" className="mt-4 mx-4 max-w-xxs self-center sm:self-start">
                                 <StaticImage src="../images/improvison_accueil.png" alt="Logo Improvison"/>
                             </LocalizedLink>
                             <NavLinks/>

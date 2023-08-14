@@ -34,6 +34,17 @@ const AboutPage = () => {
 
 export default AboutPage
 
-export const Head = () => (
-  <Seo title="À propos" description="Ce projet vise à développer du matériel pédagogique basé sur les principes de l’apprentissage par le jeu afin de faciliter l’acquisition, chez les instrumentistes de niveau débutant ou intermédiaire, de stratégies d’improvisation musicale qui sont mises en œuvre par les experts du domaine et à documenter les impacts perçus de ce matériel."/>
+export const Head = (props) => (
+	<Seo title={props.data.pageTitle.message} description={props.data.pageDescription.message}/>
 )
+
+export const query = graphql`
+  query AboutPage($locale: String) {
+    pageTitle: translation(locale: { eq: $locale }, key: { eq: "À propos" }) {
+      message
+    }
+    pageDescription: translation(locale: { eq: $locale }, key: { eq: "Ce projet vise à développer du matériel pédagogique basé sur les principes de l’apprentissage par le jeu afin de faciliter l’acquisition, chez les instrumentistes de niveau débutant ou intermédiaire, de stratégies d’improvisation musicale qui sont mises en œuvre par les experts du domaine et à documenter les impacts perçus de ce matériel." }) {
+      message
+    }
+  }
+`;

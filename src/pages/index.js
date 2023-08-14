@@ -25,13 +25,13 @@ const IndexPage = () => {
                     <FormattedMessage id="Deux joueurs. Dyade prof-élève ou pour deux élèves. Joueurs de tous les âges et tous les niveaux."/>
                 </div>
                 
-                <a href="https://www.roblox.com/games/5984084686/Improvisondon" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center hover:ring-2">
+                <a href="https://www.roblox.com/games/5984084686/Improvisondon" target="_blank" rel="noreferrer" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center hover:ring-2">
                     <h1 className="font-bold text-xl"><FormattedMessage id="Jouer en ligne"/></h1>
                     <StaticImage src="../images/Roblox_Logo.svg" className="w-32 self-center" alt="Logo Roblox"/>
                     <FormattedMessage id="La version en ligne est accessible gratuitement sur Roblox. Cliquez ici pour s'y rendre!"/>
                 </a>
 
-                <a href={`${intl.locale === "fr-CA" ? "/Improvison_Règles numériques.pdf" : "/Improvison_Digital Rules.pdf"}`} className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center hover:ring-2">
+                <a href={`${intl.locale === "fr-CA" ? "/Improvison_Règles numériques.pdf" : "/Improvison_Digital Rules.pdf"}`} target="_blank" rel="noreferrer" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center hover:ring-2">
                     <h1 className="font-bold text-xl"><FormattedMessage id="Règles du jeu"/></h1>
                     <BookOpenIcon className=" w-32"/>
                     <FormattedMessage id="Consulter et téléchargez les règles ici."/>
@@ -56,6 +56,14 @@ const IndexPage = () => {
 export default IndexPage
 
 
-export const Head = () => (
-  <Seo />
+export const Head = (props) => (
+    <Seo description={props.data.pageDescription.message} />
 )
+
+export const query = graphql`
+  query IndexPage($locale: String) {
+    pageDescription: translation(locale: { eq: $locale }, key: { eq: "Improvison est un jeu favorisant l'apprentissage de l'improvisation musicale disponible en ligne pour des joueurs de tous les âges et tous les niveaux." }) {
+      message
+    }
+  }
+`;

@@ -12,7 +12,7 @@ const GamePage = () => {
   	return (
 		<Layout pageTitle="Le jeu">
 			<div className="flex flex-col xs:flex-row gap-4 justify-center items-center mb-4">
-				<a href="https://www.roblox.com/games/5984084686/Improvisondon" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center hover:ring-2">
+				<a href="https://www.roblox.com/games/5984084686/Improvisondon" target="_blank" rel="noreferrer" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center hover:ring-2">
 					<h1 className="font-bold text-xl"><FormattedMessage id="Jouer en ligne"/></h1>
 					<StaticImage src="../images/Roblox_Logo.svg" className="w-32 self-center" alt="Logo Roblox"/>
 					<FormattedMessage id="La version en ligne est accessible gratuitement sur Roblox. Cliquez ici pour s'y rendre!"/>
@@ -52,7 +52,7 @@ const GamePage = () => {
 						</ol>
 					</div>
 				</div>
-				<a href={`${intl.locale === "fr-CA" ? "/Improvison_Règles numériques.pdf" : "/Improvison_Digital Rules.pdf"}`} target="_blank" rel="noreferrer" className="underline hover:text-neutral-400"><FormattedMessage id="Consulter et télécharger les règles complètes ici."/></a>
+				<a href={`${intl.locale === "fr-CA" ? "/Improvison_Règles numériques.pdf" : "/Improvison_Digital Rules.pdf"}`} target="_blank" rel="noreferrer" aria-label="Règles d'improvison" className="underline hover:text-neutral-400"><FormattedMessage id="Consulter et télécharger les règles complètes ici."/></a>
 				<p><FormattedMessage id="Voici un apperçu du jeu en ligne :"/></p>
 				<div className={`${intl.locale === "fr-CA" ? "inline": "hidden"} flex flex-col gap-2 mt-8 self-end`}>
 					<StaticImage src="../images/jeu_num_fr.webp" className="w-fit self-end rounded-md" alt="Capture d'écran d'Improvison sur Roblox : page principale."/>
@@ -72,8 +72,19 @@ const GamePage = () => {
 export default GamePage
 
 
-export const Head = () => (
-	<Seo title="Jeu" description="Description du jeu, lien vers le jeu en ligne et lien pour consulter et télécharger les règles."/>
+export const Head = (props) => (
+	<Seo title={props.data.pageTitle.message} description={props.data.pageDescription.message}/>
 )
+
+export const query = graphql`
+  query GamePage($locale: String) {
+    pageTitle: translation(locale: { eq: $locale }, key: { eq: "Le jeu" }) {
+      message
+    }
+    pageDescription: translation(locale: { eq: $locale }, key: { eq: "Description du jeu, lien vers le jeu en ligne et lien pour consulter et télécharger les règles." }) {
+      message
+    }
+  }
+`;
 
 	

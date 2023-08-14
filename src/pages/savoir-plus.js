@@ -2,6 +2,7 @@ import * as React from "react"
 import Layout from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { FormattedMessage } from "react-intl"
+import { graphql } from "gatsby"
 
 const SavoirPlusPage = () => {
 	return (
@@ -15,7 +16,7 @@ const SavoirPlusPage = () => {
 						<li><FormattedMessage id="Une version PDF à télécharger (gratuite) du jeu est disponible en français et en anglais."/></li>
 						<li><FormattedMessage id="Une version commerciale est également disponible."/></li>
 					</ul>
-					<a href="/Stratégies_d'improvisation_2022.pdf" className="underline text-xl hover:text-neutral-400"><FormattedMessage id="Stratégies d'improvisations (PDF)"/></a>
+					<a href="/Stratégies_d'improvisation_2022.pdf" className="underline text-xl hover:text-neutral-400" aria-label="Stratégies d'improvisations (PDF)"><FormattedMessage id="Stratégies d'improvisations (PDF)"/></a>
 					<ul className="ml-6 mb-2 list-disc"> 
 						<li><FormattedMessage id="Liste de stratégie d’improvisation développée par Jean-Philippe Després."/></li>
 					</ul>
@@ -40,8 +41,17 @@ const SavoirPlusPage = () => {
 
 export default SavoirPlusPage
 
-export function Head() {
-	return (
-		<Seo title="Pour en savoir plus" description="Matériel supplémentaire à consulter ainsi que les références théoriques et scientifiques"/>
-	)
-}
+export const Head = (props) => (
+	<Seo title={props.data.pageTitle.message} description={props.data.pageDescription.message}/>
+)
+
+export const query = graphql`
+  query SavoirPlusPage($locale: String) {
+    pageTitle: translation(locale: { eq: $locale }, key: { eq: "Pour en savoir plus" }) {
+      message
+    }
+    pageDescription: translation(locale: { eq: $locale }, key: { eq: "Matériel supplémentaire à consulter ainsi que les références théoriques et scientifiques" }) {
+      message
+    }
+  }
+`;
