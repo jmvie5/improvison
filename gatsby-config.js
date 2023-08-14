@@ -1,6 +1,8 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+const messagesEN = require("./src/langs/en.json");
+const messagesFR = require("./src/langs/fr.json");
 module.exports = {
   siteMetadata: {
     title: "Improvison",
@@ -71,30 +73,42 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-plugin-i18n-l10n`,
       options: {
-        path: `${__dirname}/src/locales`,
-        name: `local`
-      }
-    },
-    {
-      resolve: `gatsby-plugin-react-i18next`,
-      options: {
-        localeJsonSourceName: `local`, // name given to `gatsby-source-filesystem` plugin.
-        languages: [`fr`, `en`],
-        defaultLanguage: `fr`,
+        // string: IETF BCP 47 language tag: default locale, which won't be prefixed
+        defaultLocale: `fr-CA`,
+        // string: absolute site url
         siteUrl: `https://improvison.ca`,
-        // if you are using trailingSlash gatsby config include it here, as well (the default is 'always')
-        trailingSlash: 'always',
-        // you can pass any i18next options
-        i18nextOptions: {
-          interpolation: {
-            escapeValue: false // not needed for react as it escapes by default
+        // locales[]: all locales, which should be available
+        locales: [
+          {
+            // string: IETF BCP 47 language tag of this language
+            locale: `fr-CA`,
+            // string: prefix for this language, which will be used to prefix the url, if it's not the default locale
+            prefix: `fr`,
+            // object: mapping of given urls (by filename) to translated urls, if no mapping exists, given url will be used
+            slugs: {},
+            // object: this messages will be handed over to react-intl and available throughout the website
+            messages: messagesFR
           },
-          keySeparator: false,
-          nsSeparator: false
-        },
-      }
+          // another language
+          {
+            locale: `en-CA`,
+            prefix: `en`,
+            slugs: {
+              '/a-propos': '/about',
+              '/jeu': '/game',
+              '/savoir-plus': '/know-more',
+            },
+            messages: messagesEN
+          },
+        ],
+        // omit certain path segments (relative directories)
+        // be careful not to cause path collisions
+        pathBlacklist: [
+          '/pages' // /pages/products/gummibears becomes /products/gummibears
+        ]
+      },
     }
     ]
 };

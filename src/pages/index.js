@@ -4,72 +4,57 @@ import { Seo } from "../components/Seo"
 import { StaticImage } from "gatsby-plugin-image"
 import { BookOpenIcon, PresentationChartLineIcon, PuzzlePieceIcon, UsersIcon } from '@heroicons/react/24/outline'
 import { MusicalNoteIcon } from '@heroicons/react/24/solid'
-import { Trans } from 'gatsby-plugin-react-i18next';
 import { graphql } from "gatsby"
+import { useIntl, FormattedMessage } from "react-intl"
 
 
 const IndexPage = () => {
-
+    const intl = useIntl()
     return (
         <Layout>
             <div className="grid nlg:grid-cols-3 nmd:grid-cols-2 grid-col-1 justify-center gap-4 xl:ml-52">
-                <div className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 gap-2 items-center">
-                    <p className="font-bold text-xl"><Trans>C'est quoi?</Trans></p>
+                <div className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center">
+                    <p className="font-bold text-xl"><FormattedMessage id="C'est quoi?"/></p>
                     <MusicalNoteIcon className="w-32"/>
-                    <Trans>Un jeu musical collaboratif pour apprendre à improviser.</Trans>
+                    <FormattedMessage id="Un jeu musical collaboratif pour apprendre à improviser."/>
                 </div>
                 
-                <div className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 gap-2 items-center">
-                    <h1 className="font-bold text-xl">C'est pour qui?</h1>
+                <div className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center">
+                    <h1 className="font-bold text-xl"><FormattedMessage id="C'est pour qui?"/></h1>
                     <UsersIcon className="w-32"/>
-                    <p>Deux joueurs. Dyade prof-élève ou pour deux élèves. Joueurs de tous les âges et tous les niveaux. </p>
+                    <FormattedMessage id="Deux joueurs. Dyade prof-élève ou pour deux élèves. Joueurs de tous les âges et tous les niveaux."/>
                 </div>
                 
-                <a href="https://www.roblox.com/games/5984084686/Improvisondon" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 gap-2 items-center hover:ring-2">
-                    <h1 className="font-bold text-xl">Jouer en ligne</h1>
+                <a href="https://www.roblox.com/games/5984084686/Improvisondon" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center hover:ring-2">
+                    <h1 className="font-bold text-xl"><FormattedMessage id="Jouer en ligne"/></h1>
                     <StaticImage src="../images/Roblox_Logo.svg" className="w-32 self-center" alt="Logo Roblox"/>
-                    <p>Version en ligne : la version en ligne est accessible gratuitement sur Roblox. Cliquez ici pour s'y rendre!</p>
+                    <FormattedMessage id="La version en ligne est accessible gratuitement sur Roblox. Cliquez ici pour s'y rendre!"/>
                 </a>
 
-                <a href="/Improvison_Règles numériques.pdf" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 gap-2 items-center hover:ring-2">
-                    <h1 className="font-bold text-xl">Règles du jeu</h1>
+                <a href={`${intl.locale === "fr-CA" ? "/Improvison_Règles numériques.pdf" : "/Improvison_Digital Rules.pdf"}`} className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center hover:ring-2">
+                    <h1 className="font-bold text-xl"><FormattedMessage id="Règles du jeu"/></h1>
                     <BookOpenIcon className=" w-32"/>
-                    <p>Consulter et téléchargez les règles ici.</p>
+                    <FormattedMessage id="Consulter et téléchargez les règles ici."/>
                 </a>
 
-                <div className="flex flex-col border border-neutral-500 rounded-lg bg-neutral-400 p-4 shadow-md shadow-black w-64 gap-2 items-center">
-                    <h1 className="font-bold text-xl">Version physique</h1>
+                <div className="flex flex-col border border-neutral-500 rounded-lg bg-neutral-400 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center">
+                    <h1 className="font-bold text-xl"><FormattedMessage id="Version physique"/></h1>
                     <PuzzlePieceIcon className="w-32"/>
-                    <p>La version physique du jeu est en cours de développement. Restez à l’affût!</p>
+                    <FormattedMessage id="La version physique du jeu est en cours de développement. Restez à l’affût!"/>
                 </div>
 
-                <div className="flex flex-col border border-neutral-500 rounded-lg bg-neutral-400 p-4 shadow-md shadow-black w-64 gap-2 items-center">
-                    <h1 className="font-bold text-xl">Résultats</h1>
+                <div className="flex flex-col border border-neutral-500 rounded-lg bg-neutral-400 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center">
+                    <h1 className="font-bold text-xl"><FormattedMessage id="Résultats"/></h1>
                     <PresentationChartLineIcon className="w-32"/>
-                    <p>Nous analysons présentement nos données de recherche. Les résultats seront disponibles ici sous peu.</p>
+                    <FormattedMessage id="Nous analysons présentement nos données de recherche. Les résultats seront disponibles ici sous peu."/>
                 </div>
             </div>
-            
-            
         </Layout>
   )
 }
 
 export default IndexPage
 
-export const query = graphql`
-  query ($language: String!) {
-    locales: allLocale(filter: {language: {eq: $language}}) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-  }
-`;
 
 export const Head = () => (
   <Seo />

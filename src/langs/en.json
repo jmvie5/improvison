@@ -1,0 +1,65 @@
+{
+    "fr-CA": "FR",
+    "en-CA": "EN",
+    
+    "Accueil": "Home",
+    "À propos": "About",
+    "Le jeu": "The game",
+    "Pour en savoir plus": "To know more",
+
+    "Improvison est un jeu favorisant l'apprentissage de l'improvisation musicale disponible en ligne pour des joueurs de tous les âges et tous les niveaux." : "Improvison is a game for learning musical improvisation, available online for players of all ages and levels.",
+    "Description du jeu, lien vers le jeu en ligne et lien pour consulter et télécharger les règles.": "Description of the game, link to the online game and link to view and download the rules.",
+    "Matériel supplémentaire à consulter ainsi que les références théoriques et scientifiques": "Additional material to consult, as well as theoretical and scientific references",
+    
+    "Apprendre à improviser en jouant": "Learning improvisation through play",
+
+    "C'est quoi?": "What is it?",
+    "Un jeu musical collaboratif pour apprendre à improviser.": "A collaborative musical game for learning improvisation.",
+    "C'est pour qui?": "Who's it for?",
+    "Deux joueurs. Dyade prof-élève ou pour deux élèves. Joueurs de tous les âges et tous les niveaux.": "Two players. Teacher and student or two students. Players of all ages and levels.",
+    "Jouer en ligne": "Play online",
+    "La version en ligne est accessible gratuitement sur Roblox. Cliquez ici pour s'y rendre!": "The online version is available for free on Roblox. Click here to access it!",
+    "Règles du jeu": "Game rules",
+    "Consulter et téléchargez les règles ici.": "View and download the rules here.",
+    "Version physique": "Physical version",
+    "La version physique du jeu est en cours de développement. Restez à l’affût!": "The physical version of the game is currently under development. Stay tuned!",
+    "Résultats": "Results",
+    "Nous analysons présentement nos données de recherche. Les résultats seront disponibles ici sous peu.": "We are currently analyzing our research data. The results will be available here shortly.",
+
+    "L'histoire du jeu": "The story behind the game",
+    "Chercheur principal": "Lead researcher",
+    "est professeur agrégé à la Faculté de musique de l’Université Laval. Il mène des projets de recherches subventionnés autour des approches inclusives en enseignement-apprentissage de la musique et du développement de matériel pédagogique ludique en musique. Ses recherches ont mené à diverses publications, notamment dans les revues scientifiques British Journal of Learning Disabilities, Frontiers in Education, Research Studies in Music Education, Journal of Research in Music Education, Thinking Skills and Creativity, la Revue scientifique en ligne de l’Observatoire interdisciplinaire de création et de recherche en musique, Intersections : Canadian Journal of Music/Revue canadienne de musique, Les Cahiers de la Société québécoise de recherche en musique et Revista internacional de educación musical. Ses principaux centres d’intérêt sont les approches innovantes et inclusives en pédagogie musicale, la créativité, l’improvisation et l’apprentissage par le jeu.": "is currently a professor in the Faculty of Music at Université Laval. He conducts funded research projects on inclusive approaches to music teaching and learning, and on the development of playful music teaching materials. His research has been published in the British Journal of Learning Disabilities, Frontiers in Education, Research Studies in Music Education, Journal of Research in Music Education, Thinking Skills and Creativity, the online scientific journal of the Observatoire interdisciplinaire de création et de recherche en musique, Intersections: Canadian Journal of Music/Revue canadienne de musique, Les Cahiers de la Société québécoise de recherche en musique, and Revista internacional de educación musical. His main areas of interest are innovative and inclusive approaches to music education, creativity, improvisation and learning through play.",
+    "Idéation": "Ideation",
+    "Improvison découle des résultats de mon projet doctoral (FRQ-SC, CRSH et OICRM), intitulé ": "Improvison grew out of the results of my doctoral project (FRQ-SC, SSHRC and OICRM), entitled ",
+    "Processus d’apprentissage et de création des improvisateurs experts en musique classique": "Processus d’apprentissage et de création des improvisateurs experts en musique classique",
+    " qui a offert un nouvel éclairage sur le parcours d’apprentissage, les stratégies de création et les approches d’enseignement des improvisateurs experts en musique classique. ": " which shed new light on the learning path, creative strategies and teaching approaches of expert improvisers in classical music. ",
+    "Plus précisément, les résultats de mon projet doctoral ont montré un certain écart entre les méthodes pédagogiques disponibles et la pratique des experts en improvisation musicale (Després, 2017; Després, Burnard, Dubé et Stévance, 2015, 2017). En effet, selon mes résultats, les experts font appel à bon nombre de stratégies d’improvisation musicale qui ne sont pas centrées sur le choix de la hauteur des notes, alors que les méthodes d’improvisation actuellement disponibles se concentrent principalement sur l’acquisition de stratégies centrées sur celui-ci. Ce projet s’intéresse également à l’apport de l’apprentissage par le jeu pour soutenir le développement de compétences créatives, telles que manifestées lors de l’improvisation musicale.": "More specifically, my Ph.D. project revealed a gap between available pedagogical methods and the practice of experts in musical improvisation (Després, 2017; Després et al., 2015, 2017). Experts use several musical improvisation strategies that do not focus on pitch selection, while currently available improvisation methods, according to my findings, mainly emphasize the acquisition of strategies that focus on pitch selection. This project investigate the influence of playful learning on the development of creative skills that are manifested in improvisation.",
+    "Ce projet vise à développer du matériel pédagogique basé sur les principes de l’apprentissage par le jeu afin de faciliter l’acquisition, chez les instrumentistes de niveau débutant ou intermédiaire, de stratégies d’improvisation musicale qui sont mises en œuvre par les experts du domaine et à documenter les impacts perçus de ce matériel.": "This project therefore aims to develop teaching materials based on the principles of learning through play, to facilitate the acquisition by beginner and intermediate instrumentalists of musical improvisation strategies that are implemented by experts in the field, and to document the perceived impact of these materials.",
+
+
+    "Improvison est un jeu collaboratif qui se joue à 2 joueurs. À chaque tour, les joueurs s’échangent les rôles d’improvisateur et de devineur. L’improvisateur choisi des cartes « thèmes » et « contraintes » qu’il devra faire deviner au devineur grâce à une improvisation musicale. Le but du jeu est de deviner collectivement un nombre prédéterminé de cartes « thème » et « contraintes » avant que le minuteur arrive à 00:00.": "Improvison is a collaborative game for 2 players. Each round, the players exchange the roles of improviser and guesser. The improviser selects the theme and constraint cards and uses them to improvise music. The guesser then tries to guess what the cards are. The goal is to identify a predetermined number of cards before the timer runs out.",
+    "Vous pouvez aussi jouer en mode infini pour enlever la contrainte de temps.": "You can also play in infinite mode with no time constraint.",
+    "Déroulement d'une partie": "Game flow",
+    "1. L’improvisateur choisit 1-2 thème et 0-2 contraintes et les place face cachée.": "1. The improviser chooses 1-2 themes and 0-2 constraints and places them face down.",
+    "1b. (Optionnel). L’improvisateur tourne la roulette des catégories.": "1b (Optional). The improviser turns the category wheel.",
+    "2. L’improvisateur improvise.": "2. The improviser improvises.",
+    "3. Le devineur place ses choix face cachée.": "3. The guesser places his choices face down.",
+    "4. L’improvisateur arrête de jouer, puis les deux joueurs tournent leurs cartes sélection.": "4. The improviser stops playing, then both players turn their selection cards.",
+    "5. Avancez les pions selon le nombre de cartes devinées.": "5. Advance the counters according to the number of cards guessed.",
+    "6. Remplacez les cartes du plateau de jeu.": "6. Replace the cards on the game board.",
+    "7. Les rôles sont inversés.": "7. The roles are reversed.",
+    "8. Le jeu se poursuit jusqu’à ce que les pions franchissent la ligne d’arrivée (partie gagnée) ou si le sablier arrive à sa fin (partie perdue).": "8. Play continues until the pieces cross the finish line (game won) or the hourglass runs out (game lost).",
+    "Consulter et télécharger les règles complètes ici.": "Consult and download the complete rules here.",
+    "Voici un apperçu du jeu en ligne :": "Here's a preview of the online game:",
+
+    "Autres jeux et matériels pédagogiques pour apprendre à improviser": "Other games and teaching materials for learning to improvise",
+    "Jeu d’improvisation avec des cartes à piger.": "Improvisation game with drawing cards.",
+    "Une version PDF à télécharger (gratuite) du jeu est disponible en français et en anglais.": "A free downloadable PDF version of the game is available in English and French.",
+    "Une version commerciale est également disponible.": "A commercial version is also available.",
+    "Stratégies d'improvisations (PDF)": "Improvisation strategies (PDF)",
+    "Liste de stratégie d’improvisation développée par Jean-Philippe Després.": "List of improvisation strategies developed by Jean-Philippe Després.",
+    "Références théoriques et scientigiques": "Theoretical and scientific references",
+
+    "404 : Page introuvable": "404 : Page not found",
+    "Retour à l'accueil": "Back to home page"
+}

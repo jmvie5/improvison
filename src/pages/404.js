@@ -1,12 +1,13 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { LocalizedLink } from "gatsby-plugin-i18n-l10n"
+import { FormattedMessage } from "react-intl"
 import Layout from "../components/Layout"
 
 
 const NotFoundPage = () => {
   return (
     <Layout pageTitle="404 : Page introuvable">
-      <Link to="/" className="underline">Retour à l'accueil</Link>.
+      <LocalizedLink to="/" className="underline hover:text-neutral-400"><FormattedMessage id="Retour à l'accueil"/></LocalizedLink>.
     </Layout>
         
   )
