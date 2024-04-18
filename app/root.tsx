@@ -5,7 +5,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import {NextUIProvider} from "@nextui-org/react";
+import {NextUIProvider, Image, Link} from "@nextui-org/react";
+import { improvison_accueil } from "./static/images";
 
 import type { LinksFunction } from "@remix-run/node"; 
 
@@ -26,7 +27,9 @@ export default function App() {
       </head>
       <body>
         <NextUIProvider>
-          <Outlet />
+          <div className="bg-bleu-fonce min-h-screen text-white font-josef text-lg">
+            <Outlet />
+          </div>
           <ScrollRestoration />
           <Scripts />
         </NextUIProvider>

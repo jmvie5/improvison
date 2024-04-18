@@ -1,6 +1,6 @@
 /* @ts-ignore */
 import type { MetaFunction } from "@remix-run/deno";
-import { Link } from "@remix-run/react";
+import { Link } from "@nextui-org/react";
 
 export const meta: MetaFunction = () => {
 	return [
@@ -12,9 +12,12 @@ export const meta: MetaFunction = () => {
 export default function Index() {
 
   return (
-    <div>
-      <h1 className="font-medium">Improvison</h1>
-      <Link to="/improvison">Ici!</Link>
+    <div className="">
+      <div className="flex flex-col gap-2 p-2">
+        <h1 className="font-medium">Improvison</h1>
+        <Link href="/solo/jeu">Solo</Link>
+        <Link href="/duo">Duo</Link>
+      </div>
     </div>
   );
 }
