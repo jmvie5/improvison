@@ -27,39 +27,39 @@ export default function DuoLayout() {
     ]
 
     return (
-        <body className="flex justify-center">
+        <div className="flex justify-center">
             <div className="flex flex-col justify-between max-w-screen-xl">
                 <div className="flex flex-col sm:flex-row justify-between xl:mt-4 w-full">
-                <header>
-                    <div className="flex flex-col justify-center sm:justify-start sm:w-60 shrink-0">
-                        <Link
-                            href="/"
-                            className="mt-4 mx-4 max-w-xxs self-center sm:self-start"
-                        >
-                            <Image
-                                src={ImprovisonLogo}
-                                alt="Logo Improvison"
-                            />
-                        </Link>
-                        <nav className="flex flex-col sm:p-4 mt-4">
-                            <ul className="flex flex-row sm:flex-col divide-x sm:divide-x-0 sm:divide-y sm:max-w-xxs justify-center">
-                                {menuLinks.map((link) => (
-                                <li
-                                    key={link.name}
-                                    className="flex list-none px-2 sm:px-0 sm:py-2 sm:pl-4 "
+
+                <div className="flex flex-col justify-center sm:justify-start sm:w-60 shrink-0">
+                    <Link
+                        href="/"
+                        className="mt-4 mx-4 max-w-xxs self-center sm:self-start"
+                    >
+                        <Image
+                            src={ImprovisonLogo}
+                            alt="Logo Improvison"
+                        />
+                    </Link>
+                    <nav className="flex flex-col sm:p-4 mt-4">
+                        <ul className="flex flex-row sm:flex-col divide-x sm:divide-x-0 sm:divide-y sm:max-w-xxs justify-center">
+                            {menuLinks.map((link) => (
+                            <li
+                                key={link.name}
+                                className="flex list-none px-2 sm:px-0 sm:py-2 sm:pl-4 "
+                            >
+                                <Link
+                                    href={link.link}
+                                    className="text-white hover:text-neutral-400 self-center"
                                 >
-                                    <Link
-                                        href={link.link}
-                                        className="text-white hover:text-neutral-400 self-center"
-                                    >
-                                        {link.name}
-                                    </Link>
-                                </li>
-                                ))}
-                            </ul>
-                        </nav>
-                    </div>
-                </header>
+                                    {link.name}
+                                </Link>
+                            </li>
+                            ))}
+                        </ul>
+                    </nav>
+                </div>
+
                 <div>
                     <div className="flex flex-row-reverse">
                     <h1 className="text-4xl font-bold p-4 sm:mb-10 mb-6 mx-4 border-b">
@@ -79,6 +79,6 @@ export default function DuoLayout() {
                 </a>
             </footer>
             </div>
-        </body>
+        </div>
     );
 };

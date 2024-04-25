@@ -7,7 +7,21 @@ import PentaMin from "./levels/tutorial/PentaMin";
 import Motifs from "./levels/tutorial/Motifs";
 import { Button } from "@nextui-org/react";
 
+import type { LoaderFunctionArgs } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { json } from "@remix-run/node";
+import { localParams } from "~/cookies.server";
+
+export async function loader({ request }: LoaderFunctionArgs) {
+	const cookieHeader = request.headers.get("Cookie");
+	const cookie = (await localParams.parse(cookieHeader)) || { transposition: 'C' };
+	return json({ transposition: cookie.transposition });
+}
+
 export default function Game() {
+
+    const { transposition } = useLoaderData<typeof loader>();
+
     interface LevelInterface {
         id: string;
         name: string;
@@ -64,6 +78,7 @@ export default function Game() {
                     name={currentSubLvl.name}
                     title={currentSubLvl.title}
                     description={currentSubLvl.description}
+                    transposition={transposition}
                     vfProps={currentSubLvl.vfProps}
                     vf_w={currentSubLvl.vf_w}
                     vf_h={currentSubLvl.vf_h}

@@ -24,9 +24,28 @@ export interface SubLvlInterface {
     reRender: boolean
 }
 
-export default function SubLvl({ name, title, description, vfProps, vf_w, vf_h, reRender }: SubLvlInterface) {
+type SubLvlProps = {
+    name: string;
+    title: string;
+    description: ReactElement;
+    transposition: string;
+    vfProps: {
+        template: Function;
+        keySignature: string;
+        scaleNotes: string[];
+        nbBars: number;
+        timeSignature: number;
+        chords: string[];
+    };
+    vf_w: number;
+    vf_h: number;
+    reRender: boolean
+}
+
+export default function SubLvl({ name, title, description, transposition, vfProps, vf_w, vf_h, reRender }: SubLvlProps) {
+
     const [audioUrl, setAudioUrl] = useState("");
-    const [playerKey, _setPlayerKey] = useState("C");
+    // const [playerKey, _setPlayerKey] = useState("C");
 
     const drawVf = useCallback(() => {
         clearVf();
@@ -35,7 +54,7 @@ export default function SubLvl({ name, title, description, vfProps, vf_w, vf_h, 
         if (vfProps.template.name === "randomRhythmGenerator") {
             transposedVf = vfProps;
         } else {
-            const transposedVfProps:transposeProps = transpose(playerKey, {
+            const transposedVfProps:transposeProps = transpose(transposition, {
                 keySignature: vfProps.keySignature,
                 scaleNotes: vfProps.scaleNotes,
                 chords: vfProps.chords
@@ -66,7 +85,7 @@ export default function SubLvl({ name, title, description, vfProps, vf_w, vf_h, 
             transposedVf.chords,
         )
         vf.draw();
-    }, [playerKey, vfProps, vf_w, vf_h]);
+    }, [transposition, vfProps, vf_w, vf_h]);
 
     /* useEffect(() => {
         authService.getLoginStatus(
