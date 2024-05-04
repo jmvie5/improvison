@@ -43,6 +43,7 @@ export default function SoloLayout() {
                 
                 <div className="flex gap-8 ">
                     <Link href="/"><Image src={improvison_accueil} width={100}/></Link>
+					<Link href="/" className="text-white hover:text-neutral text-xl">Accueil</Link>
                     <Link href="/solo/jeu" className="text-white hover:text-neutral text-xl">Menu des niveaux</Link>
                 </div>
                 

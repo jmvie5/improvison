@@ -38,9 +38,9 @@ const PentaMaj = {
                     vite! Le but est d'être stable et en même temps que le métronome avant d'être rapide.
                 </p>
                 <p className="mt-8">
-                    Voici quelques exemples d'utilisation de la gamme pentatonique majeure dans des solos improvisés :
+                    Voici un exemple d'utilisation de la gamme pentatonique majeure dans un contexte jazz :
                 </p>
-                <div>YOUTUBE</div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/s4rXEKtC8iY?si=CsuYXuVHNXncl_B6&amp;controls=2&amp;start=63&end=75" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         ),
 
@@ -115,7 +115,7 @@ const PentaMaj = {
                     La gamme pentatonique majeure ne va pas toujours être parfaite dans toutes les pièces sur lesquelles
                     vous allez improviser, mais sur un blues majeur, elle va très bien convenir.
                 </p>
-                <p>[PISTE D'ACCOMPAGNEMENT]</p>
+                <iframe className="w-full aspect-video" src="https://www.youtube.com/embed/MgEZxg0HOJU?si=3t8IP56ZE3wNzrwr" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
                 <div className="my-4 font-medium">
                     <p>
                         Pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en
@@ -201,7 +201,7 @@ const PentaMaj = {
             timeSignature: 4,
             chords: ["Bb7", "Eb7", "Bb7", "", "Eb7", "Edim7", "Bb7", "", "F7", "", "Bb", ""],
         },
-        vf_w: 920,
+        vf_w: 900,
         vf_h: 350,
         reRender: false,
     },

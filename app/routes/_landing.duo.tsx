@@ -10,7 +10,7 @@ export default function ImprovisonGamePage() {
   	return (
 		<div>
 			<div className="flex flex-col xs:flex-row gap-4 justify-center items-center mb-4 flex-1">
-				<Card className="bg-bleu-pale/20 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="https://www.roblox.com/games/5984084686/Improvisondon" target="_blank" rel="noreferrer">
+				<Card className="bg-bleu-pale/20 h-full w-fit aspect-square xs:w-1/3 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="https://www.roblox.com/games/5984084686/Improvisondon" target="_blank" rel="noreferrer">
 					<CardHeader className="justify-center">
 						<p className="font-bold text-xl">Jouer en ligne sur Roblox</p>
 					</CardHeader>
@@ -18,10 +18,10 @@ export default function ImprovisonGamePage() {
 						<Image src={Roblox_Logo} className="w-32 self-center" alt="Logo Roblox"/>
 					</CardBody>
 					<CardFooter className="justify-center text-center text-lg">
-						<p>La version en ligne est accessible gratuitement sur Roblox. Cliquez ici pour s'y rendre!</p>
+						<p>La version en ligne est accessible ici!</p>
 					</CardFooter>
 				</Card>
-				<Card className="bg-bleu-pale/20 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="app/static/files/Improvison_Règles numériques.pdf" target="_blank" rel="noreferrer">
+				<Card className="bg-bleu-pale/20 h-full w-fit xs:w-1/3 aspect-square p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="app/static/files/Improvison_Règles numériques.pdf" target="_blank" rel="noreferrer">
 					<CardHeader className="justify-center">
 						<p className="font-bold text-xl">Règles du jeu</p>
 					</CardHeader>
@@ -32,7 +32,7 @@ export default function ImprovisonGamePage() {
 						<p>Consulter et téléchargez les règles ici.</p>
 					</CardFooter>
 				</Card>
-				<Card className="bg-bleu-pale/20 p-4 text-white border border-neutral-500 shadow-md shadow-black" isDisabled>
+				<Card className="bg-bleu-pale/20 h-full w-fit xs:w-1/3 aspect-square p-4 text-white border border-neutral-500 shadow-md shadow-black" isDisabled>
 					<CardHeader className="justify-center">
 						<p className="font-bold text-xl">Version physique</p>
 					</CardHeader>

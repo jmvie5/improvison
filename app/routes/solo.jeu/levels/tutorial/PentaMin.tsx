@@ -38,7 +38,7 @@ const PentaMin = {
                 <p className="mt-8">
                     Voici quelques exemples d'utilisation de la gamme pentatonique mineure dans des solos improvisés :
                 </p>
-                <div>YOUTUBE</div>
+                <iframe className="w-full aspect-video" src="https://www.youtube.com/embed/AKyOg3mNDUs?si=beadOS0j0pqpQPpG&amp;controls=2&amp;start=113&end=122" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         ),
 
