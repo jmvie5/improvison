@@ -6,23 +6,7 @@ import transpose, { transposeProps } from "../../utils/transposition";
 // import UserInterface from "./userComponents/UserInterface";
 // import authService from "../services/authService";
 import { Button } from "@nextui-org/react";
-
-export interface SubLvlInterface {
-    name: string;
-    title: string;
-    description: ReactElement;
-    vfProps: {
-        template: Function;
-        keySignature: string;
-        scaleNotes: string[];
-        nbBars: number;
-        timeSignature: number;
-        chords: string[];
-    };
-    vf_w: number;
-    vf_h: number;
-    reRender: boolean
-}
+import { SubLvlInterface } from "./levels/types";
 
 type SubLvlProps = {
     name: string;
@@ -101,7 +85,7 @@ export default function SubLvl({ name, title, description, transposition, vfProp
 
     useEffect(() => {
         drawVf()
-    }, [vfProps])
+    }, [vfProps, transposition])
 
     function clearVf() {
         const staff = document.getElementById("vf");
@@ -133,7 +117,7 @@ export default function SubLvl({ name, title, description, transposition, vfProp
     }
 
     return (
-        <div className="flex flex-col xl:flex-row mb-8 gap-4 justify-around">
+        <div className="flex flex-col xl:flex-row mb-8 p-4 gap-4 justify-around">
             <div>
                 <h2 className="mb-2 font-semibold">{title}</h2>
                 {description}

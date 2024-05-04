@@ -1,26 +1,48 @@
 import * as React from "react"
 
-import { PuzzlePieceIcon } from '@heroicons/react/24/outline'
-import { Image } from "@nextui-org/react"
+import { PuzzlePieceIcon, UsersIcon, BookOpenIcon } from '@heroicons/react/24/outline'
+import { Image, Card, CardHeader, CardBody, CardFooter, Link } from "@nextui-org/react"
 import { Improvison_Règles_numériques } from "../static/files"
 import { Roblox_Logo, champi, tortue, modulation, latin_jazz, jeu_num_fr, jeu_num2_fr, jeu_num3_fr } from "../static/images"
-import { Link } from "@remix-run/react"
 
 export default function ImprovisonGamePage() {
 
   	return (
 		<div>
-			<div className="flex flex-col xs:flex-row gap-4 justify-center items-center mb-4">
-				<Link to="https://www.roblox.com/games/5984084686/Improvisondon" target="_blank" rel="noreferrer" className="flex flex-col border border-neutral-500 rounded-lg bg-bleu-pale/20 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center hover:ring-2">
-					<h1 className="font-bold text-xl">Jouer en ligne</h1>
-					<Image src={Roblox_Logo} className="w-32 self-center" alt="Logo Roblox"/>
-					La version en ligne est accessible gratuitement sur Roblox. Cliquez ici pour s'y rendre!
-				</Link>
-				<div className="flex flex-col border border-neutral-500 rounded-lg bg-neutral-400 p-4 shadow-md shadow-black w-64 h-80 gap-2 items-center">
-					<h1 className="font-bold text-xl">Version physique</h1>
-					<PuzzlePieceIcon className="w-32"/>
-					La version physique du jeu est en cours de développement. Restez à l’affût!
-				</div>
+			<div className="flex flex-col xs:flex-row gap-4 justify-center items-center mb-4 flex-1">
+				<Card className="bg-bleu-pale/20 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="https://www.roblox.com/games/5984084686/Improvisondon" target="_blank" rel="noreferrer">
+					<CardHeader className="justify-center">
+						<p className="font-bold text-xl">Jouer en ligne sur Roblox</p>
+					</CardHeader>
+					<CardBody className="items-center">
+						<Image src={Roblox_Logo} className="w-32 self-center" alt="Logo Roblox"/>
+					</CardBody>
+					<CardFooter className="justify-center text-center text-lg">
+						<p>La version en ligne est accessible gratuitement sur Roblox. Cliquez ici pour s'y rendre!</p>
+					</CardFooter>
+				</Card>
+				<Card className="bg-bleu-pale/20 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="app/static/files/Improvison_Règles numériques.pdf" target="_blank" rel="noreferrer">
+					<CardHeader className="justify-center">
+						<p className="font-bold text-xl">Règles du jeu</p>
+					</CardHeader>
+					<CardBody className="items-center">
+						<BookOpenIcon className=" w-32"/>
+					</CardBody>
+					<CardFooter className="justify-center text-center text-lg">
+						<p>Consulter et téléchargez les règles ici.</p>
+					</CardFooter>
+				</Card>
+				<Card className="bg-bleu-pale/20 p-4 text-white border border-neutral-500 shadow-md shadow-black" isDisabled>
+					<CardHeader className="justify-center">
+						<p className="font-bold text-xl">Version physique</p>
+					</CardHeader>
+					<CardBody className="items-center">
+						<PuzzlePieceIcon className="w-32"/>
+					</CardBody>
+					<CardFooter className="justify-center text-center text-lg">
+						<p>La version physique du jeu est en cours de développement. Restez à l’affût!</p>
+					</CardFooter>
+				</Card>
 			</div>
 			<div className="flex flex-col">
 				<div className="py-8 flex flex-col">           
@@ -29,7 +51,7 @@ export default function ImprovisonGamePage() {
 							<Image src={champi} className="max-w-xxs -rotate-12" alt="Exemple de carte thème d'improvison: Champignons"/>
 							<Image src={tortue} className="max-w-xxs rotate-12" alt="Exemple de carte thème d'improvison: Tortue de mer" />
 						</div>
-						Improvison est un jeu collaboratif qui se joue à 2 joueurs. À chaque tour, les joueurs s’échangent les rôles d’improvisateur et de devineur. L’improvisateur choisi des cartes « thèmes » et « contraintes » qu’il devra faire deviner au devineur grâce à une improvisation musicale. Le but du jeu est de deviner collectivement un nombre prédéterminé de cartes « thème » et « contraintes » avant que le minuteur arrive à 00:00.
+						Improvison Duo est un jeu collaboratif qui se joue à 2 joueurs. À chaque tour, les joueurs s’échangent les rôles d’improvisateur et de devineur. L’improvisateur choisi des cartes « thèmes » et « contraintes » qu’il devra faire deviner au devineur grâce à une improvisation musicale. Le but du jeu est de deviner collectivement un nombre prédéterminé de cartes « thème » et « contraintes » avant que le minuteur arrive à 00:00.
 						<p className="italic pt-2">Vous pouvez aussi jouer en mode infini pour enlever la contrainte de temps.</p>
 					</div>
 					<div>
@@ -51,7 +73,7 @@ export default function ImprovisonGamePage() {
 						</ol>
 					</div>
 				</div>
-				<Link to={Improvison_Règles_numériques} target="_blank" rel="noreferrer" aria-label="Règles d'improvison" className="underline hover:text-neutral-400">Consulter et télécharger les règles complètes ici.</Link>
+				<Link href={Improvison_Règles_numériques} target="_blank" rel="noreferrer" aria-label="Règles d'improvison" className="underline hover:text-neutral-400">Consulter et télécharger les règles complètes ici.</Link>
 				<p>Voici un apperçu du jeu en ligne :</p>
 				<div className="flex flex-col gap-2 mt-8">
 					<Image src={jeu_num_fr} className="w-fit self-end rounded-md" removeWrapper alt="Capture d'écran d'Improvison sur Roblox : page principale."/>
