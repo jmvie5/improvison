@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState, useCallback } from "react";
+import { ReactElement, useEffect, useState, useCallback, forwardRef, useImperativeHandle } from "react";
 import { Factory } from "vexflow";
 import { AudioRecorder } from "react-audio-voice-recorder";
 // import Metronome from "@kevinorriss/react-metronome";
@@ -7,6 +7,10 @@ import transpose, { transposeProps } from "../../utils/transposition";
 // import authService from "../services/authService";
 import { Button } from "@nextui-org/react";
 import { SubLvlInterface } from "./levels/types";
+
+import { useLiveQuery } from 'dexie-react-hooks';
+import { db } from '../../db';
+
 
 type SubLvlProps = {
     name: string;
@@ -26,10 +30,36 @@ type SubLvlProps = {
     reRender: boolean
 }
 
-export default function SubLvl({ name, title, description, transposition, vfProps, vf_w, vf_h, reRender }: SubLvlProps) {
+const SubLvl = forwardRef(function SubLvl({ name, title, description, transposition, vfProps, vf_w, vf_h, reRender }: SubLvlProps, ref) {
 
     const [audioUrl, setAudioUrl] = useState("");
+    const [audioBlob, setAudiBlob] = useState<Blob>()
     // const [playerKey, _setPlayerKey] = useState("C");
+
+
+    useImperativeHandle(ref, () => {
+
+        return {
+            async saveAudioToProfile() {
+                try {
+                    
+                    if (audioBlob) {
+                        const newRecordingId = await db.recordings.add({
+                            audioBlob: audioBlob,
+                            levelName: title,
+                        });
+                        console.log(`Recording successfully added. Got id ${newRecordingId}.`)
+                        removeAudio();
+                    } else {
+                        console.warn('No Blob!')
+                    }
+                        
+                } catch (error) {
+                    console.warn('Error when intereacting with db')
+                }
+            }
+        }
+    })
 
     const drawVf = useCallback(() => {
         clearVf();
@@ -95,6 +125,7 @@ export default function SubLvl({ name, title, description, transposition, vfProp
     }
 
     const addAudioElement = (blob: Blob) => {
+        setAudiBlob(blob)
         const url = URL.createObjectURL(blob);
         const audio = document.createElement("audio");
         audio.src = url;
@@ -197,4 +228,6 @@ export default function SubLvl({ name, title, description, transposition, vfProp
             </div>
         </div>
     );
-}
+})
+
+export default SubLvl

@@ -8,7 +8,7 @@ import { Roblox_Logo } from "../static/images"
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Improvison Roblox" },
+    { title: "Improvison" },
     { name: "description", content: "Ce projet vise à développer du matériel pédagogique basé sur les principes de l’apprentissage par le jeu afin de faciliter l’acquisition, chez les instrumentistes de niveau débutant ou intermédiaire, de stratégies d’improvisation musicale qui sont mises en œuvre par les experts du domaine et à documenter les impacts perçus de ce matériel." },
   ];
 };

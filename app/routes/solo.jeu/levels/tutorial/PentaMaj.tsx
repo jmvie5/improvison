@@ -38,9 +38,9 @@ const PentaMaj = {
                     vite! Le but est d'être stable et en même temps que le métronome avant d'être rapide.
                 </p>
                 <p className="mt-8">
-                    Voici un exemple d'utilisation de la gamme pentatonique majeure dans un contexte jazz :
+                    Voici un exemple d'utilisation de la gamme pentatonique majeure dans un contexte jazz (1:03 à 1:15):
                 </p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/s4rXEKtC8iY?si=CsuYXuVHNXncl_B6&amp;controls=2&amp;start=63&end=75" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/s4rXEKtC8iY?si=CsuYXuVHNXncl_B6&amp;controls=2&amp;start=63&end=75" title="Mercy, Mercy, Mercy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         ),
 

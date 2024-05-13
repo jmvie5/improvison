@@ -6,7 +6,7 @@ interface ErrorMsgInterface {
     content: string;
 }
 
-export default function Modal({ title, content }: ErrorMsgInterface) {
+export default function ErrorMsg({ title, content }: ErrorMsgInterface) {
     let [isOpen, setIsOpen] = useState(true);
 
     function closeModal() {

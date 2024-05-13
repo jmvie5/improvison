@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import MyModal from "../../components/MyModal";
+import ErrorMsg from "../../components/ErrorMsg"
 import SubLvl from "./SubLvl";
 import Guide from "./levels/Guide";
 import PentaMaj from "./levels/tutorial/PentaMaj";
@@ -35,6 +36,7 @@ export default function Game() {
     const [isMenu, setIsMenu] = useState(true);
     const [currentLvl, setCurrentLvl] = useState({} as LevelInterface);
     const [currentSubLvl, setCurrentSubLvl] = useState({} as SubLvlInterface);
+    const subLevelRef = useRef()
     const levelList:LevelInterface[] = [
         /*  Liste des niveaux du jeu
             TODO 
@@ -54,7 +56,7 @@ export default function Game() {
                         <Button
                             key={Guide.name}
                             className="max-w-xs"
-                            onClick={() => {
+                            onPress={() => {
                                 setIsMenu(false);
                                 setCurrentLvl(Guide);
                                 setCurrentSubLvl(Guide.intro);
@@ -71,7 +73,7 @@ export default function Game() {
                             <Button
                                 key={level.name}
                                 className="max-w-xs"
-                                onClick={() => {
+                                onPress={() => {
                                     setIsMenu(false);
                                     setCurrentLvl(level);
                                     setCurrentSubLvl(level.intro);
@@ -95,17 +97,27 @@ export default function Game() {
                     vf_w={currentSubLvl.vf_w}
                     vf_h={currentSubLvl.vf_h}
                     reRender={currentSubLvl.reRender}
+                    ref={subLevelRef}
                 />
             )}
             {isMenu ? (
                 <></>
             ) : (
                 <div className="flex  shadow-lg-rev  justify-between p-4 bg-bleu-fonce">
+                    <div className="flex gap-2 self-end">
+                        <Button
+                            onPress={() => {
+                                setIsMenu(true);
+                            }}
+                        >
+                            Retour au menu
+                        </Button>
+                    </div>
                     <div className="flex gap-2">
                         {
                             currentSubLvl.name !== "intro" ? 
                                 <Button
-                                    onClick={() => {
+                                    onPress={() => {
                                         if (currentSubLvl.name === "intro") {
                                         } else if (currentSubLvl.name === "freeImprov") {
                                             setCurrentSubLvl(currentLvl.intro);
@@ -118,9 +130,9 @@ export default function Game() {
                                 </Button> : <></>
                         }
                         {
-                            currentSubLvl.name !== "repertoireImprov" ? 
+                            currentSubLvl.name === "intro" ? 
                             <Button
-                                onClick={() => {
+                                onPress={() => {
                                     if (currentSubLvl.name === "intro") {
                                         setCurrentSubLvl(currentLvl.freeImprov);
                                     } else if (currentSubLvl.name === "freeImprov") {
@@ -132,6 +144,28 @@ export default function Game() {
                                 Prochaine étape
                             </Button> : <></>
                         }
+                        {currentSubLvl.name === "freeImprov" ? (
+                            <MyModal
+                                title="Prochaine étape"
+                                content="Prêt à soumettre votre audio? Il sera disponible dans votre profil."
+                                isAction={true}
+                                confirmatonButton="Oui!"
+                                cancelButton="Non! Je ne suis pas prêt."
+                                onConfirmation={() => {
+                                    const audioDiv = document.getElementById("recorded-audio");
+                                    if (audioDiv?.hasChildNodes()) {
+                                        if (subLevelRef.current) {
+                                            subLevelRef.current.saveAudioToProfile()
+                                        }
+                                        setCurrentSubLvl(currentLvl.repertoireImprov);
+                                    } else {
+                                        window.alert("Vous n'avez aucun audio enregistré.");
+                                    }
+                                }}
+                            />
+                        ) : (
+                            <></>
+                        )}
                         {currentSubLvl.name === "repertoireImprov" ? (
                             <MyModal
                                 title="Niveau suivant"
@@ -143,6 +177,9 @@ export default function Game() {
                                     const audioDiv = document.getElementById("recorded-audio");
                                     console.log(audioDiv);
                                     if (audioDiv?.hasChildNodes()) {
+                                        if (subLevelRef.current) {
+                                            subLevelRef.current.saveAudioToProfile()
+                                        }
                                         window.alert("Niveau terminé!");
                                         setIsMenu(true);
                                     } else {
@@ -154,15 +191,7 @@ export default function Game() {
                             <></>
                         )}
                     </div>
-                    <div className="flex gap-2 self-end">
-                        <Button
-                            onClick={() => {
-                                setIsMenu(true);
-                            }}
-                        >
-                            Retour au menu
-                        </Button>
-                    </div>
+                    
                 </div>
             )}
         </div>

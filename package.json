@@ -23,6 +23,8 @@
     "@remix-run/serve": "^2.8.0",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
+    "dexie": "^4.0.4",
+    "dexie-react-hooks": "^1.1.7",
     "framer-motion": "^11.1.5",
     "isbot": "^4.1.0",
     "jsonwebtoken": "^9.0.2",
