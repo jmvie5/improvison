@@ -13,7 +13,7 @@ const PentaMin = {
         description: (
             <div className="grid grid-cols-1 gap-2">
                 <h2>
-                    Nous allons répéter l'exercice précedent, mais avec la gamme pentatonique mineure. Nous utilisons cette fois la gamme de Do (C) mineur pour concorder avec la pièce utilisé dans la dernière partie du niveau.
+                    Nous allons répéter l'exercice précédent, mais avec la gamme pentatonique mineure. Nous utilisons cette fois la gamme de Do (C) mineur pentatonique pour concorder avec la pièce utilisée dans la dernière partie du niveau.
                 </h2>
                 <p>
                     La gamme pentatonique mineure est simplement une gamme mineure avec le 2e et le 6e degré en moins.
@@ -21,8 +21,7 @@ const PentaMin = {
                 </p>
                 <div className="my-4 font-medium">
                     <p>
-                        Pour commencer à intégrer cette gamme dans votre vocabulaire, commencer par la jouer avec un
-                        tempo stable de façon...
+                        Pour vous familiariser avec la gamme, commencez par la jouer avec un tempo stable de façon : 
                     </p>
                     <ol className=" list-inside list-disc">
                         <li>ascendante</li>
@@ -31,14 +30,13 @@ const PentaMin = {
                     </ol>
                 </div>
                 <p>
-                    Commencez par jouer sans métronome pour vous familiariser avec les notes, puis utilisez le métronome
-                    pour jouer la gamme en noire, puis en croche à des tempos différents. N'essayez pas d'aller trop
-                    vite! Le but est d'être stable et en même temps que le métronome avant d'être rapide.
+                    Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à des tempos différents (de X à Y).
                 </p>
+                <p className=" italic">N'essayez pas d'aller trop vite! Le but est d'être stable et en même temps que le métronome avant d'être rapide. </p>
                 <p className="mt-8">
                     Voici un exemple d'utilisation de la gamme pentatonique mineure (1:53 à 2:01) :
                 </p>
-                <iframe className="w-full aspect-video" src="https://www.youtube.com/embed/AKyOg3mNDUs?si=beadOS0j0pqpQPpG&amp;controls=2&amp;start=113&end=122" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+                <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/AKyOg3mNDUs?si=beadOS0j0pqpQPpG&amp;controls=2&amp;start=113&end=122" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         ),
 
@@ -60,13 +58,12 @@ const PentaMin = {
         description: (
             <div className="grid grid-cols-1 gap-2">
                 <p>
-                    Maintenant, essayer de créer des mélodies en utilisant la gamme pentatonique mineure apprise à la
-                    page précédente.
+                    Maintenant, créez des mélodies en utilisant la gamme pentatonique mineure 
                 </p>
                 <p>
                     Une mélodie générée aléatoirement vous est présentée à titre d'exemple, vous pouvez vous en inspirer
                     pour créer votre propre improvisation. Vous pouvez générer de nouvelles mélodies en cliquant sur le
-                    bouton approprié en bas de la partition.
+                    bouton en bas de la partition.
                 </p>
                 <div className="my-4">
                     <p>Lassez-vous aller! Utilisez les trucs suivants pour diversifier votre improvisation libre:</p>
@@ -86,8 +83,7 @@ const PentaMin = {
 
                 <p>
                     Utilisez le micro en bas de la partition pour vous enregistrer à des fins d'autoévaluation. Pour
-                    passer à la page suivante, il est requis de soumettre un enregistrement qui sera disponible par la
-                    suite dans votre profil.
+                    passer à la page suivante, il est requis de soumettre un enregistrement qui sera disponible dans votre profil.
                 </p>
             </div>
         ),
@@ -110,10 +106,9 @@ const PentaMin = {
             <div className="grid grid-cols-1 gap-2">
                 <h2>Intégrons maintenant cette nouvelle connaissance dans le répertoire.</h2>
                 <p>
-                    La gamme pentatonique mineure ne va pas toujours être parfaite dans toutes les pièces sur lesquelles
-                    vous allez improviser, mais sur un blues mineur, elle va très bien convenir.
+                    La gamme pentatonique mineure ne va pas toujours être parfaite dans toutes les pièces sur lesquelles vous allez improviser, mais sur un blues mineur, elle va convenir parfaitement. 
                 </p>
-                <p>[PISTE D'ACCOMPAGNEMENT]</p>
+                <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/2uo_Xmi-mdU?si=d0P4axFKTSlbAJTH" title="Piste d'accompagnement Mr.P.C."  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
                 <div className="my-4 font-medium">
                     <p>
                         Pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en

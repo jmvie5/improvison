@@ -15,32 +15,33 @@ const Motifs = {
         description: (
             <div className="grid grid-cols-1 gap-2">
                 <h2>
-                    Un des concepts les plus largement utilisé en improvisation est l'utilisation de motifs rythmiques.
+                    Un des concepts les plus répandus en improvisation est l'utilisation de motifs rythmiques. 
                 </h2>
                 <p>
-                    Un motif est défini par Anton Webern, grand compositeur Autrichien, comme la plus petite partie indépendante d'une idée musicale, qui est reconnaissable grâce à sa répétition. Plus simplement, c'est une suite de notes (ou de rythmes) qui nous restent dans la tête après avoir écouté une chanson ou un passage musical.
+                    Un motif est défini par Anton Webern, grand compositeur Autrichien, comme la plus petite partie indépendante d'une idée musicale, qui est reconnaissable grâce à sa répétition. Plus simplement, c'est une suite de notes (ou de rythmes) qui restent dans la tête après avoir écouté une chanson ou un passage musical.
                 </p>
                 <div className="my-4 font-medium">
                     <p>
-                        Pour commencer à utiliser les motifs dans nos improvisation, nous allons commencer par utiliser des motifs rythmiques. Plus précisément, les motifs rythmiques composés de noires et de croches sur une seule mesure. Lisez le motif rythmique présent dans la partition en suivant les étapes suivantes :
+                        Pour commencer à utiliser les motifs dans votre improvisation, commencez par utiliser des motifs rythmiques. Plus précisément, les motifs rythmiques composés de noires et de croches sur une seule mesure. Lisez le motif rythmique présent dans la partition en suivant les étapes suivantes :
                     </p>
                     <ol className=" list-inside list-disc">
-                        <li>sur une seule note</li>
-                        <li>sur deux notes</li>
-                        <li>sur trois notes</li>
-                        <li>en utilisant les notes de votre choix</li>
+                        <li>Sur une seule note</li>
+                        <li>Sur deux notes</li>
+                        <li>Sur trois notes</li>
+                        <li>En utilisant les notes de votre choix</li>
                     </ol>
                     <p>
                         Faites l'exercice quelques fois en changeant le rythme affiché grâce au bouton en dessous de la portée.
                     </p>
                 </div>
                 <p>
-                    Les motifs sont présent dans presque toutes les mélodies, peut importe le style de musique. En improvisation, c'est un outil clé qui est utilisé par les improvisateurs de tous les niveaux pour partager leurs idées musicales avec le public.
+                    Les motifs sont présents dans presque toutes les mélodies, peu importe le style de musique. En improvisation, c'est un outil clé qui est utilisé par les improvisateurs de tous les niveaux pour partager leurs idées musicales avec le public. 
                 </p>
                 <p className="mt-8">
-                    Voici quelques exemples d'utilisation de motifs dans des solos improvisés :
+                    Voici un exemple d'utilisation de motifs en double croches dans un solo improvisé (2:06 à 2:13) :
                 </p>
-                <div>YOUTUBE</div>
+                <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/drHkTvXqMHI?si=bIprN8MeX8miNqQG&amp;controls=2&amp;start=125&end=135" title="All the Things You Are" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+
             </div>
         ),
 

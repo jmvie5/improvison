@@ -1,17 +1,11 @@
-import { Outlet, useMatches } from "@remix-run/react";
+import { Outlet, useMatches, Form, useLoaderData } from "@remix-run/react";
 import { Image } from "@nextui-org/react";
 import { improvison_accueil } from "~/static/images";
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
-import { Form, useLoaderData } from "@remix-run/react";
 import {Button, ButtonGroup, Link} from "@nextui-org/react";
 import { json, redirect } from "@remix-run/node";
-// import { prisma } from "../services/prisma.server";
-
 import { localParams } from "~/cookies.server";
 
-/* export async function loader() {
-return json(await prisma.users.findMany());
-} */
 
 export async function loader({ request }: LoaderFunctionArgs) {
 	const cookieHeader = request.headers.get("Cookie");
@@ -26,8 +20,9 @@ export async function action({ request }: ActionFunctionArgs) {
 	const bodyParams = await request.formData();
 
 	cookie.transposition = bodyParams.get('transposition')
+	const redirectTo = bodyParams.get('redirectTo')?.toString()
 
-	return redirect("/solo/jeu", {
+	return redirect(redirectTo!, {
 		headers: {
 			"Set-Cookie": await localParams.serialize(cookie),
 		},
@@ -36,6 +31,8 @@ export async function action({ request }: ActionFunctionArgs) {
 
 
 export default function SoloLayout() {
+
+	const matches = useMatches();
 
     return (
         <div className="h-full flex flex-col">
@@ -54,6 +51,7 @@ export default function SoloLayout() {
 						<Button value="Bb" name="transposition" type="submit">Bb</Button>
 						<Button value="Eb" name="transposition" type="submit">Eb</Button>
 					</ButtonGroup>
+					<input name="redirectTo" value={matches[matches.length - 1].pathname} hidden/>
 					
 				</Form>
             </div>

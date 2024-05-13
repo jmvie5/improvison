@@ -36,7 +36,7 @@ export default function Game() {
     const [isMenu, setIsMenu] = useState(true);
     const [currentLvl, setCurrentLvl] = useState({} as LevelInterface);
     const [currentSubLvl, setCurrentSubLvl] = useState({} as SubLvlInterface);
-    const subLevelRef = useRef()
+    const subLevelRef = useRef<any>()
     const levelList:LevelInterface[] = [
         /*  Liste des niveaux du jeu
             TODO 

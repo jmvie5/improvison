@@ -12,35 +12,29 @@ const PentaMaj = {
         title: "1.1.1 : Gamme pentatonique majeure",
         description: (
             <div className="grid grid-cols-1 gap-2">
-                <h2>
-                    Dans cet exercice, nous allons commencer à improviser en utilisant les notes de la gamme
-                    pentatonique majeure.
-                </h2>
                 <p>
-                    La gamme pentatonique majeure est simplement une gamme majeure avec le 4e et le 7e degré en moins.
-                    En enlevant ces deux notes, qui entrent souvent en conflit avec l'accord du 1er degré, cela nous
-                    donne une gamme très utile pour improviser sans crainte de jouer une note qui « sonne mal ».
+                    La gamme pentatonique majeure est simplement une gamme majeure sans les 4e et 7e degrés. 
+                    Enlever ces deux notes, qui entrent souvent en conflit avec l'accord du 1er degré, nous donne une gamme très versatile pour improviser sans crainte de jouer une note qui « sonne mal ». 
                 </p>
                 <div className="my-4 font-medium">
                     <p>
-                        Pour commencer à intégrer cette gamme dans votre vocabulaire, commencer par la jouer avec un
-                        tempo stable de façon...
+                        Pour vous familiariser avec la gamme, commencez par la jouer sans métronome, avec un tempo stable, de façon : 
                     </p>
                     <ol className=" list-inside list-disc">
-                        <li>ascendante</li>
+                        <li>ascendante </li>
                         <li>descendante</li>
-                        <li>aléatoire</li>
+                        <li>libre (mouvements conjoints)</li>
+                        <li>libre (avec des sauts)</li>
                     </ol>
                 </div>
                 <p>
-                    Commencez par jouer sans métronome pour vous familiariser avec les notes, puis utilisez le métronome
-                    pour jouer la gamme en noire, puis en croche à des tempos différents. N'essayez pas d'aller trop
-                    vite! Le but est d'être stable et en même temps que le métronome avant d'être rapide.
+                    Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à des tempos différents (de X à Y).
                 </p>
+                <p className=" italic">N'essayez pas d'aller trop vite! Le but est d'être stable et en même temps que le métronome avant d'être rapide. </p>
                 <p className="mt-8">
                     Voici un exemple d'utilisation de la gamme pentatonique majeure dans un contexte jazz (1:03 à 1:15):
                 </p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/s4rXEKtC8iY?si=CsuYXuVHNXncl_B6&amp;controls=2&amp;start=63&end=75" title="Mercy, Mercy, Mercy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+                <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/s4rXEKtC8iY?si=CsuYXuVHNXncl_B6&amp;controls=2&amp;start=63&end=75" title="Mercy, Mercy, Mercy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         ),
 
@@ -62,19 +56,13 @@ const PentaMaj = {
         description: (
             <div className="grid grid-cols-1 gap-2">
                 <p>
-                    Maintenant, essayer de créer des mélodies en utilisant la gamme pentatonique majeure apprise à la
-                    page précédente.
-                </p>
-                <p>
-                    Une mélodie générée aléatoirement vous est présentée à titre d'exemple, vous pouvez vous en inspirer
-                    pour créer votre propre improvisation. Vous pouvez générer de nouvelles mélodies en cliquant sur le
-                    bouton approprié en bas de la partition.
+                    Maintenant, créez des mélodies en utilisant la gamme pentatonique majeure.
                 </p>
                 <div className="my-4">
-                    <p>Lassez-vous aller! Utilisez les trucs suivants pour diversifier votre improvisation libre:</p>
+                    <p>Laissez-vous aller! Utilisez les trucs suivants pour diversifier votre improvisation libre: </p>
                     <ol className=" list-inside list-disc">
                         <li>Intervalles conjoints seulement</li>
-                        <li>Intervalles disjoints seulement</li>
+                        <li>Intervalles disjoints</li>
                         <li>Jouer des blanches seulement</li>
                         <li>Jouer des noires seulement</li>
                         <li>Mélanger les rythmes</li>
@@ -82,14 +70,16 @@ const PentaMaj = {
                     </ol>
                 </div>
                 <p>
-                    Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre
-                    improvisation, mais n'hésitez pas à l'enlever pour explorer l'improvisation à votre instrument.
+                    Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre improvisation, mais n'hésitez pas à l'enlever pour explorer l'improvisation à votre instrument. 
                 </p>
-
+                <h3 className=" font-bold">En panne d'inspiration?</h3>
                 <p>
-                    Utilisez le micro en bas de la partition pour vous enregistrer à des fins d'autoévaluation. Pour
-                    passer à la page suivante, il est requis de soumettre un enregistrement qui sera disponible par la
-                    suite dans votre profil.
+                    Une mélodie générée aléatoirement vous est présentée à titre d'exemple, vous pouvez vous en inspirer
+                    pour créer votre propre improvisation. Vous pouvez générer de nouvelles mélodies en cliquant sur le
+                    bouton en bas de la partition.
+                </p>
+                <p>
+                    Utilisez le micro en bas de la partition pour vous enregistrer à des fins d'autoévaluation. Pour passer à la page suivante, il est requis de soumettre un enregistrement qui sera disponible dans votre profil. 
                 </p>
             </div>
         ),
@@ -112,10 +102,9 @@ const PentaMaj = {
             <div className="grid grid-cols-1 gap-2">
                 <h2>Intégrons maintenant cette nouvelle connaissance dans le répertoire.</h2>
                 <p>
-                    La gamme pentatonique majeure ne va pas toujours être parfaite dans toutes les pièces sur lesquelles
-                    vous allez improviser, mais sur un blues majeur, elle va très bien convenir.
+                    La gamme pentatonique majeure ne va pas toujours être parfaite dans les pièces sur lesquelles vous allez improviser, mais sur un blues majeur, elle va convenir parfaitement. 
                 </p>
-                <iframe className="w-full aspect-video" src="https://www.youtube.com/embed/MgEZxg0HOJU?si=3t8IP56ZE3wNzrwr" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+                <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/MgEZxg0HOJU?si=3t8IP56ZE3wNzrwr" title="Piste d'accompagnement Blue Monk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
                 <div className="my-4 font-medium">
                     <p>
                         Pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en
