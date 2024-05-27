@@ -1,6 +1,7 @@
 import randomMelodyGenerator from "../../../utils/vexFlowGenerators/randomMelodyGenerator";
 
 const Guide = {
+    url: '0-1',
     id: "0.1",
     name: "Guide d'utilisation",
     locked: false,
@@ -8,7 +9,7 @@ const Guide = {
     intro: {
         name: "intro",
         title: "0.1.1 : Guide d'utilisation",
-        description: (
+        description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <p>
                     Dans tous les niveaux du jeu, vous serez invité à improviser à partir d'une gamme, un rythme ou
@@ -39,7 +40,7 @@ const Guide = {
     freeImprov: {
         name: "freeImprov",
         title: "0.1.2 : Guide d'utilisation : Improvisation libre",
-        description: (
+        description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
@@ -63,7 +64,7 @@ const Guide = {
     repertoireImprov: {
         name: "repertoireImprov",
         title: "0.1.3 : Guide d'utilisation : Improvisation sur du répertoire",
-        description: (
+        description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip

@@ -1,22 +1,29 @@
-import scaleGenerator from "../../../../utils/vexFlowGenerators/scaleGenerator";
-import randomMelodyGenerator from "../../../../utils/vexFlowGenerators/randomMelodyGenerator";
-import blueMonk from "../../../../utils/songs/blueMonk";
+import scaleGenerator from "~/utils/vexFlowGenerators/scaleGenerator";
+import randomMelodyGenerator from "~/utils/vexFlowGenerators/randomMelodyGenerator";
+import blueMonk from "~/utils/songs/blueMonk";
 
-const PentaMaj = {
-    url: '1-1',
-    id: "1.1",
-    name: "Gamme pentatonique majeure",
+
+const TargetNotes = {
+    url: '2-1',
+    id: "2.1",
+    name: "Notes cibles",
     locked: false,
     completed: false,
     intro: {
         name: "intro",
-        title: "1.1.1 : Gamme pentatonique majeure",
+        title: "2.1.1 : Notes cibles de l'arpège",
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <p>
-                    La gamme pentatonique majeure est simplement une gamme majeure sans les 4e et 7e degrés. 
-                    Enlever ces deux notes, qui entrent souvent en conflit avec l'accord du 1er degré, nous donne une gamme très versatile pour improviser sans crainte de jouer une note qui « sonne mal ». 
+                    Maintenant que les gammes plus importantes sont acquises dans votre langage d’improvisation, il faut s’intéresser au concept de note cible. Ce concept sert à ajouter de la cohérence dans l’improvisation en terminant les lignes sur une note prédéterminée à l’avance. 
                 </p>
+                <p className="italic p-4">
+                    Il est important de se rappeler que n'importe quelle note peut être une note cible. Chaque note apporte une couleur unique selon l’accord joué en accompagnement, c’est à vous de choisir quelle couleur vous voulez utiliser.
+                </p>
+                <p>
+                    Pour cet exercice, nous utiliserons les arpèges des accords de l’accompagnement pour trouver nos notes cibles. C’est une bonne façon de tomber sur une note qui sonne en harmonie avec l’accompagnement.
+                </p>
+                ________________
                 <div className="my-4 font-medium">
                     <p>
                         Pour vous familiariser avec la gamme, commencez par la jouer sans métronome, avec un tempo stable, de façon : 
@@ -29,23 +36,20 @@ const PentaMaj = {
                     </ol>
                 </div>
                 <p>
-                    Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à des tempos différents (de X à Y).
+                    Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à différents tempos.  
                 </p>
-                <p className=" italic">N'essayez pas d'aller trop vite! Le but est d'être stable et en même temps que le métronome avant d'être rapide. </p>
-                <p className="mt-8">
-                    Voici un exemple d'utilisation de la gamme pentatonique majeure dans un contexte jazz (1:03 à 1:15):
-                </p>
-                <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/s4rXEKtC8iY?si=CsuYXuVHNXncl_B6&amp;controls=2&amp;start=63&end=75" title="Mercy, Mercy, Mercy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+                <p className="italic">N’esssayez pas d’aller trop vite! Le but est d’être stable et en même temps que le métronome avant d’être rapide.</p>
+
             </div>
         ),
 
         vfProps: {
             template: scaleGenerator,
-            keySignature: "Bb",
-            scaleNotes: ["B3", "C4", "D4", "F4", "G4", "B4"],
+            keySignature: "C",
+            scaleNotes: ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"],
             nbBars: 1,
-            timeSignature: 1,
-            chords: ["Bb"],
+            timeSignature: 4,
+            chords: [""],
         },
         vf_w: 500,
         vf_h: 140,
@@ -53,63 +57,59 @@ const PentaMaj = {
     },
     freeImprov: {
         name: "freeImprov",
-        title: "1.1.2 : Gamme pentatonique majeure : Improvisation libre",
+        title: "1.4.2 : La gamme majeure : Improvisation libre",
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <p>
-                    Maintenant, créez des mélodies en utilisant la gamme pentatonique majeure.
+                    Maintenant, créez des mélodies en utilisant la gamme majeure. Utilisez les trucs suivants pour diversifier votre improvisation libre : 
                 </p>
-                <div className="my-4">
-                    <p>Laissez-vous aller! Utilisez les trucs suivants pour diversifier votre improvisation libre: </p>
-                    <ol className=" list-inside list-disc">
-                        <li>Intervalles conjoints seulement</li>
-                        <li>Intervalles disjoints</li>
-                        <li>Jouer des blanches seulement</li>
-                        <li>Jouer des noires seulement</li>
-                        <li>Mélanger les rythmes</li>
-                        <li>Utiliser des motifs rythmiques ou mélodiques</li>
-                    </ol>
-                </div>
+                <ol className=" list-inside list-disc">
+                    <li>Intervalles conjoints </li>
+                    <li>Intervalles disjoints </li>
+                    <li>Blanches </li>
+                    <li>Noires </li>
+                    <li>Mélanger les rythmes </li>
+                    <li>Motifs rythmiques </li>
+                </ol>
                 <p>
-                    Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre improvisation, mais n'hésitez pas à l'enlever pour explorer l'improvisation à votre instrument. 
+                    Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre
+                    improvisation, mais n'hésitez pas à l'enlever pour explorer l'improvisation à votre instrument.
                 </p>
-                <h3 className=" font-bold">En panne d'inspiration?</h3>
-                <p>
-                    Une mélodie générée aléatoirement vous est présentée à titre d'exemple, vous pouvez vous en inspirer
-                    pour créer votre propre improvisation. Vous pouvez générer de nouvelles mélodies en cliquant sur le
-                    bouton en bas de la partition.
+                <p className="font-bold pt-4">
+                    En panne d'inspiration?
                 </p>
                 <p>
-                    Utilisez le micro en bas de la partition pour vous enregistrer à des fins d'autoévaluation. Pour passer à la page suivante, il est requis de soumettre un enregistrement qui sera disponible dans votre profil. 
+                    Une mélodie générée aléatoirement vous est présentée à titre d’exemple, vous pouvez vous en inspirer pour créer votre propre improvisation. Vous pouvez générer de nouvelles mélodies en cliquant sur le bouton en bas de la partition. 
                 </p>
             </div>
         ),
         vfProps: {
             template: randomMelodyGenerator,
-            keySignature: "Bb",
-            scaleNotes: ["B3", "C4", "D4", "F4", "G4", "B4"],
-            nbBars: 2,
+            keySignature: "C",
+            scaleNotes: ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"],
+            nbBars: 4,
             timeSignature: 4,
-            chords: ["Bb", ""],
+            chords: ["C", '', '', ''],
         },
-        vf_w: 500,
+        vf_w: 830,
         vf_h: 140,
         reRender: true,
     },
     repertoireImprov: {
         name: "repertoireImprov",
-        title: "1.1.3 : Gamme pentatonique majeure : Improvisation sur Blue Monk",
+        title: "1.4.3 : La gamme majeure : Improvisation sur Blue Monks",
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <h2>Intégrons maintenant cette nouvelle connaissance dans le répertoire.</h2>
                 <p>
-                    La gamme pentatonique majeure ne va pas toujours être parfaite dans les pièces sur lesquelles vous allez improviser, mais sur un blues majeur, elle va convenir parfaitement. 
+                    our réussir cet exercice, improvisez avec la gamme de si bémol majeur et mi bémol majeur sur la pièce Blue Monk de Thelonious Monk. Faites attentions de ne pas trop jouer le 7e degré majeur, car il peut entrer en conflit avec la 7e mineure des accords présente dans le blues. Utilisez la piste d’accompagnement ci-dessous : 
                 </p>
                 <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/MgEZxg0HOJU?si=3t8IP56ZE3wNzrwr" title="Piste d'accompagnement Blue Monk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+                
                 <div className="my-4 font-medium">
                     <p>
                         Pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en
-                        utilisant la gamme pentatonique majeure.
+                        utilisant la gamme majeure.
                     </p>
                 </div>
                 <p>
@@ -197,4 +197,4 @@ const PentaMaj = {
     },
 };
 
-export default PentaMaj;
+export default TargetNotes;

@@ -5,6 +5,7 @@ import SheetMusic from "../../../../components/SheetMusic";
 
 
 const Motifs = {
+    url: '1-3',
     id: "1.3",
     name: "Motifs",
     locked: false,
@@ -12,7 +13,7 @@ const Motifs = {
     intro: {
         name: "intro",
         title: "1.3.1 : Les motifs rythmiques",
-        description: (
+        description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <h2>
                     Un des concepts les plus répandus en improvisation est l'utilisation de motifs rythmiques. 
@@ -60,20 +61,11 @@ const Motifs = {
     freeImprov: {
         name: "freeImprov",
         title: "1.3.2 : Les motifs rythmiques : Improvisation libre",
-        description: (
+        description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <p>
-                    Maintenant, rajoutons des possibilités de rythmes, avec des blanches et des croches syncopées. 
+                    Maintenant, improvisez un solo en essayant d'intégrer le motif généré aléatoirement.
                 </p>
-                <p>
-                    Encore une fois, lisez le motif généré en suivant les étapes suivantes:
-                </p>
-                <ol className=" list-inside list-disc">
-                    <li>sur une seule note</li>
-                    <li>sur deux notes</li>
-                    <li>sur trois notes</li>
-                    <li>en utilisant les notes de votre choix</li>
-                </ol>
                 <p>
                     Faites l'exercice quelques fois en changeant le rythme affiché grâce au bouton en dessous de la portée.
                 </p>
@@ -89,7 +81,7 @@ const Motifs = {
         vfProps: {
             template: randomRhythmGenerator,
             keySignature: "C",
-            scaleNotes: ["h", "q", "2x8", "8"],
+            scaleNotes: ["q", "2x8"],
             nbBars: 1,
             timeSignature: 4,
             chords: [""],
@@ -101,7 +93,7 @@ const Motifs = {
     repertoireImprov: {
         name: "repertoireImprov",
         title: "1.3.3 : Les motifs rythmiques : Improvisation sur Mr. P.C.",
-        description: (
+        description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <h2>Intégrons maintenant cette nouvelle connaissance dans le répertoire.</h2>
                 <p>
@@ -109,6 +101,7 @@ const Motifs = {
                 </p>
 
                 <SheetMusic
+                    transposition={transposition}
                     vfProps={{
                         template: motifMrPc,
                         keySignature: "Eb",
@@ -123,8 +116,7 @@ const Motifs = {
                 
                 <div className="my-4 font-medium">
                     <p>
-                        Pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en
-                        utilisant la gamme pentatonique mineure.
+                        Pour réussir cet exercice, vous devez intégrer ces motifs dans votre improvisation au moins trois fois.
                     </p>
                 </div>
                 <p>

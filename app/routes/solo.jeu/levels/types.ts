@@ -3,7 +3,7 @@ import { ReactElement } from "react";
 interface SubLvlInterface {
     name: string;
     title: string;
-    description: ReactElement;
+    description: (transposition?: string) => JSX.Element;
     vfProps: {
         template: Function;
         keySignature: string;
@@ -18,6 +18,7 @@ interface SubLvlInterface {
 }
 
 interface LevelInterface {
+    url: string,
     id: string;
     name: string;
     locked: boolean;

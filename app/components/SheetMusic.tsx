@@ -1,10 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
 import { Factory } from "vexflow";
-import UserInterface from "./userComponents/UserInterface";
 import transpose, { transposeProps } from "../utils/transposition";
-import authService from "../services/authService";
 
 export interface sheetMusicInterface {
+    transposition?:string;
     vfProps: {
         template: Function;
         keySignature: string;
@@ -17,9 +16,9 @@ export interface sheetMusicInterface {
     vf_h: number;
 }
 
-export default function SheetMusic({ vfProps, vf_h, vf_w }: sheetMusicInterface) {
+export default function SheetMusic({ transposition, vfProps, vf_h, vf_w }: sheetMusicInterface) {
     const sheetId = Math.floor(Math.random() * 1000);
-    const [playerKey, setPlayerKey] = useState("C");
+    const playerKey = transposition || "C";
 
     const drawVf = useCallback(() => {
         console.log(`sheetMusic_${sheetId}`)
@@ -68,17 +67,8 @@ export default function SheetMusic({ vfProps, vf_h, vf_w }: sheetMusicInterface)
     }, [playerKey, vfProps, sheetId, vf_h, vf_w]);
 
     useEffect(() => {
-        authService.getLoginStatus(
-            (user: UserInterface) => {
-                setPlayerKey(user.transposition);
-                drawVf();
-                console.log('getLoginStatus')
-            },
-            () => {
-                window.alert("failed to auth");
-            },
-        );
-    }, []);
+        drawVf();
+    }, [transposition, vfProps]);
 
     function clearVf() {
         const staff = document.getElementById(`sheetMusic_${sheetId}`);

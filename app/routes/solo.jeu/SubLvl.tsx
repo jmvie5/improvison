@@ -15,7 +15,7 @@ import { db } from '../../db';
 type SubLvlProps = {
     name: string;
     title: string;
-    description: ReactElement;
+    description: (transposition?:string) => JSX.Element;
     transposition: string;
     vfProps: {
         template: Function;
@@ -151,7 +151,7 @@ const SubLvl = forwardRef(function SubLvl({ name, title, description, transposit
         <div className="flex flex-col xl:flex-row mb-8 p-4 gap-4 justify-around">
             <div>
                 <h2 className="mb-2 font-semibold">{title}</h2>
-                {description}
+                {description(transposition)}
             </div>
 
             <div className="flex flex-col items-center rounded-sm">
@@ -216,14 +216,14 @@ const SubLvl = forwardRef(function SubLvl({ name, title, description, transposit
                             <></>
                         )}
                     </div>
-                    <div className="max-w-xs my-4 min-w-full">
-                       {/*  <Metronome
+                    {/* <div className="max-w-xs my-4 min-w-full">
+                        <Metronome
                             playPauseStyle={{ backgroundColor: "rgb(23 37 84)" }}
                             plusStyle={{ backgroundColor: "rgb(23 37 84)" }}
                             minusStyle={{ backgroundColor: "rgb(23 37 84)" }}
                             handleStyle={{ backgroundColor: "rgb(23 37 84)" }}
-                        /> */}
-                    </div>
+                        />
+                    </div> */}
                 </div>
             </div>
         </div>

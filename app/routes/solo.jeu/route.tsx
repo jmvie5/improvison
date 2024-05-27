@@ -6,13 +6,19 @@ import Guide from "./levels/Guide";
 import PentaMaj from "./levels/tutorial/PentaMaj";
 import PentaMin from "./levels/tutorial/PentaMin";
 import Motifs from "./levels/tutorial/Motifs";
+import MajorScale from './levels/tutorial/MajorScale'
+import TargetNotes from "./levels/lvl2/TargetNotes";
 import { Button } from "@nextui-org/react";
 import { SubLvlInterface, LevelInterface } from "./levels/types";
 
-import type { LoaderFunctionArgs } from "@remix-run/node";
+import {
+    json,
+    type LoaderFunctionArgs,
+    type MetaFunction,
+  } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { json } from "@remix-run/node";
 import { localParams } from "~/cookies.server";
+import MinorScale from "./levels/tutorial/MinorScale";
 
 export async function loader({ request }: LoaderFunctionArgs) {
 	const cookieHeader = request.headers.get("Cookie");
@@ -44,14 +50,17 @@ export default function Game() {
         */
         PentaMaj,
         PentaMin,
-        Motifs
+        Motifs,
+        MajorScale,
+        MinorScale,
+        TargetNotes
     ];
 
     return (
-        <div className="flex flex-col  grow justify-between bg-bleu-pale/20">
+        <div className="flex flex-col grow justify-between">
             {isMenu ? (
                 <div className="flex flex-col gap-4 p-4">
-                    <div className="flex gap-4">
+                    {/* <div className="flex gap-4">
                         <p>Description</p>
                         <Button
                             key={Guide.name}
@@ -65,12 +74,13 @@ export default function Game() {
                         >
                             {Guide.name}
                         </Button>
-                    </div>
+                    </div> */}
                     
-                    <div>Niveaux</div>
+                    <div className="self-center text-4xl font-bold pt-4">Niveaux</div>
                     <div className="flex flex-col gap-2">
                         {levelList.map((level) => (
                             <Button
+                                size="lg"
                                 key={level.name}
                                 className="max-w-xs"
                                 onPress={() => {
@@ -115,7 +125,7 @@ export default function Game() {
                     </div>
                     <div className="flex gap-2">
                         {
-                            currentSubLvl.name !== "intro" ? 
+                            currentSubLvl.name !== "intro" &&
                                 <Button
                                     onPress={() => {
                                         if (currentSubLvl.name === "intro") {
@@ -127,10 +137,10 @@ export default function Game() {
                                     }}
                                 >
                                     Retour
-                                </Button> : <></>
+                                </Button>
                         }
                         {
-                            currentSubLvl.name === "intro" ? 
+                            currentSubLvl.name === "intro" &&
                             <Button
                                 onPress={() => {
                                     if (currentSubLvl.name === "intro") {
@@ -142,9 +152,9 @@ export default function Game() {
                                 }}
                             >
                                 Prochaine étape
-                            </Button> : <></>
+                            </Button>
                         }
-                        {currentSubLvl.name === "freeImprov" ? (
+                        {currentSubLvl.name === "freeImprov" &&
                             <MyModal
                                 title="Prochaine étape"
                                 content="Prêt à soumettre votre audio? Il sera disponible dans votre profil."
@@ -163,10 +173,8 @@ export default function Game() {
                                     }
                                 }}
                             />
-                        ) : (
-                            <></>
-                        )}
-                        {currentSubLvl.name === "repertoireImprov" ? (
+                        }
+                        {currentSubLvl.name === "repertoireImprov" &&
                             <MyModal
                                 title="Niveau suivant"
                                 content="Vous avez complété les trois sous-exercices et êtes pret à passer au niveau suivant?"
@@ -187,9 +195,7 @@ export default function Game() {
                                     }
                                 }}
                             />
-                        ) : (
-                            <></>
-                        )}
+                        }
                     </div>
                     
                 </div>

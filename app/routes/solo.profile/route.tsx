@@ -35,22 +35,28 @@ export default function Profile() {
 
 
     return (
-        <div className=' grid grid-cols-1 justify-items-center gap-4 p-4'>
-            <div>Transposition : {transposition}</div>
+        <div className=' flex flex-col justify-items-center gap-4 p-4'>
+            <div className='self-center text-4xl font-bold p-4'>Profil</div>
+            <div className='self-end'>Transposition : {transposition}</div>
             <div>Enregistrements : </div>
-            {(recordings && recordings?.length > 0) ? (
-                <>
-                    {recordings.map((record) => (
-                        <div className='flex gap-4 items-center sef-center border rounded-xl p-4'>
-                            <div>
-                                <div>{record.levelName}</div>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+                {(recordings && recordings?.length > 0) ? (
+                    <>
+                        {recordings.map((record) => (
+                            <div className='flex flex-col gap-4 items-center sef-center border rounded-xl p-4 justify-between'>
+                                <div className='flex justify-between w-full gap-2'>
+                                    <div className=' break-words'>{record.levelName}</div>
+                                    <Button isIconOnly onPress={() => deleteRecording(record.id)}>X</Button>
+                                    
+                                </div>
                                 <audio src={URL.createObjectURL(record.audioBlob)} controls/>
+                                
                             </div>
-                            <Button isIconOnly onPress={() => deleteRecording(record.id)}>X</Button>
-                        </div>
-                    ))}
-                </> 
-            ) : <div>No recordings.</div>}
+                        ))}
+                    </> 
+                ) : <div>No recordings.</div>}
+            </div>
+            
         </div>
     )
 }

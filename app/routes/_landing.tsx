@@ -24,7 +24,7 @@ export default function Landing() {
     },
     {
         name: "Solo",
-        link: "/solo/jeu"
+        link: "/solo"
     },
     {
       name: "Duo",
