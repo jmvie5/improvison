@@ -2,10 +2,10 @@ import * as React from "react"
 
 import { PuzzlePieceIcon, UsersIcon, BookOpenIcon } from '@heroicons/react/24/outline'
 import { Image, Card, CardHeader, CardBody, CardFooter, Link } from "@nextui-org/react"
-import { Improvison_Règles_numériques } from "../static/files"
-import { Roblox_Logo, champi, tortue, modulation, latin_jazz, jeu_num_fr, jeu_num2_fr, jeu_num3_fr } from "../static/images"
+import { Improvison_Règles_numériques } from "../../static/files"
+import { Roblox_Logo, champi, tortue, modulation, latin_jazz, jeu_num_fr, jeu_num2_fr, jeu_num3_fr } from "../../static/images"
 
-export default function ImprovisonGamePage() {
+export default function LandingDuo() {
 
   	return (
 		<div>

@@ -8,7 +8,7 @@ export default function SoloIndex() {
     return (
         <div className='flex flex-col p-8'>
             <div className='flex flex-col sm:flex-row justify-around sm:px-8 pb-8 gap-4'>
-                <Button as={Link} to={'/solo/jeu'} className='w-full sm:w-96 h-24 text-4xl'>Jouer</Button>
+                <Button as={Link} to={'/solo/game'} className='w-full sm:w-96 h-24 text-4xl'>Jouer</Button>
                 <Button as={Link} to={'/solo/profile'} className='w-full sm:w-96 h-24 text-4xl'>Mon profil</Button>
             </div>
             <div className='flex flex-col gap-2 max-w-[800px] self-center'>

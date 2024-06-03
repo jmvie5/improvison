@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useRef } from "react";
 import MyModal from "../../components/MyModal";
 import ErrorMsg from "../../components/ErrorMsg"
@@ -17,7 +18,7 @@ import {
     type MetaFunction,
   } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { localParams } from "~/cookies.server";
+import { localParams } from "../../cookies.server";
 import MinorScale from "./levels/tutorial/MinorScale";
 
 export async function loader({ request }: LoaderFunctionArgs) {
@@ -26,7 +27,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 	return json({ transposition: cookie.transposition });
 }
 
-export default function Game() {
+export default function SoloGame() {
 
     const { transposition } = useLoaderData<typeof loader>();
 

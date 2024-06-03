@@ -58,7 +58,7 @@ export default function SoloLayout() {
                 <div className="flex gap-8 ">
                     <Link href="/"><Image src={improvison_accueil} width={100}/></Link>
 					<Link href="/solo" className="text-white hover:text-neutral text-xl">Accueil</Link>
-                    <Link href="/solo/jeu" className="text-white hover:text-neutral text-xl">Niveaux</Link>
+                    <Link href="/solo/game" className="text-white hover:text-neutral text-xl">Niveaux</Link>
 					<Link href="/solo/profile" className="text-white hover:text-neutral text-xl">Profil</Link>
                 </div>
                 
@@ -68,7 +68,7 @@ export default function SoloLayout() {
 						<Button value="Bb" name="transposition" type="submit">Bb</Button>
 						<Button value="Eb" name="transposition" type="submit">Eb</Button>
 					</ButtonGroup>
-					<input name="redirectTo" value={matches[matches.length - 1].pathname} hidden/>
+					<input name="redirectTo" value={matches[matches.length - 1].pathname} hidden readOnly/>
 					
 				</Form>
             </div>

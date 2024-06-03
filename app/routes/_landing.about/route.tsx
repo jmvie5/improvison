@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Image } from "@nextui-org/react"
-import { thumbnail_Photo_JPD } from "../static/images"
+import { thumbnail_Photo_JPD } from "../../static/images"
 import { MetaFunction } from "@remix-run/node"
 
-export default function AboutPage() {
+export default function LandingAbout() {
     return (
 
         <div className="flex flex-col gap-4">

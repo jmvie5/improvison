@@ -14,7 +14,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 }
 
 
-export default function Profile() {
+export default function SoloProfile() {
 
     const { transposition } = useLoaderData<typeof loader>();
     const recordings = useLiveQuery(() => db.recordings.toArray());
