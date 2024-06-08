@@ -1,4 +1,16 @@
 {
     "title": "About",
-    "description" : ""
+    "description" : "",
+
+    "principalInvestigator" : "Pirncipal Investigator",
+    "piText1" : " is an Associate Professor at the Faculty of Music at Université Laval. He leads subsidized research projects on inclusive approaches to music teaching and learning, creativity and improvisation, and the development of playful educational materials in music. His research has led to various publications, including in the scientific journals ",
+    "piTextJournals1" : "British Journal of Learning Disabilities, Frontiers in Education, Journal of Research in Music Education, Psychology of Music, Research Studies in Music Education, Thinking Skills and Creativity, la Revue scientifique en ligne de l’Observatoire interdisciplinaire de création et de recherche en musique, Intersections : Canadian Journal of Music/Revue canadienne de musique, Les Cahiers de la Société québécoise de recherche en musique ",
+    "andThe" : "and the ",
+    "piTextJournals2" : "Revista internacional de educación musical. ",
+    "piText2" : "His main areas of interest are innovative and inclusive approaches in music pedagogy, creativity, improvisation, and learning through play.",
+    "gameIdeation" : "Game Ideation",
+    "giText1" : "Improvison stems from the results of his doctoral project (FRQ-SC, SSHRC, and OICRM), entitled",
+    "researchTitle" : "\"Learning and creation processes of expert improvisers in classical music,\"",
+    "giText2" : " which shed new light on the learning path, creation strategies, and teaching approaches of expert improvisers in classical music. Specifically, the results of his doctoral project revealed a gap between available pedagogical methods and the practice of experts in classical musical improvisation (Després, 2017; Després, Burnard, Dubé, and Stévance, 2015, 2017). Indeed, according to his findings, experts employ many musical improvisation strategies that are not centered on note selection, whereas currently available improvisation methods mainly focus on acquiring note-centered strategies. This project aims to contribute to addressing this gap.",
+    "giText3" : "He is also interested in the contribution of learning through play to support the development of creative skills, as manifested in musical improvisation. Thus, this project aims to develop educational material based on principles of learning through play to facilitate the acquisition, among instrumentalists of different levels, of musical improvisation strategies implemented by experts in the field. Additionally, it aims to document the perceived impacts of this material. "
 }

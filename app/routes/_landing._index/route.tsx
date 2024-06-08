@@ -1,20 +1,33 @@
-/* @ts-ignore */
-import type { MetaFunction } from "@remix-run/deno";
-
+import { json, type LoaderFunctionArgs, type MetaFunction} from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import { BookOpenIcon, PresentationChartLineIcon, PuzzlePieceIcon, UsersIcon, UserIcon } from '@heroicons/react/24/outline'
 import { MusicalNoteIcon } from '@heroicons/react/24/solid'
-import { Image, Card, CardHeader, CardBody, CardFooter, Link } from "@nextui-org/react";
+import { Image, Card, CardHeader, CardBody, CardFooter, Link , Divider} from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { Roblox_Logo } from "../../static/images"
+import i18nextServer from "~/i18next.server";
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Improvison" },
-    { name: "description", content: "Ce projet vise à développer du matériel pédagogique basé sur les principes de l’apprentissage par le jeu afin de faciliter l’acquisition, chez les instrumentistes de niveau débutant ou intermédiaire, de stratégies d’improvisation musicale qui sont mises en œuvre par les experts du domaine et à documenter les impacts perçus de ce matériel." },
-  ];
-};
+export async function loader({ request }: LoaderFunctionArgs) {
+  
+    const t = await i18nextServer.getFixedT(request);
+  
+    const translations = {
+      duoWhat: t('pages.landingIndex.duo.what'),
+      duoWhatDesc: t('pages.landingIndex.duo.what-description'),
+      duoWho: t('pages.landingIndex.duo.who'),
+      duoWhoDesc: t('pages.landingIndex.duo.who-description'),
+      soloWhat: t('pages.landingIndex.solo.what'),
+      soloWhatDesc: t('pages.landingIndex.solo.what-description'),
+      soloWho: t('pages.landingIndex.solo.who'),
+      soloWhoDesc: t('pages.landingIndex.solo.who-description'),
+    }
+  
+    return json({ translations });
+  }
 
 export default function LandingIndex() {
+
+    const translations = useLoaderData<typeof loader>().translations
 
     const itemVariants = {
         hidden: { x: 100, opacity: 0 },
@@ -43,33 +56,50 @@ export default function LandingIndex() {
             <motion.div
                 variants={itemVariants}
             >
-                <Card className="bg-bleu-pale/20 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="solo/game">
-                    <CardHeader className="justify-center">
-                        <p className="font-bold text-xl">Solo</p>
+                <Card className="bg-bleu-pale/20 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="duo">
+                    <CardHeader className="justify-around">
+                        <p className="font-bold text-3xl italic">Improvison – Duo </p>
+                        <UsersIcon className="w-32 self-center"/>
                     </CardHeader>
-                    <CardBody>
-                        <UserIcon className="w-32 self-center"/>
+                    <Divider className="bg-white"/>
+                    <CardBody className="flex gap-2">
+                        
+                        <div className='flex flex-col'>
+                            <h3 className="font-bold text-xl">{translations.duoWhat}</h3>
+                            <p>{translations.duoWhatDesc}</p>
+                            
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-xl">{translations.duoWho}</h3>
+                            <p>{translations.duoWhoDesc}</p>
+                        </div>
                     </CardBody>
-                    <CardFooter className="justify-center text-center text-lg">
-                        <p>Un joueur. Plateforme en ligne d'apprentissage de l'improvisation musicale.</p>
-                    </CardFooter>
                 </Card>
             </motion.div>
             <motion.div
                 variants={itemVariants}
             >
-                <Card className="bg-bleu-pale/20 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="duo">
-                    <CardHeader className="justify-center">
-                        <p className="font-bold text-xl">Duo</p>
+                <Card className="bg-bleu-pale/20 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="solo/game">
+                    <CardHeader className="justify-around">
+                        <p className="font-bold text-3xl italic">Improvison – Solo</p>
+                        <UserIcon className="w-32 self-center"/>
                     </CardHeader>
-                    <CardBody>
-                        <UsersIcon className="w-32 self-center"/>
+                    <Divider className="bg-white"/>
+                    <CardBody className="flex gap-2">
+                        
+                        <div className='flex flex-col'>
+                            <h3 className="font-bold text-xl">{translations.soloWhat}</h3>
+                            <p>{translations.soloWhatDesc} </p>
+                            
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-xl">{translations.soloWho}</h3>
+                            <p>{translations.soloWhoDesc}</p>
+                        </div>
                     </CardBody>
-                    <CardFooter className="justify-center text-center text-lg">
-                        <p>Deux joueurs. Dyade prof-élève ou pour deux élèves. Joueurs de tous les âges et tous les niveaux.</p>
-                    </CardFooter>
                 </Card>
             </motion.div>
+            
             
             {/* <Card className="bg-bleu-pale/20 p-4 text-white border border-neutral-500 shadow-md shadow-black" isDisabled>
                 <CardHeader className="justify-center">

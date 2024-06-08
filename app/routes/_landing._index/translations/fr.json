@@ -1,4 +1,15 @@
 {
     "title": "Accueil",
-    "description" : ""
+    "duo" : {
+        "what": "C’est quoi?",
+        "what-description": "Un jeu musical collaboratif pour apprendre à improviser.",
+        "who": "À qui le jeu s’adresse-t-il?",
+        "who-description": "Deux joueurs, de tous âges, niveaux et instruments (ex. dyade prof-élève ou deux amis)."
+    }, 
+    "solo": {
+        "what": "C’est quoi?",
+        "what-description": "Un prototype de jeu musical (en développement) pour apprendre à improviser de manière autonome.",
+        "who": "À qui le jeu s’adresse-t-il?",
+        "who-description": "Joueur solo et autonome de niveau collégial ou universitaire."
+    }
 }

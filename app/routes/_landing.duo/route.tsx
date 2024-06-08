@@ -12,24 +12,24 @@ export default function LandingDuo() {
 			<div className="flex flex-col xl:flex-row gap-4 justify-center items-center mb-4 flex-1">
 				<Card className="bg-bleu-pale/20 h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="https://www.roblox.com/games/5984084686/Improvisondon" target="_blank" rel="noreferrer">
 					<CardHeader className="justify-center">
-						<p className="font-bold text-xl">Jouer en ligne sur Roblox</p>
+						<p className="font-bold text-xl">Jouer en ligne</p>
 					</CardHeader>
 					<CardBody className="items-center">
-						<Image src={Roblox_Logo} className="w-32 self-center" alt="Logo Roblox"/>
+						<Image src={Roblox_Logo} className="w-24 self-center" alt="Logo Roblox"/>
 					</CardBody>
 					<CardFooter className="justify-center text-center text-lg">
-						<p>La version en ligne est accessible ici!</p>
+						<p>La version en ligne est accessible gratuitement sur Roblox. Cliquez ici pour y jouer!</p>
 					</CardFooter>
 				</Card>
 				<Card className="bg-bleu-pale/20 h-full w-fit xl:w-1/3 max-w-80 aspect-square p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="app/static/files/Improvison_Règles numériques.pdf" target="_blank" rel="noreferrer">
 					<CardHeader className="justify-center">
-						<p className="font-bold text-xl">Règles du jeu</p>
+						<p className="font-bold text-xl">Règles du jeu en ligne</p>
 					</CardHeader>
 					<CardBody className="items-center">
 						<BookOpenIcon className=" w-32"/>
 					</CardBody>
 					<CardFooter className="justify-center text-center text-lg">
-						<p>Consulter et téléchargez les règles ici.</p>
+						<p>Consulter et téléchargez les règles du jeu en ligne ici.</p>
 					</CardFooter>
 				</Card>
 				<Card className="bg-bleu-pale/20 h-full w-fit xl:w-1/3 max-w-80 aspect-square p-4 text-white border border-neutral-500 shadow-md shadow-black" isDisabled>
@@ -40,7 +40,7 @@ export default function LandingDuo() {
 						<PuzzlePieceIcon className="w-32"/>
 					</CardBody>
 					<CardFooter className="justify-center text-center text-lg">
-						<p>La version physique du jeu est en cours de développement. Restez à l’affût!</p>
+						<p>Les règles et fichiers à imprimer pour jouer à la version physique du jeu sont disponibles ici.</p>
 					</CardFooter>
 				</Card>
 			</div>

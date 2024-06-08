@@ -1,4 +1,16 @@
 {
     "title": "À propos",
-    "description" : ""
+    "description" : "Ce projet vise à développer du matériel pédagogique basé sur les principes de l’apprentissage par le jeu afin de faciliter l’acquisition, chez les instrumentistes de niveau débutant ou intermédiaire, de stratégies d’improvisation musicale qui sont mises en œuvre par les experts du domaine et à documenter les impacts perçus de ce matériel.",
+
+    "principalInvestigator" : "Chercheur pirncipal",
+    "piText1" : " est professeur agrégé à la Faculté de musique de l’Université Laval. Il mène des projets de recherches subventionnés autour des approches inclusives en enseignement-apprentissage de la musique, de la créativité et l’improvisation et du développement de matériel pédagogique ludique en musique. Ses recherches ont mené à diverses publications, notamment dans les revues scientifiques ",
+    "piTextJournals": "British Journal of Learning Disabilities, Frontiers in Education, Journal of Research in Music Education, Psychology of Music, Research Studies in Music Education, Thinking Skills and Creativity, la Revue scientifique en ligne de l’Observatoire interdisciplinaire de création et de recherche en musique, Intersections : Canadian Journal of Music/Revue canadienne de musique, Les Cahiers de la Société québécoise de recherche en musique ",
+    "andThe" : "et la ",
+    "piTextJournals2" : "Revista internacional de educación musical.",
+    "piText2": " Ses principaux centres d’intérêt sont les approches innovantes et inclusives en pédagogie musicale, la créativité, l’improvisation et l’apprentissage par le jeu.",
+    "gameIdeation" : "Idéation du jeu",
+    "giText1" : "Improvison découle des résultats de mon projet doctoral (FRQ-SC, CRSH et OICRM), intitulé ",
+    "researchTitle": "Processus d’apprentissage et de création des improvisateurs experts en musique classique ",
+    "giText2" : " qui a offert un nouvel éclairage sur le parcours d’apprentissage, les stratégies de création et les approches d’enseignement des improvisateurs experts en musique classique. Plus précisément, les résultats de mon projet doctoral ont montré un certain écart entre les méthodes pédagogiques disponibles et la pratique des experts en improvisation musicale classique (Després, 2017; Després, Burnard, Dubé et Stévance, 2015, 2017). En effet, selon mes résultats, les experts font appel à bon nombre de stratégies d’improvisation musicale qui ne sont pas centrées sur le choix de la hauteur des notes, alors que les méthodes d’improvisation actuellement disponibles se concentrent principalement sur l’acquisition de stratégies centrées sur le choix des notes. Ce projet vise à contribuer à combler ce manque.",
+    "giText3" : "Je m’intéresse également à l’apport de l’apprentissage par le jeu pour soutenir le développement de compétences créatives, telles que manifestées lors de l’improvisation musicale. Ainsi, ce projet vise à développer du matériel pédagogique basé sur les principes de l’apprentissage par le jeu afin de faciliter l’acquisition, chez les instrumentistes de différents niveaux, de stratégies d’improvisation musicale qui sont mises en œuvre par les experts du domaine. De plus, il vise à documenter les impacts perçus de ce matériel."
 }

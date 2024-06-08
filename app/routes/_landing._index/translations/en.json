@@ -1,4 +1,15 @@
 {
     "title": "Home",
-    "description" : ""
+    "duo" : {
+        "what": "What is it? ",
+        "what-description": "A collaborative musical game to learn to improvise.",
+        "who": "Who is the game for?",
+        "who-description": "For two players, of all ages, levels and instruments (e.g., teacher-student dyad or two friends)."
+    }, 
+    "solo": {
+        "what": "What is it?",
+        "what-description": "A prototype of a musical game (in development) to learn improvisation autonomously.",
+        "who": "Who is it for?",
+        "who-description": "Solo and autonomous players at the college or university level. "
+    }
 }

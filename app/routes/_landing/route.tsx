@@ -1,8 +1,8 @@
 /* @ts-ignore */
 import type { MetaFunction } from "@remix-run/deno";
-import { Image, Link } from "@nextui-org/react";
+import { Image, Button } from "@nextui-org/react";
 import ImprovisonLogo from "../../static/images/improvison_accueil.png"
-import { Outlet, useLoaderData } from "@remix-run/react";
+import { Outlet, useLoaderData, Form, Link } from "@remix-run/react";
 import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { motion } from 'framer-motion'
 import i18nServer from "../../i18next.server";
@@ -71,7 +71,7 @@ return (
 
             <div className="flex flex-col justify-center sm:justify-start sm:w-60 shrink-0">
                 <Link
-                    href="/"
+                    to="/"
                     className="mt-4 mx-4 max-w-xxs self-center sm:self-start"
                 >
                     <Image
@@ -79,8 +79,17 @@ return (
                         alt="Logo Improvison"
                     />
                 </Link>
-                <nav className="flex flex-col sm:p-4 mt-4">
-                    <motion.ul 
+                <Form className="flex gap-2 self-center mt-4">
+                    <Button type="submit" name="lng" value="fr" className="bg-white">
+                    Français
+                    </Button>
+                    <Button type="submit" name="lng" value="en" className="bg-white">
+                    English
+                    </Button>
+                </Form>
+                <nav className="flex flex-col p-4">
+                    <motion.ul
+                        
                         className="flex flex-row sm:flex-col divide-x sm:divide-x-0 sm:divide-y sm:max-w-xxs justify-center"
                         initial="hidden"
                         animate="visible"
@@ -113,7 +122,7 @@ return (
                             }}
                         >
                             <Link
-                                href={link.link}
+                                to={link.link}
                                 className="text-white hover:text-neutral-400 self-center"
                             >
                                 {link.name}
