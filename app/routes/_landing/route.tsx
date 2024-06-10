@@ -1,5 +1,5 @@
 /* @ts-ignore */
-import type { MetaFunction } from "@remix-run/deno";
+import type { MetaFunction } from "@remix-run/node";
 import { Image, Button } from "@nextui-org/react";
 import ImprovisonLogo from "../../static/images/improvison_accueil.png"
 import { Outlet, useLoaderData, Form, Link } from "@remix-run/react";
