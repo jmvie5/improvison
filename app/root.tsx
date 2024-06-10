@@ -20,7 +20,7 @@ import {
 import i18nServer, { localeCookie } from "./i18next.server";
 import { useChangeLanguage } from "remix-i18next/react";
 
-import stylesheet from "~/tailwind.css?url";
+import stylesheet from "./tailwind.css?url";
 
 // export const handle = { i18n: ["translation"] };
 
