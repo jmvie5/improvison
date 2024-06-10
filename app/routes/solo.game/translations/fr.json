@@ -1,4 +1,15 @@
 {
-    "title": "",
-    "description" : ""
+    "title": "Improvison - Solo",
+    "description" : "Improvison – Solo est un prototype de jeu (en développement) qui vise à soutenir un apprentissage autonome de l’improvisation musicale. Le jeu s’adresse à des instrumentistes (tous instruments) de niveau collégial ou universitaire, ou ayant une certaine expérience à l’instrument.",
+
+    "index" : {
+        "description2" : "Le jeu propose des missions au joueur, qu’il sera invité à relever afin d’augmenter ses habiletés en improvisation. Chaque mission est articulée autour d’un concept d’improvisation et se déroule en trois temps : ",
+        "presentation" : "présentation",
+        "exploration" : "exploration",
+        "and" : "et",
+        "integration" : "intégration",
+        "description3" : "Dans sa forme définitive, le joueur pourra progresser à travers les niveaux, dans un parcours à la fois flexible et séquencé pour parfaire ses habiletés en improvisation.",
+        "playOnline" : "Jouer en ligne",
+        "playOnlineDesc" : "Un prototype du jeu, avec quelques niveaux accessibles, est disponible gratuitement ici. "
+    }
 }

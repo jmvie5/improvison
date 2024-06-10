@@ -4,11 +4,39 @@ import { PuzzlePieceIcon, UsersIcon, BookOpenIcon } from '@heroicons/react/24/ou
 import { Image, Card, CardHeader, CardBody, CardFooter, Link } from "@nextui-org/react"
 import { Improvison_Règles_numériques } from "../../static/files"
 import { Roblox_Logo, champi, tortue, modulation, latin_jazz, jeu_num_fr, jeu_num2_fr, jeu_num3_fr } from "../../static/images"
+import { json, type LoaderFunctionArgs, type MetaFunction} from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import i18nextServer from "~/i18next.server";
+
+export async function loader({ request }: LoaderFunctionArgs) {
+  
+    const t = await i18nextServer.getFixedT(request);
+  
+    const translations = {
+        title: t('pages.landingDuo.title'),
+        description: t('<pages className="landingDuo"></pages>description'),
+    }
+  
+    return json({ translations });
+  }
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+
+    if (!data) return  []
+
+    return [
+        { title: data.translations.title },
+        { name: "description", content: data.translations.description },
+    ];
+};
 
 export default function LandingDuo() {
 
+	const translations = useLoaderData<typeof loader>().translations
+
   	return (
 		<div>
+			<h1 className="font-bold text-xl self-center">{translations.title}</h1>
 			<div className="flex flex-col xl:flex-row gap-4 justify-center items-center mb-4 flex-1">
 				<Card className="bg-bleu-pale/20 h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="https://www.roblox.com/games/5984084686/Improvisondon" target="_blank" rel="noreferrer">
 					<CardHeader className="justify-center">

@@ -18,7 +18,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
       landingAbout: t('pages.landingAbout.title'),
       landingDuo: t('pages.landingDuo.title'),
       landingKnowMore: t('pages.landingKnowMore.title'),
-      soloIndex: t('pages.soloIndex.title'),
+      soloIndex: t('pages.soloGame.title'),
     }
   
     return json({ title, description, pagesTranslatedTitle });
@@ -52,7 +52,7 @@ export default function LandingLayout() {
     },
     {
         name: pagesTranslatedTitle.soloIndex,
-        link: "/solo"
+        link: "/solo/game"
     },
     {
         name: pagesTranslatedTitle.landingDuo,

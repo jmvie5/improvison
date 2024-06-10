@@ -55,7 +55,7 @@ const PentaMin = {
     },
     freeImprov: {
         name: "freeImprov",
-        title: "1.1.2 : Gamme pentatonique majeure : Improvisation libre",
+        title: "1.2.2 : Gamme pentatonique mineure : Improvisation libre",
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <p>
@@ -102,7 +102,7 @@ const PentaMin = {
     },
     repertoireImprov: {
         name: "repertoireImprov",
-        title: "1.1.3 : Gamme pentatonique mineure : Improvisation sur Mr. P.C.",
+        title: "1.2.3 : Gamme pentatonique mineure : Improvisation sur Mr. P.C.",
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <h2>Intégrons maintenant cette nouvelle connaissance dans le répertoire.</h2>

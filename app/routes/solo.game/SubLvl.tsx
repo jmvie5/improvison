@@ -5,8 +5,9 @@ import { AudioRecorder } from "react-audio-voice-recorder";
 import transpose, { transposeProps } from "../../utils/transposition";
 // import UserInterface from "./userComponents/UserInterface";
 // import authService from "../services/authService";
-import { Button } from "@nextui-org/react";
+import { Button, Chip } from "@nextui-org/react";
 import { SubLvlInterface } from "./levels/types";
+import { CheckIcon } from "@heroicons/react/24/outline";
 
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db';
@@ -35,29 +36,13 @@ const SubLvl = forwardRef(function SubLvl({ name, title, description, transposit
     const [audioUrl, setAudioUrl] = useState("");
     const [audioBlob, setAudiBlob] = useState<Blob>()
     // const [playerKey, _setPlayerKey] = useState("C");
-
+    const [showSaved, setShowSaved] = useState(false)
 
     useImperativeHandle(ref, () => {
 
         return {
-            async saveAudioToProfile() {
-                try {
-                    
-                    if (audioBlob) {
-                        const newRecordingId = await db.recordings.add({
-                            audioBlob: audioBlob,
-                            levelName: title,
-                        });
-                        console.log(`Recording successfully added. Got id ${newRecordingId}.`)
-                        removeAudio();
-                    } else {
-                        console.warn('No Blob!')
-                    }
-                        
-                } catch (error) {
-                    console.warn('Error when intereacting with db')
-                }
-            }
+            saveAudioToProfile,
+            removeAudio
         }
     })
 
@@ -117,6 +102,11 @@ const SubLvl = forwardRef(function SubLvl({ name, title, description, transposit
         drawVf()
     }, [vfProps, transposition])
 
+    useEffect(() => {
+        removeAudio();
+        setShowSaved(false);
+    }, [name])
+
     function clearVf() {
         const staff = document.getElementById("vf");
         while (staff?.hasChildNodes()) {
@@ -145,6 +135,27 @@ const SubLvl = forwardRef(function SubLvl({ name, title, description, transposit
             audioDiv.removeChild(audioDiv.lastChild!);
         }
         setAudioUrl("");
+    }
+
+    async function saveAudioToProfile(remove:boolean) {
+        try {
+            
+            if (audioBlob) {
+                const newRecordingId = await db.recordings.add({
+                    audioBlob: audioBlob,
+                    levelName: title,
+                });
+                console.log(`Recording successfully added. Got id ${newRecordingId}.`)
+                if (remove) {
+                    removeAudio();
+                }
+            } else {
+                console.warn('No Blob!')
+            }
+                
+        } catch (error) {
+            console.warn('Error when intereacting with db')
+        }
     }
 
     return (
@@ -192,13 +203,19 @@ const SubLvl = forwardRef(function SubLvl({ name, title, description, transposit
 
                                 <div className="">
                                     <div id="recorded-audio"></div>
-                                    {audioUrl !== "" ? (
-                                        <Button onClick={removeAudio} className="btn-primary mt-2">
+                                    {audioUrl !== "" && 
+
+                                        <Button 
+                                            onPress={() => {
+                                                removeAudio();
+                                                setShowSaved(false);
+                                            }} 
+                                            className="btn-primary mt-2"
+                                        >
                                             Effacer l'enregistrement
                                         </Button>
-                                    ) : (
-                                        <></>
-                                    )}
+
+                                    }
                                 </div>
                             </div>
                         ) : (
@@ -215,6 +232,28 @@ const SubLvl = forwardRef(function SubLvl({ name, title, description, transposit
                         ) : (
                             <></>
                         )}
+                        {audioUrl !== "" && 
+                            <div className="flex col-start-1">
+
+                                <Button 
+                                    onPress={() => {
+                                        saveAudioToProfile(false)
+                                        setShowSaved(true)
+                                    }} 
+                                    className="btn-primary mx-2 ">
+                                    Sauvegarder
+                                </Button>
+                                {showSaved &&       
+                                    <Chip
+                                        className="self-center"
+                                        color="success"
+                                    >
+                                        <CheckIcon className="w-8 p-1" />
+                                    </Chip>
+                                }
+
+                            </div>
+                        }
                     </div>
                     {/* <div className="max-w-xs my-4 min-w-full">
                         <Metronome

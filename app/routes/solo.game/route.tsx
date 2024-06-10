@@ -11,6 +11,9 @@ import MajorScale from './levels/tutorial/MajorScale'
 import TargetNotes from "./levels/lvl2/TargetNotes";
 import { Button } from "@nextui-org/react";
 import { SubLvlInterface, LevelInterface } from "./levels/types";
+import { ArrowDownIcon } from "@heroicons/react/24/outline";
+import { useLiveQuery } from 'dexie-react-hooks';
+import { db } from '../../db';
 
 import {
     json,
@@ -20,16 +23,55 @@ import {
 import { useLoaderData } from "@remix-run/react";
 import { localParams } from "../../cookies.server";
 import MinorScale from "./levels/tutorial/MinorScale";
+import i18nextServer from "~/i18next.server";
+
 
 export async function loader({ request }: LoaderFunctionArgs) {
 	const cookieHeader = request.headers.get("Cookie");
 	const cookie = (await localParams.parse(cookieHeader)) || { transposition: 'C' };
-	return json({ transposition: cookie.transposition });
+
+    const t = await i18nextServer.getFixedT(request);
+  
+    const translations = {
+        title: t('pages.soloGame.title'),
+        description: t('pages.soloGame.description'),
+        description2: t('pages.soloGame.index.description2'),
+        presentation: t('pages.soloGame.index.presentation'),
+        exploration: t('pages.soloGame.index.exploration'),
+        and : t('pages.soloGame.index.and'),
+        integration: t('pages.soloGame.index.integration'),
+        description3: t('pages.soloGame.index.description3'),
+        playOnline: t('pages.soloGame.index.playOnline'),
+        playOnlineDesc: t('pages.soloGame.index.playOnlineDesc'),
+
+    }
+
+	return json({ transposition: cookie.transposition, translations:translations });
 }
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+
+    if (!data) return  []
+
+    return [
+        { title: data.translations.title },
+        { name: "description", content: data.translations.description },
+    ];
+};
+
+/*
+ * TODO
+    titres des niveaux présentation, exploration et intégration.
+    canvas musique toujours meme taille avec les boutons enregistrer et nouveau motif intégré ; bg-white, w-[50%]
+    fleches prog des niveaux défilement vers le bas
+    soloIndx dans game
+ * 
+ */
 
 export default function SoloGame() {
 
-    const { transposition } = useLoaderData<typeof loader>();
+    const { transposition, translations } = useLoaderData<typeof loader>();
+    const recordings = useLiveQuery(() => db.recordings.toArray());
 
     /* Page principale du jeu
     
@@ -57,6 +99,25 @@ export default function SoloGame() {
         TargetNotes
     ];
 
+    function isSubLevelCompleted(subLvlTitle:string) {
+
+        if (!recordings) return false
+
+        console.log(subLvlTitle)
+
+        for (let i = 0; i < recordings.length; i++) {
+
+            const r = recordings[i]
+
+            if (r.levelName === subLvlTitle) {
+                return true
+            }
+
+        }
+
+        return false
+    }
+
     return (
         <div className="flex flex-col grow justify-between">
             {isMenu ? (
@@ -76,23 +137,43 @@ export default function SoloGame() {
                             {Guide.name}
                         </Button>
                     </div> */}
+                    <div className='flex flex-col gap-2 max-w-[800px] self-center'>
+                        <h2 className="text-4xl font-bold self-center pb-2">{translations.title}</h2>
+                        <p className=''>
+                            {translations.description}
+                        </p>
+                        <p>
+                            {translations.description2}<span className='font-bold'>{translations.presentation}</span>, <span className='font-bold'>{translations.exploration}</span> {translations.and} <span className='font-bold'>{translations.integration}</span>.
+                        </p>
+                        <p>
+                            {translations.description3}
+                        </p>
+                        <h3 className='text-xl font-bold'>{translations.playOnline}</h3>
+                        <p>
+                            {translations.playOnlineDesc}
+                        </p>
+                    </div>
                     
                     <div className="self-center text-4xl font-bold pt-4">Niveaux</div>
                     <div className="flex flex-col gap-2">
-                        {levelList.map((level) => (
-                            <Button
-                                size="lg"
-                                key={level.name}
-                                className="max-w-xs"
-                                onPress={() => {
-                                    setIsMenu(false);
-                                    setCurrentLvl(level);
-                                    setCurrentSubLvl(level.intro);
-                                }}
-                                disabled={level.locked}
-                            >
-                                {level.name}
-                            </Button>
+                        {levelList.map((level, index) => (
+                            <>
+                                <Button
+                                    size="lg"
+                                    key={level.name}
+                                    className="max-w-xs self-center"
+                                    onPress={() => {
+                                        setIsMenu(false);
+                                        setCurrentLvl(level);
+                                        setCurrentSubLvl(level.intro);
+                                    }}
+                                    disabled={level.locked}
+                                >
+                                    {level.name}
+                                </Button>
+                                {index !== levelList.length - 1 && <ArrowDownIcon className="w-8 self-center"/>}
+                            </>
+                            
                         ))}
                     </div>
                 </div>
@@ -129,8 +210,7 @@ export default function SoloGame() {
                             currentSubLvl.name !== "intro" &&
                                 <Button
                                     onPress={() => {
-                                        if (currentSubLvl.name === "intro") {
-                                        } else if (currentSubLvl.name === "freeImprov") {
+                                        if (currentSubLvl.name === "freeImprov") {
                                             setCurrentSubLvl(currentLvl.intro);
                                         } else if (currentSubLvl.name === "repertoireImprov") {
                                             setCurrentSubLvl(currentLvl.freeImprov);
@@ -144,58 +224,84 @@ export default function SoloGame() {
                             currentSubLvl.name === "intro" &&
                             <Button
                                 onPress={() => {
-                                    if (currentSubLvl.name === "intro") {
-                                        setCurrentSubLvl(currentLvl.freeImprov);
-                                    } else if (currentSubLvl.name === "freeImprov") {
-                                        setCurrentSubLvl(currentLvl.repertoireImprov);
-                                    } else if (currentSubLvl.name === "repertoireImprov") {
-                                    }
+
+                                    setCurrentSubLvl(currentLvl.freeImprov);
+
                                 }}
                             >
                                 Prochaine étape
                             </Button>
                         }
                         {currentSubLvl.name === "freeImprov" &&
-                            <MyModal
-                                title="Prochaine étape"
-                                content="Prêt à soumettre votre audio? Il sera disponible dans votre profil."
-                                isAction={true}
-                                confirmatonButton="Oui!"
-                                cancelButton="Non! Je ne suis pas prêt."
-                                onConfirmation={() => {
-                                    const audioDiv = document.getElementById("recorded-audio");
-                                    if (audioDiv?.hasChildNodes()) {
-                                        if (subLevelRef.current) {
-                                            subLevelRef.current.saveAudioToProfile()
-                                        }
-                                        setCurrentSubLvl(currentLvl.repertoireImprov);
-                                    } else {
-                                        window.alert("Vous n'avez aucun audio enregistré.");
-                                    }
-                                }}
-                            />
+                            <>
+                                {isSubLevelCompleted(currentSubLvl.title) ? (
+                                    <Button
+                                        onPress={() => {
+                                            if (subLevelRef.current) {
+                                                subLevelRef.current.removeAudio()
+                                            }
+                                            setCurrentSubLvl(currentLvl.repertoireImprov);
+                                        }}
+                                    >
+                                        Prochaine étape
+                                    </Button>
+                                ) : (
+                                    <MyModal
+                                        title="Prochaine étape"
+                                        content="Prêt à soumettre votre audio? Il sera disponible dans votre profil."
+                                        isAction={true}
+                                        confirmatonButton="Oui!"
+                                        cancelButton="Non! Je ne suis pas prêt."
+                                        onConfirmation={() => {
+                                            const audioDiv = document.getElementById("recorded-audio");
+                                            if (audioDiv?.hasChildNodes()) {
+                                                if (subLevelRef.current) {
+                                                    subLevelRef.current.saveAudioToProfile(true)
+                                                }
+                                                setCurrentSubLvl(currentLvl.repertoireImprov);
+                                            } else {
+                                                window.alert("Vous n'avez aucun audio enregistré.");
+                                            }
+                                        }}
+                                    />
+                                )}
+                            </>
                         }
                         {currentSubLvl.name === "repertoireImprov" &&
-                            <MyModal
-                                title="Niveau suivant"
-                                content="Vous avez complété les trois sous-exercices et êtes pret à passer au niveau suivant?"
-                                isAction={true}
-                                confirmatonButton="Oui! Je suis prêt pour le niveau suivant."
-                                cancelButton="Non! Je ne suis pas prêt."
-                                onConfirmation={() => {
-                                    const audioDiv = document.getElementById("recorded-audio");
-                                    console.log(audioDiv);
-                                    if (audioDiv?.hasChildNodes()) {
-                                        if (subLevelRef.current) {
-                                            subLevelRef.current.saveAudioToProfile()
-                                        }
-                                        window.alert("Niveau terminé!");
-                                        setIsMenu(true);
-                                    } else {
-                                        window.alert("Vous n'avez aucun audio enregistré.");
-                                    }
-                                }}
-                            />
+                            <>
+                                {isSubLevelCompleted(currentSubLvl.title) ? (
+                                    <Button
+                                        onPress={() => {
+                                            if (subLevelRef.current) {
+                                                subLevelRef.current.removeAudio()
+                                            }
+                                            setIsMenu(true);
+                                        }}
+                                    >
+                                        Niveau suivant
+                                    </Button>
+                                ) : (
+                                    <MyModal
+                                        title="Niveau suivant"
+                                        content="Vous avez complété les trois sous-exercices et êtes pret à passer au niveau suivant?"
+                                        isAction={true}
+                                        confirmatonButton="Oui! Je suis prêt pour le niveau suivant."
+                                        cancelButton="Non! Je ne suis pas prêt."
+                                        onConfirmation={() => {
+                                            const audioDiv = document.getElementById("recorded-audio");
+                                            console.log(audioDiv);
+                                            if (audioDiv?.hasChildNodes()) {
+                                                if (subLevelRef.current) {
+                                                    subLevelRef.current.saveAudioToProfile(true)
+                                                }
+                                                setIsMenu(true);
+                                            } else {
+                                                window.alert("Vous n'avez aucun audio enregistré.");
+                                            }
+                                        }}
+                                    />
+                                )}
+                            </>                     
                         }
                     </div>
                     

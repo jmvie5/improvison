@@ -35,7 +35,7 @@ export default function MyModal({
                         {content}
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="warning" variant="light" onPress={() => {
+                        <Button color="warning" onPress={() => {
                             onClose()
                             if (onCancel !== undefined) {
                                 onCancel();

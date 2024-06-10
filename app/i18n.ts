@@ -15,9 +15,6 @@ import * as landingKnowMoreFR from './routes/_landing.know-more/translations/fr.
 import * as soloLayoutEN from './routes/solo/translations/en.json'
 import * as soloLayoutFR from './routes/solo/translations/fr.json'
 
-import * as soloIndexEN from './routes/solo._index/translations/en.json'
-import * as soloIndexFR from './routes/solo._index/translations/fr.json'
-
 import * as soloGameEN from './routes/solo.game/translations/en.json'
 import * as soloGameFR from './routes/solo.game/translations/fr.json'
 
@@ -52,7 +49,6 @@ export const resources = {
       landingDuo: landingDuoEN,
       landingKnowMore: landingKnowMoreEN,
       soloLayout: soloLayoutEN,
-      soloIndex: soloIndexEN,
       soloGame: soloGameEN,
       soloProfile: soloProfileEN
     }
@@ -72,7 +68,6 @@ export const resources = {
       landingDuo: landingDuoFR,
       landingKnowMore: landingKnowMoreFR,
       soloLayout: soloLayoutFR,
-      soloIndex: soloIndexFR,
       soloGame: soloGameFR,
       soloProfile: soloProfileFR
     }
