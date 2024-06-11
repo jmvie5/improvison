@@ -52,7 +52,7 @@ export default function SoloLayout() {
 	const matches = useMatches();
 
     return (
-        <div className="h-full flex flex-col">
+        <div className="flex flex-col">
             <div className=" flex flex-col md:flex-row gap-2 p-4 shadow-lg justify-between items-center">
                 
                 <div className="flex gap-8 ">

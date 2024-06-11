@@ -175,9 +175,9 @@ const SubLvl = forwardRef(function SubLvl({ name, title, description, transposit
                             )}px] place-self-center rounded`}
                         ></div>
                     </div>
-                    <div className="grid grid-cols-2 justify-between">
+                    <div className="grid grid-cols-2 gap-2 justify-between">
                         {name === "freeImprov" || name === "repertoireImprov" ? (
-                            <div className="flex flex-col gap-2 m-2">
+                            <div className="flex flex-col gap-2">
                                 <div className="rounded-full hover:ring ring-blue-900 w-fit">
                                     <AudioRecorder
                                         onRecordingComplete={addAudioElement}
@@ -210,7 +210,7 @@ const SubLvl = forwardRef(function SubLvl({ name, title, description, transposit
                                                 removeAudio();
                                                 setShowSaved(false);
                                             }} 
-                                            className="btn-primary mt-2"
+                                            className="btn-primary"
                                         >
                                             Effacer l'enregistrement
                                         </Button>
@@ -225,7 +225,7 @@ const SubLvl = forwardRef(function SubLvl({ name, title, description, transposit
                         {reRender ? (
                             <Button
                                 onClick={drawVf}
-                                className="btn-primary m-2 col-start-2 justify-self-end self-center"
+                                className="btn-primary col-start-2 justify-self-end self-center"
                             >
                                 Nouveau motif
                             </Button>
