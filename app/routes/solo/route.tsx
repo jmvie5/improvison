@@ -52,7 +52,7 @@ export default function SoloLayout() {
 	const matches = useMatches();
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col grow">
             <div className=" flex flex-col md:flex-row gap-2 p-4 shadow-lg justify-between items-center">
                 
                 <div className="flex gap-8 ">
@@ -72,7 +72,7 @@ export default function SoloLayout() {
 				</Form>
             </div>
 
-			<div className="flex flex-col grow w-full h-full bg-bleu-pale/20">
+			<div className="flex flex-col grow w-full bg-bleu-pale/20">
 				<Outlet/>
 			</div>
             

@@ -13,7 +13,7 @@ export class MySubClassedDexie extends Dexie {
   recordings!: Table<Recording>;
 
   constructor() {
-    super('myDatabase');
+    super('improvison');
     this.version(1).stores({
       recordings: '++id, audioBlob, levelName' // Primary key and indexed props
     });

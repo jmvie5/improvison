@@ -43,6 +43,32 @@ export async function loader({ request }: LoaderFunctionArgs) {
         description3: t('pages.soloGame.index.description3'),
         playOnline: t('pages.soloGame.index.playOnline'),
         playOnlineDesc: t('pages.soloGame.index.playOnlineDesc'),
+        levels: t('pages.soloGame.levels'),
+        lvlTitles : {
+            "1-1" : t('pages.soloGame.lvlTitles.1-1'),
+            "1-2" : t('pages.soloGame.lvlTitles.1-2'),
+            "1-3" : t('pages.soloGame.lvlTitles.1-3'),
+            "1-4" : t('pages.soloGame.lvlTitles.1-4'),
+            "1-5" : t('pages.soloGame.lvlTitles.1-5'),
+
+            "2-1" : t('pages.soloGame.lvlTitles.2-1')
+        } as {[key :string] : string},
+        buttons : {
+            newMotif : t('pages.soloGame.buttons.newMotif'),
+            backToMenu : t('pages.soloGame.buttons.backToMenu'),
+            nextStep : t('pages.soloGame.buttons.nextStep'),
+            back : t('pages.soloGame.buttons.back')
+        },
+        modal : {
+            titleNextStep : t('pages.soloGame.modal.titleNextStep'),
+            titleNextLevel : t('pages.soloGame.modal.titleNextLevel'),
+            contentNextStep : t('pages.soloGame.modal.contentNextStep'),
+            contentNextLevel : t('pages.soloGame.modal.contentNextLevel'),
+            confirmationButton : t('pages.soloGame.modal.confirmationButton'),
+            cancelButton : t('pages.soloGame.modal.cancelButton')
+        },
+
+        noAudioRecorded : t('pages.soloGame.noAudioRecorded')
 
     }
 
@@ -154,25 +180,28 @@ export default function SoloGame() {
                         </p>
                     </div>
                     
-                    <div className="self-center text-4xl font-bold pt-4">Niveaux</div>
+                    <div className="self-center text-4xl font-bold pt-4">{translations.levels}</div>
                     <div className="flex flex-col gap-2">
                         {levelList.map((level, index) => (
-                            <>
+                            <div key={level.id} className=" flex flex-col gap-2 max-w-xs items-center self-center">
                                 <Button
                                     size="lg"
                                     key={level.name}
-                                    className="max-w-xs self-center"
+                                    
                                     onPress={() => {
+                                        console.log('change lvl')
+                                        window.scrollTo({top:0})
                                         setIsMenu(false);
                                         setCurrentLvl(level);
                                         setCurrentSubLvl(level.intro);
+                                        
                                     }}
                                     disabled={level.locked}
                                 >
-                                    {level.name}
+                                    {translations.lvlTitles[level.url]}
                                 </Button>
-                                {index !== levelList.length - 1 && <ArrowDownIcon className="w-8 self-center"/>}
-                            </>
+                                {index !== levelList.length - 1 && <ArrowDownIcon className="w-8"/>}
+                            </div>
                             
                         ))}
                     </div>
@@ -185,6 +214,7 @@ export default function SoloGame() {
                     title={currentSubLvl.title}
                     description={currentSubLvl.description}
                     transposition={transposition}
+                    vfTitle={currentSubLvl.vfTitle}
                     vfProps={currentSubLvl.vfProps}
                     vf_w={currentSubLvl.vf_w}
                     vf_h={currentSubLvl.vf_h}
@@ -202,7 +232,7 @@ export default function SoloGame() {
                                 setIsMenu(true);
                             }}
                         >
-                            Retour au menu
+                            {translations.buttons.backToMenu}
                         </Button>
                     </div>
                     <div className="flex gap-2">
@@ -217,7 +247,7 @@ export default function SoloGame() {
                                         }
                                     }}
                                 >
-                                    Retour
+                                    {translations.buttons.back}
                                 </Button>
                         }
                         {
@@ -229,7 +259,7 @@ export default function SoloGame() {
 
                                 }}
                             >
-                                Prochaine étape
+                                {translations.buttons.nextStep}
                             </Button>
                         }
                         {currentSubLvl.name === "freeImprov" &&
@@ -243,15 +273,15 @@ export default function SoloGame() {
                                             setCurrentSubLvl(currentLvl.repertoireImprov);
                                         }}
                                     >
-                                        Prochaine étape
+                                        {translations.buttons.nextStep}
                                     </Button>
                                 ) : (
                                     <MyModal
-                                        title="Prochaine étape"
-                                        content="Prêt à soumettre votre audio? Il sera disponible dans votre profil."
+                                        title={translations.modal.titleNextStep}
+                                        content={translations.modal.contentNextStep}
                                         isAction={true}
-                                        confirmatonButton="Oui!"
-                                        cancelButton="Non! Je ne suis pas prêt."
+                                        confirmatonButton={translations.modal.confirmationButton}
+                                        cancelButton={translations.modal.cancelButton}
                                         onConfirmation={() => {
                                             const audioDiv = document.getElementById("recorded-audio");
                                             if (audioDiv?.hasChildNodes()) {
@@ -260,7 +290,7 @@ export default function SoloGame() {
                                                 }
                                                 setCurrentSubLvl(currentLvl.repertoireImprov);
                                             } else {
-                                                window.alert("Vous n'avez aucun audio enregistré.");
+                                                window.alert(translations.noAudioRecorded);
                                             }
                                         }}
                                     />
@@ -282,11 +312,11 @@ export default function SoloGame() {
                                     </Button>
                                 ) : (
                                     <MyModal
-                                        title="Niveau suivant"
-                                        content="Vous avez complété les trois sous-exercices et êtes pret à passer au niveau suivant?"
+                                        title={translations.modal.titleNextLevel}
+                                        content={translations.modal.contentNextLevel}
                                         isAction={true}
-                                        confirmatonButton="Oui! Je suis prêt pour le niveau suivant."
-                                        cancelButton="Non! Je ne suis pas prêt."
+                                        confirmatonButton={translations.modal.confirmationButton}
+                                        cancelButton={translations.modal.cancelButton}
                                         onConfirmation={() => {
                                             const audioDiv = document.getElementById("recorded-audio");
                                             console.log(audioDiv);
@@ -296,7 +326,7 @@ export default function SoloGame() {
                                                 }
                                                 setIsMenu(true);
                                             } else {
-                                                window.alert("Vous n'avez aucun audio enregistré.");
+                                                window.alert(translations.noAudioRecorded);
                                             }
                                         }}
                                     />

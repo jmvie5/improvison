@@ -51,7 +51,7 @@ export default function App() {
       </head>
       <body>
         <NextUIProvider>
-          <div className="bg-bleu-fonce h-dvh text-white font-josef text-lg flex flex-col overflow-scroll">
+          <div className="bg-bleu-fonce text-white font-josef text-lg flex flex-col overflow-scroll min-h-dvh">
             <Outlet />
           </div>
           <ScrollRestoration />

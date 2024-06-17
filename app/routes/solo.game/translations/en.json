@@ -11,5 +11,34 @@
         "description3" : "In its final form, players will progress through levels, in a path that is both flexible and sequenced, to hone their improvisation skills.",
         "playOnline" : "Play Online",
         "playOnlineDesc" : "A prototype of the game, with some accessible levels, is available for free here."
-    }
+    },
+     
+    "levels" : "Levels",
+    "lvlTitles" : {
+        "1-1" : "Major Pentatonic Scale",
+        "1-2" : "Minor Pentatonic Scale",
+        "1-3" : "Motifs",
+        "1-4" : "Major Scale",
+        "1-5" : "Minor Scale",
+
+        "2-1" : "Target Notes"
+    },
+
+    "buttons" : {
+        "newMotif" : "New motif",
+        "backToMenu" : "Back to main menu",
+        "nextStep" : "Next step",
+        "back" : "Back"
+    },
+
+    "modal" : {
+        "titleNextStep" : "Next step",
+        "titleNextLevel" : "Next level",
+        "contentNextStep" : "Ready to submit your audio? It will be available in your profile.",
+        "contentNextLevel" : "You've completed the three sub-exercises and are ready to move on to the next level?",
+        "confirmationButton" : "Yes!",
+        "cancelButton" : "No! I'm not ready."
+    },
+
+    "noAudioRecorded" : "You have no recorded audio."
 }

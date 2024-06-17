@@ -45,7 +45,7 @@ const Motifs = {
 
             </div>
         ),
-
+        vfTitle: "Motif aléatoire",
         vfProps: {
             template: randomRhythmGenerator,
             keySignature: "C",

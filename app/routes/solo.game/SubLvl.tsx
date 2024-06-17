@@ -1,6 +1,6 @@
 import { ReactElement, useEffect, useState, useCallback, forwardRef, useImperativeHandle } from "react";
 import { Factory } from "vexflow";
-import { AudioRecorder } from "react-audio-voice-recorder";
+import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
 // import Metronome from "@kevinorriss/react-metronome";
 import transpose, { transposeProps } from "../../utils/transposition";
 // import UserInterface from "./userComponents/UserInterface";
@@ -11,6 +11,8 @@ import { CheckIcon } from "@heroicons/react/24/outline";
 
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db';
+import { t } from "i18next";
+import { twMerge } from 'tailwind-merge'
 
 
 type SubLvlProps = {
@@ -18,6 +20,7 @@ type SubLvlProps = {
     title: string;
     description: (transposition?:string) => JSX.Element;
     transposition: string;
+    vfTitle?: string;
     vfProps: {
         template: Function;
         keySignature: string;
@@ -31,12 +34,14 @@ type SubLvlProps = {
     reRender: boolean
 }
 
-const SubLvl = forwardRef(function SubLvl({ name, title, description, transposition, vfProps, vf_w, vf_h, reRender }: SubLvlProps, ref) {
+const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, transposition, vfProps, vf_w, vf_h, reRender }: SubLvlProps, ref) {
 
     const [audioUrl, setAudioUrl] = useState("");
     const [audioBlob, setAudiBlob] = useState<Blob>()
     // const [playerKey, _setPlayerKey] = useState("C");
     const [showSaved, setShowSaved] = useState(false)
+
+    const recorderControls = useAudioRecorder({noiseSuppression:false}, (err) => console.table(err), {audioBitsPerSecond: 128000})
 
     useImperativeHandle(ref, () => {
 
@@ -159,51 +164,48 @@ const SubLvl = forwardRef(function SubLvl({ name, title, description, transposit
     }
 
     return (
-        <div className="flex flex-col xl:flex-row mb-8 p-4 gap-4 justify-around">
+        <div className="grid grid-cols-1 2xl:grid-cols-3 h-full  mb-8 p-4 gap-4 justify-around">
             <div>
                 <h2 className="mb-2 font-semibold">{title}</h2>
                 {description(transposition)}
             </div>
 
-            <div className="flex flex-col items-center rounded-sm">
-                <div>
-                    <div>
-                        <div
-                            id="vf"
-                            className={`bg-slate-200 mt-2 w-[${String(vf_w)}px] h-[${String(
-                                vf_h,
-                            )}px] place-self-center rounded`}
-                        ></div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2 justify-between">
-                        {name === "freeImprov" || name === "repertoireImprov" ? (
-                            <div className="flex flex-col gap-2">
-                                <div className="rounded-full hover:ring ring-blue-900 w-fit">
+            <div className="col-span-2 flex flex-col items-center rounded w-full h-fit bg-slate-200 ring-2  ring-slate-200 border-bleu-pale border-3 float-right">
+                <div className="flex flex-col gap-2 w-full h-full roudnded-sm p-4">
+                    <span className="text-black text-xl font-semibold">{vfTitle}</span>
+                    <div
+                        id="vf"
+                        className={`mt-2 w-full h-full place-self-center rounded`}
+                    />
+                    <div className="flex flex-col gap-2 justify-between">
+                        <div className="flex flex-col gap-2">
+                            <div className="flex justify-between w-full border flex-wrap gap-y-4">
+
+                                <div className={twMerge(" hover:ring ring-blue-900 w-fit", recorderControls.isRecording ? "rounded-xl" : "rounded-full")}>
                                     <AudioRecorder
-                                        onRecordingComplete={addAudioElement}
-                                        audioTrackConstraints={{
-                                            noiseSuppression: true,
-                                            echoCancellation: true,
-                                            // autoGainControl,
-                                            // channelCount,
-                                            // deviceId,
-                                            // groupId,
-                                            // sampleRate,
-                                            // sampleSize,
-                                        }}
-                                        onNotAllowedOrFound={(err) => console.table(err)}
+                                        onRecordingComplete={(blob) => addAudioElement(blob)}
+                                        recorderControls={recorderControls}
                                         downloadOnSavePress={false}
                                         downloadFileExtension="webm"
-                                        mediaRecorderOptions={{
-                                            audioBitsPerSecond: 128000,
-                                        }}
                                         showVisualizer={true}
                                     />
                                 </div>
+                                {reRender ? (
+                                    <Button
+                                        onClick={drawVf}
+                                        className="btn-primary col-start-2 justify-self-end self-center"
+                                    >
+                                        {t('pages.soloGame.buttons.newMotif')}
+                                    </Button>
+                                ) : (
+                                    <></>
+                                )}
+                            </div>
+                            <div className="flex flex-col gap-2 w-fit">
+                                <div id="recorded-audio"></div>
+                                {audioUrl !== "" && 
 
-                                <div className="">
-                                    <div id="recorded-audio"></div>
-                                    {audioUrl !== "" && 
+                                    <div className={twMerge("grid grid-cols-2 w-full", showSaved ? "" : "")}>
 
                                         <Button 
                                             onPress={() => {
@@ -214,46 +216,30 @@ const SubLvl = forwardRef(function SubLvl({ name, title, description, transposit
                                         >
                                             Effacer l'enregistrement
                                         </Button>
-
-                                    }
-                                </div>
-                            </div>
-                        ) : (
-                            <></>
-                        )}
-
-                        {reRender ? (
-                            <Button
-                                onClick={drawVf}
-                                className="btn-primary col-start-2 justify-self-end self-center"
-                            >
-                                Nouveau motif
-                            </Button>
-                        ) : (
-                            <></>
-                        )}
-                        {audioUrl !== "" && 
-                            <div className="flex col-start-1">
-
-                                <Button 
-                                    onPress={() => {
-                                        saveAudioToProfile(false)
-                                        setShowSaved(true)
-                                    }} 
-                                    className="btn-primary mx-2 ">
-                                    Sauvegarder
-                                </Button>
-                                {showSaved &&       
-                                    <Chip
-                                        className="self-center"
-                                        color="success"
-                                    >
-                                        <CheckIcon className="w-8 p-1" />
-                                    </Chip>
+                                        <div className="flex flex-col sm:flex-row items-center gap-2">
+                                            <Button 
+                                                onPress={() => {
+                                                    saveAudioToProfile(false)
+                                                    setShowSaved(true)
+                                                }} 
+                                                className="btn-primary mx-2 ">
+                                                Sauvegarder
+                                            </Button>
+                                            {showSaved &&       
+                                            <Chip
+                                                className="self-center row-span-2"
+                                                color="success"
+                                            >
+                                                <CheckIcon className="w-8 p-1" />
+                                            </Chip>
+                                        }
+                                        </div>
+                                    </div>
                                 }
-
                             </div>
-                        }
+                        </div>
+
+
                     </div>
                     {/* <div className="max-w-xs my-4 min-w-full">
                         <Metronome

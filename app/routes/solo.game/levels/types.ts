@@ -4,6 +4,7 @@ interface SubLvlInterface {
     name: string;
     title: string;
     description: (transposition?: string) => JSX.Element;
+    vfTitle?: string;
     vfProps: {
         template: Function;
         keySignature: string;
