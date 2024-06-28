@@ -9,7 +9,7 @@ import PentaMin from "./levels/tutorial/PentaMin";
 import Motifs from "./levels/tutorial/Motifs";
 import MajorScale from './levels/tutorial/MajorScale'
 import TargetNotes from "./levels/lvl2/TargetNotes";
-import { Button } from "@nextui-org/react";
+import { Button, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
 import { SubLvlInterface, LevelInterface } from "./levels/types";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -99,6 +99,8 @@ export default function SoloGame() {
     const { transposition, translations } = useLoaderData<typeof loader>();
     const recordings = useLiveQuery(() => db.recordings.toArray());
 
+    const errorModal = useDisclosure()
+
     /* Page principale du jeu
     
     Une fois log in, les utilisateurs voient le menu de tous les niveaux, puis ils choisissent quel niveau ouvrir, ce qui cache le menu et affiche le component lié au niveau.
@@ -146,6 +148,25 @@ export default function SoloGame() {
 
     return (
         <div className="flex flex-col grow justify-between">
+            <Modal isOpen={errorModal.isOpen} onOpenChange={errorModal.onOpenChange} size="xl">
+                <ModalContent>
+                    <ModalHeader>Error</ModalHeader>
+                    <ModalBody>
+                        {translations.noAudioRecorded}
+                    </ModalBody>
+                    <ModalFooter>
+                            <Button
+                                color="success"
+                                onPress={() => {
+                                    errorModal.onClose()
+                                }}
+                            >
+                                Ok
+                            </Button>
+                    </ModalFooter>
+                </ModalContent>
+                
+            </Modal>
             {isMenu ? (
                 <div className="flex flex-col gap-4 p-4">
                     {/* <div className="flex gap-4">
@@ -290,7 +311,7 @@ export default function SoloGame() {
                                                 }
                                                 setCurrentSubLvl(currentLvl.repertoireImprov);
                                             } else {
-                                                window.alert(translations.noAudioRecorded);
+                                                errorModal.onOpen()
                                             }
                                         }}
                                     />
@@ -326,7 +347,7 @@ export default function SoloGame() {
                                                 }
                                                 setIsMenu(true);
                                             } else {
-                                                window.alert(translations.noAudioRecorded);
+                                                errorModal.onOpen()
                                             }
                                         }}
                                     />

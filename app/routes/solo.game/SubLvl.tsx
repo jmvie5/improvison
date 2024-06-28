@@ -1,7 +1,6 @@
 import { ReactElement, useEffect, useState, useCallback, forwardRef, useImperativeHandle } from "react";
 import { Factory } from "vexflow";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
-// import Metronome from "@kevinorriss/react-metronome";
 import transpose, { transposeProps } from "../../utils/transposition";
 // import UserInterface from "./userComponents/UserInterface";
 // import authService from "../services/authService";
@@ -170,8 +169,8 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
                 {description(transposition)}
             </div>
 
-            <div className="col-span-2 flex flex-col items-center rounded w-full h-fit bg-slate-200 ring-2  ring-slate-200 border-bleu-pale border-3 float-right">
-                <div className="flex flex-col gap-2 w-full h-full roudnded-sm p-4">
+            <div className="col-span-2 flex flex-col w-full h-fit ">
+                <div className="flex flex-col gap-2 w-full h-full bg-slate-200 ring-2  ring-slate-200 border-bleu-pale border-3 roudnded-sm p-4">
                     <span className="text-black text-xl font-semibold">{vfTitle}</span>
                     <div
                         id="vf"
@@ -241,15 +240,12 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
 
 
                     </div>
-                    {/* <div className="max-w-xs my-4 min-w-full">
-                        <Metronome
-                            playPauseStyle={{ backgroundColor: "rgb(23 37 84)" }}
-                            plusStyle={{ backgroundColor: "rgb(23 37 84)" }}
-                            minusStyle={{ backgroundColor: "rgb(23 37 84)" }}
-                            handleStyle={{ backgroundColor: "rgb(23 37 84)" }}
-                        />
-                    </div> */}
                 </div>
+                <iframe 
+                    src="https://guitarapp.com/metronome.html?embed=true&tempo=120&timeSignature=2&pattern=0" 
+                    title="Online Metronome" 
+                    className="h-[520px] w-[360px] mt-4 self-center"
+                /> 
             </div>
         </div>
     );
