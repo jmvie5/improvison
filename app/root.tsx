@@ -17,32 +17,56 @@ import {
   type LoaderFunctionArgs 
 } from "@remix-run/node"; 
 
-import i18nServer, { localeCookie } from "./i18next.server";
+import i18nServer, { lngCookie } from "./i18next.server";
 import { useChangeLanguage } from "remix-i18next/react";
+import { useTranslation } from "react-i18next";
 
 import stylesheet from "./tailwind.css?url";
 
-// export const handle = { i18n: ["translation"] };
+export const handle = { i18n: ["translation"] };
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const locale = await i18nServer.getLocale(request);
   return json(
     { locale },
-    { headers: { "Set-Cookie": await localeCookie.serialize(locale) } },
+    { headers: { "Set-Cookie": await lngCookie.serialize(locale) } },
   );
 }
 
 export const links: LinksFunction = () => [
+  {
+    rel: "apple-touch-icon",
+    sizes: "180x180",
+    href: "/apple-touch-icon.png",
+  },
+  {
+    rel: "icon",
+    type: "image/png",
+    sizes: "32x32",
+    href: "/favicon-32x32.png",
+  },
+  {
+    rel: "icon",
+    type: "image/png",
+    sizes: "16x16",
+    href: "/favicon-16x16.png",
+  },
+  {
+    rel: "icon",
+    type: "image/x-icon",
+    href: "/favicon.ico",
+  },
   { rel: "stylesheet", href: stylesheet },
 ];
 
 export default function App() {
 
   const { locale } = useLoaderData<typeof loader>();
+  let { i18n } = useTranslation();
   useChangeLanguage(locale);
 
   return (
-    <html lang={locale ?? "en"}>
+    <html lang={locale} dir={i18n.dir()}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

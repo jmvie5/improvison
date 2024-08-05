@@ -1,24 +1,23 @@
-import { Outlet, useMatches, Form, useLoaderData } from "@remix-run/react";
-import { Image } from "@nextui-org/react";
+import { Outlet, Form, useLoaderData } from "@remix-run/react";
 import { improvison_accueil } from "~/static/images";
-import {Button, ButtonGroup, Link} from "@nextui-org/react";
+import {Button, ButtonGroup, Link, Image} from "@nextui-org/react";
 import {
     json,
-	redirect,
     type LoaderFunctionArgs,
     type MetaFunction,
-	type ActionFunctionArgs
   } from "@remix-run/node";
-import { localParams } from "~/cookies.server";
+import { useState } from "react";
+
 
 
 export async function loader({ request }: LoaderFunctionArgs) {
-	const cookieHeader = request.headers.get("Cookie");
-	const cookie = (await localParams.parse(cookieHeader)) || { transposition: 'C' };
     const title = 'Improvison - Solo'
     const description = "Jeu d'apprentissage autonome de l'improvisation musicale"
-	return json({ transposition: cookie.transposition, title, description });
+	const translations = ""
+
+	return json({ title, description, translations });
 }
+
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
@@ -30,27 +29,13 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     ];
   };
 
-export async function action({ request }: ActionFunctionArgs) {
-	const cookieHeader = request.headers.get("Cookie");
-	const cookie =
-		(await localParams.parse(cookieHeader)) || {};
-	const bodyParams = await request.formData();
-
-	cookie.transposition = bodyParams.get('transposition')
-	const redirectTo = bodyParams.get('redirectTo')?.toString()
-
-	return redirect(redirectTo!, {
-		headers: {
-			"Set-Cookie": await localParams.serialize(cookie),
-		},
-	});
-}
-
 
 export default function SoloLayout() {
 
-	const matches = useMatches();
+	const data = useLoaderData<typeof loader>()
 
+	const [currentTransposition, setCurrentTransposition] = useState<string>("C")
+	
     return (
         <div className="flex flex-col grow">
             <div className=" flex flex-col md:flex-row gap-2 p-4 shadow-lg justify-between items-center">
@@ -60,20 +45,22 @@ export default function SoloLayout() {
                     <Link href="/solo/game" className="text-white hover:text-neutral text-xl">Jeu</Link>
 					<Link href="/solo/profile" className="text-white hover:text-neutral text-xl">Profil</Link>
                 </div>
+
+				<div className="flex items-center gap-2">
+					<Form className="flex gap-2 self-center mt-4">
+						<ButtonGroup>
+							<Button onPress={() => setCurrentTransposition("C")}>C</Button>
+							<Button onPress={() => setCurrentTransposition("Bb")}>Bb</Button>
+							<Button onPress={() => setCurrentTransposition("Eb")}>Eb</Button>
+						</ButtonGroup>
+                    </Form>
+
+				</div>
                 
-                <Form method="post">
-					<ButtonGroup>
-						<Button value="C" name="transposition" type="submit">C</Button>
-						<Button value="Bb" name="transposition" type="submit">Bb</Button>
-						<Button value="Eb" name="transposition" type="submit">Eb</Button>
-					</ButtonGroup>
-					<input name="redirectTo" value={matches[matches.length - 1].pathname} hidden readOnly/>
-					
-				</Form>
             </div>
 
 			<div className="flex flex-col grow w-full bg-bleu-pale/20">
-				<Outlet/>
+				<Outlet context={currentTransposition}/>
 			</div>
             
       

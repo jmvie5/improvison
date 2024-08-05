@@ -1,25 +1,60 @@
-import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db';
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 
 import type { LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, ClientLoaderFunctionArgs, useOutletContext } from "@remix-run/react";
 import { json } from "@remix-run/node";
-import { localParams } from "~/cookies.server";
+import i18nextServer from '../../i18next.server';
 
 export async function loader({ request }: LoaderFunctionArgs) {
-	const cookieHeader = request.headers.get("Cookie");
-	const cookie = (await localParams.parse(cookieHeader)) || { transposition: 'C' };
-	return json({ transposition: cookie.transposition });
+	const t = await i18nextServer.getFixedT(request);
+	
+    const title = t("pages.soloProfile.title")
+    const description = t("pages.soloProfile.description");
+    const recordings = t("pages.soloProfile.recordings");
+
+    const translations = {
+        recordings: recordings,
+    }
+
+
+	return json({ title, description, translations });
 }
+
+
+export async function clientLoader({
+    serverLoader,
+  }: ClientLoaderFunctionArgs) {
+
+    const [serverData, clientData] = await Promise.all([
+        serverLoader<{title: string, description:string, translations:{recordings: string}, transposition: string}>(),
+        {
+            recordings : await db.recordings.toArray(),
+        },
+      ]);
+
+      return {
+        title: serverData.title,
+        description: serverData.description,
+        translations: serverData.translations,
+        transposition: serverData.transposition,
+        recordings : clientData.recordings,
+      };
+}
+
+clientLoader.hydrate = true
 
 
 export default function SoloProfile() {
 
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
-    const { transposition } = useLoaderData<typeof loader>();
-    const recordings = useLiveQuery(() => db.recordings.toArray());
+    const { recordings } = useLoaderData<typeof clientLoader>();
+
+    const transposition:string = useOutletContext()
+
+    console.log(transposition)
+
 
     function deleteRecording(id?:number) {
         try {

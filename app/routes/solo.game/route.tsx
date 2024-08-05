@@ -20,15 +20,12 @@ import {
     type LoaderFunctionArgs,
     type MetaFunction,
   } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
-import { localParams } from "../../cookies.server";
+import { useLoaderData, useOutletContext } from "@remix-run/react";
 import MinorScale from "./levels/tutorial/MinorScale";
 import i18nextServer from "~/i18next.server";
 
 
 export async function loader({ request }: LoaderFunctionArgs) {
-	const cookieHeader = request.headers.get("Cookie");
-	const cookie = (await localParams.parse(cookieHeader)) || { transposition: 'C' };
 
     const t = await i18nextServer.getFixedT(request);
   
@@ -72,7 +69,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
     }
 
-	return json({ transposition: cookie.transposition, translations:translations });
+	return json({ translations:translations });
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
@@ -96,7 +93,8 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
 export default function SoloGame() {
 
-    const { transposition, translations } = useLoaderData<typeof loader>();
+    const { translations } = useLoaderData<typeof loader>();
+    const transposition:string = useOutletContext()
     const recordings = useLiveQuery(() => db.recordings.toArray());
 
     const errorModal = useDisclosure()

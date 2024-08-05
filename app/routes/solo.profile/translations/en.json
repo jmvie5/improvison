@@ -1,4 +1,12 @@
 {
     "title": "",
-    "description" : ""
+    "description" : "",
+    "modalBtn" : "",
+    "recordings" : "",
+    "modal" : {
+        "title" : "",
+        "content" : "",
+        "cancelBtn" : "",
+        "actionBtn" : ""
+    } 
 }

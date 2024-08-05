@@ -15,7 +15,7 @@ export class MySubClassedDexie extends Dexie {
   constructor() {
     super('improvison');
     this.version(1).stores({
-      recordings: '++id, audioBlob, levelName' // Primary key and indexed props
+      recordings: '++id, audioBlob, levelName', // Primary key and indexed props
     });
   }
 }
