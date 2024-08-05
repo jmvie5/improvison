@@ -47,7 +47,7 @@ export default function LandingAbout() {
     return (
 
         <div className="flex flex-col gap-4">
-            <h1 className="font-bold text-xl self-center">{translations.title}</h1>
+            <h1 className="font-bold text-2xl ">{translations.title}</h1>
             <div className="flex flex-col xs:inline">
                 <h2 className="font-semi-bold text-xl pb-2">{translations.principalInvestigator}</h2>
 

@@ -1,4 +1,48 @@
 {
     "title": "Improvison - Duo",
-    "description" : ""
+    "description" : "Description of Improvisation - Duo, link to the online game on Roblox and link to view and download the rules and materials for the physical version of the game.",
+    "twoWaysToPlay" : "Two Ways to Play",
+    "playOnlineCard" : {
+        "title": "Digital Version",
+        "description" : "The digital version of Improvison - Duo is available for free on Roblox. Click here to play!"
+    },
+    "rulesCard" : {
+        "title" : "Online game rules",
+        "description" : "Consult and download the complete rules of the digital version here."
+    },
+    "boardGameCard" : {
+        "title" : "Physical Version",
+        "description" : "The rules and files to print for playing the physical version of the game are available here."
+    },
+    "gamePreview" : "Here is an overview of the online game interface:",
+    "gameDescription" : {
+        "title" : "Game Description",
+        "one" : "Improvison is a collaborative game for 2 players. Each turn, players take on the roles of improviser and guesser. The improviser selects \"theme\" and \"constraint\" cards that they must convey to the guesser through musical improvisation. The goal of the game is for the players to collectively guess a predetermined number of \"theme\" and \"constraint\" cards before the timer runs out.",
+        "two" : "You can also play in infinite mode for improvisation without a time constraint."
+    },
+
+
+    "gameFlow" : {
+        "title" : "General Course of a Game ",
+        "beforeTitle" : "Before starting",
+        "playerNeed" : "Players determine:",
+        "before-1" : "the duration of the game ",
+        "before-2" : "the number of cards to guess ",
+        "before-3" : "who will be the improviser and guesser in the first turn.",
+        "startTitle" : "The game begins!",
+        "start-1" : "The improviser secretly chooses one or more cards and attempts to represent them musically.",
+        "start-2" : "The guesser tries to identify the chosen cards.",
+        "start-3" : "The improviser stops playing, and both players compare their choices. ",
+        "start-4" : "Each card correctly guessed by the guesser earns a point.",
+        "start-5" : "The roles are reversed.",
+        "start-6" : "The game continues until either the number of cards to guess is reached (game won) or the timer runs out (game lost)."
+
+    },
+
+    "downloadRules" : "To access the specific rules for each version of the game, click here: ",
+    "onlineRules" : "rules for the digital version",
+    "and" : " and ",
+    "boardRules" : "rules and materials to print for the physical version."
+
+
 }

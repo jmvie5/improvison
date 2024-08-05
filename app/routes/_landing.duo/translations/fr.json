@@ -1,4 +1,46 @@
 {
     "title": "Improvison - Duo",
-    "description" : "Description du jeu Duo, lien vers le jeu en ligne sur Roblox et lien pour consulter et télécharger les règles."
+    "description" : "Description of Improvisation – Duo, link to the online game and link to view and download the rules.",
+    "twoWaysToPlay" : "Deux manières de jouer",
+    "playOnlineCard" : {
+        "title": "Version numérique",
+        "description" : "La version numérique de Improvison – Duo est accessible gratuitement sur Roblox. Cliquez ici pour y jouer!"
+    },
+    "rulesCard" : {
+        "title" : "Règles du jeu en ligne",
+        "description" : "Consulter et téléchargez les règles complètes de la version numérique ici."
+    },
+    "boardGameCard" : {
+        "title" : "Version physique",
+        "description" : "Les règles et fichiers à imprimer pour jouer à la version physique du jeu sont disponibles ici."
+    },
+    "gamePreview" : "Voici un apperçu du jeu en ligne :",
+    "gameDescription" : {
+        "title" : "Description du jeu",
+        "one" : "Improvison Duo est un jeu collaboratif qui se joue à 2 joueurs. À chaque tour, les joueurs s’échangent les rôles d’improvisateur et de devineur. L’improvisateur choisi des cartes « thèmes » et « contraintes » qu’il devra faire deviner au devineur grâce à une improvisation musicale. Le but du jeu est de deviner collectivement un nombre prédéterminé de cartes « thème » et « contraintes » avant que le minuteur arrive à sa fin",
+        "two" : "Vous pouvez aussi jouer en mode infini pour enlever la contrainte de temps."
+    },
+
+    "gameFlow" : {
+        "title" : "Déroulement général d'une partie",
+        "beforeTitle" : "Avant de commencer",
+        "playerNeed" : "Les joueurs déterminent :",
+        "before-1" : "la durée de la partie",
+        "before-2" : "le nombre de cartes à deviner",
+        "before-3" : "qui sera improvisateur et devineur lors du premier tour.",
+        "startTitle" : "La partie commence!",
+        "start-1" : "L’improvisateur choisit en secret une ou des cartes et tente de les représenter musicalement.",
+        "start-2" : "Le devineur tente d’identifier les cartes choisies",
+        "start-3" : "L’improvisateur arrête de jouer, puis les deux joueurs comparent leurs choix.",
+        "start-4" : "Chaque carte devinée correctement par le devineur vaut un point.",
+        "start-5" : "Les rôles sont inversés.",
+        "start-6" : "Le jeu se poursuit jusqu’à ce que le nombre de cartes à deviner soit atteint (partie gagnée) ou que le minuteur arrive à sa fin (partie perdue)."
+    },
+
+    "downloadRules" : "Pour accéder aux règles spécifiques à chaque version du jeu, cliquez ici : ",
+    "onlineRules" : "règles de la version numérique",
+    "and" : " et ",
+    "boardRules" : "règles et matériel à imprimer pour la version physique"
+
+
 }
