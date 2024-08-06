@@ -17,7 +17,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
       landingIndex: t('pages.landingIndex.title'),
       landingAbout: t('pages.landingAbout.title'),
       landingDuo: t('pages.landingDuo.title'),
-      landingKnowMore: t('pages.landingKnowMore.title'),
+      landingKnowMore: t('pages.landingLearnMore.title'),
       soloIndex: t('pages.soloGame.title'),
     }
   
@@ -63,7 +63,7 @@ export default function LandingLayout() {
         },
         {
             name: pagesTranslatedTitle.landingKnowMore,
-            link: "/know-more",
+            link: "/learn-more",
         },
     ]
 

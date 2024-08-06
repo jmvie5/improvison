@@ -1,0 +1,18 @@
+{
+    "title": "To learn more",
+    "description" : "",
+    
+    "otherGames" : "Other games and educational materials for improvisation learning",
+
+    "tonic1" : "Fun musical improvisation activity with cards to draw.",
+    "tonic2" : "Accessible to all!",
+    "tonic3" : "A free PDF version of the game is available for download in both French and English.",
+    "tonic4" : "A commercial version is also available.",
+
+    "strategies" : {
+        "link" : "Improvisation strategies (PDF)",
+        "desc" : "List of improvisation strategies developed by par Jean-Philippe Després."
+    },
+
+    "refTitle" : "Theoretical and Scientific References"
+}

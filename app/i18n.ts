@@ -9,8 +9,8 @@ import * as landingAboutFR from './routes/_landing.about/translations/fr.json'
 import * as landingDuoEN from './routes/_landing.duo/translations/en.json'
 import * as landingDuoFR from './routes/_landing.duo/translations/fr.json'
 
-import * as landingKnowMoreEN from './routes/_landing.know-more/translations/en.json'
-import * as landingKnowMoreFR from './routes/_landing.know-more/translations/fr.json'
+import * as landingLearnMoreEN from './routes/_landing.learn-more/translations/en.json'
+import * as landingLearnMoreFR from './routes/_landing.learn-more/translations/fr.json'
 
 import * as soloLayoutEN from './routes/solo/translations/en.json'
 import * as soloLayoutFR from './routes/solo/translations/fr.json'
@@ -47,7 +47,7 @@ export const resources = {
       landingIndex: landingIndexEN,
       landingAbout: landingAboutEN,
       landingDuo: landingDuoEN,
-      landingKnowMore: landingKnowMoreEN,
+      landingLearnMore: landingLearnMoreEN,
       soloLayout: soloLayoutEN,
       soloGame: soloGameEN,
       soloProfile: soloProfileEN
@@ -66,7 +66,7 @@ export const resources = {
       landingIndex: landingIndexFR,
       landingAbout: landingAboutFR,
       landingDuo: landingDuoFR,
-      landingKnowMore: landingKnowMoreFR,
+      landingLearnMore: landingLearnMoreFR,
       soloLayout: soloLayoutFR,
       soloGame: soloGameFR,
       soloProfile: soloProfileFR

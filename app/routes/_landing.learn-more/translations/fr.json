@@ -1,0 +1,18 @@
+{
+    "title": "Pour en savoir plus",
+    "description" : "",
+
+    "otherGames" : "Autres jeux et matériels pédagogiques pour apprendre à improviser",
+
+    "tonic1" : "Activité ludique d’improvisation musicale avec des cartes à piger.",
+    "tonic2" : "Accessible à tous!",
+    "tonic3" : "Une version PDF à télécharger (gratuite) du jeu est disponible en français et en anglais.",
+    "tonic4" : "Une version commerciale est également disponible.",
+
+    "strategies" : {
+        "link" : "Stratégies d’improvisations (PDF)",
+        "desc" : "Liste de stratégie d’improvisation développée par Jean-Philippe Després."
+    },
+
+    "refTitle" : "Références théoriques et scientifiques"
+}
