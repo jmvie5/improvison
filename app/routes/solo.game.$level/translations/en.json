@@ -1,0 +1,97 @@
+{
+  "pentaMaj": {
+    "title": "Gamme pentatonique majeure",
+    "intro": {
+      "title": "Concept",
+      "desc": "La gamme pentatonique majeure est simplement une gamme majeure sans les 4e et 7e degrés.",
+      "desc2": "Enlever ces deux notes, qui entrent souvent en conflit avec l'accord du 1er degré, nous donne une gamme très versatile pour improviser sans crainte de jouer une note qui « sonne mal ».",
+      "instructionDesc": "Pour vous familiariser avec la gamme, commencez par la jouer sans métronome, avec un tempo stable, en suivant la séquence suivante :",
+      "instruction1": "ascendante",
+      "instruction2": "descendante",
+      "instruction3": "ascendante et descendante",
+      "instruction4": "libre",
+      "instructionFinal": "Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à des tempos différents (60 à 100, par bonds de 10 ou 20), en suivant la même séquence.",
+      "notTooFast": "N'essayez pas d'aller trop vite! Le but est d'être stable et synchronisé avec le métronome avant de prendre de la vitesse",
+      "exemples": "Voici un exemple d'utilisation de la gamme pentatonique majeure dans un contexte jazz (1:03 à 1:15):"
+    },
+    "freeImprov": {
+      "title": "Improvisation libre",
+      "desc": "Maintenant, improvisez librement en utilisant la gamme pentatonique majeure.",
+      "instructionDesc": "Laissez-vous aller! Utilisez les trucs suivants pour diversifier votre improvisation libre:",
+      "instruction1": "Intervalles conjoints seulement",
+      "instruction2": "Intervalles conjoints et disjoints",
+      "instruction3": "Intervalles disjoints seulement",
+      "instruction4": "Blanches seulement",
+      "instruction5": "Noires seulement",
+      "instruction6": "Rythmes variés",
+      "instruction7": "En créant des motifs rythmiques ou mélodiques",
+      "instructionFinal": "Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre improvisation, mais n'hésitez pas à l'enlever pour explorer plus librement à votre instrument.",
+      "lackingInspiration": {
+        "title": "En panne d'inspiration ?",
+        "desc": "Vous pouvez générer de nouvelles mélodies en cliquant sur le bouton en bas de la partition."
+      },
+      "recordYourself": "Utilisez le micro en bas de la partition pour vous enregistrer à des fins d'autoévaluation. Pour passer à la page suivante, il est requis de soumettre un enregistrement."
+    },
+    "repertoireImprov": {
+      "title": "Improvisation sur Blue Monk",
+      "subTitle": "Intégrons maintenant cette nouvelle connaissance dans le répertoire.",
+      "desc": "La gamme pentatonique majeure peut être utilisée pour improviser du début à la fin d’un blues majeur",
+      "bluesTableTitle": "La forme blues simple :",
+      "goalTitle": "Mission : ",
+      "goalDesc": "pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en utilisant la gamme pentatonique majeure et en respectant le tempo de la piste. N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour vous autoévaluer!",
+      "expertTips": {
+        "title": "Les trucs de l'expert",
+        "tip1": "La Gamme pentatonique majeure ne pourra pas toujours être utilisée du début à la fin des pièces sur lesquelles vous allez improviser, mais elle fonctionne pratiquement partout sur un blues ou un Rhythm Change (ex: Oleo, I Got Rhythm) sauf pour la section B.",
+        "tip2": "La Gamme pentatonique majeure peut être utilisée sur les accords suivants : 7 ou maj7. Elle ne peut pas être utilisée sur un accord 7 altéré. "
+      }
+    }
+  },
+  "pentaMin": {
+    "title": "Gamme pentatonique mineure",
+    "intro": {
+      "title": "Concept",
+      "desc": "Nous allons répéter l'exercice précédent, avec la gamme pentatonique mineure. Nous utilisons cette fois la gamme de do (C) mineur pentatonique.",
+      "desc2": "La gamme pentatonique mineure est simplement une gamme mineure avec le 2e et le 6e degré en moins. Elle est dérivée de sa relative majeure.",
+      "desc3": "Enlever ces deux notes, qui entrent souvent en conflit avec l'accord [compléter]de tonique, offre une gamme très versatile qui permet d’improviser sans crainte de jouer une note qui « sonne mal ».",
+      "instructionDesc": "Pour vous familiariser avec la gamme, commencez par la jouer sans métronome, avec un tempo stable, en suivant la séquence suivante :",
+      "instruction1": "ascendante",
+      "instruction2": "descendante",
+      "instruction3": "ascendante et descendante",
+      "instruction4": "libre",
+      "instructionFinal": "Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à des tempos différents (60 à 100, par bonds de 10 ou 20), en suivant la même séquence.",
+      "notTooFast": "N'essayez pas d'aller trop vite! Le but est d'être stable et synchronisé avec le métronome avant de prendre de la vitesse.",
+      "exemples": "Voici un exemple d'utilisation de la gamme pentatonique mineure (1:53 à 2:01) :"
+    },
+    "freeImprov": {
+      "title": "Improvisation libre",
+      "desc": "Maintenant, improvisez librement en utilisant la gamme pentatonique mineure.",
+      "instructionDesc": "Laissez-vous aller! Utilisez les trucs suivants pour diversifier votre improvisation libre:",
+      "instruction1": "Intervalles conjoints seulement",
+      "instruction2": "Intervalles conjoints et disjoints",
+      "instruction3": "Intervalles disjoints seulement",
+      "instruction4": "Blanches seulement",
+      "instruction5": "Noires seulement",
+      "instruction6": "Rythmes variés",
+      "instruction7": "En créant des motifs rythmiques ou mélodiques",
+      "instructionFinal": "Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre improvisation, mais n'hésitez pas à l'enlever pour explorer plus librement à votre instrument.",
+      "lackingInspiration": {
+        "title": "En panne d'inspiration ?",
+        "desc": "Vous pouvez générer de nouvelles mélodies en cliquant sur le bouton en bas de la partition."
+      },
+      "recordYourself": "Utilisez le micro en bas de la partition pour vous enregistrer à des fins d'autoévaluation. Pour passer à la page suivante, il est requis de soumettre un enregistrement."
+    },
+    "repertoireImprov": {
+      "title": "Improvisation sur Mr. P.Cé",
+      "subTitle": "Intégrons maintenant cette nouvelle connaissance dans le répertoire.",
+      "desc": "La gamme pentatonique majeure peut être utilisée pour improviser du début à la fin d’un blues mineur",
+      "bluesTableTitle": "La forme blues simple :",
+      "goalTitle": "Mission : ",
+      "goalDesc": "pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en utilisant la gamme pentatonique mineure et en respectant le tempo de la piste. N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour vous autoévaluer!",
+      "expertTips": {
+        "title": "Les trucs de l'expert",
+        "tip1": "",
+        "tip2": ""
+      }
+    }
+  }
+}
