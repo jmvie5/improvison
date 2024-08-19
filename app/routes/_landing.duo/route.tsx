@@ -1,14 +1,13 @@
-import * as React from "react"
-
 import { PuzzlePieceIcon, BookOpenIcon } from '@heroicons/react/24/outline'
-import { Image, Card, CardHeader, CardBody, CardFooter, Link } from "@nextui-org/react"
+import { Image, Card, CardHeader, CardBody, CardFooter, Link, useDisclosure } from "@nextui-org/react"
 import { Improvison_Règles_numériques } from "../../static/files"
 import { Roblox_Logo, champi, tortue, modulation, latin_jazz, jeu_num_fr, jeu_num2_fr, jeu_num3_fr } from "../../static/images"
 import { json, type LoaderFunctionArgs, type MetaFunction} from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import i18nextServer from "~/i18next.server";
-
 import { t } from "i18next"
+import DownloadModal from './DownloadModal';
+import { useLocale } from 'remix-i18next/react';
 
 export async function loader({ request }: LoaderFunctionArgs) {
   
@@ -36,6 +35,8 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 export default function LandingDuo() {
 
 	const translations = useLoaderData<typeof loader>().translations
+	const {isOpen, onOpen, onOpenChange} = useDisclosure()
+	const locale = useLocale()
 
   	return (
 		<div>
@@ -46,13 +47,22 @@ export default function LandingDuo() {
 						<p className="font-bold text-xl">{t("pages.landingDuo.playOnlineCard.title")}</p>
 					</CardHeader>
 					<CardBody className="items-center">
-						<Image src={Roblox_Logo} className="w-24 self-center" alt="Logo Roblox"/>
+						<Image src={Roblox_Logo} className="self-center max-h-full " alt="Logo Roblox" removeWrapper/>
 					</CardBody>
-					<CardFooter className="justify-center text-center text-lg">
+					<CardFooter className="justify-center text-center text-lg h-full">
 						<p>{t("pages.landingDuo.playOnlineCard.description")}</p>
 					</CardFooter>
 				</Card>
-				<Card className="bg-bleu-pale/20 h-full w-fit xl:w-1/3 max-w-80 aspect-square p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="app/static/files/Improvison_Règles numériques.pdf" target="_blank" rel="noreferrer">
+				<Card 
+					className="bg-bleu-pale/20 h-full w-fit xl:w-1/3 max-w-80 aspect-square p-4 text-white border border-neutral-500 shadow-md shadow-black" 
+					as={Link} 
+					href={locale === 'en' 
+						? "app/static/files/Improvison_Digital Rules.pdf" 
+						: "app/static/files/Improvison_Règles numériques.pdf" 
+					}
+					target="_blank" 
+					rel="noreferrer"
+				>
 					<CardHeader className="justify-center">
 						<p className="font-bold text-xl">{t("pages.landingDuo.rulesCard.title")}</p>
 					</CardHeader>
@@ -63,7 +73,13 @@ export default function LandingDuo() {
 						<p>{t("pages.landingDuo.rulesCard.description")}</p>
 					</CardFooter>
 				</Card>
-				<Card className="bg-bleu-pale/20 h-full w-fit xl:w-1/3 max-w-80 aspect-square p-4 text-white border border-neutral-500 shadow-md shadow-black" isDisabled>
+				<Card 
+					className="bg-bleu-pale/20 h-full w-fit xl:w-1/3 max-w-80 aspect-square p-4 text-white border border-neutral-500 shadow-md shadow-black" 
+					isPressable
+					onPress={() => {
+						onOpen()
+					}}
+				>
 					<CardHeader className="justify-center">
 						<p className="font-bold text-xl">{t("pages.landingDuo.boardGameCard.title")}</p>
 					</CardHeader>
@@ -74,6 +90,7 @@ export default function LandingDuo() {
 						<p>{t("pages.landingDuo.boardGameCard.description")}</p>
 					</CardFooter>
 				</Card>
+				<DownloadModal isOpen={isOpen} onOpenChange={onOpenChange}/>
 			</div>
 			<p className="text-xl pt-4">{t("pages.landingDuo.gamePreview")}</p>
 				<div className="flex flex-col gap-2 mt-8">

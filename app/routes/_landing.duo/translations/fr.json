@@ -40,7 +40,13 @@
     "downloadRules" : "Pour accéder aux règles spécifiques à chaque version du jeu, cliquez ici : ",
     "onlineRules" : "règles de la version numérique",
     "and" : " et ",
-    "boardRules" : "règles et matériel à imprimer pour la version physique"
+    "boardRules" : "règles et matériel à imprimer pour la version physique",
+
+    "downloadModal" : {
+        "title" : "Liens pour téléchargement",
+        "theme-cards" : "Cartes thèmes",
+        "selection-cards" : "Cartes sélection"
+    }
 
 
 }

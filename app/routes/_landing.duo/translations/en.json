@@ -42,7 +42,13 @@
     "downloadRules" : "To access the specific rules for each version of the game, click here: ",
     "onlineRules" : "rules for the digital version",
     "and" : " and ",
-    "boardRules" : "rules and materials to print for the physical version."
+    "boardRules" : "rules and materials to print for the physical version.",
+
+    "downloadModal" : {
+        "title" : "Download links",
+        "theme-cards" : "Theme cards",
+        "selection-cards" : "Selection cards"
+    }
 
 
 }
