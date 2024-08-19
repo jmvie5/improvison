@@ -6,7 +6,8 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
-  useRouteError
+  useRouteError,
+  useNavigate
 } from "@remix-run/react";
 import {NextUIProvider} from "@nextui-org/react";
 import {t} from 'i18next'
@@ -64,6 +65,7 @@ export default function App() {
   const { locale } = useLoaderData<typeof loader>();
   let { i18n } = useTranslation();
   useChangeLanguage(locale);
+  const navigate = useNavigate()
 
   return (
     <html lang={locale} dir={i18n.dir()}>
@@ -74,7 +76,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <NextUIProvider>
+        <NextUIProvider navigate={navigate}>
           <div className="bg-bleu-fonce text-white font-josef text-lg flex flex-col overflow-scroll min-h-dvh">
             <Outlet />
           </div>

@@ -1,20 +1,27 @@
 import { Outlet, Form, useLoaderData } from "@remix-run/react";
 import { improvison_accueil } from "~/static/images";
-import {Button, ButtonGroup, Link, Image} from "@nextui-org/react";
+import {Button, ButtonGroup, Image} from "@nextui-org/react";
 import {
     json,
     type LoaderFunctionArgs,
     type MetaFunction,
   } from "@remix-run/node";
+import { Link } from "@remix-run/react";
 import { useState } from "react";
+import i18nextServer from "~/i18next.server";
 
 
 
 export async function loader({ request }: LoaderFunctionArgs) {
-    const title = 'Improvison - Solo'
-    const description = "Jeu d'apprentissage autonome de l'improvisation musicale"
-	const translations = ""
 
+    const t = await i18nextServer.getFixedT(request);
+    const title =  t('pages.soloLayout.title');
+    const description = t('pages.soloLayout.description');
+     
+	const translations = {
+        game: t('pages.soloLayout.game'),
+        profile: t('pages.soloLayout.profile'),
+    }
 	return json({ title, description, translations });
 }
 
@@ -40,10 +47,10 @@ export default function SoloLayout() {
         <div className="flex flex-col grow">
             <div className=" flex flex-col md:flex-row gap-2 p-4 shadow-lg justify-between items-center">
                 
-                <div className="flex gap-8 ">
-                    <Link href="/"><Image src={improvison_accueil} width={100}/></Link>
-                    <Link href="/solo/game" className="text-white hover:text-neutral text-xl">Jeu</Link>
-					<Link href="/solo/profile" className="text-white hover:text-neutral text-xl">Profil</Link>
+                <div className="flex gap-8 items-center">
+                    <Link to="/"><Image src={improvison_accueil} width={100}/></Link>
+                    <Link to="/solo/game" className="text-white hover:text-neutral text-xl">{data.translations.game}</Link>
+					<Link to="/solo/profile" className="text-white hover:text-neutral text-xl">{data.translations.profile}</Link>
                 </div>
 
 				<div className="flex items-center gap-2">

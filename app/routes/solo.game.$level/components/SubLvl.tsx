@@ -1,15 +1,13 @@
-import { ReactElement, useEffect, useState, useCallback, forwardRef, useImperativeHandle } from "react";
+import { useEffect, useState, useCallback, forwardRef, useImperativeHandle } from "react";
 import { Factory } from "vexflow";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
-import transpose, { transposeProps } from "../../utils/transposition";
+import transpose, { transposeProps } from "../../../utils/transposition";
 // import UserInterface from "./userComponents/UserInterface";
 // import authService from "../services/authService";
 import { Button, Chip } from "@nextui-org/react";
-import { SubLvlInterface } from "./levels/types";
+import { SubLvlInterface } from "../levels/types";
 import { CheckIcon } from "@heroicons/react/24/outline";
-
-import { useLiveQuery } from 'dexie-react-hooks';
-import { db } from '../../db';
+import { db } from '../../../db';
 import { t } from "i18next";
 import { twMerge } from 'tailwind-merge'
 

@@ -1,4 +1,6 @@
 {
-    "title": "",
-    "description" : ""
+    "title": "Improvison - Solo",
+    "description" : "Jeu d'apprentissage autonome de l'improvisation musicale",
+    "game" : "Game",
+    "profile" : "Profile"
 }

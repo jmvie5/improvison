@@ -2,15 +2,15 @@ import React from "react";
 import { useState, useRef } from "react";
 import MyModal from "../../components/MyModal";
 import ErrorMsg from "../../components/ErrorMsg"
-import SubLvl from "./SubLvl";
-import Guide from "./levels/Guide";
-import PentaMaj from "./levels/tutorial/PentaMaj";
-import PentaMin from "./levels/tutorial/PentaMin";
-import Motifs from "./levels/tutorial/Motifs";
-import MajorScale from './levels/tutorial/MajorScale'
-import TargetNotes from "./levels/lvl2/TargetNotes";
+import { Link, Outlet } from "@remix-run/react";
+import Guide from "../solo.game.$level/levels/Guide";
+import PentaMaj from "../solo.game.$level/levels/tutorial/PentaMaj";
+import PentaMin from "../solo.game.$level/levels/tutorial/PentaMin";
+import Motifs from "../solo.game.$level/levels/tutorial/Motifs";
+import MajorScale from '../solo.game.$level/levels/tutorial/MajorScale'
+import TargetNotes from "../solo.game.$level/levels/lvl2/TargetNotes";
 import { Button, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
-import { SubLvlInterface, LevelInterface } from "./levels/types";
+import { SubLvlInterface, LevelInterface } from "../solo.game.$level/levels/types";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db';
@@ -21,8 +21,9 @@ import {
     type MetaFunction,
   } from "@remix-run/node";
 import { useLoaderData, useOutletContext } from "@remix-run/react";
-import MinorScale from "./levels/tutorial/MinorScale";
+import MinorScale from "../solo.game.$level/levels/tutorial/MinorScale";
 import i18nextServer from "~/i18next.server";
+import { useNavigate } from "@remix-run/react";
 
 
 export async function loader({ request }: LoaderFunctionArgs) {
@@ -92,6 +93,8 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
  */
 
 export default function SoloGame() {
+
+    const navigate = useNavigate()
 
     const { translations } = useLoaderData<typeof loader>();
     const transposition:string = useOutletContext()
@@ -193,7 +196,7 @@ export default function SoloGame() {
                         <p>
                             {translations.description3}
                         </p>
-                        <h3 className='text-xl font-bold'>{translations.playOnline}</h3>
+                        <h3 className='text-xl font-bold pt-4'>{translations.playOnline}</h3>
                         <p>
                             {translations.playOnlineDesc}
                         </p>
@@ -203,22 +206,23 @@ export default function SoloGame() {
                     <div className="flex flex-col gap-2">
                         {levelList.map((level, index) => (
                             <div key={level.id} className=" flex flex-col gap-2 max-w-xs items-center self-center">
+
                                 <Button
                                     size="lg"
                                     key={level.name}
-                                    
                                     onPress={() => {
-                                        console.log('change lvl')
                                         window.scrollTo({top:0})
                                         setIsMenu(false);
                                         setCurrentLvl(level);
                                         setCurrentSubLvl(level.intro);
-                                        
+                                        navigate(`/solo/game/${level.url}`) // as={Link} does not work
                                     }}
                                     disabled={level.locked}
                                 >
                                     {translations.lvlTitles[level.url]}
                                 </Button>
+
+                                
                                 {index !== levelList.length - 1 && <ArrowDownIcon className="w-8"/>}
                             </div>
                             
@@ -228,27 +232,17 @@ export default function SoloGame() {
 
                 
             ) : (
-                <SubLvl
-                    name={currentSubLvl.name}
-                    title={currentSubLvl.title}
-                    description={currentSubLvl.description}
-                    transposition={transposition}
-                    vfTitle={currentSubLvl.vfTitle}
-                    vfProps={currentSubLvl.vfProps}
-                    vf_w={currentSubLvl.vf_w}
-                    vf_h={currentSubLvl.vf_h}
-                    reRender={currentSubLvl.reRender}
-                    ref={subLevelRef}
+                <Outlet
+                    context={{currentSubLvl, transposition, subLevelRef}}
                 />
             )}
-            {isMenu ? (
-                <></>
-            ) : (
+            {!isMenu && (
                 <div className="flex  shadow-lg-rev  justify-between p-4 bg-bleu-fonce">
                     <div className="flex gap-2 self-end">
                         <Button
                             onPress={() => {
                                 setIsMenu(true);
+                                navigate("/solo/game")
                             }}
                         >
                             {translations.buttons.backToMenu}
