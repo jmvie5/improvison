@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState, useRef } from "react";
 import MyModal from "../../components/MyModal";
 import ErrorMsg from "../../components/ErrorMsg"
@@ -20,13 +20,12 @@ import {
     type LoaderFunctionArgs,
     type MetaFunction,
   } from "@remix-run/node";
-import { useLoaderData, useOutletContext } from "@remix-run/react";
+import { useLoaderData, useLocation, useOutletContext } from "@remix-run/react";
 import MinorScale from "../solo.game.$level/levels/tutorial/MinorScale";
 import i18nextServer from "~/i18next.server";
 import { useNavigate } from "@remix-run/react";
 
-
-export async function loader({ request }: LoaderFunctionArgs) {
+export async function loader({ request, params }: LoaderFunctionArgs) {
 
     const t = await i18nextServer.getFixedT(request);
   
@@ -55,7 +54,9 @@ export async function loader({ request }: LoaderFunctionArgs) {
             newMotif : t('pages.soloGame.buttons.newMotif'),
             backToMenu : t('pages.soloGame.buttons.backToMenu'),
             nextStep : t('pages.soloGame.buttons.nextStep'),
+            nextLevel : t('pages.soloGame.buttons.nextLevel'),
             back : t('pages.soloGame.buttons.back')
+
         },
         modal : {
             titleNextStep : t('pages.soloGame.modal.titleNextStep'),
@@ -70,7 +71,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
     }
 
-	return json({ translations:translations });
+	return json({ translations:translations, level:params.level });
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
@@ -94,9 +95,11 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
 export default function SoloGame() {
 
+    const location = useLocation().pathname
+
     const navigate = useNavigate()
 
-    const { translations } = useLoaderData<typeof loader>();
+    const { translations, level } = useLoaderData<typeof loader>();
     const transposition:string = useOutletContext()
     const recordings = useLiveQuery(() => db.recordings.toArray());
 
@@ -111,10 +114,7 @@ export default function SoloGame() {
     - (TODO) Vérification de la complétion du niveau lorsque demandé par l'utilisateur
     - (TODO) Appels à la BD pour changer les valeurs "locked" et "completed" de chaque niveau une fois complété
     */
-    const [isMenu, setIsMenu] = useState(true);
-    const [currentLvl, setCurrentLvl] = useState({} as LevelInterface);
-    const [currentSubLvl, setCurrentSubLvl] = useState({} as SubLvlInterface);
-    const subLevelRef = useRef<any>()
+
     const levelList:LevelInterface[] = [
         /*  Liste des niveaux du jeu
             TODO 
@@ -127,6 +127,13 @@ export default function SoloGame() {
         MinorScale,
         TargetNotes
     ];
+
+    const firstSubLvl = levelList.find((lvl) => lvl.url === level);
+
+    const [currentLvl, setCurrentLvl] = useState(firstSubLvl ? firstSubLvl : {} as LevelInterface);
+    const [currentSubLvl, setCurrentSubLvl] = useState(firstSubLvl ? firstSubLvl.intro : {} as SubLvlInterface);
+    const subLevelRef = useRef<any>()
+
 
     function isSubLevelCompleted(subLvlTitle:string) {
 
@@ -168,7 +175,7 @@ export default function SoloGame() {
                 </ModalContent>
                 
             </Modal>
-            {isMenu ? (
+            {location === "/solo/game" ? (
                 <div className="flex flex-col gap-4 p-4">
                     {/* <div className="flex gap-4">
                         <p>Description</p>
@@ -212,7 +219,6 @@ export default function SoloGame() {
                                     key={level.name}
                                     onPress={() => {
                                         window.scrollTo({top:0})
-                                        setIsMenu(false);
                                         setCurrentLvl(level);
                                         setCurrentSubLvl(level.intro);
                                         navigate(`/solo/game/${level.url}`) // as={Link} does not work
@@ -236,12 +242,11 @@ export default function SoloGame() {
                     context={{currentSubLvl, transposition, subLevelRef}}
                 />
             )}
-            {!isMenu && (
+            {/* {!(location === "/solo/game" ) && (
                 <div className="flex  shadow-lg-rev  justify-between p-4 bg-bleu-fonce">
                     <div className="flex gap-2 self-end">
                         <Button
                             onPress={() => {
-                                setIsMenu(true);
                                 navigate("/solo/game")
                             }}
                         >
@@ -318,10 +323,10 @@ export default function SoloGame() {
                                             if (subLevelRef.current) {
                                                 subLevelRef.current.removeAudio()
                                             }
-                                            setIsMenu(true);
+                                            navigate("/solo/game")
                                         }}
                                     >
-                                        Niveau suivant
+                                        {translations.buttons.nextLevel}
                                     </Button>
                                 ) : (
                                     <MyModal
@@ -337,7 +342,7 @@ export default function SoloGame() {
                                                 if (subLevelRef.current) {
                                                     subLevelRef.current.saveAudioToProfile(true)
                                                 }
-                                                setIsMenu(true);
+                                                navigate("/solo/game")
                                             } else {
                                                 errorModal.onOpen()
                                             }
@@ -349,7 +354,7 @@ export default function SoloGame() {
                     </div>
                     
                 </div>
-            )}
+            )} */}
         </div>
     );
 }

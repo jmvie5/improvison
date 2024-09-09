@@ -28,7 +28,9 @@
         "newMotif" : "Nouveau motif",
         "backToMenu" : "Retour au menu",
         "nextStep" : "Prochaine étape",
+        "nextLevel" : "Niveau suivant",
         "back" : "Retour"
+        
     },
 
     "modal" : {
