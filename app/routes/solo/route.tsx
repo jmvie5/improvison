@@ -6,7 +6,7 @@ import {
     type LoaderFunctionArgs,
     type MetaFunction,
   } from "@remix-run/node";
-import { Link } from "@remix-run/react";
+import { Link, useLocation } from "@remix-run/react";
 import { useState } from "react";
 import i18nextServer from "~/i18next.server";
 
@@ -39,6 +39,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
 export default function SoloLayout() {
 
+    const location = useLocation().pathname
 	const data = useLoaderData<typeof loader>()
 
 	const [currentTransposition, setCurrentTransposition] = useState<string>("C")
@@ -54,6 +55,16 @@ export default function SoloLayout() {
                 </div>
 
 				<div className="flex items-center gap-2">
+                    <Form className="flex gap-2 self-center mt-4" action={location}>
+                        <ButtonGroup>
+                            <Button type="submit" name="lng" value="fr" className="bg-white">
+                            Français
+                            </Button>
+                            <Button type="submit" name="lng" value="en" className="bg-white">
+                            English
+                            </Button>
+                        </ButtonGroup>
+                    </Form>
 					<Form className="flex gap-2 self-center mt-4">
 						<ButtonGroup>
 							<Button onPress={() => setCurrentTransposition("C")}>C</Button>

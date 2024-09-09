@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Image, Button } from "@nextui-org/react";
+import { Image, Button, ButtonGroup } from "@nextui-org/react";
 import ImprovisonLogo from "../../static/images/improvison_accueil.png"
-import { Outlet, useLoaderData, Form, Link, useMatches } from "@remix-run/react";
+import { Outlet, useLoaderData, Form, Link, useMatches, useLocation } from "@remix-run/react";
 import { json, LoaderFunctionArgs, redirect } from "@remix-run/node";
 import { motion } from 'framer-motion'
 import i18nServer from "../../i18next.server";
@@ -36,8 +36,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }:any) => {
 
 export default function LandingLayout() {
 
-    const matches = useMatches()
-    const thisUrl = matches.at(-1)?.pathname
+    const location = useLocation().pathname
 
     const translationsData = useLoaderData<typeof loader>()
 
@@ -82,18 +81,19 @@ export default function LandingLayout() {
                             alt="Logo Improvison"
                         />
                     </Link>
-                    {
-                        thisUrl === "/" &&
-                        <Form className="flex gap-2 self-center mt-4">
+
+                    <Form className="flex gap-2 self-center mt-4" action={location}>
+                        <ButtonGroup>
                             <Button type="submit" name="lng" value="fr" className="bg-white">
                             Français
                             </Button>
                             <Button type="submit" name="lng" value="en" className="bg-white">
                             English
                             </Button>
-                        </Form>
+                        </ButtonGroup>
+                        
+                    </Form>
 
-                    }
                     
                     <nav className="flex flex-col p-4">
                         <motion.ul
