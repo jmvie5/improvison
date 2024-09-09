@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import SubLvl from "./components/SubLvl"
 import { Button, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
 import { json, LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData, useOutletContext, useRouteError, useNavigate } from "@remix-run/react";
+import { useLoaderData, useOutletContext, useRouteError, useNavigate, Navigate } from "@remix-run/react";
 import { LevelInterface, SubLvlInterface } from "./levels/types";
 import tutoLvls from "./levels/tutorial/levelIndex"
 import { useLiveQuery } from "dexie-react-hooks";
@@ -71,19 +71,23 @@ export default function level() {
     const { lvlUrl, translations } = useLoaderData<typeof loader>()
 
     const context:{
+        currentSubLvl: SubLvlInterface,
         transposition: string,
+        subLevelRef: React.MutableRefObject<any>
     } = useOutletContext()
 
+    const currentSubLvl = context.currentSubLvl
 
-    const firstSubLvl = tutoLvls.find((lvl) => lvl.url === lvlUrl);
+
+   /*  const firstSubLvl = tutoLvls.find((lvl) => lvl.url === lvlUrl);
 
     const [currentLvl, setCurrentLvl] = useState(firstSubLvl ? firstSubLvl : {} as LevelInterface);
     const [currentSubLvl, setCurrentSubLvl] = useState(firstSubLvl ? firstSubLvl.intro : {} as SubLvlInterface);
     const subLevelRef = useRef<any>()
     const recordings = useLiveQuery(() => db.recordings.toArray());
-    const errorModal = useDisclosure()
+    const errorModal = useDisclosure() */
 
-    function isSubLevelCompleted(subLvlTitle:string) {
+    /* function isSubLevelCompleted(subLvlTitle:string) {
 
         if (!recordings) return false
 
@@ -100,11 +104,11 @@ export default function level() {
         }
 
         return false
-    }
+    } */
     
     return (
         <div className="h-full flex flex-col grow justify-between">
-            <Modal isOpen={errorModal.isOpen} onOpenChange={errorModal.onOpenChange} size="xl">
+            {/* <Modal isOpen={errorModal.isOpen} onOpenChange={errorModal.onOpenChange} size="xl">
                 <ModalContent>
                     <ModalHeader>Error</ModalHeader>
                     <ModalBody>
@@ -122,20 +126,20 @@ export default function level() {
                     </ModalFooter>
                 </ModalContent>
                 
-            </Modal>
+            </Modal> */}
             <SubLvl
                 name={currentSubLvl.name}
                 title={currentSubLvl.title}
                 description={currentSubLvl.description}
                 transposition={context.transposition}
-                // vfTitle={currentSubLvl.vfTitle}
+                vfTitle={currentSubLvl.vfTitle}
                 vfProps={currentSubLvl.vfProps}
                 vf_w={currentSubLvl.vf_w}
                 vf_h={currentSubLvl.vf_h}
                 reRender={currentSubLvl.reRender}
-                ref={subLevelRef}
+                ref={context.subLevelRef}
             />
-            <footer>
+            {/* <footer>
             <div className="flex  shadow-lg-rev  justify-between p-4 bg-bleu-fonce">
                     <div className="flex gap-2 self-end">
                         <Button
@@ -247,7 +251,7 @@ export default function level() {
                     </div>
                     
                 </div>
-            </footer>
+            </footer> */}
         </div>
         
     )
@@ -256,9 +260,9 @@ export default function level() {
 export function ErrorBoundary() {
     const error = useRouteError();
     console.error(error);
+
+    Navigate({ to: "/solo/game" });
     return (
-     <div>
-        OH NO
-     </div>
+     <div></div>
     );
   }

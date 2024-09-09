@@ -128,12 +128,9 @@ export default function SoloGame() {
         TargetNotes
     ];
 
-    const firstSubLvl = levelList.find((lvl) => lvl.url === level);
-
-    const [currentLvl, setCurrentLvl] = useState(firstSubLvl ? firstSubLvl : {} as LevelInterface);
-    const [currentSubLvl, setCurrentSubLvl] = useState(firstSubLvl ? firstSubLvl.intro : {} as SubLvlInterface);
+    const [currentLvl, setCurrentLvl] = useState({} as LevelInterface);
+    const [currentSubLvl, setCurrentSubLvl] = useState({} as SubLvlInterface);
     const subLevelRef = useRef<any>()
-
 
     function isSubLevelCompleted(subLvlTitle:string) {
 
@@ -242,7 +239,7 @@ export default function SoloGame() {
                     context={{currentSubLvl, transposition, subLevelRef}}
                 />
             )}
-            {/* {!(location === "/solo/game" ) && (
+            {!(location === "/solo/game" ) && (
                 <div className="flex  shadow-lg-rev  justify-between p-4 bg-bleu-fonce">
                     <div className="flex gap-2 self-end">
                         <Button
@@ -354,7 +351,7 @@ export default function SoloGame() {
                     </div>
                     
                 </div>
-            )} */}
+            )}
         </div>
     );
 }
