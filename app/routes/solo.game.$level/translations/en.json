@@ -1,48 +1,48 @@
 {
   "pentaMaj": {
-    "title": "Gamme pentatonique majeure",
+    "title": "Major pentatonic scale",
     "intro": {
       "title": "Concept",
-      "desc": "La gamme pentatonique majeure est simplement une gamme majeure sans les 4e et 7e degrés.",
-      "desc2": "Enlever ces deux notes, qui entrent souvent en conflit avec l'accord du 1er degré, nous donne une gamme très versatile pour improviser sans crainte de jouer une note qui « sonne mal ».",
-      "instructionDesc": "Pour vous familiariser avec la gamme, commencez par la jouer sans métronome, avec un tempo stable, en suivant la séquence suivante :",
-      "instruction1": "ascendante",
-      "instruction2": "descendante",
-      "instruction3": "ascendante et descendante",
-      "instruction4": "libre",
-      "instructionFinal": "Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à des tempos différents (60 à 100, par bonds de 10 ou 20), en suivant la même séquence.",
-      "notTooFast": "N'essayez pas d'aller trop vite! Le but est d'être stable et synchronisé avec le métronome avant de prendre de la vitesse",
-      "exemples": "Voici un exemple d'utilisation de la gamme pentatonique majeure dans un contexte jazz (1:03 à 1:15):"
+      "desc": "The major pentatonic scale is simply a major scale without the 4th and 7th degrees.",
+      "desc2": "Removing these two notes, which often conflict with the root chord, gives us a very versatile scale for improvising without fear of playing a note that “sounds wrong”.",
+      "instructionDesc": "To familiarize yourself with the scale, start by playing it without a metronome, at a steady tempo, using the following sequence:",
+      "instruction1": "ascending",
+      "instruction2": "descending",
+      "instruction3": "ascending and descending",
+      "instruction4": "play freely",
+      "instructionFinal": "Finally, use the metronome to play the scale in quarter notes, then in eighth notes at different tempos (60 to 100, in steps of 10 or 20), following the same sequence.",
+      "notTooFast": "Don't try to go too fast! The aim is to be stable and synchronized with the metronome before picking up speed.",
+      "exemples": "Here's an example of the use of the major pentatonic scale in a jazz context (1:03 to 1:15):"
     },
     "freeImprov": {
-      "title": "Improvisation libre",
-      "desc": "Maintenant, improvisez librement en utilisant la gamme pentatonique majeure.",
-      "instructionDesc": "Laissez-vous aller! Utilisez les trucs suivants pour diversifier votre improvisation libre:",
-      "instruction1": "Intervalles conjoints seulement",
-      "instruction2": "Intervalles conjoints et disjoints",
-      "instruction3": "Intervalles disjoints seulement",
-      "instruction4": "Blanches seulement",
-      "instruction5": "Noires seulement",
-      "instruction6": "Rythmes variés",
-      "instruction7": "En créant des motifs rythmiques ou mélodiques",
-      "instructionFinal": "Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre improvisation, mais n'hésitez pas à l'enlever pour explorer plus librement à votre instrument.",
+      "title": "Free improvisation",
+      "desc": "Now improvise freely using the major pentatonic scale.",
+      "instructionDesc": "Let yourself go! Use the following tips to diversify your free improvisation:",
+      "instruction1": "Joint intervals only",
+      "instruction2": "Joint and disjoint intervals",
+      "instruction3": "Disjoint intervals only",
+      "instruction4": "Half notes only",
+      "instruction5": "Quarter notes onyl",
+      "instruction6": "Varied rhythms",
+      "instruction7": "By creating rhythmic or melodic patterns",
+      "instructionFinal": "We recommend using the metronome to work on the rhythmic stability of your improvisation, but don't hesitate to remove it to explore your instrument more freely.",
       "lackingInspiration": {
-        "title": "En panne d'inspiration ?",
-        "desc": "Vous pouvez générer de nouvelles mélodies en cliquant sur le bouton en bas de la partition."
+        "title": "Running out of inspiration?",
+        "desc": "You can generate new melodies by clicking on the button at the bottom of the score."
       },
-      "recordYourself": "Utilisez le micro en bas de la partition pour vous enregistrer à des fins d'autoévaluation. Pour passer à la page suivante, il est requis de soumettre un enregistrement."
+      "recordYourself": "Use the microphone at the bottom of the score to record yourself for self-assessment purposes. To proceed to the next page, you must submit a recording."
     },
     "repertoireImprov": {
-      "title": "Improvisation sur Blue Monk",
-      "subTitle": "Intégrons maintenant cette nouvelle connaissance dans le répertoire.",
-      "desc": "La gamme pentatonique majeure peut être utilisée pour improviser du début à la fin d’un blues majeur",
-      "bluesTableTitle": "La forme blues simple :",
-      "goalTitle": "Mission : ",
-      "goalDesc": "pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en utilisant la gamme pentatonique majeure et en respectant le tempo de la piste. N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour vous autoévaluer!",
+      "title": "Improvisation over Blue Monk",
+      "subTitle": "Now let's integrate this new knowledge into the repertoire.",
+      "desc": "The major pentatonic scale can be used to improvise from the beginning to the end of a major blues.",
+      "bluesTableTitle": "The simple blues form:",
+      "goalTitle": "Goal: ",
+      "goalDesc": "To pass this exercise, you must play an improvised solo on the accompaniment track, using the major pentatonic scale and respecting the tempo of the track. Don't forget to record yourself using the microphone at the bottom of the score for self-evaluation!",
       "expertTips": {
-        "title": "Les trucs de l'expert",
-        "tip1": "La Gamme pentatonique majeure ne pourra pas toujours être utilisée du début à la fin des pièces sur lesquelles vous allez improviser, mais elle fonctionne pratiquement partout sur un blues ou un Rhythm Change (ex: Oleo, I Got Rhythm) sauf pour la section B.",
-        "tip2": "La Gamme pentatonique majeure peut être utilisée sur les accords suivants : 7 ou maj7. Elle ne peut pas être utilisée sur un accord 7 altéré. "
+        "title": "Expert tips",
+        "tip1": "The Major Pentatonic Scale can't always be used from beginning to end in the pieces you're going to improvise on, but it works virtually everywhere on a blues or Rhythm Change (e.g. Oleo, I Got Rhythm) except for the B section.",
+        "tip2": "The Major Pentatonic Scale can be used on the following chords: 7 or maj7. It cannot be used on an altered 7 chord. "
       }
     }
   },

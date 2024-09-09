@@ -9,9 +9,8 @@ import {
   useRouteError,
   useNavigate
 } from "@remix-run/react";
-import {NextUIProvider} from "@nextui-org/react";
+import { Button, NextUIProvider} from "@nextui-org/react";
 import {t} from 'i18next'
-import { Button } from "@nextui-org/react";
 import { 
   json,
   type LinksFunction, 
@@ -63,7 +62,7 @@ export const links: LinksFunction = () => [
 export default function App() {
 
   const { locale } = useLoaderData<typeof loader>();
-  let { i18n } = useTranslation();
+  const { i18n } = useTranslation();
   useChangeLanguage(locale);
   const navigate = useNavigate()
 
@@ -74,6 +73,10 @@ export default function App() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <script>
+          {/*to prevent Firefox FOUC, this must be here*/}
+          let FF_FOUC_FIX;
+        </script>
       </head>
       <body>
         <NextUIProvider navigate={navigate}>
@@ -92,7 +95,7 @@ export function ErrorBoundary() {
   const error = useRouteError();
   console.error(error);
   return (
-    <html>
+    <html lang="en">
       <head>
         <title>{t("error.title")}</title>
         <Meta />

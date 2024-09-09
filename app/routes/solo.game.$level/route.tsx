@@ -1,13 +1,13 @@
-import { useState, useRef } from "react";
+// import { useState, useRef } from "react";
 import SubLvl from "./components/SubLvl"
-import { Button, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
+// import { Button, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
 import { json, LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData, useOutletContext, useRouteError, useNavigate, Navigate } from "@remix-run/react";
-import { LevelInterface, SubLvlInterface } from "./levels/types";
-import tutoLvls from "./levels/tutorial/levelIndex"
-import { useLiveQuery } from "dexie-react-hooks";
-import { db } from "~/db";
-import MyModal from "~/components/MyModal";
+import { /* useLoaderData, */ useOutletContext, useRouteError, /* useNavigate, */ Navigate } from "@remix-run/react";
+import { /* LevelInterface, */ SubLvlInterface } from "./levels/types";
+// import tutoLvls from "./levels/tutorial/levelIndex"
+// import { useLiveQuery } from "dexie-react-hooks";
+// import { db } from "~/db";
+// import MyModal from "~/components/MyModal";
 import i18nextServer from "~/i18next.server";
 
 export async function loader({ request, params }: LoaderFunctionArgs) {
@@ -65,15 +65,15 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
 
 }
 
-export default function level() {
+export default function Level() {
 
-    const navigate = useNavigate()
-    const { lvlUrl, translations } = useLoaderData<typeof loader>()
+    // const navigate = useNavigate()
+    // const { lvlUrl, translations } = useLoaderData<typeof loader>()
 
     const context:{
         currentSubLvl: SubLvlInterface,
         transposition: string,
-        subLevelRef: React.MutableRefObject<any>
+        subLevelRef: React.MutableRefObject<unknown>
     } = useOutletContext()
 
     const currentSubLvl = context.currentSubLvl
@@ -83,7 +83,7 @@ export default function level() {
 
     const [currentLvl, setCurrentLvl] = useState(firstSubLvl ? firstSubLvl : {} as LevelInterface);
     const [currentSubLvl, setCurrentSubLvl] = useState(firstSubLvl ? firstSubLvl.intro : {} as SubLvlInterface);
-    const subLevelRef = useRef<any>()
+    const subLevelRef = useRef<{removeAudio: () => void, saveAudioToProfile: (remove: boolean) => Promise<void>}>()
     const recordings = useLiveQuery(() => db.recordings.toArray());
     const errorModal = useDisclosure() */
 

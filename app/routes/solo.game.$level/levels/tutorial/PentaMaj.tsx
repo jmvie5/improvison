@@ -1,8 +1,6 @@
 import scaleGenerator from "../../../../utils/vexFlowGenerators/scaleGenerator";
 import randomMelodyGenerator from "../../../../utils/vexFlowGenerators/randomMelodyGenerator";
 import blueMonk from "../../../../utils/songs/blueMonk";
-import locale_fr from "../../../solo.game.$level/translations/fr.json";
-import locale_en from "../../../solo.game.$level/translations/en.json";
 import { t } from "i18next";
 
 const PentaMaj = {
@@ -14,8 +12,9 @@ const PentaMaj = {
   intro: {
     name: "intro",
     title: "1.1.1 : Gamme pentatonique majeure",
-    description: (transposition?: string, locale: string = "en") => (
+    description: (transposition?: string) => (
       <div className="grid grid-cols-1 gap-2">
+        <h2 className="mb-2 font-semibold text-lg">{t("pages.soloGameLevels.pentaMaj.title")}</h2>
         <p>{t("pages.soloGameLevels.pentaMaj.intro.desc")}</p>
         <p>{t("pages.soloGameLevels.pentaMaj.intro.desc2")}</p>
         <div className="my-4 font-medium">
@@ -61,6 +60,7 @@ const PentaMaj = {
     title: "1.1.2 : Gamme pentatonique majeure : Improvisation libre",
     description: (transposition?: string) => (
       <div className="grid grid-cols-1 gap-2">
+        <h2 className="mb-2 font-semibold text-lg">{t("pages.soloGameLevels.pentaMaj.freeImprov.title")}</h2>
         <p>{t("pages.soloGameLevels.pentaMaj.freeImprov.desc")}</p>
         <div className="my-4">
           <p>{t("pages.soloGameLevels.pentaMaj.freeImprov.instructionDesc")}</p>
@@ -119,7 +119,8 @@ const PentaMaj = {
     title: "1.1.3 : Gamme pentatonique majeure : Improvisation sur Blue Monk",
     description: (transposition?: string) => (
       <div className="grid grid-cols-1 gap-2">
-        <h2>{t("pages.soloGameLevels.pentaMaj.repertoireImprov.subTitle")}</h2>
+        <h2 className="mb-2 font-semibold text-lg">{t("pages.soloGameLevels.pentaMaj.repertoireImprov.title")}</h2>
+        <p>{t("pages.soloGameLevels.pentaMaj.repertoireImprov.subTitle")}</p>
         <p>{t("pages.soloGameLevels.pentaMaj.repertoireImprov.desc")}</p>
         <p>
           {t("pages.soloGameLevels.pentaMaj.repertoireImprov.bluesTableTitle")}

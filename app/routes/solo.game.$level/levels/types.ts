@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { Factory } from "vexflow";
 
 interface SubLvlInterface {
     name: string;
@@ -6,7 +6,7 @@ interface SubLvlInterface {
     description: (transposition?: string) => JSX.Element;
     vfTitle?: string;
     vfProps: {
-        template: Function;
+        template: (vf: Factory, keySignature: string, scaleNotes: string[], nbBars: number, timeSignature: number, chords: string[]) => Factory;
         keySignature: string;
         scaleNotes: string[];
         nbBars: number;

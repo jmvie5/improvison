@@ -57,10 +57,10 @@ export default function SoloLayout() {
 				<div className="flex items-center gap-2">
                     <Form className="flex gap-2 self-center mt-4" action={location}>
                         <ButtonGroup>
-                            <Button type="submit" name="lng" value="fr" className="bg-white">
+                            <Button type="submit" name="lng" value="fr" className="">
                             Français
                             </Button>
-                            <Button type="submit" name="lng" value="en" className="bg-white">
+                            <Button type="submit" name="lng" value="en" className="">
                             English
                             </Button>
                         </ButtonGroup>

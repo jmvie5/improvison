@@ -23,7 +23,7 @@ export default function scaleGenerator(
     const notes = score.notes.bind(score);
     let notesString = `${scaleNotes[0]}/w`;
 
-    for (var i = 1; i < scaleNotes.length; i++) {
+    for (let i = 1; i < scaleNotes.length; i++) {
         notesString = notesString.concat(", ", scaleNotes[i]);
     }
     score.set({ time: `${scaleNotes.length}/1` });

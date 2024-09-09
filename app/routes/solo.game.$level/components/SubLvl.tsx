@@ -10,6 +10,7 @@ import { CheckIcon } from "@heroicons/react/24/outline";
 import { db } from '../../../db';
 import { t } from "i18next";
 import { twMerge } from 'tailwind-merge'
+import { useLocale } from "remix-i18next/react";
 
 
 type SubLvlProps = {
@@ -19,7 +20,7 @@ type SubLvlProps = {
     transposition: string;
     vfTitle?: string;
     vfProps: {
-        template: Function;
+        template: (vf: Factory, keySignature: string, scaleNotes: string[], nbBars: number, timeSignature: number, chords: string[]) => Factory;
         keySignature: string;
         scaleNotes: string[];
         nbBars: number;
@@ -37,6 +38,8 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
     const [audioBlob, setAudiBlob] = useState<Blob>()
     // const [playerKey, _setPlayerKey] = useState("C");
     const [showSaved, setShowSaved] = useState(false)
+    const [desc, setDesc] = useState<JSX.Element>()
+    const locale = useLocale()
 
     const recorderControls = useAudioRecorder({noiseSuppression:false}, (err) => console.table(err), {audioBitsPerSecond: 128000})
 
@@ -109,6 +112,14 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
         setShowSaved(false);
     }, [name])
 
+    useEffect(() => {
+        console.log(locale)
+        setTimeout(() => {
+            setDesc(description(transposition))
+        }, 10)
+        
+    }, [locale])
+
     function clearVf() {
         const staff = document.getElementById("vf");
         while (staff?.hasChildNodes()) {
@@ -163,8 +174,8 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
     return (
         <div className="grid grid-cols-1 2xl:grid-cols-3 h-full  mb-8 p-4 gap-4 justify-around">
             <div>
-                <h2 className="mb-2 font-semibold">{title}</h2>
-                {description(transposition)}
+                {/* <h2 className="mb-2 font-semibold">{title}</h2> */}
+                {desc}
             </div>
 
             <div className="col-span-2 flex flex-col w-full h-fit ">
@@ -211,7 +222,7 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
                                             }} 
                                             className="btn-primary"
                                         >
-                                            Effacer l'enregistrement
+                                            Effacer l{"'"}enregistrement
                                         </Button>
                                         <div className="flex flex-col sm:flex-row items-center gap-2">
                                             <Button 

@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
 import { useState, useRef } from "react";
 import MyModal from "../../components/MyModal";
-import ErrorMsg from "../../components/ErrorMsg"
-import { Link, Outlet } from "@remix-run/react";
-import Guide from "../solo.game.$level/levels/Guide";
+// import ErrorMsg from "../../components/ErrorMsg"
+// import Guide from "../solo.game.$level/levels/Guide";
 import PentaMaj from "../solo.game.$level/levels/tutorial/PentaMaj";
 import PentaMin from "../solo.game.$level/levels/tutorial/PentaMin";
 import Motifs from "../solo.game.$level/levels/tutorial/Motifs";
@@ -20,10 +18,9 @@ import {
     type LoaderFunctionArgs,
     type MetaFunction,
   } from "@remix-run/node";
-import { useLoaderData, useLocation, useOutletContext } from "@remix-run/react";
+import { Outlet , useLoaderData, useLocation, useOutletContext, useNavigate } from "@remix-run/react";
 import MinorScale from "../solo.game.$level/levels/tutorial/MinorScale";
 import i18nextServer from "~/i18next.server";
-import { useNavigate } from "@remix-run/react";
 
 export async function loader({ request, params }: LoaderFunctionArgs) {
 
@@ -99,7 +96,7 @@ export default function SoloGame() {
 
     const navigate = useNavigate()
 
-    const { translations, level } = useLoaderData<typeof loader>();
+    const { translations, /* level */ } = useLoaderData<typeof loader>();
     const transposition:string = useOutletContext()
     const recordings = useLiveQuery(() => db.recordings.toArray());
 
@@ -130,7 +127,7 @@ export default function SoloGame() {
 
     const [currentLvl, setCurrentLvl] = useState({} as LevelInterface);
     const [currentSubLvl, setCurrentSubLvl] = useState({} as SubLvlInterface);
-    const subLevelRef = useRef<any>()
+    const subLevelRef = useRef<{removeAudio: () => void, saveAudioToProfile: (remove: boolean) => Promise<void>}>()
 
     function isSubLevelCompleted(subLvlTitle:string) {
 
