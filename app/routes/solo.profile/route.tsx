@@ -1,6 +1,6 @@
 import { db } from '../../db';
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
-
+import { Card, CardBody, CardHeader, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+import { XMarkIcon } from '@heroicons/react/24/solid';
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData, ClientLoaderFunctionArgs, useOutletContext } from "@remix-run/react";
 import { json } from "@remix-run/node";
@@ -116,18 +116,20 @@ export default function SoloProfile() {
                 {(recordings && recordings?.length > 0) ? (
                     <>
                         {recordings.map((record) => (
-                            <div className='flex flex-col gap-4 items-center sef-center border rounded-xl p-4 justify-between' key={record.id}>
-                                <div className='flex justify-between w-full gap-2'>
-                                    <div className=' break-words'>{record.levelName}</div>
-                                    <Button isIconOnly onPress={() => deleteRecording(record.id)}>X</Button>
-                                    
-                                </div>
-                                <audio src={URL.createObjectURL(record.audioBlob)} controls/>
-                                
-                            </div>
+                            <Card key={record.id} className='bg-bleu-pale text-white'>
+                                <CardHeader className='flex justify-between'>
+                                    {record.levelName}
+                                    <Button variant='light' isIconOnly onPress={() => deleteRecording(record.id)}><XMarkIcon className='text-white'/></Button>
+                                </CardHeader>
+                                <CardBody>
+                                    {/* eslint-disable-next-line */}
+                                    <audio className='self-center' src={URL.createObjectURL(record.audioBlob)} controls/>
+                                </CardBody>
+                            </Card>
+                            
                         ))}
                     </> 
-                ) : <div>No recordings.</div>}
+                ) : <div>Aucun enregisrements.</div>}
             </div>
             
         </div>
