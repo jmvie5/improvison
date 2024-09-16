@@ -12,9 +12,22 @@ export async function loader({ request }: LoaderFunctionArgs) {
     const title = t("pages.soloProfile.title")
     const description = t("pages.soloProfile.description");
     const recordings = t("pages.soloProfile.recordings");
+    const modalBtn = t("pages.soloProfile.modalBtn");
+    const modalTitle = t("pages.soloProfile.modal.title");
+    const modalContent = t("pages.soloProfile.modal.content");
+    const modalCancelBtn = t("pages.soloProfile.modal.cancelBtn");
+    const modalActionBtn = t("pages.soloProfile.modal.actionBtn")
+
+
 
     const translations = {
         recordings: recordings,
+
+        modalBtn:modalBtn,
+        modalTitle: modalTitle,
+        modalContent: modalContent,
+        modalCancelBtn: modalCancelBtn,
+        modalActionBtn: modalActionBtn
     }
 
 
@@ -27,7 +40,19 @@ export async function clientLoader({
   }: ClientLoaderFunctionArgs) {
 
     const [serverData, clientData] = await Promise.all([
-        serverLoader<{title: string, description:string, translations:{recordings: string}, transposition: string}>(),
+        serverLoader<{
+            title: string,
+            description:string,
+            translations:{
+                recordings: string,
+                modalBtn:string,
+                modalTitle:string,
+                modalContent:string,
+                modalCancelBtn:string,
+                modalActionBtn:string
+            }, 
+            transposition: string
+        }>(),
         {
             recordings : await db.recordings.toArray(),
         },
@@ -49,7 +74,7 @@ export default function SoloProfile() {
 
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
-    const { recordings } = useLoaderData<typeof clientLoader>();
+    const { recordings, translations } = useLoaderData<typeof clientLoader>();
 
     const transposition:string = useOutletContext()
 
@@ -76,19 +101,19 @@ export default function SoloProfile() {
             <div className='self-center text-4xl font-bold p-4'>Profil</div>
             <div className='self-end'>Transposition : {transposition}</div>
             <div className='self-end'>
-                <Button onPress={onOpen}>Effacer tous les enregisrements</Button>
+                <Button onPress={onOpen}>{translations.modalBtn}</Button>
 
                 <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="xl" backdrop='blur'>
                     <ModalContent>
                     {(onClose) => (
                         <>
-                        <ModalHeader className="flex flex-col gap-1">Effacer tous les enregisrements</ModalHeader>
+                        <ModalHeader className="flex flex-col gap-1">{translations.modalTitle}</ModalHeader>
                         <ModalBody>
-                            Voulez-vous vraiment effacer tous vos enregistrements? Vous devez avoir au moins un enregistrement de chaque niveau pour qu'il soit inscrit comme complété.
+                            {translations.modalContent}
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="warning" onPress={onClose}>
-                                Non! Je ne veux pas effacer mes enregistrements
+                            <Button color="primary" onPress={onClose}>
+                                {translations.modalCancelBtn}
                             </Button>
 
                             <Button
@@ -102,7 +127,7 @@ export default function SoloProfile() {
                                     }
                                 }}
                             >
-                                Tout effacer
+                                {translations.modalActionBtn}
                             </Button>
                         </ModalFooter>
                         </>
@@ -111,7 +136,7 @@ export default function SoloProfile() {
                 </Modal>
             </div>
             
-            <div>Enregistrements : </div>
+            <div>{translations.recordings}</div>
             <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
                 {(recordings && recordings?.length > 0) ? (
                     <>

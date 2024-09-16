@@ -1,4 +1,12 @@
 {
-    "title": "",
-    "description" : ""
+    "title": "Profil",
+    "description" : "",
+    "modalBtn" : "Effacer tous les enregistrements",
+    "recordings" : "Enregistrements :",
+    "modal" : {
+        "title" : "Effacer tous les enregistrements",
+        "content" : "Voulez-vous vraiment effacer tous vos enregistrements? Vous devez avoir au moins un enregistrement de chaque niveau pour qu'il soit inscrit comme complété.",
+        "cancelBtn" : "Non! Je ne veux pas effacer mes enregistrements",
+        "actionBtn" : "Tout effacer"
+    } 
 }

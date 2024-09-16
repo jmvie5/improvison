@@ -5,6 +5,7 @@ export interface Recording {
   id?: number;
   audioBlob: Blob;
   levelName: string;
+  //date: string;
 
 }
 

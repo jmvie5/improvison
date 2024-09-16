@@ -1,12 +1,12 @@
 {
-    "title": "",
+    "title": "Profile",
     "description" : "",
-    "modalBtn" : "",
-    "recordings" : "",
+    "modalBtn" : "Delete all recordings",
+    "recordings" : "Recordings :",
     "modal" : {
-        "title" : "",
-        "content" : "",
-        "cancelBtn" : "",
-        "actionBtn" : ""
+        "title" : "Delete all recordings",
+        "content" : "Do you really want to delete all your recordings? You must have at least one record of each level to be registered as completed.",
+        "cancelBtn" : "No! I don't want to delete my recordings",
+        "actionBtn" : "Delete all"
     } 
 }
