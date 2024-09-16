@@ -1,18 +1,11 @@
-import { useState, useRef } from "react";
-import MyModal from "../../components/MyModal";
-// import ErrorMsg from "../../components/ErrorMsg"
-// import Guide from "../solo.game.$level/levels/Guide";
 import PentaMaj from "../solo.game.$level/levels/tutorial/PentaMaj";
 import PentaMin from "../solo.game.$level/levels/tutorial/PentaMin";
 import Motifs from "../solo.game.$level/levels/tutorial/Motifs";
 import MajorScale from '../solo.game.$level/levels/tutorial/MajorScale'
 import TargetNotes from "../solo.game.$level/levels/lvl2/TargetNotes";
 import { Button, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
-import { SubLvlInterface, LevelInterface } from "../solo.game.$level/levels/types";
+import { LevelInterface } from "../solo.game.$level/levels/types";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
-import { useLiveQuery } from 'dexie-react-hooks';
-import { db } from '../../db';
-
 import {
     json,
     type LoaderFunctionArgs,
@@ -96,9 +89,8 @@ export default function SoloGame() {
 
     const navigate = useNavigate()
 
-    const { translations, /* level */ } = useLoaderData<typeof loader>();
+    const { translations } = useLoaderData<typeof loader>();
     const transposition:string = useOutletContext()
-    const recordings = useLiveQuery(() => db.recordings.toArray());
 
     const errorModal = useDisclosure()
 
@@ -124,29 +116,6 @@ export default function SoloGame() {
         MinorScale,
         TargetNotes
     ];
-
-    const [currentLvl, setCurrentLvl] = useState({} as LevelInterface);
-    const [currentSubLvl, setCurrentSubLvl] = useState({} as SubLvlInterface);
-    const subLevelRef = useRef<{removeAudio: () => void, saveAudioToProfile: (remove: boolean) => Promise<void>}>()
-
-    function isSubLevelCompleted(subLvlTitle:string) {
-
-        if (!recordings) return false
-
-        console.log(subLvlTitle)
-
-        for (let i = 0; i < recordings.length; i++) {
-
-            const r = recordings[i]
-
-            if (r.levelName === subLvlTitle) {
-                return true
-            }
-
-        }
-
-        return false
-    }
 
     return (
         <div className="flex flex-col grow justify-between">
@@ -213,8 +182,8 @@ export default function SoloGame() {
                                     key={level.name}
                                     onPress={() => {
                                         window.scrollTo({top:0})
-                                        setCurrentLvl(level);
-                                        setCurrentSubLvl(level.intro);
+                                        // setCurrentLvl(level);
+                                        // setCurrentSubLvl(level.intro);
                                         navigate(`/solo/game/${level.url}`) // as={Link} does not work
                                     }}
                                     disabled={level.locked}
@@ -233,121 +202,8 @@ export default function SoloGame() {
                 
             ) : (
                 <Outlet
-                    context={{currentSubLvl, transposition, subLevelRef}}
+                    context={{transposition}}
                 />
-            )}
-            {!(location === "/solo/game" ) && (
-                <div className="flex  shadow-lg-rev  justify-between p-4 bg-bleu-fonce">
-                    <div className="flex gap-2 self-end">
-                        <Button
-                            onPress={() => {
-                                navigate("/solo/game")
-                            }}
-                        >
-                            {translations.buttons.backToMenu}
-                        </Button>
-                    </div>
-                    <div className="flex gap-2">
-                        {
-                            currentSubLvl.name !== "intro" &&
-                                <Button
-                                    onPress={() => {
-                                        if (currentSubLvl.name === "freeImprov") {
-                                            setCurrentSubLvl(currentLvl.intro);
-                                        } else if (currentSubLvl.name === "repertoireImprov") {
-                                            setCurrentSubLvl(currentLvl.freeImprov);
-                                        }
-                                    }}
-                                >
-                                    {translations.buttons.back}
-                                </Button>
-                        }
-                        {
-                            currentSubLvl.name === "intro" &&
-                            <Button
-                                onPress={() => {
-
-                                    setCurrentSubLvl(currentLvl.freeImprov);
-
-                                }}
-                            >
-                                {translations.buttons.nextStep}
-                            </Button>
-                        }
-                        {currentSubLvl.name === "freeImprov" &&
-                            <>
-                                {isSubLevelCompleted(currentSubLvl.title) ? (
-                                    <Button
-                                        onPress={() => {
-                                            if (subLevelRef.current) {
-                                                subLevelRef.current.removeAudio()
-                                            }
-                                            setCurrentSubLvl(currentLvl.repertoireImprov);
-                                        }}
-                                    >
-                                        {translations.buttons.nextStep}
-                                    </Button>
-                                ) : (
-                                    <MyModal
-                                        title={translations.modal.titleNextStep}
-                                        content={translations.modal.contentNextStep}
-                                        isAction={true}
-                                        confirmatonButton={translations.modal.confirmationButton}
-                                        cancelButton={translations.modal.cancelButton}
-                                        onConfirmation={() => {
-                                            const audioDiv = document.getElementById("recorded-audio");
-                                            if (audioDiv?.hasChildNodes()) {
-                                                if (subLevelRef.current) {
-                                                    subLevelRef.current.saveAudioToProfile(true)
-                                                }
-                                                setCurrentSubLvl(currentLvl.repertoireImprov);
-                                            } else {
-                                                errorModal.onOpen()
-                                            }
-                                        }}
-                                    />
-                                )}
-                            </>
-                        }
-                        {currentSubLvl.name === "repertoireImprov" &&
-                            <>
-                                {isSubLevelCompleted(currentSubLvl.title) ? (
-                                    <Button
-                                        onPress={() => {
-                                            if (subLevelRef.current) {
-                                                subLevelRef.current.removeAudio()
-                                            }
-                                            navigate("/solo/game")
-                                        }}
-                                    >
-                                        {translations.buttons.nextLevel}
-                                    </Button>
-                                ) : (
-                                    <MyModal
-                                        title={translations.modal.titleNextLevel}
-                                        content={translations.modal.contentNextLevel}
-                                        isAction={true}
-                                        confirmatonButton={translations.modal.confirmationButton}
-                                        cancelButton={translations.modal.cancelButton}
-                                        onConfirmation={() => {
-                                            const audioDiv = document.getElementById("recorded-audio");
-                                            console.log(audioDiv);
-                                            if (audioDiv?.hasChildNodes()) {
-                                                if (subLevelRef.current) {
-                                                    subLevelRef.current.saveAudioToProfile(true)
-                                                }
-                                                navigate("/solo/game")
-                                            } else {
-                                                errorModal.onOpen()
-                                            }
-                                        }}
-                                    />
-                                )}
-                            </>                     
-                        }
-                    </div>
-                    
-                </div>
             )}
         </div>
     );

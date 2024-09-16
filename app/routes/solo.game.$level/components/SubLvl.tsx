@@ -8,9 +8,9 @@ import { Button, Chip } from "@nextui-org/react";
 import { SubLvlInterface } from "../levels/types";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { db } from '../../../db';
-import { t } from "i18next";
 import { twMerge } from 'tailwind-merge'
 import { useLocale } from "remix-i18next/react";
+import { useTranslation } from "react-i18next";
 
 
 type SubLvlProps = {
@@ -33,13 +33,15 @@ type SubLvlProps = {
 }
 
 const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, transposition, vfProps, vf_w, vf_h, reRender }: SubLvlProps, ref) {
+    
+    const { t, ready } = useTranslation()
 
+    const locale = useLocale()
+    console.log(locale)
     const [audioUrl, setAudioUrl] = useState("");
     const [audioBlob, setAudiBlob] = useState<Blob>()
     // const [playerKey, _setPlayerKey] = useState("C");
     const [showSaved, setShowSaved] = useState(false)
-    const [desc, setDesc] = useState<JSX.Element>()
-    const locale = useLocale()
 
     const recorderControls = useAudioRecorder({noiseSuppression:false}, (err) => console.table(err), {audioBitsPerSecond: 128000})
 
@@ -112,13 +114,13 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
         setShowSaved(false);
     }, [name])
 
-    useEffect(() => {
+    /* useEffect(() => {
         console.log(locale)
         setTimeout(() => {
             setDesc(description(transposition))
-        }, 10)
+        }, 25)
         
-    }, [locale])
+    }, [locale]) */
 
     function clearVf() {
         const staff = document.getElementById("vf");
@@ -170,12 +172,12 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
             console.warn('Error when intereacting with db')
         }
     }
-
+    if (!ready) return <div></div>;
     return (
         <div className="grid grid-cols-1 2xl:grid-cols-3 h-full  mb-8 p-4 gap-4 justify-around">
             <div>
                 {/* <h2 className="mb-2 font-semibold">{title}</h2> */}
-                {desc}
+                {description(transposition)}
             </div>
 
             <div className="col-span-2 flex flex-col w-full h-fit ">

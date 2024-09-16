@@ -21,8 +21,8 @@ import * as soloGameFR from "./routes/solo.game/translations/fr.json";
 import * as soloProfileEN from "./routes/solo.profile/translations/en.json";
 import * as soloProfileFR from "./routes/solo.profile/translations/fr.json";
 
-import * as soloGameLevelsFR from "./routes/solo.game.$level/translations/fr.json";
 import * as soloGameLevelsEN from "./routes/solo.game.$level/translations/en.json";
+import * as soloGameLevelsFR from "./routes/solo.game.$level/translations/fr.json";
 
 // This is the list of languages your application supports
 export const supportedLngs = ["fr", "en"];

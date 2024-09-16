@@ -1,4 +1,4 @@
-import { Outlet, Form, useLoaderData } from "@remix-run/react";
+import { Link,Outlet, Form, useLoaderData, useLocation } from "@remix-run/react";
 import { improvison_accueil } from "~/static/images";
 import {Button, ButtonGroup, Image} from "@nextui-org/react";
 import {
@@ -6,7 +6,6 @@ import {
     type LoaderFunctionArgs,
     type MetaFunction,
   } from "@remix-run/node";
-import { Link, useLocation } from "@remix-run/react";
 import { useState } from "react";
 import i18nextServer from "~/i18next.server";
 
@@ -84,4 +83,4 @@ export default function SoloLayout() {
       
         </div>
     );
-};
+}

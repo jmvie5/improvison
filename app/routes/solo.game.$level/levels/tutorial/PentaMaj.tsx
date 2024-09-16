@@ -12,36 +12,38 @@ const PentaMaj = {
   intro: {
     name: "intro",
     title: "1.1.1 : Gamme pentatonique majeure",
-    description: (transposition?: string) => (
-      <div className="grid grid-cols-1 gap-2">
-        <h2 className="mb-2 font-semibold text-lg">{t("pages.soloGameLevels.pentaMaj.title")}</h2>
-        <p>{t("pages.soloGameLevels.pentaMaj.intro.desc")}</p>
-        <p>{t("pages.soloGameLevels.pentaMaj.intro.desc2")}</p>
-        <div className="my-4 font-medium">
-          <p>{t("pages.soloGameLevels.pentaMaj.intro.instructionDesc")}</p>
-          <ol className=" list-inside list-disc">
-            <li>{t("pages.soloGameLevels.pentaMaj.intro.instruction1")} </li>
-            <li>{t("pages.soloGameLevels.pentaMaj.intro.instruction2")}</li>
-            <li>{t("pages.soloGameLevels.pentaMaj.intro.instruction3")}</li>
-            <li>{t("pages.soloGameLevels.pentaMaj.intro.instruction4")}</li>
-          </ol>
+    description: (transposition?: string) => {
+      return (
+        <div className="grid grid-cols-1 gap-2">
+          <h2 className="mb-2 font-semibold text-lg">{t("pages.soloGameLevels.pentaMaj.title")}</h2>
+          <p>{t("pages.soloGameLevels.pentaMaj.intro.desc")}</p>
+          <p>{t("pages.soloGameLevels.pentaMaj.intro.desc2")}</p>
+          <div className="my-4 font-medium">
+            <p>{t("pages.soloGameLevels.pentaMaj.intro.instructionDesc")}</p>
+            <ol className=" list-inside list-disc">
+              <li>{t("pages.soloGameLevels.pentaMaj.intro.instruction1")} </li>
+              <li>{t("pages.soloGameLevels.pentaMaj.intro.instruction2")}</li>
+              <li>{t("pages.soloGameLevels.pentaMaj.intro.instruction3")}</li>
+              <li>{t("pages.soloGameLevels.pentaMaj.intro.instruction4")}</li>
+            </ol>
+          </div>
+          <p>{t("pages.soloGameLevels.pentaMaj.intro.instructionFinal")}</p>
+          <p className=" italic">
+            {t("pages.soloGameLevels.pentaMaj.intro.notTooFast")}
+          </p>
+          <p className="mt-8">
+            {t("pages.soloGameLevels.pentaMaj.intro.exemples")}
+          </p>
+          <iframe
+            className="w-full aspect-video max-w-[800px]"
+            src="https://www.youtube.com/embed/s4rXEKtC8iY?si=CsuYXuVHNXncl_B6&amp;controls=2&amp;start=63&end=75"
+            title="Mercy, Mercy, Mercy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+          ></iframe>
         </div>
-        <p>{t("pages.soloGameLevels.pentaMaj.intro.instructionFinal")}</p>
-        <p className=" italic">
-          {t("pages.soloGameLevels.pentaMaj.intro.notTooFast")}
-        </p>
-        <p className="mt-8">
-          {t("pages.soloGameLevels.pentaMaj.intro.exemples")}
-        </p>
-        <iframe
-          className="w-full aspect-video max-w-[800px]"
-          src="https://www.youtube.com/embed/s4rXEKtC8iY?si=CsuYXuVHNXncl_B6&amp;controls=2&amp;start=63&end=75"
-          title="Mercy, Mercy, Mercy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-        ></iframe>
-      </div>
-    ),
+      )
+    },
 
     vfProps: {
       template: scaleGenerator,
