@@ -20,32 +20,12 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
     }
 
     const translations = {
-        title: t('pages.soloGame.title'),
-        description: t('pages.soloGame.description'),
-        description2: t('pages.soloGame.index.description2'),
-        presentation: t('pages.soloGame.index.presentation'),
-        exploration: t('pages.soloGame.index.exploration'),
-        and : t('pages.soloGame.index.and'),
-        integration: t('pages.soloGame.index.integration'),
-        description3: t('pages.soloGame.index.description3'),
-        playOnline: t('pages.soloGame.index.playOnline'),
-        playOnlineDesc: t('pages.soloGame.index.playOnlineDesc'),
-        levels: t('pages.soloGame.levels'),
-        lvlTitles : {
-            "1-1" : t('pages.soloGame.lvlTitles.1-1'),
-            "1-2" : t('pages.soloGame.lvlTitles.1-2'),
-            "1-3" : t('pages.soloGame.lvlTitles.1-3'),
-            "1-4" : t('pages.soloGame.lvlTitles.1-4'),
-            "1-5" : t('pages.soloGame.lvlTitles.1-5'),
-
-            "2-1" : t('pages.soloGame.lvlTitles.2-1')
-        } as {[key :string] : string},
         buttons : {
-            newMotif : t('pages.soloGame.buttons.newMotif'),
-            backToMenu : t('pages.soloGame.buttons.backToMenu'),
-            nextStep : t('pages.soloGame.buttons.nextStep'),
-            nextLevel : t('pages.soloGame.buttons.nextLevel'),
-            back : t('pages.soloGame.buttons.back')
+            newMotif : t('pages.soloGameLevels.footer.newMotif'),
+            backToMenu : t('pages.soloGameLevels.footer.backToMenu'),
+            nextStep : t('pages.soloGameLevels.footer.nextStep'),
+            nextLevel : t('pages.soloGameLevels.footer.nextLevel'),
+            back : t('pages.soloGameLevels.footer.back')
 
         },
         modal : {

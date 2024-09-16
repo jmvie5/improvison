@@ -2,8 +2,6 @@ import { useEffect, useState, useCallback, forwardRef, useImperativeHandle } fro
 import { Factory } from "vexflow";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
 import transpose, { transposeProps } from "../../../utils/transposition";
-// import UserInterface from "./userComponents/UserInterface";
-// import authService from "../services/authService";
 import { Button, Chip } from "@nextui-org/react";
 import { SubLvlInterface } from "../levels/types";
 import { CheckIcon } from "@heroicons/react/24/outline";
@@ -40,7 +38,6 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
     console.log(locale)
     const [audioUrl, setAudioUrl] = useState("");
     const [audioBlob, setAudiBlob] = useState<Blob>()
-    // const [playerKey, _setPlayerKey] = useState("C");
     const [showSaved, setShowSaved] = useState(false)
 
     const recorderControls = useAudioRecorder({noiseSuppression:false}, (err) => console.table(err), {audioBitsPerSecond: 128000})
@@ -205,7 +202,7 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
                                         onClick={drawVf}
                                         className="btn-primary col-start-2 justify-self-end self-center"
                                     >
-                                        {t('pages.soloGame.buttons.newMotif')}
+                                        {t('pages.soloGameLevels.vf.newMotif')}
                                     </Button>
                                 ) : (
                                     <></>
@@ -224,7 +221,7 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
                                             }} 
                                             className="btn-primary"
                                         >
-                                            Effacer l{"'"}enregistrement
+                                            {t("pages.soloGameLevels.vf.deleteRecording")}
                                         </Button>
                                         <div className="flex flex-col sm:flex-row items-center gap-2">
                                             <Button 
@@ -233,7 +230,7 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
                                                     setShowSaved(true)
                                                 }} 
                                                 className="btn-primary mx-2 ">
-                                                Sauvegarder
+                                                {t("pages.soloGameLevels.vf.save")}
                                             </Button>
                                             {showSaved &&       
                                             <Chip

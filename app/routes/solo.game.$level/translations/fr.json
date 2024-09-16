@@ -1,4 +1,16 @@
 {
+  "vf" : {
+    "randomMotif" : "Motif aléatoire",
+    "save": "Sauvegarder",
+    "deleteRecording" : "Effacer l'enregistrement",
+    "newMotif" : "Nouveau motif"
+  },
+  "footer" : {
+        "backToMenu" : "Retour au menu",
+        "nextStep" : "Prochaine étape",
+        "nextLevel" : "Niveau suivant",
+        "back" : "Retour"
+    },
   "pentaMaj": {
     "title": "Gamme pentatonique majeure",
     "intro": {
@@ -81,7 +93,7 @@
       "recordYourself": "Utilisez le micro en bas de la partition pour vous enregistrer à des fins d'autoévaluation. Pour passer à la page suivante, il est requis de soumettre un enregistrement."
     },
     "repertoireImprov": {
-      "title": "Improvisation sur Mr. P.Cé",
+      "title": "Improvisation sur Mr. P.C.",
       "subTitle": "Intégrons maintenant cette nouvelle connaissance dans le répertoire.",
       "desc": "La gamme pentatonique majeure peut être utilisée pour improviser du début à la fin d’un blues mineur",
       "bluesTableTitle": "La forme blues simple :",

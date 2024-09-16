@@ -1,6 +1,7 @@
 import scaleGenerator from "../../../../utils/vexFlowGenerators/scaleGenerator";
 import randomMelodyGenerator from "../../../../utils/vexFlowGenerators/randomMelodyGenerator";
 import mrPC from "../../../../utils/songs/mrPc";
+import { t } from "i18next";
 
 const PentaMin = {
     url: '1-2',
@@ -13,30 +14,21 @@ const PentaMin = {
         title: "1.2.1 : Gamme pentatonique mineure",
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
-                <h2>
-                    Nous allons répéter l'exercice précédent, mais avec la gamme pentatonique mineure. Nous utilisons cette fois la gamme de Do (C) mineur pentatonique pour concorder avec la pièce utilisée dans la dernière partie du niveau.
-                </h2>
-                <p>
-                    La gamme pentatonique mineure est simplement une gamme mineure avec le 2e et le 6e degré en moins.
-                    Elle est dérivée de sa relative majeure.
-                </p>
+                <h2>{t("pages.soloGameLevels.pentaMin.title")}</h2>
+                <p>{t("pages.soloGameLevels.pentaMin.intro.desc")}</p>
+                <p>{t("pages.soloGameLevels.pentaMin.intro.desc2")}</p>
                 <div className="my-4 font-medium">
-                    <p>
-                        Pour vous familiariser avec la gamme, commencez par la jouer avec un tempo stable de façon : 
-                    </p>
+                    <p>{t("pages.soloGameLevels.pentaMin.intro.instructionDesc")}</p>
                     <ol className=" list-inside list-disc">
-                        <li>ascendante</li>
-                        <li>descendante</li>
-                        <li>aléatoire</li>
+                        <li>{t("pages.soloGameLevels.pentaMin.intro.instruction1")}</li>
+                        <li>{t("pages.soloGameLevels.pentaMin.intro.instruction2")}</li>
+                        <li>{t("pages.soloGameLevels.pentaMin.intro.instruction3")}</li>
+                        <li>{t("pages.soloGameLevels.pentaMin.intro.instruction4")}</li>
                     </ol>
                 </div>
-                <p>
-                    Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à des tempos différents (de X à Y).
-                </p>
-                <p className=" italic">N'essayez pas d'aller trop vite! Le but est d'être stable et en même temps que le métronome avant d'être rapide. </p>
-                <p className="mt-8">
-                    Voici un exemple d'utilisation de la gamme pentatonique mineure (1:53 à 2:01) :
-                </p>
+                <p>{t("pages.soloGameLevels.pentaMin.intro.instructionFinal")} </p>
+                <p className=" italic">{t("pages.soloGameLevels.pentaMin.intro.notTooFast")}</p>
+                <p className="mt-8">{t("pages.soloGameLevels.pentaMin.intro.exemples")}</p>
                 <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/AKyOg3mNDUs?si=beadOS0j0pqpQPpG&amp;controls=2&amp;start=113&end=122" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         ),
@@ -58,34 +50,46 @@ const PentaMin = {
         title: "1.2.2 : Gamme pentatonique mineure : Improvisation libre",
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
-                <p>
-                    Maintenant, créez des mélodies en utilisant la gamme pentatonique mineure 
-                </p>
-                <p>
-                    Une mélodie générée aléatoirement vous est présentée à titre d'exemple, vous pouvez vous en inspirer
-                    pour créer votre propre improvisation. Vous pouvez générer de nouvelles mélodies en cliquant sur le
-                    bouton en bas de la partition.
-                </p>
+                <h2 className="mb-2 font-semibold text-lg">{t("pages.soloGameLevels.pentaMin.freeImprov.title")}</h2>
+                <p>{t("pages.soloGameLevels.pentaMin.freeImprov.desc")}</p>
                 <div className="my-4">
-                    <p>Lassez-vous aller! Utilisez les trucs suivants pour diversifier votre improvisation libre:</p>
-                    <ol className=" list-inside list-disc">
-                        <li>Intervalles conjoints seulement</li>
-                        <li>Intervalles disjoints seulement</li>
-                        <li>Jouer des blanches seulement</li>
-                        <li>Jouer des noires seulement</li>
-                        <li>Mélanger les rythmes</li>
-                        <li>Utiliser des motifs rythmiques ou mélodiques</li>
-                    </ol>
+                <p>{t("pages.soloGameLevels.pentaMin.freeImprov.instructionDesc")}</p>
+                <ol className=" list-inside list-disc">
+                    <li>
+                    {t("pages.soloGameLevels.pentaMin.freeImprov.instruction1")}
+                    </li>
+                    <li>
+                    {t("pages.soloGameLevels.pentaMin.freeImprov.instruction2")}
+                    </li>
+                    <li>
+                    {t("pages.soloGameLevels.pentaMin.freeImprov.instruction3")}
+                    </li>
+                    <li>
+                    {t("pages.soloGameLevels.pentaMin.freeImprov.instruction4")}
+                    </li>
+                    <li>
+                    {t("pages.soloGameLevels.pentaMin.freeImprov.instruction5")}
+                    </li>
+                    <li>
+                    {t("pages.soloGameLevels.pentaMin.freeImprov.instruction6")}
+                    </li>
+                    <li>
+                    {t("pages.soloGameLevels.pentaMin.freeImprov.instruction7")}
+                    </li>
+                </ol>
                 </div>
+                <p>{t("pages.soloGameLevels.pentaMin.freeImprov.instructionFinal")}</p>
+                <h3 className=" font-bold">
+                {t(
+                    "pages.soloGameLevels.pentaMin.freeImprov.lackingInspiration.title"
+                )}
+                </h3>
                 <p>
-                    Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre
-                    improvisation, mais n'hésitez pas à l'enlever pour explorer l'improvisation à votre instrument.
+                {t(
+                    "pages.soloGameLevels.pentaMin.freeImprov.lackingInspiration.desc"
+                )}
                 </p>
-
-                <p>
-                    Utilisez le micro en bas de la partition pour vous enregistrer à des fins d'autoévaluation. Pour
-                    passer à la page suivante, il est requis de soumettre un enregistrement qui sera disponible dans votre profil.
-                </p>
+                <p>{t("pages.soloGameLevels.pentaMin.freeImprov.recordYourself")}</p>
             </div>
         ),
         vfProps: {
@@ -105,20 +109,14 @@ const PentaMin = {
         title: "1.2.3 : Gamme pentatonique mineure : Improvisation sur Mr. P.C.",
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
-                <h2>Intégrons maintenant cette nouvelle connaissance dans le répertoire.</h2>
-                <p>
-                    La gamme pentatonique mineure ne va pas toujours être parfaite dans toutes les pièces sur lesquelles vous allez improviser, mais sur un blues mineur, elle va convenir parfaitement. 
-                </p>
+                <h2>{t("pages.soloGameLevels.pentaMin.repertoireImprov.title")}</h2>
+                <p>{t("pages.soloGameLevels.pentaMin.repertoireImprov.subTitle")}</p>
+                <p>{t("pages.soloGameLevels.pentaMin.repertoireImprov.desc")}</p>
                 <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/2uo_Xmi-mdU?si=d0P4axFKTSlbAJTH" title="Piste d'accompagnement Mr.P.C."  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
                 <div className="my-4 font-medium">
-                    <p>
-                        Pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en
-                        utilisant la gamme pentatonique mineure.
-                    </p>
+                    <p>{t("pages.soloGameLevels.pentaMin.repertoireImprov.goalTitle")}</p>
+                    <p>{t("pages.soloGameLevels.pentaMin.repertoireImprov.goalDesc")} </p>
                 </div>
-                <p>
-                    N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!
-                </p>
             </div>
         ),
         vfProps: {

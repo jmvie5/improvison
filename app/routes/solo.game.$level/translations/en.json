@@ -1,4 +1,16 @@
 {
+  "vf" : {
+    "randomMotif" : "Random motif",
+    "save": "Save",
+    "deleteRecording" : "Delete recording",
+    "newMotif" : "New motif"
+  },
+  "footer" : {
+        "backToMenu" : "Back to main menu",
+        "nextStep" : "Next step",
+        "nextLevel" : "Next level",
+        "back" : "Back"
+    },
   "pentaMaj": {
     "title": "Major pentatonic scale",
     "intro": {
@@ -47,48 +59,48 @@
     }
   },
   "pentaMin": {
-    "title": "Gamme pentatonique mineure",
+    "title": "Minor pentatonic scale",
     "intro": {
       "title": "Concept",
-      "desc": "Nous allons répéter l'exercice précédent, avec la gamme pentatonique mineure. Nous utilisons cette fois la gamme de do (C) mineur pentatonique.",
-      "desc2": "La gamme pentatonique mineure est simplement une gamme mineure avec le 2e et le 6e degré en moins. Elle est dérivée de sa relative majeure.",
-      "desc3": "Enlever ces deux notes, qui entrent souvent en conflit avec l'accord [compléter]de tonique, offre une gamme très versatile qui permet d’improviser sans crainte de jouer une note qui « sonne mal ».",
-      "instructionDesc": "Pour vous familiariser avec la gamme, commencez par la jouer sans métronome, avec un tempo stable, en suivant la séquence suivante :",
-      "instruction1": "ascendante",
-      "instruction2": "descendante",
-      "instruction3": "ascendante et descendante",
-      "instruction4": "libre",
-      "instructionFinal": "Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à des tempos différents (60 à 100, par bonds de 10 ou 20), en suivant la même séquence.",
-      "notTooFast": "N'essayez pas d'aller trop vite! Le but est d'être stable et synchronisé avec le métronome avant de prendre de la vitesse.",
-      "exemples": "Voici un exemple d'utilisation de la gamme pentatonique mineure (1:53 à 2:01) :"
+      "desc": "We'll repeat the previous exercise, using the minor pentatonic scale. This time, we'll use the C minor pentatonic scale.",
+      "desc2": "The minor pentatonic scale is simply a minor scale minus the 2nd and 6th degrees. It is derived from its major relative.",
+      "desc3": "Removing these two notes, which often conflict with the tonic [complete] chord, provides a very versatile scale that allows you to improvise without fear of playing a “wrong-sounding” note.",
+      "instructionDesc": "To familiarize yourself with the scale, start by playing it without a metronome, at a steady tempo, using the following sequence:",
+      "instruction1": "ascending",
+      "instruction2": "descending",
+      "instruction3": "ascending and descending",
+      "instruction4": "play freely",
+      "instructionFinal": "Finally, use the metronome to play the scale in quarter notes, then in eighth notes at different tempos (60 to 100, in steps of 10 or 20), following the same sequence.",
+      "notTooFast": "Don't try to go too fast! The aim is to be stable and synchronized with the metronome before picking up speed.",
+      "exemples": "Here's an example of the use of the minor pentatonic scale in a jazz context (1:53 à 2:01) :"
     },
     "freeImprov": {
-      "title": "Improvisation libre",
-      "desc": "Maintenant, improvisez librement en utilisant la gamme pentatonique mineure.",
-      "instructionDesc": "Laissez-vous aller! Utilisez les trucs suivants pour diversifier votre improvisation libre:",
-      "instruction1": "Intervalles conjoints seulement",
-      "instruction2": "Intervalles conjoints et disjoints",
-      "instruction3": "Intervalles disjoints seulement",
-      "instruction4": "Blanches seulement",
-      "instruction5": "Noires seulement",
-      "instruction6": "Rythmes variés",
-      "instruction7": "En créant des motifs rythmiques ou mélodiques",
-      "instructionFinal": "Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre improvisation, mais n'hésitez pas à l'enlever pour explorer plus librement à votre instrument.",
+      "title": "Free improvisation",
+      "desc": "Now improvise freely using the minor pentatonic scale.",
+      "instructionDesc": "Let yourself go! Use the following tips to diversify your free improvisation:",
+      "instruction1": "Joint intervals only",
+      "instruction2": "Joint and disjoint intervals",
+      "instruction3": "Disjoint intervals only",
+      "instruction4": "Half notes only",
+      "instruction5": "Quarter notes onyl",
+      "instruction6": "Varied rhythms",
+      "instruction7": "By creating rhythmic or melodic patterns",
+      "instructionFinal": "We recommend using the metronome to work on the rhythmic stability of your improvisation, but don't hesitate to remove it to explore your instrument more freely.",
       "lackingInspiration": {
-        "title": "En panne d'inspiration ?",
-        "desc": "Vous pouvez générer de nouvelles mélodies en cliquant sur le bouton en bas de la partition."
+        "title": "Running out of inspiration?",
+        "desc": "You can generate new melodies by clicking on the button at the bottom of the score."
       },
-      "recordYourself": "Utilisez le micro en bas de la partition pour vous enregistrer à des fins d'autoévaluation. Pour passer à la page suivante, il est requis de soumettre un enregistrement."
+      "recordYourself": "Use the microphone at the bottom of the score to record yourself for self-assessment purposes. To proceed to the next page, you must submit a recording."
     },
     "repertoireImprov": {
-      "title": "Improvisation sur Mr. P.Cé",
-      "subTitle": "Intégrons maintenant cette nouvelle connaissance dans le répertoire.",
-      "desc": "La gamme pentatonique majeure peut être utilisée pour improviser du début à la fin d’un blues mineur",
-      "bluesTableTitle": "La forme blues simple :",
-      "goalTitle": "Mission : ",
-      "goalDesc": "pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en utilisant la gamme pentatonique mineure et en respectant le tempo de la piste. N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour vous autoévaluer!",
+      "title": "Improvisation over Mr. P.C.",
+      "subTitle": "Now let's integrate this new knowledge into the repertoire.",
+      "desc": "The minor pentatonic scale can be used to improvise from the beginning to the end of a minor blues.",
+      "bluesTableTitle": "The simple blues form:",
+      "goalTitle": "Goal: ",
+      "goalDesc": "To pass this exercise, you must play an improvised solo on the accompaniment track, using the minor pentatonic scale and respecting the tempo of the track. Don't forget to record yourself using the microphone at the bottom of the score for self-evaluation!",
       "expertTips": {
-        "title": "Les trucs de l'expert",
+        "title": "Expert tips",
         "tip1": "",
         "tip2": ""
       }
