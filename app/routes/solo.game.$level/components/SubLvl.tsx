@@ -171,18 +171,18 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
     }
     if (!ready) return <div></div>;
     return (
-        <div className="grid grid-cols-1 2xl:grid-cols-3 h-full  mb-8 p-4 gap-4 justify-around">
+        <div className="flex flex-col 2xl:flex-row h-full  mb-8 p-4 gap-4 justify-around">
             <div>
                 {/* <h2 className="mb-2 font-semibold">{title}</h2> */}
                 {description(transposition)}
             </div>
 
             <div className="col-span-2 flex flex-col w-full h-fit ">
-                <div className="flex flex-col gap-2 w-full h-full bg-slate-200 ring-2  ring-slate-200 border-bleu-pale border-3 roudnded-sm p-4">
+                <div className="flex flex-col gap-2 w-fit h-full bg-slate-200 ring-2 rounded ring-slate-200 border-bleu-pale border-3 roudnded-sm p-4 place-self-center">
                     <span className="text-black text-xl font-semibold">{vfTitle}</span>
                     <div
                         id="vf"
-                        className={`mt-2 w-full h-full place-self-center rounded`}
+                        className={`mt-2 w-fit h-full  rounded`}
                     />
                     <div className="flex flex-col gap-2 justify-between">
                         <div className="flex flex-col gap-2">

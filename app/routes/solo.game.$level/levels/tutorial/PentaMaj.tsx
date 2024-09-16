@@ -247,7 +247,7 @@ const PentaMaj = {
         "",
       ],
     },
-    vf_w: 900,
+    vf_w: 930,
     vf_h: 350,
     reRender: false,
   },
