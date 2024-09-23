@@ -24,7 +24,7 @@
       "instruction4": "libre",
       "instructionFinal": "Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à des tempos différents (60 à 100, par bonds de 10 ou 20), en suivant la même séquence.",
       "notTooFast": "N'essayez pas d'aller trop vite! Le but est d'être stable et synchronisé avec le métronome avant de prendre de la vitesse",
-      "exemples": "Voici un exemple d'utilisation de la gamme pentatonique majeure dans un contexte jazz (1:03 à 1:15):"
+      "examples": "Voici un exemple d'utilisation de la gamme pentatonique majeure dans un contexte jazz (1:03 à 1:15):"
     },
     "freeImprov": {
       "title": "Improvisation libre",
@@ -72,7 +72,7 @@
       "instruction4": "libre",
       "instructionFinal": "Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à des tempos différents (60 à 100, par bonds de 10 ou 20), en suivant la même séquence.",
       "notTooFast": "N'essayez pas d'aller trop vite! Le but est d'être stable et synchronisé avec le métronome avant de prendre de la vitesse.",
-      "exemples": "Voici un exemple d'utilisation de la gamme pentatonique mineure (1:53 à 2:01) :"
+      "examples": "Voici un exemple d'utilisation de la gamme pentatonique mineure (1:53 à 2:01) :"
     },
     "freeImprov": {
       "title": "Improvisation libre",
@@ -104,6 +104,36 @@
         "tip1": "",
         "tip2": ""
       }
+    }
+  },
+  "motifs": {
+    "title": "Motifs",
+    "intro": {
+      "title": "Concept",
+      "desc": "Un des concepts les plus répandus en improvisation est l'utilisation de motifs rythmiques.",
+      "desc2": "Un motif est défini par Anton Webern, grand compositeur Autrichien, comme la plus petite partie indépendante d'une idée musicale, qui est reconnaissable grâce à sa répétition. Plus simplement, c'est une suite de notes (ou de rythmes) qui restent dans la tête après avoir écouté une chanson ou un passage musical.",
+      "instructionDesc": "Pour commencer à utiliser les motifs dans votre improvisation, commencez par utiliser des motifs rythmiques. Plus précisément, les motifs rythmiques composés de noires et de croches sur une seule mesure. Lisez le motif rythmique présent dans la partition en suivant les étapes suivantes :",
+      "instruction1": "Sur une seule note",
+      "instruction2": "Sur deux notes",
+      "instruction3": "Sur trois notes",
+      "instruction4": "En utilisant les notes de votre choix",
+      "instructionFinal": "Faites l'exercice quelques fois en changeant le rythme affiché grâce au bouton en dessous de la portée.",
+      "final": "Les motifs sont présents dans presque toutes les mélodies, peu importe le style de musique. En improvisation, c'est un outil clé qui est utilisé par les improvisateurs de tous les niveaux pour partager leurs idées musicales avec le public.",
+      "examples": "Voici un exemple d'utilisation de motifs en double croches dans un solo improvisé (2:06 à 2:13) :"
+    },
+    "freeImprov": {
+      "title": "Improvisation libre",
+      "desc": "Maintenant, improvisez un solo en essayant d'intégrer le motif généré aléatoirement.",
+      "instruction": "Faites l'exercice quelques fois en changeant le rythme affiché grâce au bouton en dessous de la portée.",
+      "metronome": "Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre improvisation, mais n'hésitez pas à l'enlever pour explorer l'improvisation à votre instrument.",
+      "goal": "Pour passer au niveau suivant, enregistrer une imrovisation libre qui intègre au moins trois fois le motif généré."
+    },
+    "repertoireImprov": {
+      "title": "Improvisation sur Mr. P.C.",
+      "subTitle": "Intégrons maintenant cette nouvelle connaissance dans le répertoire.",
+      "desc": "Les motifs sont toujours présent dans les mélodies de pièces connues. Prennons l'exemple de Mr. P.C. et examinons les motifs suivants:",
+      "goal": "Pour réussir cet exercice, vous devez intégrer ces motifs dans votre improvisation au moins trois fois.",
+      "record" : "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
     }
   }
 }

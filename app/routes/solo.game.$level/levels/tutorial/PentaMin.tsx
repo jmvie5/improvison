@@ -28,7 +28,7 @@ const PentaMin = {
                 </div>
                 <p>{t("pages.soloGameLevels.pentaMin.intro.instructionFinal")} </p>
                 <p className=" italic">{t("pages.soloGameLevels.pentaMin.intro.notTooFast")}</p>
-                <p className="mt-8">{t("pages.soloGameLevels.pentaMin.intro.exemples")}</p>
+                <p className="mt-8">{t("pages.soloGameLevels.pentaMin.intro.examples")}</p>
                 <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/AKyOg3mNDUs?si=beadOS0j0pqpQPpG&amp;controls=2&amp;start=113&end=122" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         ),

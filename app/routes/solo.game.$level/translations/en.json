@@ -24,7 +24,7 @@
       "instruction4": "play freely",
       "instructionFinal": "Finally, use the metronome to play the scale in quarter notes, then in eighth notes at different tempos (60 to 100, in steps of 10 or 20), following the same sequence.",
       "notTooFast": "Don't try to go too fast! The aim is to be stable and synchronized with the metronome before picking up speed.",
-      "exemples": "Here's an example of the use of the major pentatonic scale in a jazz context (1:03 to 1:15):"
+      "examples": "Here's an example of the use of the major pentatonic scale in a jazz context (1:03 to 1:15):"
     },
     "freeImprov": {
       "title": "Free improvisation",
@@ -72,7 +72,7 @@
       "instruction4": "play freely",
       "instructionFinal": "Finally, use the metronome to play the scale in quarter notes, then in eighth notes at different tempos (60 to 100, in steps of 10 or 20), following the same sequence.",
       "notTooFast": "Don't try to go too fast! The aim is to be stable and synchronized with the metronome before picking up speed.",
-      "exemples": "Here's an example of the use of the minor pentatonic scale in a jazz context (1:53 à 2:01) :"
+      "examples": "Here's an example of the use of the minor pentatonic scale in a jazz context (1:53 à 2:01) :"
     },
     "freeImprov": {
       "title": "Free improvisation",
@@ -104,6 +104,36 @@
         "tip1": "",
         "tip2": ""
       }
+    }
+  },
+  "motifs": {
+    "title": "Motifs",
+    "intro": {
+      "title": "Concept",
+      "desc": "One of the most widespread concepts in improvisation is the use of rhythmic patterns.",
+      "desc2": "A motif is defined by Anton Webern, the great Austrian composer, as the smallest independent part of a musical idea, recognizable by its repetition. Simply put, it's a sequence of notes (or rhythms) that stick in the mind after listening to a song or musical passage.",
+      "instructionDesc": "To start using patterns in your improvisation, begin by using rhythmic patterns. Specifically, rhythmic patterns consisting of quarter notes and eighth notes in a single bar. Read the rhythmic pattern in the score by following the steps below:",
+      "instruction1": "On a single note",
+      "instruction2": "On two notes",
+      "instruction3": "On three notes",
+      "instruction4": "Using the notes of your choice",
+      "instructionFinal": "Perform the exercise a few times, changing the rhythm displayed using the button below the staff.",
+      "final": "Patterns are present in almost every melody, regardless of musical style. In improvisation, they are a key tool used by improvisers of all levels to share their musical ideas with the audience.",
+      "examples": "Here's an example of the use of sixteenth-note patterns in an improvised solo (2:06 to 2:13):"
+    },
+    "freeImprov": {
+      "title": "Free improvisation",
+      "desc": "Now improvise a solo, trying to integrate the randomly generated pattern.",
+      "instruction": "Perform the exercise a few times, changing the rhythm displayed using the button below the staff.",
+      "metronome": "We recommend using the metronome to work on the rhythmic stability of your improvisation, but don't hesitate to remove it to explore improvisation on your instrument.",
+      "goal": "To move on to the next level, record a free imrovisation that incorporates the generated motif at least three times."
+    },
+    "repertoireImprov": {
+      "title": "Improvisation on Mr. P.C.",
+      "subTitle": "Now let's integrate this new knowledge into the repertoire.",
+      "desc": "Motifs are always present in the melodies of well-known pieces. Let's take the example of Mr. P.C. and examine the following motifs:",
+      "goal": "To succeed in this exercise, you must incorporate these motifs into your improvisation at least three times.",
+      "record" : "Don't forget to record yourself using the microphone at the bottom of the score to better evaluate yourself!"
     }
   }
 }

@@ -32,7 +32,7 @@ const PentaMaj = {
             {t("pages.soloGameLevels.pentaMaj.intro.notTooFast")}
           </p>
           <p className="mt-8">
-            {t("pages.soloGameLevels.pentaMaj.intro.exemples")}
+            {t("pages.soloGameLevels.pentaMaj.intro.examples")}
           </p>
           <iframe
             className="w-full aspect-video max-w-[800px]"
