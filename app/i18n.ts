@@ -43,8 +43,9 @@ export const resources = {
         description: "Learning improvisation through play",
       },
       error: {
-        title: "Oups! Something went wrong",
-        text: "We are already working on fixing it",
+        title: "This page does not exist, or you do not have permission to access it.",
+        text: "Click on the button at the top left to return to the home page.",
+        backHome: "Home"
       },
       pages: {
         landingIndex: landingIndexEN,
@@ -65,8 +66,9 @@ export const resources = {
         description: "Apprendre à improviser en jouant",
       },
       error: {
-        title: "Oups! Une erreur est survenue",
-        text: "Nous sommes déjà en train d'y remédier",
+        title: "Cette page n'existe pas, où vous n'avez pas la permission d'y accèder.",
+        text: "Cliquez sur le bouton en haut à gauche pour revenir à l'accueil.",
+        backHome: "Accueil"
       },
       pages: {
         landingIndex: landingIndexFR,

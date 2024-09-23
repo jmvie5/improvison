@@ -1,6 +1,7 @@
 import scaleGenerator from "~/utils/vexFlowGenerators/scaleGenerator";
 import randomMelodyGenerator from "~/utils/vexFlowGenerators/randomMelodyGenerator";
 import blueMonk from "~/utils/songs/blueMonk";
+import {t} from 'i18next'
 
 const MajorScale = {
   url: "1-4",
@@ -13,30 +14,26 @@ const MajorScale = {
     title: "1.4.1 : La gamme majeure",
     description: (transposition?: string, locale: string = "fr") => (
       <div className="grid grid-cols-1 gap-2">
+        
         <p>
-          L’une des gammes les plus utilisées dans la musique en général est la
-          gamme majeure. Cette gamme est la base de l’harmonie tonale. Prenons
-          pour exemple do majeur concert :
+        {t("pages.soloGameLevels.majorScale.intro.desc")}
         </p>
         <div className="my-4 font-medium">
           <p>
-            Pour vous familiariser avec la gamme, commencez par la jouer sans
-            métronome, avec un tempo stable, de façon :
+          {t("pages.soloGameLevels.majorScale.intro.instructionDesc")}
           </p>
           <ol className=" list-inside list-disc">
-            <li>ascendante </li>
-            <li>descendante</li>
-            <li>libre (mouvements conjoints)</li>
-            <li>libre (avec des sauts)</li>
+            <li>{t("pages.soloGameLevels.majorScale.intro.instruction1")} </li>
+            <li>{t("pages.soloGameLevels.majorScale.intro.instruction2")}</li>
+            <li>{t("pages.soloGameLevels.majorScale.intro.instruction3")}</li>
+            <li>{t("pages.soloGameLevels.majorScale.intro.instruction4")}</li>
           </ol>
         </div>
         <p>
-          Finalement, utilisez le métronome pour jouer la gamme en noires, puis
-          en croches à différents tempos.
+        {t("pages.soloGameLevels.majorScale.intro.instructionFinal")}
         </p>
         <p className="italic">
-          N’esssayez pas d’aller trop vite! Le but est d’être stable et en même
-          temps que le métronome avant d’être rapide.
+        {t("pages.soloGameLevels.majorScale.intro.notTooFast")}
         </p>
       </div>
     ),
@@ -58,29 +55,24 @@ const MajorScale = {
     title: "1.4.2 : La gamme majeure : Improvisation libre",
     description: (transposition?: string) => (
       <div className="grid grid-cols-1 gap-2">
+        <h2>{t("pages.soloGameLevels.majorScale.freeImprov.title")}</h2>
         <p>
-          Maintenant, créez des mélodies en utilisant la gamme majeure. Utilisez
-          les trucs suivants pour diversifier votre improvisation libre :
+        {t("pages.soloGameLevels.majorScale.freeImprov.desc")}
         </p>
         <ol className=" list-inside list-disc">
-          <li>Intervalles conjoints </li>
-          <li>Intervalles disjoints </li>
-          <li>Blanches </li>
-          <li>Noires </li>
-          <li>Mélanger les rythmes </li>
-          <li>Motifs rythmiques </li>
+          <li>{t("pages.soloGameLevels.majorScale.freeImprov.instruction1")}</li>
+          <li>{t("pages.soloGameLevels.majorScale.freeImprov.instruction2")}</li>
+          <li>{t("pages.soloGameLevels.majorScale.freeImprov.instruction3")}</li>
+          <li>{t("pages.soloGameLevels.majorScale.freeImprov.instruction4")}</li>
+          <li>{t("pages.soloGameLevels.majorScale.freeImprov.instruction5")}</li>
+          <li>{t("pages.soloGameLevels.majorScale.freeImprov.instruction6")}</li>
         </ol>
         <p>
-          Il est recommandé d'utiliser le métronome afin de travailler la
-          stabilité rythmique de votre improvisation, mais n'hésitez pas à
-          l'enlever pour explorer l'improvisation à votre instrument.
+        {t("pages.soloGameLevels.majorScale.freeImprov.metronome")}
         </p>
-        <p className="font-bold pt-4">En panne d'inspiration?</p>
+        <p className="font-bold pt-4">{t("pages.soloGameLevels.majorScale.freeImprov.lackingInspiration.title")}</p>
         <p>
-          Une mélodie générée aléatoirement vous est présentée à titre
-          d’exemple, vous pouvez vous en inspirer pour créer votre propre
-          improvisation. Vous pouvez générer de nouvelles mélodies en cliquant
-          sur le bouton en bas de la partition.
+        {t("pages.soloGameLevels.majorScale.freeImprov.lackingInspiration.desc")}
         </p>
       </div>
     ),
@@ -102,14 +94,10 @@ const MajorScale = {
     description: (transposition?: string) => (
       <div className="grid grid-cols-1 gap-2">
         <h2>
-          Intégrons maintenant cette nouvelle connaissance dans le répertoire.
+        {t("pages.soloGameLevels.majorScale.repertoireImprov.title")}
         </h2>
         <p>
-          our réussir cet exercice, improvisez avec la gamme de si bémol majeur
-          et mi bémol majeur sur la pièce Blue Monk de Thelonious Monk. Faites
-          attentions de ne pas trop jouer le 7e degré majeur, car il peut entrer
-          en conflit avec la 7e mineure des accords présente dans le blues.
-          Utilisez la piste d’accompagnement ci-dessous :
+        {t("pages.soloGameLevels.majorScale.repertoireImprov.desc")}
         </p>
         <iframe
           className="w-full aspect-video max-w-[800px]"
@@ -121,13 +109,11 @@ const MajorScale = {
 
         <div className="my-4 font-medium">
           <p>
-            Pour réussir cet exercice, vous devez jouer un solo improvisé sur la
-            piste d'accompagnement en utilisant la gamme majeure.
+          {t("pages.soloGameLevels.majorScale.repertoireImprov.goal")}
           </p>
         </div>
         <p>
-          N'oubliez pas de vous enregistrer à l'aide du micro en bas de la
-          partition pour mieux vous évaluer!
+        {t("pages.soloGameLevels.majorScale.repertoireImprov.record")}
         </p>
       </div>
     ),

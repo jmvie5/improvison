@@ -135,5 +135,41 @@
       "goal": "Pour réussir cet exercice, vous devez intégrer ces motifs dans votre improvisation au moins trois fois.",
       "record" : "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
     }
+  },
+  "majorScale": {
+    "title": "Gamme Majeure",
+    "intro": {
+      "title": "Concept",
+      "desc": "L’une des gammes les plus utilisées dans la musique en général est la gamme majeure. Cette gamme est la base de l’harmonie tonale. La partition affiche la gamme de do majeur concert.",
+      "instructionDesc": "Pour vous familiariser avec la gamme, commencez par la jouer sans métronome, avec un tempo stable, de façon :",
+      "instruction1": "ascendante",
+      "instruction2": "descendante",
+      "instruction3": "libre (mouvements conjoints)",
+      "instruction4": "libre (avec des sauts)",
+      "instructionFinal": "Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à différents tempos.",
+      "notTooFast": "N’esssayez pas d’aller trop vite! Le but est d’être stable et en même temps que le métronome avant d’être rapide."
+    },
+    "freeImprov": {
+      "title": "Improvisation libre",
+      "desc": "Maintenant, créez des mélodies en utilisant la gamme majeure. Utilisez les trucs suivants pour diversifier votre improvisation libre :",
+      "instruction1": "Intervalles conjoints",
+      "instruction2": "Intervalles disjoints",
+      "instruction3": "Blanches",
+      "instruction4": "Noires",
+      "instruction5": "Mélanger les rythmes",
+      "instruction6": "Motifs rythmiques",
+      "metronome": "Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre improvisation, mais n'hésitez pas à l'enlever pour explorer l'improvisation à votre instrument.",
+      "lackingInspiration": {
+        "title": "En panne d'inspiration ?",
+        "desc": "Une mélodie générée aléatoirement vous est présentée à titre d’exemple, vous pouvez vous en inspirer pour créer votre propre improvisation. Vous pouvez générer de nouvelles mélodies en cliquant sur le bouton en bas de la partition."
+      }
+    },
+    "repertoireImprov": {
+      "title": "Improvisation sur Blue Monk",
+      "subTitle": "Intégrons maintenant cette nouvelle connaissance dans le répertoire.",
+      "desc": "Improvisez avec la gamme de si bémol majeur et mi bémol majeur sur la pièce Blue Monk de Thelonious Monk. Faites attentions de ne pas trop jouer le 7e degré majeur, car il peut entrer en conflit avec la 7e mineure des accords présente dans le blues. Utilisez la piste d’accompagnement ci-dessous :",
+      "goal": "Pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en utilisant la gamme majeure.",
+      "record" : "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
+    }
   }
 }

@@ -102,8 +102,8 @@ export function ErrorBoundary() {
         <Links />
       </head>
       <body>
-        <div className="flex flex-col justify-center gap-2 h-dvh bg-background text-center">
-          <Button size="lg" isIconOnly variant="light" as={Link} href="/" className="absolute top-0 left-0 m-4">Accueil</Button>
+        <div className="flex flex-col justify-center gap-2 h-dvh bg-background text-center text-white">
+          <Button size="lg" as={Link} href="/" className="absolute top-0 left-0 m-4">{t("error.backHome")}</Button>
           <h1 className="font-bold text-2xl">{t("error.title")}</h1>
           <p>{t("error.text")}</p>
         </div>
