@@ -80,7 +80,7 @@ export default function App() {
       </head>
       <body>
         <NextUIProvider navigate={navigate}>
-          <div className="bg-bleu-fonce text-white font-josef text-lg flex flex-col overflow-scroll min-h-dvh">
+          <div className="bg-background text-white font-josef text-lg flex flex-col overflow-scroll min-h-dvh">
             <Outlet />
           </div>
           <ScrollRestoration />
