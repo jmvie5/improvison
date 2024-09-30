@@ -182,7 +182,7 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
                     <span className="text-black text-xl font-semibold">{vfTitle}</span>
                     <div
                         id="vf"
-                        className={`mt-2 w-fit h-full  rounded`}
+                        className={`mt-2 w-fit h-full rounded`}
                     />
                     <div className="flex flex-col gap-2 justify-between">
                         <div className="flex flex-col gap-2">
@@ -252,7 +252,7 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
                 <iframe 
                     src="https://guitarapp.com/metronome.html?embed=true&tempo=120&timeSignature=2&pattern=0" 
                     title="Online Metronome" 
-                    className="h-[520px] w-[360px] mt-4 self-center"
+                    className="h-[520px] w-[360px] mt-4 self-center rounded"
                 /> 
             </div>
         </div>

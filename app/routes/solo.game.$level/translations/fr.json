@@ -171,5 +171,40 @@
       "goal": "Pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en utilisant la gamme majeure.",
       "record" : "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
     }
+  },
+  "minorScale": {
+    "title": "Gamme Mineure",
+    "intro": {
+      "title": "Concept",
+      "desc": "Il existe trois gammes mineures, ancienne, harmonique et mélodique. Pour débuter, regardons la gamme mineure ancienne. Cette gamme est la relative de la gamme majeure. Pour trouver la relative mineure d’une gamme majeure, il suffit de descendre d’une tierce mineure. Prenons pour exemple La mineur concert, la relative de do majeur concert :",
+      "instructionDesc": "Pour vous familiariser avec la gamme, commencez par la jouer sans métronome, avec un tempo stable, de façon :",
+      "instruction1": "ascendante",
+      "instruction2": "descendante",
+      "instruction3": "libre (mouvements conjoints)",
+      "instruction4": "libre (avec des sauts)",
+      "instructionFinal": "Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à différents tempos.",
+      "notTooFast": "N’esssayez pas d’aller trop vite! Le but est d’être stable et en même temps que le métronome avant d’être rapide."
+    },
+    "freeImprov": {
+      "title": "Improvisation libre",
+      "desc": "Maintenant, créez des mélodies en utilisant la gamme mineure ancienne. Utilisez les trucs suivants pour diversifier votre improvisation libre :",
+      "instruction1": "Intervalles conjoints",
+      "instruction2": "Intervalles disjoints",
+      "instruction3": "Blanches",
+      "instruction4": "Noires",
+      "instruction5": "Mélanger les rythmes",
+      "instruction6": "Motifs rythmiques",
+      "metronome": "Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre improvisation, mais n'hésitez pas à l'enlever pour explorer l'improvisation à votre instrument.",
+      "lackingInspiration": {
+        "title": "En panne d'inspiration ?",
+        "desc": "Une mélodie générée aléatoirement vous est présentée à titre d’exemple, vous pouvez vous en inspirer pour créer votre propre improvisation. Vous pouvez générer de nouvelles mélodies en cliquant sur le bouton en bas de la partition."
+      }
+    },
+    "repertoireImprov": {
+      "title": "Improvisation sur Mr. P.C.",
+      "subTitle": "Intégrons maintenant cette nouvelle connaissance dans le répertoire.",
+      "goal": "Pour réussir cet exercice, improvisez avec la gamme de do mineur sur la pièce Mr. P.C. de John Coltrane. Vous pouvez alterner entre mineur ancien et gamme pentatonique mineur pour apporter de la variété dans votre solo. Utilisez la piste d’accompagnement ci-dessous :",
+      "record" : "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
+    }
   }
 }

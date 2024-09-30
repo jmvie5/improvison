@@ -1,6 +1,7 @@
 import scaleGenerator from "../../../../utils/vexFlowGenerators/scaleGenerator";
 import randomMelodyGenerator from "../../../../utils/vexFlowGenerators/randomMelodyGenerator";
 import mrPC from "../../../../utils/songs/mrPc";
+import { t } from "i18next";
 
 const MinorScale = {
     url: '1-5',
@@ -13,21 +14,23 @@ const MinorScale = {
         title: "1.5.1 : La gamme mineure",
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
-                <p>Il existe trois gammes mineures, ancienne, harmonique et mélodique. Pour débuter, regardons la gamme mineure ancienne. Cette gamme est la relative de la gamme majeure. Pour trouver la relative mineure d’une gamme majeure, il suffit de descendre d’une tierce mineure. Prenons pour exemple la mineur, la relative de do majeur :  </p>
+                <h2 className="mb-2 font-semibold text-lg">{t("pages.soloGameLevels.minorScale.title")}</h2>
+                <p>{t("pages.soloGameLevels.minorScale.intro.desc")} </p>
                 <div className="my-4 font-medium">
                     <p>
-                        Pour vous familiariser avec la gamme, commencez par la jouer avec un tempo stable de façon : 
+                    {t("pages.soloGameLevels.minorScale.intro.instructionDesc")}
                     </p>
                     <ol className=" list-inside list-disc">
-                        <li>ascendante</li>
-                        <li>descendante</li>
-                        <li>aléatoire</li>
+                    <li>{t("pages.soloGameLevels.minorScale.intro.instruction1")} </li>
+                    <li>{t("pages.soloGameLevels.minorScale.intro.instruction2")}</li>
+                    <li>{t("pages.soloGameLevels.minorScale.intro.instruction3")}</li>
+                    <li>{t("pages.soloGameLevels.minorScale.intro.instruction4")}</li>
                     </ol>
                 </div>
                 <p>
-                    Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à des tempos différents.
+                {t("pages.soloGameLevels.minorScale.intro.instructionFinal")}
                 </p>
-                <p className=" italic">N'essayez pas d'aller trop vite! Le but est d'être stable et en même temps que le métronome avant d'être rapide. </p>
+                <p className=" italic">{t("pages.soloGameLevels.minorScale.intro.instructionFinal")}</p>
 
             </div>
         ),
@@ -50,26 +53,28 @@ const MinorScale = {
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <div className="my-4">
-                    <p>Maintenant, créez des mélodies en utilisant la gamme mineure ancienne. Utilisez les trucs suivants pour diversifier votre improvisation libre : </p>
+                    <h2>{t("pages.soloGameLevels.minorScale.freeImprov.title")}</h2>
+                    <p>
+                    {t("pages.soloGameLevels.minorScale.freeImprov.desc")}
+                    </p>
                     <ol className=" list-inside list-disc">
-                        <li>Intervalles conjoints seulement</li>
-                        <li>Intervalles disjoints seulement</li>
-                        <li>Jouer des blanches seulement</li>
-                        <li>Jouer des noires seulement</li>
-                        <li>Mélanger les rythmes</li>
-                        <li>Utiliser des motifs rythmiques ou mélodiques</li>
+                        <li>{t("pages.soloGameLevels.minorScale.freeImprov.instruction1")}</li>
+                        <li>{t("pages.soloGameLevels.minorScale.freeImprov.instruction2")}</li>
+                        <li>{t("pages.soloGameLevels.minorScale.freeImprov.instruction3")}</li>
+                        <li>{t("pages.soloGameLevels.minorScale.freeImprov.instruction4")}</li>
+                        <li>{t("pages.soloGameLevels.minorScale.freeImprov.instruction5")}</li>
+                        <li>{t("pages.soloGameLevels.minorScale.freeImprov.instruction6")}</li>
                     </ol>
                 </div>
                 <p>
-                    Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre
-                    improvisation, mais n'hésitez pas à l'enlever pour explorer l'improvisation à votre instrument.
+                {t("pages.soloGameLevels.minorScale.freeImprov.metronome")}
                 </p>
 
                 <p className="font-bold pt-4">
-                    En panne d'inspiration?
+                {t("pages.soloGameLevels.minorScale.freeImprov.lackingInspiration.title")}
                 </p>
                 <p>
-                    Une mélodie générée aléatoirement vous est présentée à titre d’exemple, vous pouvez vous en inspirer pour créer votre propre improvisation. Vous pouvez générer de nouvelles mélodies en cliquant sur le bouton en bas de la partition. 
+                {t("pages.soloGameLevels.minorScale.freeImprov.lackingInspiration.desc")}
                 </p>
             </div>
         ),
@@ -90,19 +95,18 @@ const MinorScale = {
         title: "1.5.3 : Gamme mineure : Improvisation sur Mr. P.C.",
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
-                <h2>Intégrons maintenant cette nouvelle connaissance dans le répertoire.</h2>
-                <p>
-                    Pour réussir cet exercice, improvisez avec la gamme de do mineur sur la pièce Mr. P.C. de John Coltrane. Vous pouvez alterner entre mineur ancien et gamme pentatonique mineur pour apporter de la variété dans votre solo. Utilisez la piste d’accompagnement ci-dessous : 
-                </p>
-                <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/2uo_Xmi-mdU?si=d0P4axFKTSlbAJTH" title="Piste d'accompagnement Mr.P.C."  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+                <h2>
+                    {t("pages.soloGameLevels.minorScale.repertoireImprov.title")}
+                </h2>
                 <div className="my-4 font-medium">
                     <p>
-                        Pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en
-                        utilisant la gamme mineure.
+                    {t("pages.soloGameLevels.minorScale.repertoireImprov.goal")}
                     </p>
                 </div>
+                <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/2uo_Xmi-mdU?si=d0P4axFKTSlbAJTH" title="Piste d'accompagnement Mr.P.C."  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+                
                 <p>
-                    N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!
+                {t("pages.soloGameLevels.minorScale.repertoireImprov.record")}
                 </p>
             </div>
         ),

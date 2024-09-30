@@ -168,7 +168,42 @@
       "title": "Improvisation over Blue Monk",
       "subTitle": "Now let's integrate this new knowledge into the repertoire.",
       "desc": "Improvise with the B-flat major and E-flat major scales on Thelonious Monk's Blue Monk. Be careful not to play the major 7th too much, as it may conflict with the minor 7th chord present in the blues. Use the backing track below:",
-      "goal": "To succeed in this exercise, you must play an improvised solo on the accompaniment track using the major scale.",
+      "goal": "To complete this exercise, you must play an improvised solo on the accompaniment track using the major scale.",
+      "record" : "Don't forget to record yourself using the microphone at the bottom of the score to better evaluate yourself!"
+    }
+  },
+  "minorScale": {
+    "title": "Minor scale",
+    "intro": {
+      "title": "Concept",
+      "desc": "There are three minor scales: natural, harmonic and melodic. To begin with, let's take a look at the natural minor scale. This scale is the relative of the major scale. To find the relative minor of a major scale, simply descend a minor third. Take, for example, A minor concert, the relative of C major concert:",
+      "instructionDesc": "To familiarize yourself with the scale, start by playing it without a metronome, at a steady tempo, in different ways:",
+      "instruction1": "ascending",
+      "instruction2": "descending",
+      "instruction3": "free (joint movements) ",
+      "instruction4": "free (with jumps) ",
+      "instructionFinal": "Finally, use the metronome to play the scale in quarter notes, then in eighth notes at different tempos. ",
+      "notTooFast": "Don't try to go too fast! The aim is to be steady and at the same time as the metronome before being fast."
+    },
+    "freeImprov": {
+      "title": "Free improvisation",
+      "desc": "Now create melodies using the natural minor scale. Use the following tips to diversify your free improvisation:",
+      "instruction1": "Joint intervals",
+      "instruction2": "Disjoint intervals",
+      "instruction3": "Half notes",
+      "instruction4": "Quarter notes",
+      "instruction5": "Mixing rhythms",
+      "instruction6": "Rhythmic patterns",
+      "metronome": "We recommend using the metronome to work on the rhythmic stability of your improvisation, but don't hesitate to remove it to explore improvisation on your instrument.",
+      "lackingInspiration": {
+        "title": "Lacking inspiration?",
+        "desc": "A randomly generated melody is shown as an example, which you can use to create your own improvisation. You can generate new melodies by clicking on the button at the bottom of the score."
+      }
+    },
+    "repertoireImprov": {
+      "title": "Improvisation over Mr. P.C.",
+      "subTitle": "Now let's integrate this new knowledge into the repertoire.",
+      "goal": "To complete this exercise, improvise with the C minor scale on John Coltrane's Mr. P.C.. You can alternate between natural minor and pentatonic minor to bring variety to your solo. Use the backing track below:",
       "record" : "Don't forget to record yourself using the microphone at the bottom of the score to better evaluate yourself!"
     }
   }
