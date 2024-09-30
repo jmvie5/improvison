@@ -1,4 +1,4 @@
-import { Factory } from "vexflow";
+import { Factory, StemmableNote } from "vexflow";
 import beamDirection from "../vexFlowUtils/beamDirection";
 import chordNotation from "../chordNotation";
 
@@ -16,7 +16,7 @@ export default function randomMelodyGenerator(
     const voice = score.voice.bind(score);
     const notes = score.notes.bind(score);
     const beam = score.beam.bind(score);
-    const concat = (a: any[], b: any[]): any[] => a.concat(b);
+    const concat = (a: StemmableNote[], b: StemmableNote[]): StemmableNote[] => a.concat(b);
 
     score.set({ time: `${timeSignature}/4` });
     let x = 20;
@@ -53,11 +53,11 @@ export default function randomMelodyGenerator(
 
     /* return notes[] compatible with vexFlow voice */
     function getNotes() {
-        let barNotes: any[] = [];
+        const barNotes: StemmableNote[][] = [];
         let timeLeft = timeSignature;
         while (timeLeft > 0) {
             if (timeLeft > 1) {
-                let r = getRandomElement(["h", "q", "8"]);
+                const r = getRandomElement(["h", "q", "8"]);
                 if (r === "h") {
                     barNotes.push(notes(`${getRandomElement(scaleNotes)}/h`));
                     timeLeft -= 2;
@@ -76,7 +76,7 @@ export default function randomMelodyGenerator(
                     timeLeft -= 1;
                 }
             } else {
-                let r = getRandomElement(["q", "8"]);
+                const r = getRandomElement(["q", "8"]);
                 if (r === "q") {
                     barNotes.push(notes(`${getRandomElement(scaleNotes)}/q`));
                     timeLeft -= 1;
@@ -111,7 +111,7 @@ export default function randomMelodyGenerator(
             .addKeySignature(keySignature)
             .setEndBarType(3);
     } else {
-        for (var i = 0; i < nbBars - 1; i++) {
+        for (let i = 0; i < nbBars - 1; i++) {
             /* New lines (each 4 bars) */
             if (i % 4 === 0) {
                 x = 20;
@@ -140,7 +140,7 @@ export default function randomMelodyGenerator(
             .addStave({
                 voices: [voice(getNotes())],
             })
-            .setText(c[i], 1, { shift_x: 60, shift_y: -50 })
+            .setText(c[c.length - 1], 1, { shift_x: 60, shift_y: -50 })
             .setEndBarType(3);
     }
     

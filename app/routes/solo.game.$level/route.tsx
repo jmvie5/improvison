@@ -10,8 +10,9 @@ import { db } from "~/db";
 import MyModal from "~/components/MyModal";
 import i18nextServer from "~/i18next.server";
 
-export async function loader({ request, params }: LoaderFunctionArgs) {
 
+export async function loader({ request, params }: LoaderFunctionArgs) {
+    
     const lvlUrl = params.level;
     const t = await i18nextServer.getFixedT(request);
 

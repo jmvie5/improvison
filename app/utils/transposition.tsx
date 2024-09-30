@@ -1,4 +1,4 @@
-const dictBbKey: { [index: string]: any } = {
+const dictBbKey: { [index: string]: string } = {
     C: "D",
     "C#": "D#",
     Db: "Eb",
@@ -19,7 +19,7 @@ const dictBbKey: { [index: string]: any } = {
     B: "C#",
     "B#": "D",
 };
-const dictBbNotes: { [index: string]: any } = {
+const dictBbNotes: { [index: string]: string } = {
     C: "D",
     Cn: "Dn",
     "C#": "D#",
@@ -47,7 +47,7 @@ const dictBbNotes: { [index: string]: any } = {
     Bn: "C#",
     "B#": "D#",
 };
-const dictEbKey: { [index: string]: any } = {
+const dictEbKey: { [index: string]: string } = {
     C: "A",
     "C#": "A#",
     Db: "Bb",
@@ -68,7 +68,7 @@ const dictEbKey: { [index: string]: any } = {
     B: "G#",
     "B#": "A",
 };
-const dictEbNotes: { [index: string]: any } = {
+const dictEbNotes: { [index: string]: string } = {
     C: "A",
     Cn: "An",
     "C#": "A#",
@@ -101,17 +101,17 @@ export interface transposeProps {
     keySignature: string;
     scaleNotes: string[];
     chords: string[];
-};
+}
 
 function transpose(newKey: string, vfProps: transposeProps) {
     if (newKey === "C") {
         return vfProps;
     } else if (newKey === "Bb") {
-        let transposedScaleNotes = [];
-        let transposedKeySignature = dictBbKey[vfProps.keySignature];
+        const transposedScaleNotes = [];
+        const transposedKeySignature = dictBbKey[vfProps.keySignature];
         for (const note of vfProps.scaleNotes) {
-            let oldNote = note.substring(0, note.length - 1);
-            let oldNoteNumber = note.substring(note.length - 1, note.length);
+            const oldNote = note.substring(0, note.length - 1);
+            const oldNoteNumber = note.substring(note.length - 1, note.length);
             const plusOctaveNotes = ["B", "Bn", "Bb", "B#"];
             let newNote: string;
             if (plusOctaveNotes.includes(oldNote)) {
@@ -121,7 +121,7 @@ function transpose(newKey: string, vfProps: transposeProps) {
             }
             transposedScaleNotes.push(newNote);
         }
-        let transposedChords = [];
+        const transposedChords = [];
         const chordAlt = ["b", "#"];
         for (const chord of vfProps.chords) {
             let newChord: string;
@@ -141,11 +141,11 @@ function transpose(newKey: string, vfProps: transposeProps) {
         };
         return newVfProps;
     } else if (newKey === "Eb") {
-        let transposedScaleNotes = [];
-        let transposedKeySignature = dictEbKey[vfProps.keySignature];
+        const transposedScaleNotes = [];
+        const transposedKeySignature = dictEbKey[vfProps.keySignature];
         for (const note of vfProps.scaleNotes) {
-            let oldNote = note.substring(0, note.length - 1);
-            let oldNoteNumber = note.substring(note.length - 1, note.length);
+            const oldNote = note.substring(0, note.length - 1);
+            const oldNoteNumber = note.substring(note.length - 1, note.length);
             const minusOctaveNotes = ["C", "Cn", "Cb", "C#", "D", "Dn", "Db"];
 
             let newNote: string;
@@ -156,7 +156,7 @@ function transpose(newKey: string, vfProps: transposeProps) {
             }
             transposedScaleNotes.push(newNote);
         }
-        let transposedChords = [];
+        const transposedChords = [];
         const chordAlt = ["b", "#"];
         for (const chord of vfProps.chords) {
             let newChord: string;

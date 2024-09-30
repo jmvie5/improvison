@@ -1,7 +1,8 @@
 import scaleGenerator from "~/utils/vexFlowGenerators/scaleGenerator";
 import randomMelodyGenerator from "~/utils/vexFlowGenerators/randomMelodyGenerator";
 import blueMonk from "~/utils/songs/blueMonk";
-
+import SheetMusic from "~/components/SheetMusic";
+import targetNotesGenerator from "~/utils/vexFlowGenerators/targetNotesGenerator";
 
 const TargetNotes = {
     url: '2-1',
@@ -15,41 +16,43 @@ const TargetNotes = {
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <p>
-                    Maintenant que les gammes plus importantes sont acquises dans votre langage d’improvisation, il faut s’intéresser au concept de note cible. Ce concept sert à ajouter de la cohérence dans l’improvisation en terminant les lignes sur une note prédéterminée à l’avance. 
+                    Maintenant que les gammes plus importantes sont acquises dans votre langage d’improvisation, il faut s’intéresser au concept de note cible. Ce concept sert à ajouter de la cohérence dans l’improvisation en terminant les lignes sur une note prédéterminée. 
                 </p>
                 <p className="italic p-4">
                     Il est important de se rappeler que n'importe quelle note peut être une note cible. Chaque note apporte une couleur unique selon l’accord joué en accompagnement, c’est à vous de choisir quelle couleur vous voulez utiliser.
                 </p>
                 <p>
-                    Pour cet exercice, nous utiliserons les arpèges des accords de l’accompagnement pour trouver nos notes cibles. C’est une bonne façon de tomber sur une note qui sonne en harmonie avec l’accompagnement.
+                    Pour cet exercice, nous utiliserons les arpèges des accords de l’accompagnement pour trouver nos notes cibles. C’est une bonne façon de tomber sur une note qui sonne en harmonie avec l’accompagnement. Commençons avec l'arpège de Si bémol majeur concert, qui sera notre accord de tonique plus tard.
                 </p>
-                ________________
-                <div className="my-4 font-medium">
-                    <p>
-                        Pour vous familiariser avec la gamme, commencez par la jouer sans métronome, avec un tempo stable, de façon : 
-                    </p>
-                    <ol className=" list-inside list-disc">
-                        <li>ascendante </li>
-                        <li>descendante</li>
-                        <li>libre (mouvements conjoints)</li>
-                        <li>libre (avec des sauts)</li>
-                    </ol>
-                </div>
                 <p>
-                    Finalement, utilisez le métronome pour jouer la gamme en noires, puis en croches à différents tempos.  
+                    Commencez par jouer une seule note de l'arpège de Bb sur le premier temps de chaque mesure, puis rajoutez une ou deux notes conjointe dans la mesure précédent votre note cible. Par exemple :
                 </p>
-                <p className="italic">N’esssayez pas d’aller trop vite! Le but est d’être stable et en même temps que le métronome avant d’être rapide.</p>
+                <SheetMusic
+                    transposition={transposition}
+                    vfProps={{
+                        template: targetNotesGenerator,
+                        keySignature: "Bb",
+                        scaleNotes: ["B3", "D4", "F4"],
+                        nbBars: 4,
+                        timeSignature: 4,
+                        chords: ["Bb6", '', '', ''],
+                    }}
+                    vf_h={150}
+                    vf_w={850}
+                />
+                <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/JpC5hXefoV4" title="Bb backing track"/>
+                
 
             </div>
         ),
 
         vfProps: {
             template: scaleGenerator,
-            keySignature: "C",
-            scaleNotes: ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"],
+            keySignature: "Bb",
+            scaleNotes: ["B3", "D4", "F4", "B4",],
             nbBars: 1,
             timeSignature: 4,
-            chords: [""],
+            chords: ["Bb6"],
         },
         vf_w: 500,
         vf_h: 140,

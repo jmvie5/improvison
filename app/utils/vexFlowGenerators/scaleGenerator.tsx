@@ -10,7 +10,7 @@ export default function scaleGenerator(
     timeSignature: number,
     chords: string[],
 ) {
-    console.log(nbBars, timeSignature)
+
     const c = chordNotation(chords)
     
     let sysWidth = 400;

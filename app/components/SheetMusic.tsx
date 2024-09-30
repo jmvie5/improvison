@@ -5,7 +5,14 @@ import transpose, { transposeProps } from "../utils/transposition";
 export interface sheetMusicInterface {
     transposition?:string;
     vfProps: {
-        template: Function;
+        template: (
+            vf: Factory,
+            keySignature: string,
+            scaleNotes: string[],
+            nbBars: number,
+            timeSignature: number,
+            chords: string[]
+        ) => Factory;
         keySignature: string;
         scaleNotes: string[];
         nbBars: number;
@@ -78,11 +85,11 @@ export default function SheetMusic({ transposition, vfProps, vf_h, vf_w }: sheet
     }
 
     return (
-        <div>
-            <div
-                id={`sheetMusic_${sheetId}`}
-                className={`bg-slate-200 mt-2 w-[${String(vf_w)}px] h-[${String(vf_h)}px] place-self-center rounded`}
-            ></div>
-        </div>
+
+        <div
+            id={`sheetMusic_${sheetId}`}
+            className={`bg-slate-200 my-2 p-4 w-fit h-fit place-self-center rounded`}
+        ></div>
+
     );
 }
