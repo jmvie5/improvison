@@ -52,11 +52,6 @@ export default function Level() {
         !isHydrating
     );
 
-    useEffect(() => {
-        isHydrating = false;
-        setIsHydrated(true);
-    }, []);
-
     const navigate = useNavigate()
     const { lvlUrl, translations } = useLoaderData<typeof loader>()
 
@@ -70,6 +65,18 @@ export default function Level() {
     const subLevelRef = useRef<{removeAudio: () => void, saveAudioToProfile: (remove: boolean) => Promise<void>}>()
     const recordings = useLiveQuery(() => db.recordings.toArray());
     const errorModal = useDisclosure()
+
+    useEffect(() => {
+        isHydrating = false;
+        setIsHydrated(true);
+    }, []);
+
+    useEffect(() => {
+        window.scrollTo({
+            top:0,
+            behavior: "smooth"
+        })
+    }, [currentSubLvl])
 
     function isSubLevelCompleted(subLvlTitle:string) {
 
@@ -139,7 +146,6 @@ export default function Level() {
                                             if (currentSubLvl.name === "freeImprov") {
                                                 setCurrentSubLvl(currentLvl.intro);
                                             } else if (currentSubLvl.name === "repertoireImprov") {
-                                                console.log('back')
                                                 setCurrentSubLvl(currentLvl.freeImprov);
                                             }
                                         }}
@@ -151,9 +157,7 @@ export default function Level() {
                                 currentSubLvl.name === "intro" &&
                                 <Button
                                     onPress={() => {
-    
                                         setCurrentSubLvl(currentLvl.freeImprov);
-                                        console.log('freeImprov')
                                     }}
                                 >
                                     {translations.buttons.nextStep}
