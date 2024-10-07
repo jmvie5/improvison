@@ -3,6 +3,7 @@ import randomMelodyGenerator from "~/utils/vexFlowGenerators/randomMelodyGenerat
 import blueMonk from "~/utils/songs/blueMonk";
 import SheetMusic from "~/components/SheetMusic";
 import targetNotesGenerator from "~/utils/vexFlowGenerators/targetNotesGenerator";
+import targetNotesBlueMonk from "~/utils/vfTemplates/targetNotesBlueMonk";
 
 const TargetNotes = {
     url: '2-1',
@@ -42,7 +43,6 @@ const TargetNotes = {
                     reRender
                 />
                 <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/JpC5hXefoV4" title="Bb backing track"/>
-                
 
             </div>
         ),
@@ -65,15 +65,15 @@ const TargetNotes = {
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <p>
-                    Maintenant, créez des mélodies en utilisant la gamme majeure. Utilisez les trucs suivants pour diversifier votre improvisation libre : 
+                    Utilisez maintenant les trois principaux accords du blues majeur en Bb concert pour improviser : Bb, Eb et F. Suivez la progression suivante :
                 </p>
                 <ol className=" list-inside list-disc">
-                    <li>Intervalles conjoints </li>
-                    <li>Intervalles disjoints </li>
-                    <li>Blanches </li>
-                    <li>Noires </li>
-                    <li>Mélanger les rythmes </li>
-                    <li>Motifs rythmiques </li>
+                    <li>Trouver les notes cibles</li>
+                    <li>Note cible sur le premier temps</li>
+                    <li>Note cible précédé d'une note conjointe</li>
+                    <li>Note cible précédé de deux notes conjointes</li>
+                    <li>Trois croches ou plus qui mênent à la note cible</li>
+                    <li>Jouer une note supplémentaire sur la croche suivant la note cible.</li>
                 </ol>
                 <p>
                     Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre
@@ -83,20 +83,51 @@ const TargetNotes = {
                     En panne d'inspiration?
                 </p>
                 <p>
-                    Une mélodie générée aléatoirement vous est présentée à titre d’exemple, vous pouvez vous en inspirer pour créer votre propre improvisation. Vous pouvez générer de nouvelles mélodies en cliquant sur le bouton en bas de la partition. 
+                    Vous pouvez générer des exemples d'approches de notes cibles pour chaque accord du blues majeur ici :
                 </p>
+                <div className="flex flex-col justify-center">
+                    <SheetMusic
+                        transposition={transposition}
+                        vfProps={{
+                            template: targetNotesGenerator,
+                            keySignature: "Bb",
+                            scaleNotes: ["B3", "E4", "G4"],
+                            nbBars: 4,
+                            timeSignature: 4,
+                            chords: ["Eb7", '', '', ''],
+                        }}
+                        vf_h={150}
+                        vf_w={850}
+                        reRender
+                    />
+                    <SheetMusic
+                        transposition={transposition}
+                        vfProps={{
+                            template: targetNotesGenerator,
+                            keySignature: "Bb",
+                            scaleNotes: ["C4", "F4", "A4"],
+                            nbBars: 4,
+                            timeSignature: 4,
+                            chords: ["F7", '', '', ''],
+                        }}
+                        vf_h={150}
+                        vf_w={850}
+                        reRender
+                    />
+                </div>
+                
             </div>
         ),
         vfProps: {
-            template: randomMelodyGenerator,
-            keySignature: "C",
-            scaleNotes: ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"],
+            template: targetNotesGenerator,
+            keySignature: "Bb",
+            scaleNotes: ["B3", "D4", "F4"],
             nbBars: 4,
             timeSignature: 4,
-            chords: ["C", '', '', ''],
+            chords: ["Bb6", '', '', ''],
         },
-        vf_w: 830,
-        vf_h: 140,
+        vf_w: 850,
+        vf_h: 150,
         reRender: true,
     },
     repertoireImprov: {
@@ -106,14 +137,13 @@ const TargetNotes = {
             <div className="grid grid-cols-1 gap-2">
                 <h2>Intégrons maintenant cette nouvelle connaissance dans le répertoire.</h2>
                 <p>
-                    our réussir cet exercice, improvisez avec la gamme de si bémol majeur et mi bémol majeur sur la pièce Blue Monk de Thelonious Monk. Faites attentions de ne pas trop jouer le 7e degré majeur, car il peut entrer en conflit avec la 7e mineure des accords présente dans le blues. Utilisez la piste d’accompagnement ci-dessous : 
+                    Pour réussir cet exercice, improviser un solo qui contient les notes cibles contenues dans la partition suivante. Utilisez la piste d’accompagnement ci-dessous : 
                 </p>
                 <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/MgEZxg0HOJU?si=3t8IP56ZE3wNzrwr" title="Piste d'accompagnement Blue Monk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
                 
                 <div className="my-4 font-medium">
                     <p>
-                        Pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en
-                        utilisant la gamme majeure.
+                        Ne vous sentez pas obligé de jouer toutes les notes cibles écrites sur les premiers temps. Vous pouvez anticiper la note en la jouant sur le "et" du quatrième temps de la mesure précédente ou sur le contretemps du premier temps de la mesure suivante.
                     </p>
                 </div>
                 <p>
@@ -122,80 +152,27 @@ const TargetNotes = {
             </div>
         ),
         vfProps: {
-            template: blueMonk,
+            template: targetNotesBlueMonk,
             keySignature: "Bb",
             scaleNotes: [
-                "D4",
+                "D4", // ["B3", "D4"].splice(Math.floor(Math.random()*2), 1),
                 "E4",
-                "En4",
                 "F4",
-                "F4",
+                "B3",
                 "G4",
-                "G#4",
-                "A4",
                 "B4",
-                "B4",
-                "F4",
-                "G4",
-                "F4",
-                "En4",
-                "Eb4",
-                "F3",
-                "C#4",
-                "D4",
-                "D4",
-                "Db4",
-                "C4",
-                "C4",
-                "G4",
-                "G#4",
-                "A4",
-                "B4",
-                "B4",
-                "B4",
-                "Bn4",
-                "C5",
-                "Db5",
                 "D5",
-                "F4",
-                "G4",
-                "F4",
-                "En4",
-                "Eb4",
-                "F3",
-                "C#4",
+                "B4",
+                "C5",
+                "A4",
                 "D4",
-                "D4",
-                "F4",
-                "F4",
-                "F4",
-                "F4",
-                "F3",
-                "F3",
-                "F4",
-                "G4",
-                "F4",
-                "En4",
-                "Eb4",
-                "F3",
-                "C#4",
-                "D4",
-                "D4",
-                "F4",
-                "G4",
-                "F4",
-                "En4",
-                "Eb4",
-                "F3",
-                "C#4",
-                "D4",
-                "D4",
+                "B3"
             ],
             nbBars: 12,
             timeSignature: 4,
             chords: ["Bb7", "Eb7", "Bb7", "", "Eb7", "Edim7", "Bb7", "", "F7", "", "Bb", ""],
         },
-        vf_w: 900,
+        vf_w: 950,
         vf_h: 350,
         reRender: false,
     },

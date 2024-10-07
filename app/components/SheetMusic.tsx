@@ -30,6 +30,13 @@ export default function SheetMusic({ transposition, vfProps, vf_h, vf_w, reRende
     const sheetId = Math.floor(Math.random() * 1000);
     const playerKey = transposition || "C";
 
+    const clearVf = useCallback(() => {
+        const staff = document.getElementById(`sheetMusic_${sheetId}`);
+        while (staff?.hasChildNodes()) {
+            staff.removeChild(staff.lastChild!);
+        }
+    }, [sheetId])
+
     const drawVf = useCallback(() => {
         clearVf();
        // transpose() if needed
@@ -73,18 +80,13 @@ export default function SheetMusic({ transposition, vfProps, vf_h, vf_w, reRende
             vf.draw();
         }
         
-    }, [playerKey, vfProps, sheetId, vf_h, vf_w]);
+    }, [clearVf, playerKey, vfProps, sheetId, vf_h, vf_w]);
 
     useEffect(() => {
         drawVf();
-    }, [transposition, vfProps]);
+    }, [transposition, vfProps, drawVf]);
 
-    function clearVf() {
-        const staff = document.getElementById(`sheetMusic_${sheetId}`);
-        while (staff?.hasChildNodes()) {
-            staff.removeChild(staff.lastChild!);
-        }
-    }
+    
 
     return (
 
