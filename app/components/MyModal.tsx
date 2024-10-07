@@ -6,8 +6,8 @@ interface ModalInterface {
     isAction: boolean;
     confirmatonButton?: string;
     cancelButton: string;
-    onConfirmation?: Function;
-    onCancel?: Function;
+    onConfirmation?: () => void;
+    onCancel?: () => void;
 }
 
 export default function MyModal({

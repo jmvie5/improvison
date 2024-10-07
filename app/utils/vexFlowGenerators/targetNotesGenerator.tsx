@@ -85,8 +85,8 @@ export default function targetNotesGenerator(
         barNotes.push(notes(`B4/q/r`));
         const targetNote = allTargetNotes[barNumber + 1]
         const tgIndex = keyNotes.indexOf(targetNote)
-        // 50/50 it's gonna be a quarter note or two 8th notes
-        if (Math.random() < 0.5) {
+        // 2/3 it's gonna be a quarter note or two 8th notes
+        if (Math.random() < 0.66) {
 
             // 50/50 note above or bellow
             if (Math.random() < 0.5) {

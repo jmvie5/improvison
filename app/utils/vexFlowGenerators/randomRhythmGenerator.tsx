@@ -1,4 +1,4 @@
-import { Factory } from "vexflow";
+import { Factory, StaveNote, StemmableNote } from "vexflow";
 import chordNotation from "../chordNotation";
 
 export default function randomRhythmGenerator(
@@ -26,12 +26,12 @@ export default function randomRhythmGenerator(
     const voice = score.voice.bind(score);
     const notes = score.notes.bind(score);
     const beam = score.beam.bind(score);
-    const concat = (a: any[], b: any[]): any[] => a.concat(b);
+    const concat = (a: StemmableNote[], b: StemmableNote[]): StemmableNote[] => a.concat(b);
 
     score.set({ time: `${timeSignature}/4` });
     let x = 20;
     let y = -100;
-    let newLineWidth = 240;
+    const newLineWidth = 240;
 
 
     function appendSystem(width: number) {
@@ -47,14 +47,14 @@ export default function randomRhythmGenerator(
 
     /* return notes[] compatible with vexFlow voice */
     function getNotes() {
-        var barNotes: any[] = [];
-        var timeLeft = timeSignature;
-        var nbNotes = 0;
-        var noHalf = true
+        const barNotes: StemmableNote[][] = [];
+        let timeLeft = timeSignature;
+        let nbNotes = 0;
+        let noHalf = true
 
         while (timeLeft > 0) {
             if (timeLeft > 1 && noHalf) {
-                let r = getRandomElement(scaleNotes);
+                const r = getRandomElement(scaleNotes);
                 if (r === "h") {
                     /* 50% change to get silence */
                     if (Math.random() < 0.5 && (nbNotes > 1 || timeLeft === 4)) {
@@ -65,7 +65,7 @@ export default function randomRhythmGenerator(
                     }
                     noHalf = false
                     timeLeft -= 2;
-                    console.log('h')
+
                 } else if (r === "q") {
                     if (Math.random() < 0.5) {
                         barNotes.push(notes(`B4/q/r`));
@@ -79,12 +79,12 @@ export default function randomRhythmGenerator(
                     if (timeLeft <= 2 && nbNotes === 0) {
                         noHalf = false
                     }
-                    console.log('q')
+
                 } else if (r === "2x8") {
                     barNotes.push(beam(notes("B4/8, B4")));
                     nbNotes += 2;
                     timeLeft -= 1;
-                    console.log('2x8')
+
                 } else if (r === "8") {
                     if (Math.random() < 0.5) {
                         barNotes.push(notes("B4/8/r, B4/8"));
@@ -94,10 +94,10 @@ export default function randomRhythmGenerator(
                         nbNotes += 1;
                     }
                     timeLeft -= 1;
-                    console.log('8')
+
                 }
             } else {
-                let r = getRandomElement(scaleNotes.filter(item => item !== "h"));
+                const r = getRandomElement(scaleNotes.filter(item => item !== "h"));
                 if (r === "q") {
                     if (Math.random() < 0.5 && nbNotes > 1) {
                         barNotes.push(notes(`B4/q/r`));
@@ -106,19 +106,17 @@ export default function randomRhythmGenerator(
                         nbNotes += 1;
                     }
                     timeLeft -= 1;
-                    console.log('q')
+
                 } else {
                     /* if not using eighth notes */
                     if (!scaleNotes.includes("2x8") && !scaleNotes.includes("8")) {
                         barNotes.push(notes(`B4/q`));
                         nbNotes += 1;
-                        console.log('q')
                     } 
                     /* using eighth notes */
                     else if (r === "2x8") {
                         barNotes.push(beam(notes("B4/8, B4")));
                         nbNotes += 2;
-                        console.log('2x8')
                     } else if (r === "8") {
                         if (Math.random() < 0.5 && nbNotes >= 1) {
                             if (Math.random() < 0.5) {
@@ -132,14 +130,14 @@ export default function randomRhythmGenerator(
                             barNotes.push(beam(notes("B4/8, B4")));
                             nbNotes += 2;
                         }
-                        console.log("8")
+
                     }
                     timeLeft -= 1;
                 }
             }
-            console.log('nbNotes : ', nbNotes, 'timeleft : ', timeLeft)
+
         }
-        console.log("done!")
+
         return barNotes.reduce(concat);
     }
 
@@ -158,7 +156,7 @@ export default function randomRhythmGenerator(
             .addKeySignature(keySignature)
             .setEndBarType(3);
     } else {
-        for (var i = 0; i < nbBars - 1; i++) {
+        for (let i = 0; i < nbBars - 1; i++) {
             /* New lines (each 4 bars) */
             if (i % 4 === 0) {
                 x = 20;
@@ -187,7 +185,7 @@ export default function randomRhythmGenerator(
             .addStave({
                 voices: [voice(getNotes())],
             })
-            .setText(c[i], 1, { shift_x: 60, shift_y: -50 })
+            .setText(c[c.length-1], 1, { shift_x: 60, shift_y: -50 })
             .setEndBarType(3);
     }
 

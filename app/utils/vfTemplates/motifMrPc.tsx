@@ -1,4 +1,4 @@
-import { Factory, Registry, StaveNote } from "vexflow";
+import { Factory, Registry, StaveNote, StemmableNote } from "vexflow";
 import beamDirection from "../vexFlowUtils/beamDirection";
 import chordNotation from "../chordNotation";
 
@@ -10,7 +10,7 @@ export default function motifMrPc(
     timeSignature: number,
     chords: string[],
 ) {
-    console.log(nbBars)
+
     const c = chordNotation(chords)
     
     const registry = new Registry();
@@ -18,13 +18,12 @@ export default function motifMrPc(
 
     // Retrieve the element from the registry and cast to StaveNote, so we can call .addModifier( ) later.
     const id = (id: string) => registry.getElementById(id) as StaveNote;
-    console.log(id)
 
     const score = vf.EasyScore();
     const voice = score.voice.bind(score);
     const notes = score.notes.bind(score);
     const beam = score.beam.bind(score);
-    const concat = (a: any[], b: any[]): any[] => a.concat(b);
+    const concat = (a: StemmableNote[], b: StemmableNote[]): StemmableNote[] => a.concat(b);
 
     score.set({ time: `${timeSignature}/4` });
     let x = 20;
@@ -37,7 +36,7 @@ export default function motifMrPc(
     }
 
     /* Measure 1 */
-    let system = appendSystem(270);
+    const system = appendSystem(270);
     system
         .addStave({
             voices: [

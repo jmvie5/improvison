@@ -2,13 +2,14 @@ import { useEffect, useState, useCallback, forwardRef, useImperativeHandle } fro
 import { Factory } from "vexflow";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
 import transpose, { transposeProps } from "../../../utils/transposition";
-import { Button, Chip } from "@nextui-org/react";
+import { Button, Chip, useDisclosure } from "@nextui-org/react";
 import { SubLvlInterface } from "../levels/types";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { db } from '../../../db';
 import { twMerge } from 'tailwind-merge'
 import { useLocale } from "remix-i18next/react";
 import { useTranslation } from "react-i18next";
+import ErrorModal from "~/components/ErrorModal";
 
 
 type SubLvlProps = {
@@ -32,15 +33,22 @@ type SubLvlProps = {
 
 const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, transposition, vfProps, vf_w, vf_h, reRender }: SubLvlProps, ref) {
     
+    const authorizationErrorModal = useDisclosure()
     const { t, ready } = useTranslation()
 
     const locale = useLocale()
-    console.log(locale)
     const [audioUrl, setAudioUrl] = useState("");
     const [audioBlob, setAudiBlob] = useState<Blob>()
     const [showSaved, setShowSaved] = useState(false)
 
-    const recorderControls = useAudioRecorder({noiseSuppression:false}, (err) => console.table(err), {audioBitsPerSecond: 128000})
+    const recorderControls = useAudioRecorder(
+        {noiseSuppression:false}, 
+        (err) => {
+            console.table(err)
+            authorizationErrorModal.onOpen()
+        }, 
+        {audioBitsPerSecond: 128000}
+    )
 
     useImperativeHandle(ref, () => {
 
@@ -111,13 +119,6 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
         setShowSaved(false);
     }, [name])
 
-    /* useEffect(() => {
-        console.log(locale)
-        setTimeout(() => {
-            setDesc(description(transposition))
-        }, 25)
-        
-    }, [locale]) */
 
     function clearVf() {
         const staff = document.getElementById("vf");
@@ -172,9 +173,16 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
     if (!ready) return <div></div>;
     return (
         <div className="flex flex-col 2xl:flex-row h-full  mb-8 p-4 gap-4 justify-around">
+            
             <div>
                 {/* <h2 className="mb-2 font-semibold">{title}</h2> */}
                 {description(transposition)}
+                <ErrorModal 
+                    disclosure={authorizationErrorModal} 
+                    title={t('widget.recorder.authorizationError.authModalTitle')}
+                    description={t('widget.recorder.authorizationError.authModalDescription')}
+                    closeButton={t('widget.recorder.authorizationError.authModalButton')}
+                />
             </div>
 
             <div className="col-span-2 flex flex-col w-full h-fit ">
@@ -201,6 +209,7 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
                                     <Button
                                         onClick={drawVf}
                                         className="btn-primary col-start-2 justify-self-end self-center"
+                                        color="primary"
                                     >
                                         {t('pages.soloGameLevels.vf.newMotif')}
                                     </Button>

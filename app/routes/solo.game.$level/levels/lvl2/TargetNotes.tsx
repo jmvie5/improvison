@@ -25,7 +25,7 @@ const TargetNotes = {
                     Pour cet exercice, nous utiliserons les arpèges des accords de l’accompagnement pour trouver nos notes cibles. C’est une bonne façon de tomber sur une note qui sonne en harmonie avec l’accompagnement. Commençons avec l'arpège de Si bémol majeur concert, qui sera notre accord de tonique plus tard.
                 </p>
                 <p>
-                    Commencez par jouer une seule note de l'arpège de Bb sur le premier temps de chaque mesure, puis rajoutez une ou deux notes conjointe dans la mesure précédent votre note cible. Par exemple :
+                    Commencez par jouer une seule note de l'arpège de Bb sur le premier temps de chaque mesure, puis rajoutez une ou deux notes conjointes dans la mesure précédent votre note cible. Par exemple :
                 </p>
                 <SheetMusic
                     transposition={transposition}
@@ -39,6 +39,7 @@ const TargetNotes = {
                     }}
                     vf_h={150}
                     vf_w={850}
+                    reRender
                 />
                 <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/JpC5hXefoV4" title="Bb backing track"/>
                 

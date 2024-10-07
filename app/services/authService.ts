@@ -67,8 +67,8 @@ async function getLoginStatus(onSuccess: Function, onFailure: Function) {
         });
 }
 
-async function deleteUser(user: UserInterface, id: String | undefined) {
-    console.log(user)
+async function deleteUser(user: UserInterface, id: string | undefined) {
+
     await fetch(`/api/auth/${id}`, {
         method: "DELETE",
     }).catch((error) => {
@@ -76,5 +76,5 @@ async function deleteUser(user: UserInterface, id: String | undefined) {
     });
 }
 
-let authService = { login, getLoginStatus, register, deleteUser, test };
+const authService = { login, getLoginStatus, register, deleteUser, test };
 export default authService;

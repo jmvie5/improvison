@@ -1,4 +1,4 @@
-import { Factory, Registry, StaveNote } from "vexflow";
+import { Factory, Registry, StaveNote, StemmableNote } from "vexflow";
 import beamDirection from "../vexFlowUtils/beamDirection";
 import chordNotation from "../chordNotation";
 
@@ -10,7 +10,7 @@ export default function mrPC(
     timeSignature: number,
     chords: string[],
 ) {
-    console.log(nbBars)
+
     const c = chordNotation(chords)
     
     const registry = new Registry();
@@ -23,7 +23,7 @@ export default function mrPC(
     const voice = score.voice.bind(score);
     const notes = score.notes.bind(score);
     const beam = score.beam.bind(score);
-    const concat = (a: any[], b: any[]): any[] => a.concat(b);
+    const concat = (a: StemmableNote[], b: StemmableNote[]): StemmableNote[] => a.concat(b);
 
     score.set({ time: `${timeSignature}/4` });
     let x = 20;

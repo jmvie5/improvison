@@ -78,8 +78,6 @@ export default function SoloProfile() {
 
     const transposition:string = useOutletContext()
 
-    console.log(transposition)
-
 
     function deleteRecording(id?:number) {
         try {

@@ -1,6 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import { Factory } from "vexflow";
 import transpose, { transposeProps } from "../utils/transposition";
+import { Button } from "@nextui-org/react";
+import { t } from "i18next";
 
 export interface sheetMusicInterface {
     transposition?:string;
@@ -21,14 +23,14 @@ export interface sheetMusicInterface {
     };
     vf_w: number;
     vf_h: number;
+    reRender: boolean;
 }
 
-export default function SheetMusic({ transposition, vfProps, vf_h, vf_w }: sheetMusicInterface) {
+export default function SheetMusic({ transposition, vfProps, vf_h, vf_w, reRender }: sheetMusicInterface) {
     const sheetId = Math.floor(Math.random() * 1000);
     const playerKey = transposition || "C";
 
     const drawVf = useCallback(() => {
-        console.log(`sheetMusic_${sheetId}`)
         clearVf();
        // transpose() if needed
        let transposedVf:sheetMusicInterface["vfProps"]
@@ -86,10 +88,26 @@ export default function SheetMusic({ transposition, vfProps, vf_h, vf_w }: sheet
 
     return (
 
-        <div
-            id={`sheetMusic_${sheetId}`}
-            className={`bg-slate-200 my-2 p-4 w-fit h-fit place-self-center rounded`}
-        ></div>
+        <div className={`flex flex-col bg-slate-200 my-2 p-4 w-fit h-fit place-self-center rounded`}>
+            <div
+                id={`sheetMusic_${sheetId}`}
+                
+            >
+                
+            </div>
+            {reRender ? (
+                <Button
+                    onClick={drawVf}
+                    className="btn-primary col-start-2 self-end"
+                    color="primary"
+                >
+                    {t('pages.soloGameLevels.vf.newMotif')}
+                </Button>
+            ) : (
+                <></>
+            )}
+        </div>
+        
 
     );
 }
