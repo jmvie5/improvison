@@ -206,5 +206,37 @@
       "goal": "Pour réussir cet exercice, improvisez avec la gamme de do mineur sur la pièce Mr. P.C. de John Coltrane. Vous pouvez alterner entre mineur ancien et gamme pentatonique mineur pour apporter de la variété dans votre solo. Utilisez la piste d’accompagnement ci-dessous :",
       "record" : "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
     }
+  },
+  "targetNotes": {
+    "title": "Notes cibles",
+    "intro": {
+      "title": "Concept",
+      "subTitle" : "Maintenant que les gammes plus importantes sont acquises dans votre langage d’improvisation, il faut s’intéresser au concept de note cible. Ce concept sert à ajouter de la cohérence dans l’improvisation en terminant les lignes sur une note prédéterminée. ",
+      "important" : "Il est important de se rappeler que n'importe quelle note peut être une note cible. Chaque note apporte une couleur unique selon l’accord joué en accompagnement, c’est à vous de choisir quelle couleur vous voulez utiliser.",
+      "desc": "Pour cet exercice, nous utiliserons les arpèges des accords de l’accompagnement pour trouver nos notes cibles. C’est une bonne façon de tomber sur une note qui sonne en harmonie avec la pièce. Commençons avec l'arpège de Si bémol majeur concert, qui sera notre accord de tonique plus tard.",
+      "instruction": "Commencez par jouer une seule note de l'arpège de Bb sur le premier temps de chaque mesure, puis rajoutez une ou deux notes conjointes dans la mesure précédent votre note cible. Par exemple :"
+    },
+    "freeImprov": {
+      "title": "Improvisation libre",
+      "desc": "Utilisez maintenant les trois principaux accords du blues majeur en Bb concert pour improviser : Bb, Eb et F. Suivez la progression suivante :",
+      "instruction1": "Trouver les notes cibles",
+      "instruction2": "Note cible sur le premier temps",
+      "instruction3": "Note cible précédé d'une note conjointe",
+      "instruction4": "Note cible précédé de deux notes conjointes",
+      "instruction5": "Trois croches ou plus qui mênent à la note cible",
+      "instruction6": "Jouer une note supplémentaire sur la croche suivant la note cible.",
+      "metronome": "Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre improvisation, mais n'hésitez pas à l'enlever pour explorer l'improvisation à votre instrument.",
+      "lackingInspiration": {
+        "title": "En panne d'inspiration ?",
+        "desc": "Vous pouvez générer des exemples d'approches de notes cibles pour chaque accord du blues majeur ici :"
+      }
+    },
+    "repertoireImprov": {
+      "title": "Improvisation sur Mr. P.C.",
+      "subTitle": "Intégrons maintenant cette nouvelle connaissance dans le répertoire.",
+      "goal": "Pour réussir cet exercice, improviser un solo en utilisant les notes cibles contenues dans la partition suivante. Utilisez la piste d’accompagnement ci-dessous :",
+      "remember": "Ne vous sentez pas obligé de jouer toutes les notes cibles écrites sur les premiers temps. Vous pouvez anticiper la note en la jouant sur le « et » du quatrième temps de la mesure précédente ou sur le contretemps du premier temps de la mesure suivante.",
+      "record" : "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
+    }
   }
 }

@@ -4,6 +4,7 @@ import blueMonk from "~/utils/songs/blueMonk";
 import SheetMusic from "~/components/SheetMusic";
 import targetNotesGenerator from "~/utils/vexFlowGenerators/targetNotesGenerator";
 import targetNotesBlueMonk from "~/utils/vfTemplates/targetNotesBlueMonk";
+import {t} from 'i18next'
 
 const TargetNotes = {
     url: '2-1',
@@ -17,16 +18,16 @@ const TargetNotes = {
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <p>
-                    Maintenant que les gammes plus importantes sont acquises dans votre langage d’improvisation, il faut s’intéresser au concept de note cible. Ce concept sert à ajouter de la cohérence dans l’improvisation en terminant les lignes sur une note prédéterminée. 
+                {t("pages.soloGameLevels.targetNotes.intro.subTitle")}
                 </p>
                 <p className="italic p-4">
-                    Il est important de se rappeler que n'importe quelle note peut être une note cible. Chaque note apporte une couleur unique selon l’accord joué en accompagnement, c’est à vous de choisir quelle couleur vous voulez utiliser.
+                {t("pages.soloGameLevels.targetNotes.intro.important")}
                 </p>
                 <p>
-                    Pour cet exercice, nous utiliserons les arpèges des accords de l’accompagnement pour trouver nos notes cibles. C’est une bonne façon de tomber sur une note qui sonne en harmonie avec l’accompagnement. Commençons avec l'arpège de Si bémol majeur concert, qui sera notre accord de tonique plus tard.
+                {t("pages.soloGameLevels.targetNotes.intro.desc")}
                 </p>
                 <p>
-                    Commencez par jouer une seule note de l'arpège de Bb sur le premier temps de chaque mesure, puis rajoutez une ou deux notes conjointes dans la mesure précédent votre note cible. Par exemple :
+                {t("pages.soloGameLevels.targetNotes.intro.instruction")}
                 </p>
                 <SheetMusic
                     transposition={transposition}
@@ -65,25 +66,22 @@ const TargetNotes = {
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
                 <p>
-                    Utilisez maintenant les trois principaux accords du blues majeur en Bb concert pour improviser : Bb, Eb et F. Suivez la progression suivante :
+                {t("pages.soloGameLevels.targetNotes.freeImprov.desc")}
                 </p>
                 <ol className=" list-inside list-disc">
-                    <li>Trouver les notes cibles</li>
-                    <li>Note cible sur le premier temps</li>
-                    <li>Note cible précédé d'une note conjointe</li>
-                    <li>Note cible précédé de deux notes conjointes</li>
-                    <li>Trois croches ou plus qui mênent à la note cible</li>
-                    <li>Jouer une note supplémentaire sur la croche suivant la note cible.</li>
+                    <li>{t("pages.soloGameLevels.targetNotes.freeImprov.instruction1")}</li>
+                    <li>{t("pages.soloGameLevels.targetNotes.freeImprov.instruction2")}</li>
+                    <li>{t("pages.soloGameLevels.targetNotes.freeImprov.instruction3")}</li>
+                    <li>{t("pages.soloGameLevels.targetNotes.freeImprov.instruction4")}</li>
+                    <li>{t("pages.soloGameLevels.targetNotes.freeImprov.instruction5")}</li>
+                    <li>{t("pages.soloGameLevels.targetNotes.freeImprov.instruction6")}</li>
                 </ol>
                 <p>
-                    Il est recommandé d'utiliser le métronome afin de travailler la stabilité rythmique de votre
-                    improvisation, mais n'hésitez pas à l'enlever pour explorer l'improvisation à votre instrument.
+                {t("pages.soloGameLevels.targetNotes.freeImprov.metronome")}
                 </p>
-                <p className="font-bold pt-4">
-                    En panne d'inspiration?
-                </p>
+                <p className="font-bold pt-4">{t("pages.soloGameLevels.targetNotes.freeImprov.lackingInspiration.title")}</p>
                 <p>
-                    Vous pouvez générer des exemples d'approches de notes cibles pour chaque accord du blues majeur ici :
+                {t("pages.soloGameLevels.targetNotes.freeImprov.lackingInspiration.desc")}
                 </p>
                 <div className="flex flex-col justify-center">
                     <SheetMusic
@@ -135,19 +133,28 @@ const TargetNotes = {
         title: "1.4.3 : La gamme majeure : Improvisation sur Blue Monks",
         description: (transposition?:string) => (
             <div className="grid grid-cols-1 gap-2">
-                <h2>Intégrons maintenant cette nouvelle connaissance dans le répertoire.</h2>
+                <h2>
+                    {t("pages.soloGameLevels.targetNotes.repertoireImprov.title")}
+                </h2>
                 <p>
-                    Pour réussir cet exercice, improviser un solo qui contient les notes cibles contenues dans la partition suivante. Utilisez la piste d’accompagnement ci-dessous : 
+                    {t("pages.soloGameLevels.targetNotes.repertoireImprov.subTitle")}
+                </p>
+                <p>
+                    {t("pages.soloGameLevels.targetNotes.repertoireImprov.goal")}
                 </p>
                 <iframe className="w-full aspect-video max-w-[800px]" src="https://www.youtube.com/embed/MgEZxg0HOJU?si=3t8IP56ZE3wNzrwr" title="Piste d'accompagnement Blue Monk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
                 
                 <div className="my-4 font-medium">
                     <p>
-                        Ne vous sentez pas obligé de jouer toutes les notes cibles écrites sur les premiers temps. Vous pouvez anticiper la note en la jouant sur le "et" du quatrième temps de la mesure précédente ou sur le contretemps du premier temps de la mesure suivante.
+                    <p>
+                    {t("pages.soloGameLevels.targetNotes.repertoireImprov.remember")}
+                </p>
                     </p>
                 </div>
                 <p>
-                    N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!
+                <p>
+                    {t("pages.soloGameLevels.targetNotes.repertoireImprov.record")}
+                </p>
                 </p>
             </div>
         ),

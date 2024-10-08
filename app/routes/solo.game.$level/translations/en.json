@@ -206,5 +206,37 @@
       "goal": "To complete this exercise, improvise with the C minor scale on John Coltrane's Mr. P.C.. You can alternate between natural minor and pentatonic minor to bring variety to your solo. Use the backing track below:",
       "record" : "Don't forget to record yourself using the microphone at the bottom of the score to better evaluate yourself!"
     }
+  },
+  "targetNotes": {
+    "title": "Target notes",
+    "intro": {
+      "title": "Concept",
+      "subTitle" : "Now that you've acquired the most important scales in your improvisation language, it's time to turn your attention to the concept of the target note. This concept is used to add coherence to your improvisation by ending lines on a predetermined note. ",
+      "important" : "It's important to remember that any note can be a target note. Each note brings a unique color depending on the chord played as accompaniment, so it's up to you to choose which color you want to use.",
+      "desc": "For this exercise, we'll use the arpeggios of the chords in the accompaniment to find our target notes. This is a good way of finding a note that sounds in harmony with the song. Let's start with the arpeggio of B flat major concert, which will be our tonic chord later on.",
+      "instruction": "Start by playing a single note of the Bb arpeggio on the first beat of each bar, then add one or two joint notes in the bar preceding your target note. For example:"
+    },
+    "freeImprov": {
+      "title": "Free improvisation",
+      "desc": "Now use the three major blues chords in Bb concert to improvise: Bb, Eb and F. Follow these steps:",
+      "instruction1": "Find the target notes",
+      "instruction2": "Target score on first beat",
+      "instruction3": "Target note preceded by a neighbor note",
+      "instruction4": "Target note preceded by two neighbor notes",
+      "instruction5": "Three or more eighth notes leading to the target note",
+      "instruction6": "Play an additional note on the eighth note following the target note.",
+      "metronome": "We recommend using the metronome to work on the rhythmic stability of your improvisation, but don't hesitate to remove it to explore improvisation on your instrument.",
+      "lackingInspiration": {
+        "title": "Lacking inspiration?",
+        "desc": "You can generate examples of target note patterns for each major blues chord here :"
+      }
+    },
+    "repertoireImprov": {
+      "title": "Improvisation over Mr. P.C.",
+      "subTitle": "Now let's integrate this new knowledge into the repertoire.",
+      "goal": "To complete this exercise, improvise a solo using the target notes contained in the following score. Use the accompaniment track below:",
+      "remember": "Don't feel obliged to play all the target notes written on the first beats. You can anticipate the note by playing it on the “and” of the fourth beat of the preceding bar, or on the offbeat of the first beat of the following bar.",
+      "record" : "Don't forget to record yourself using the microphone at the bottom of the score to better evaluate yourself!"
+    }
   }
 }
