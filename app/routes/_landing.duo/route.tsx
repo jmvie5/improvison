@@ -8,7 +8,6 @@ import {
   Link,
   useDisclosure,
 } from "@nextui-org/react";
-import { Improvison_Règles_numériques } from "../../static/files";
 import {
   Roblox_Logo,
   champi,
@@ -32,6 +31,7 @@ import i18nextServer from "~/i18next.server";
 
 import { t } from "i18next";
 import DownloadModal from './DownloadModal';
+import { Improvison_Digital_Rules, Improvison_Règles_numériques } from "../../static/files";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const t = await i18nextServer.getFixedT(request);
@@ -77,8 +77,8 @@ export default function LandingDuo() {
 					className="bg-bleu-pale/20 h-full w-fit xl:w-1/3 max-w-80 aspect-square p-4 text-white border border-neutral-500 shadow-md shadow-black" 
 					as={Link} 
 					href={locale === 'en' 
-						? "app/static/files/Improvison_Digital Rules.pdf" 
-						: "app/static/files/Improvison_Règles numériques.pdf" 
+						? Improvison_Digital_Rules
+            : Improvison_Règles_numériques
 					}
 					target="_blank" 
 					rel="noreferrer"
@@ -222,7 +222,10 @@ export default function LandingDuo() {
         <div className="inline">
           {t("pages.landingDuo.downloadRules")}
           <Link
-            href={Improvison_Règles_numériques}
+            href={locale === 'en' 
+              ? Improvison_Digital_Rules
+              : Improvison_Règles_numériques
+            }
             target="_blank"
             rel="noreferrer"
             aria-label="Règles d'improvison"

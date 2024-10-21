@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { Factory } from "vexflow";
 import transpose, { transposeProps } from "../utils/transposition";
 import { Button } from "@nextui-org/react";
@@ -27,15 +27,13 @@ export interface sheetMusicInterface {
 }
 
 export default function SheetMusic({ transposition, vfProps, vf_h, vf_w, reRender }: sheetMusicInterface) {
-    const sheetId = Math.floor(Math.random() * 1000);
-    const playerKey = transposition || "C";
-
+    const sheetId = useRef(Math.floor(Math.random() * 1000)) 
     const clearVf = useCallback(() => {
-        const staff = document.getElementById(`sheetMusic_${sheetId}`);
+        const staff = document.getElementById(`sheetMusic_${sheetId.current}`);
         while (staff?.hasChildNodes()) {
             staff.removeChild(staff.lastChild!);
         }
-    }, [sheetId])
+    }, [])
 
     const drawVf = useCallback(() => {
         clearVf();
@@ -44,7 +42,7 @@ export default function SheetMusic({ transposition, vfProps, vf_h, vf_w, reRende
        if (vfProps.template.name === "randomRhythmGenerator") {
            transposedVf = vfProps;
        } else {
-           const transposedVfProps:transposeProps = transpose(playerKey, {
+           const transposedVfProps:transposeProps = transpose(transposition || "C", {
                keySignature: vfProps.keySignature,
                scaleNotes: vfProps.scaleNotes,
                chords: vfProps.chords
@@ -60,16 +58,16 @@ export default function SheetMusic({ transposition, vfProps, vf_h, vf_w, reRende
            }
        }
 
-        const vfElement = document.getElementById(`sheetMusic_${sheetId}`)
+        const vfElement = document.getElementById(`sheetMusic_${sheetId.current}`)
         if (vfElement) {
             // create empty Factory
             let vf = new Factory({
-                renderer: { elementId: `sheetMusic_${sheetId}`, width: -1, height: -1 },
+                renderer: { elementId: `sheetMusic_${sheetId.current}`, width: -1, height: -1 },
             });
             // render sheet music
             vf = transposedVf.template(
                 new Factory({
-                    renderer: { elementId: `sheetMusic_${sheetId}`, width: vf_w, height: vf_h },
+                    renderer: { elementId: `sheetMusic_${sheetId.current}`, width: vf_w, height: vf_h },
                 }),
                 transposedVf.keySignature,
                 transposedVf.scaleNotes,
@@ -80,7 +78,7 @@ export default function SheetMusic({ transposition, vfProps, vf_h, vf_w, reRende
             vf.draw();
         }
         
-    }, [clearVf, playerKey, vfProps, sheetId, vf_h, vf_w]);
+    }, [clearVf, vfProps, vf_h, vf_w, transposition]);
 
     useEffect(() => {
         drawVf();
@@ -92,7 +90,7 @@ export default function SheetMusic({ transposition, vfProps, vf_h, vf_w, reRende
 
         <div className={`flex flex-col bg-slate-200 my-2 p-4 w-fit h-fit place-self-center rounded`}>
             <div
-                id={`sheetMusic_${sheetId}`}
+                id={`sheetMusic_${sheetId.current}`}
                 
             >
                 
