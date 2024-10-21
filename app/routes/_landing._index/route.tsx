@@ -56,7 +56,7 @@ export default function LandingIndex() {
             <motion.div
                 variants={itemVariants}
             >
-                <Card className="bg-bleu-pale/20 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="duo">
+                <Card className="bg-default p-4 shadow-md shadow-black hover:opacity-95" as={Link} href="duo">
                     <CardHeader className="justify-around">
                         <p className="font-bold text-3xl italic">Improvison – Duo </p>
                         <UsersIcon className="w-32 self-center"/>
@@ -79,7 +79,7 @@ export default function LandingIndex() {
             <motion.div
                 variants={itemVariants}
             >
-                <Card className="bg-bleu-pale/20 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="solo/game">
+                <Card className="bg-default p-4 shadow-md shadow-black hover:opacity-95" as={Link} href="solo/game">
                     <CardHeader className="justify-around">
                         <p className="font-bold text-3xl italic">Improvison – Solo</p>
                         <UserIcon className="w-32 self-center"/>

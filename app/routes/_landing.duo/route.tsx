@@ -105,19 +105,19 @@ export default function LandingDuo() {
     <div>
       <h1 className="font-bold text-2xl pb-4">{translations.title}</h1>
       <div className="flex flex-col xl:flex-row gap-4 justify-center items-center mb-4 flex-1">
-        <Card className="bg-bleu-pale/20 h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="https://www.roblox.com/games/5984084686/Improvisondon" target="_blank" rel="noreferrer">
+        <Card className="bg-default-900 h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 text-white shadow-md shadow-black" as={Link} href="https://www.roblox.com/games/5984084686/Improvisondon" target="_blank" rel="noreferrer">
 					<CardHeader className="justify-center">
 						<p className="font-bold text-xl">{translations.playOnlineCard.title}</p>
 					</CardHeader>
 					<CardBody className="items-center">
 						<Image src={Roblox_Logo} className="self-center max-h-full " alt="Logo Roblox" removeWrapper/>
 					</CardBody>
-					<CardFooter className="justify-center text-center text-lg h-full">
+					<CardFooter className="justify-center text-center text-sm h-full">
 						<p>{translations.playOnlineCard.description}</p>
 					</CardFooter>
 				</Card>
 				<Card 
-					className="bg-bleu-pale/20 h-full w-fit xl:w-1/3 max-w-80 aspect-square p-4 text-white border border-neutral-500 shadow-md shadow-black" 
+					className="bg-default-900 h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 text-white shadow-md shadow-black" 
 					as={Link} 
 					href={locale === 'en' 
 						? Improvison_Digital_Rules
@@ -132,12 +132,12 @@ export default function LandingDuo() {
 					<CardBody className="items-center">
 						<BookOpenIcon className=" w-32"/>
 					</CardBody>
-					<CardFooter className="justify-center text-center text-lg">
+					<CardFooter className="justify-center text-center text-sm">
 						<p>{translations.rulesCard.description}</p>
 					</CardFooter>
 				</Card>
 				<Card 
-					className="bg-bleu-pale/20 h-full w-fit xl:w-1/3 max-w-80 aspect-square p-4 text-white border border-neutral-500 shadow-md shadow-black" 
+					className="hover:opacity-80 bg-default-900 h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 text-white shadow-md shadow-black" 
 					isPressable
 					onPress={() => {
 						onOpen()
@@ -149,7 +149,7 @@ export default function LandingDuo() {
 					<CardBody className="items-center">
 						<PuzzlePieceIcon className="w-32"/>
 					</CardBody>
-					<CardFooter className="justify-center text-center text-lg">
+					<CardFooter className="justify-center text-center text-sm">
 						<p>{translations.boardGameCard.description}</p>
 					</CardFooter>
 				</Card>
@@ -203,7 +203,7 @@ export default function LandingDuo() {
 
       <div className="flex flex-col">
         <div className="py-8 flex flex-col">
-          <h2 className="font-bold italic text-xl">
+          <h2 className="font-bold text-xl">
             {translations.gameDescription.title}
           </h2>
           <div className="">
@@ -244,7 +244,7 @@ export default function LandingDuo() {
               {translations.gameFlow.beforeTitle}
             </h4>
             <p>{translations.gameFlow.playerNeed}</p>
-            <ul className=" list-disc list-inside pl-4">
+            <ul className=" list-disc list-inside pl-4 marker:text-secondary">
               <li className="">{translations.gameFlow.before1}</li>
               <li>{translations.gameFlow.before2}</li>
               <li>{translations.gameFlow.before3}</li>
@@ -252,7 +252,7 @@ export default function LandingDuo() {
             <h4 className="text-lg font-semibold pt-4">
               {translations.gameFlow.startTitle}
             </h4>
-            <ol className="pl-4 list-decimal list-inside">
+            <ol className="pl-4 list-decimal list-inside marker:text-secondary">
               <li>{translations.gameFlow.start1}</li>
               <li>{translations.gameFlow.start2}</li>
               <li>{translations.gameFlow.start3}</li>
@@ -272,14 +272,16 @@ export default function LandingDuo() {
             target="_blank"
             rel="noreferrer"
             aria-label="Règles d'improvison"
-            className="underline hover:text-neutral-400"
+            className="underline decoration-secondary"
+            color="foreground"
           >
             {translations.onlineRules}
           </Link>
           {translations.and}
           <Link
-            className="underline hover:text-neutral-400 cursor-pointer"
+            className="underline cursor-pointer decoration-secondary"
             onPress={onOpen}
+            color="foreground"
           >
             {translations.boardRules}
           </Link>

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Image } from "@nextui-org/react"
+import { Image, Link } from "@nextui-org/react"
 import { thumbnail_Photo_JPD } from "../../static/images"
 import { json, type LoaderFunctionArgs, type MetaFunction} from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
@@ -46,10 +46,10 @@ export default function LandingAbout() {
 
     return (
 
-        <div className="flex flex-col gap-4">
-            <h1 className="font-bold text-2xl ">{translations.title}</h1>
+        <div className="">
+            <h1 className="font-bold text-4xl pb-8 lg:pb-12">{translations.title}</h1>
             <div className="flex flex-col xs:inline">
-                <h2 className="font-semi-bold text-xl pb-2">{translations.principalInvestigator}</h2>
+                <h2 className="font-semi-bold text-2xl pb-6">{translations.principalInvestigator}</h2>
 
                 <Image 
                     className="float-right max-w-xs aspect-square rounded-lg m-2 self-center" 
@@ -57,10 +57,10 @@ export default function LandingAbout() {
                     removeWrapper    
                 />
                 
-                <p>
-                    <a className="underline hover:text-neutral-400" href="https://www.mus.ulaval.ca/notre-faculte/repertoire-du-personnel/jean-philippe-despres">
+                <p className="leading-loose">
+                    <Link className="underline text-white decoration-secondary " href="https://www.mus.ulaval.ca/notre-faculte/repertoire-du-personnel/jean-philippe-despres">
                         Jean-Philippe Després (Ph.D.)
-                    </a>
+                    </Link>
                     <span>
                         {translations.piText1} 
                     </span>
@@ -78,11 +78,14 @@ export default function LandingAbout() {
                     </span>
                 </p>
 
-                <h2 className="font-semi-bold text-xl pt-8 pb-2">{translations.gameIdeation}</h2>
-                <p className="pb-2">
-                {translations.giText1} <a href=" https://doi.org/10.7202/1040300ar" className="underline hover:text-neutral-400">{translations.researchTitle}</a> {translations.giText2}
+                <h2 className="font-semi-bold text-2xl pt-16 pb-6">{translations.gameIdeation}</h2>
+                <p className="pb-2 leading-loose ">
+                {translations.giText1} <a href=" https://doi.org/10.7202/1040300ar"  className="underline hover:opacity-80 transition-opacity text-large text-white decoration-secondary">{translations.researchTitle}</a>{translations.giText2}
                 </p>
+                <p className="pb-2 leading-loose">
                 {translations.giText3}
+                </p>
+                
             </div>
             
         </div>

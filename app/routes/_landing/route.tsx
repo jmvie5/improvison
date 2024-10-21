@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Image, Button, ButtonGroup } from "@nextui-org/react";
+import { Image, Button, ButtonGroup, Link } from "@nextui-org/react";
 import ImprovisonLogo from "../../static/images/improvison_accueil.png"
-import { Outlet, useLoaderData, Form, Link, useLocation } from "@remix-run/react";
+import { Outlet, useLoaderData, Form, useLocation } from "@remix-run/react";
 import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { motion } from 'framer-motion'
 import i18nServer from "../../i18next.server";
@@ -12,6 +12,13 @@ export async function loader({ request }: LoaderFunctionArgs) {
     const t = await i18nServer.getFixedT(request);
     const title = t("home.title")
     const description = t("home.description")
+
+    const slogan = {
+        learn: t("home.learn"),
+        improvisation: t("home.improvisation"),
+        throughPlay: t("home.throughPlay"),
+
+    }
   
     const pagesTranslatedTitle = {
       landingIndex: t('pages.landingIndex.title'),
@@ -21,7 +28,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
       soloIndex: t('pages.soloGame.title'),
     }
   
-    return json({ title, description, pagesTranslatedTitle });
+    return json({ title, description, slogan, pagesTranslatedTitle });
   }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
@@ -41,6 +48,8 @@ export default function LandingLayout() {
     const translationsData = useLoaderData<typeof loader>()
 
     const pagesTranslatedTitle = translationsData.pagesTranslatedTitle;
+
+    const slogan = translationsData.slogan;
 
 
     const menuLinks = [
@@ -73,7 +82,7 @@ export default function LandingLayout() {
 
                 <div className="flex flex-col justify-center sm:justify-start sm:w-60 shrink-0">
                     <Link
-                        to="/"
+                        href="/"
                         className="mt-4 mx-4 max-w-xxs self-center sm:self-start"
                     >
                         <Image
@@ -84,21 +93,20 @@ export default function LandingLayout() {
 
                     <Form className="flex gap-2 self-center mt-4" action={location}>
                         <ButtonGroup>
-                            <Button type="submit" name="lng" value="fr" className="">
+                            <Button type="submit" name="lng" value="fr" >
                             Français
                             </Button>
-                            <Button type="submit" name="lng" value="en" className="">
+                            <Button type="submit" name="lng" value="en" >
                             English
                             </Button>
                         </ButtonGroup>
                         
                     </Form>
-
                     
                     <nav className="flex flex-col p-4">
                         <motion.ul
                             
-                            className="flex flex-row sm:flex-col divide-x sm:divide-x-0 sm:divide-y sm:max-w-xxs justify-center"
+                            className="flex flex-row sm:flex-col divide-x sm:divide-x-0 sm:divide-y divide-secondary-100 sm:max-w-xxs justify-center"
                             initial="hidden"
                             animate="visible"
                             variants={{
@@ -130,8 +138,8 @@ export default function LandingLayout() {
                                 }}
                             >
                                 <Link
-                                    to={link.link}
-                                    className="text-white hover:text-neutral-400 self-center"
+                                    href={link.link}
+                                    className="text-white self-center"
                                 >
                                     {link.name}
                                 </Link>
@@ -143,8 +151,10 @@ export default function LandingLayout() {
 
                 <div>
                     <div className="flex flex-row-reverse">
-                    <h1 className="text-4xl font-bold p-4 sm:mb-10 mb-6 mx-4 border-b">
-                    {translationsData.description}
+                    <h1 className="text-4xl font-bold p-4 sm:mb-10 mb-6 mx-4 border-b border-secondary">
+                        {slogan.learn}
+                        <span className="bg-clip-text text-transparent bg-gradient-to-b from-secondary-400 to-secondary-600">{slogan.improvisation}</span>
+                        {slogan.throughPlay}
                     </h1>
                     </div>
                     <div className="mx-6">
@@ -153,11 +163,11 @@ export default function LandingLayout() {
                     </div>
                 </div>
             </div>
-            <div className="mx-4 mt-4 p-4 border-t ">
+            <div className="mx-4 mt-4 p-4 border-t border-secondary-100 ">
                 <p>Contact :</p>
-                <a href="mailto:info@improvison.ca" className="hover:underline">
+                <Link href="mailto:info@improvison.ca" className="text-white">
                     info@improvison.ca
-                </a>
+                </Link>
             </div>
             </div>
         </div>

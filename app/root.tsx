@@ -20,7 +20,7 @@ import {
 import i18nServer, { lngCookie } from "./i18next.server";
 import { useChangeLanguage } from "remix-i18next/react";
 import { useTranslation } from "react-i18next";
-
+import useWindowSize from "./hooks/useWindowSize";
 import stylesheet from "./tailwind.css?url";
 
 export const handle = { i18n: ["translation"] };
@@ -61,6 +61,13 @@ export const links: LinksFunction = () => [
 
 export default function App() {
 
+  const wSize = useWindowSize();
+  if (wSize?.width && wSize?.height) {
+    let baseFontSize = Math.min(wSize.width, wSize.height) / 50
+    if (baseFontSize < 16) baseFontSize = 16;
+    document.documentElement.style.fontSize = baseFontSize + "px";
+  }
+
   const { locale } = useLoaderData<typeof loader>();
   const { i18n } = useTranslation();
   useChangeLanguage(locale);
@@ -80,9 +87,9 @@ export default function App() {
       </head>
       <body>
         <NextUIProvider navigate={navigate}>
-          <div className="bg-background text-white font-josef text-lg flex flex-col overflow-scroll min-h-dvh">
+          <main className="dark font-josef flex flex-col overflow-scroll min-h-dvh">
             <Outlet />
-          </div>
+          </main>
           <ScrollRestoration />
           <Scripts />
         </NextUIProvider>
@@ -103,7 +110,7 @@ export function ErrorBoundary() {
       </head>
       <body>
         <div className="flex flex-col justify-center gap-2 h-dvh bg-background text-center text-white">
-          <Button size="lg" as={Link} href="/" className="absolute top-0 left-0 m-4">{t("error.backHome")}</Button>
+          <button className="absolute top-0 left-0 m-4"><Link to="/" >{t("error.backHome")}</Link></button>
           <h1 className="font-bold text-2xl">{t("error.title")}</h1>
           <p>{t("error.text")}</p>
         </div>

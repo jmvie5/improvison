@@ -41,6 +41,9 @@ export const resources = {
       home: {
         title: "Improvison",
         description: "Learning improvisation through play",
+        learn: "Learning ",
+        improvisation: "improvisation",
+        throughPlay: " through play"
       },
       error: {
         title: "This page does not exist, or you do not have permission to access it.",
@@ -64,6 +67,9 @@ export const resources = {
       home: {
         title: "Improvison",
         description: "Apprendre à improviser en jouant",
+        learn: "Apprendre à ",
+        improvisation: "improviser",
+        throughPlay: " en jouant"
       },
       error: {
         title: "Cette page n'existe pas, où vous n'avez pas la permission d'y accèder.",
