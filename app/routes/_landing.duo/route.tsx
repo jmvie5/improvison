@@ -39,6 +39,49 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const translations = {
     title: t("pages.landingDuo.title"),
     description: t("pages.landingDuo.description"),
+    playOnlineCard: {
+      title : t("pages.landingDuo.playOnlineCard.title"),
+      description: t("pages.landingDuo.playOnlineCard.description")
+    },
+    rulesCard: {
+      title: t("pages.landingDuo.rulesCard.title"),
+      description: t("pages.landingDuo.rulesCard.description")
+    },
+    boardGameCard: {
+      title: t("pages.landingDuo.boardGameCard.title"),
+      description: t("pages.landingDuo.boardGameCard.description")
+    },
+    gamePreview: t("pages.landingDuo.gamePreview"),
+    gameDescription : {
+      title: t("pages.landingDuo.gameDescription.title"),
+      one: t("pages.landingDuo.gameDescription.one"),
+      two: t("pages.landingDuo.gameDescription.two"),
+    },
+    gameFlow: {
+      title: t("pages.landingDuo.gameFlow.title"),
+      beforeTitle: t("pages.landingDuo.gameFlow.beforeTitle"),
+      playerNeed: t("pages.landingDuo.gameFlow.playerNeed"),
+      before1: t("pages.landingDuo.gameFlow.before-1"),
+      before2: t("pages.landingDuo.gameFlow.before-2"),
+      before3: t("pages.landingDuo.gameFlow.before-3"),
+      startTitle: t("pages.landingDuo.gameFlow.startTitle"),
+      start1: t("pages.landingDuo.gameFlow.start-1"),
+      start2: t("pages.landingDuo.gameFlow.start-2"),
+      start3: t("pages.landingDuo.gameFlow.start-3"),
+      start4: t("pages.landingDuo.gameFlow.start-4"),
+      start5: t("pages.landingDuo.gameFlow.start-5"),
+      start6: t("pages.landingDuo.gameFlow.start-6"),
+    },
+    downloadRules : t("pages.landingDuo.downloadRules"),
+    onlineRules : t("pages.landingDuo.onlineRules"),
+    and : t("pages.landingDuo.and"),
+    boardRules : t("pages.landingDuo.boardRules"),
+    downloadModal: {
+      title: t("pages.landingDuo.downloadModal.title"),
+      themeCards: t("pages.landingDuo.downloadModal.theme-cards"),
+      selectionCards: t("pages.landingDuo.downloadModal.selection-cards")
+    },
+
   };
 
   return json({ translations, locale });
@@ -64,13 +107,13 @@ export default function LandingDuo() {
       <div className="flex flex-col xl:flex-row gap-4 justify-center items-center mb-4 flex-1">
         <Card className="bg-bleu-pale/20 h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 text-white border border-neutral-500 shadow-md shadow-black" as={Link} href="https://www.roblox.com/games/5984084686/Improvisondon" target="_blank" rel="noreferrer">
 					<CardHeader className="justify-center">
-						<p className="font-bold text-xl">{t("pages.landingDuo.playOnlineCard.title")}</p>
+						<p className="font-bold text-xl">{translations.playOnlineCard.title}</p>
 					</CardHeader>
 					<CardBody className="items-center">
 						<Image src={Roblox_Logo} className="self-center max-h-full " alt="Logo Roblox" removeWrapper/>
 					</CardBody>
 					<CardFooter className="justify-center text-center text-lg h-full">
-						<p>{t("pages.landingDuo.playOnlineCard.description")}</p>
+						<p>{translations.playOnlineCard.description}</p>
 					</CardFooter>
 				</Card>
 				<Card 
@@ -84,13 +127,13 @@ export default function LandingDuo() {
 					rel="noreferrer"
 				>
 					<CardHeader className="justify-center">
-						<p className="font-bold text-xl">{t("pages.landingDuo.rulesCard.title")}</p>
+						<p className="font-bold text-xl">{translations.rulesCard.title}</p>
 					</CardHeader>
 					<CardBody className="items-center">
 						<BookOpenIcon className=" w-32"/>
 					</CardBody>
 					<CardFooter className="justify-center text-center text-lg">
-						<p>{t("pages.landingDuo.rulesCard.description")}</p>
+						<p>{translations.rulesCard.description}</p>
 					</CardFooter>
 				</Card>
 				<Card 
@@ -101,18 +144,18 @@ export default function LandingDuo() {
 					}}
 				>
 					<CardHeader className="justify-center">
-						<p className="font-bold text-xl">{t("pages.landingDuo.boardGameCard.title")}</p>
+						<p className="font-bold text-xl">{translations.boardGameCard.title}</p>
 					</CardHeader>
 					<CardBody className="items-center">
 						<PuzzlePieceIcon className="w-32"/>
 					</CardBody>
 					<CardFooter className="justify-center text-center text-lg">
-						<p>{t("pages.landingDuo.boardGameCard.description")}</p>
+						<p>{translations.boardGameCard.description}</p>
 					</CardFooter>
 				</Card>
 				<DownloadModal isOpen={isOpen} onOpenChange={onOpenChange}/>
       </div>
-      <p className="text-xl pt-4">{t("pages.landingDuo.gamePreview")}</p>
+      <p className="text-xl pt-4">{translations.gamePreview}</p>
       <div className="flex flex-col gap-2 mt-8">
         {locale === "fr" && (
           <>
@@ -161,7 +204,7 @@ export default function LandingDuo() {
       <div className="flex flex-col">
         <div className="py-8 flex flex-col">
           <h2 className="font-bold italic text-xl">
-            {t("pages.landingDuo.gameDescription.title")}
+            {translations.gameDescription.title}
           </h2>
           <div className="">
             <div className="md:float-right flex flex-col p-8 items-center">
@@ -176,9 +219,9 @@ export default function LandingDuo() {
                 alt="Exemple de carte thème d'improvison: Tortue de mer"
               />
             </div>
-            <p>{t("pages.landingDuo.gameDescription.one")}</p>
+            <p>{translations.gameDescription.one}</p>
             <p className="italic pt-2">
-              {t("pages.landingDuo.gameDescription.two")}
+              {translations.gameDescription.two}
             </p>
           </div>
           <div className="">
@@ -195,32 +238,32 @@ export default function LandingDuo() {
               />
             </div>
             <h3 className="text-lg font-bold pb-2">
-              {t("pages.landingDuo.gameFlow.title")}
+              {translations.gameFlow.title}
             </h3>
             <h4 className="text-lg font-semibold ">
-              {t("pages.landingDuo.gameFlow.beforeTitle")}
+              {translations.gameFlow.beforeTitle}
             </h4>
-            <p>{t("pages.landingDuo.gameFlow.playerNeed")}</p>
+            <p>{translations.gameFlow.playerNeed}</p>
             <ul className=" list-disc list-inside pl-4">
-              <li className="">{t("pages.landingDuo.gameFlow.before-1")}</li>
-              <li>{t("pages.landingDuo.gameFlow.before-2")}</li>
-              <li>{t("pages.landingDuo.gameFlow.before-3")}</li>
+              <li className="">{translations.gameFlow.before1}</li>
+              <li>{translations.gameFlow.before2}</li>
+              <li>{translations.gameFlow.before3}</li>
             </ul>
             <h4 className="text-lg font-semibold pt-4">
-              {t("pages.landingDuo.gameFlow.startTitle")}
+              {translations.gameFlow.startTitle}
             </h4>
             <ol className="pl-4 list-decimal list-inside">
-              <li>{t("pages.landingDuo.gameFlow.start-1")}</li>
-              <li>{t("pages.landingDuo.gameFlow.start-2")}</li>
-              <li>{t("pages.landingDuo.gameFlow.start-3")}</li>
-              <li>{t("pages.landingDuo.gameFlow.start-4")}</li>
-              <li>{t("pages.landingDuo.gameFlow.start-5")}</li>
-              <li>{t("pages.landingDuo.gameFlow.start-6")}</li>
+              <li>{translations.gameFlow.start1}</li>
+              <li>{translations.gameFlow.start2}</li>
+              <li>{translations.gameFlow.start3}</li>
+              <li>{translations.gameFlow.start4}</li>
+              <li>{translations.gameFlow.start5}</li>
+              <li>{translations.gameFlow.start6}</li>
             </ol>
           </div>
         </div>
         <div className="inline">
-          {t("pages.landingDuo.downloadRules")}
+          {translations.downloadRules}
           <Link
             href={locale === 'en' 
               ? Improvison_Digital_Rules
@@ -231,14 +274,14 @@ export default function LandingDuo() {
             aria-label="Règles d'improvison"
             className="underline hover:text-neutral-400"
           >
-            {t("pages.landingDuo.onlineRules")}
+            {translations.onlineRules}
           </Link>
-          {t("pages.landingDuo.and")}
+          {translations.and}
           <Link
             className="underline hover:text-neutral-400 cursor-pointer"
             onPress={onOpen}
           >
-            {t("pages.landingDuo.boardRules")}
+            {translations.boardRules}
           </Link>
         </div>
       </div>
