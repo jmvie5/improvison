@@ -14,6 +14,7 @@ import {
 } from "@remix-run/node";
 import { useState } from "react";
 import i18nextServer from "~/i18next.server";
+import Metronome from "~/components/Metronome/Metronome";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const t = await i18nextServer.getFixedT(request);
@@ -62,9 +63,9 @@ export default function SoloLayout() {
             {data.translations.profile}
           </Link>
         </div>
-
+        <Metronome />
         <div className="flex items-center gap-2">
-          <Form className="flex gap-2 self-center mt-4" action={location}>
+          <Form className="flex gap-2 self-center" action={location}>
             <ButtonGroup>
               <Button type="submit" name="lng" value="fr" className="">
                 Français
@@ -74,7 +75,7 @@ export default function SoloLayout() {
               </Button>
             </ButtonGroup>
           </Form>
-          <Form className="flex gap-2 self-center mt-4">
+          <Form className="flex gap-2 self-center">
             <ButtonGroup>
               <Button
                 onPress={() => setCurrentTransposition("C")}
