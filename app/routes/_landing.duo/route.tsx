@@ -30,8 +30,11 @@ import { useLoaderData } from "@remix-run/react";
 import i18nextServer from "~/i18next.server";
 
 import { t } from "i18next";
-import DownloadModal from './DownloadModal';
-import { Improvison_Digital_Rules, Improvison_Règles_numériques } from "../../static/files";
+import DownloadModal from "./DownloadModal";
+import {
+  Improvison_Digital_Rules,
+  Improvison_Règles_numériques,
+} from "../../static/files";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const t = await i18nextServer.getFixedT(request);
@@ -40,19 +43,19 @@ export async function loader({ request }: LoaderFunctionArgs) {
     title: t("pages.landingDuo.title"),
     description: t("pages.landingDuo.description"),
     playOnlineCard: {
-      title : t("pages.landingDuo.playOnlineCard.title"),
-      description: t("pages.landingDuo.playOnlineCard.description")
+      title: t("pages.landingDuo.playOnlineCard.title"),
+      description: t("pages.landingDuo.playOnlineCard.description"),
     },
     rulesCard: {
       title: t("pages.landingDuo.rulesCard.title"),
-      description: t("pages.landingDuo.rulesCard.description")
+      description: t("pages.landingDuo.rulesCard.description"),
     },
     boardGameCard: {
       title: t("pages.landingDuo.boardGameCard.title"),
-      description: t("pages.landingDuo.boardGameCard.description")
+      description: t("pages.landingDuo.boardGameCard.description"),
     },
     gamePreview: t("pages.landingDuo.gamePreview"),
-    gameDescription : {
+    gameDescription: {
       title: t("pages.landingDuo.gameDescription.title"),
       one: t("pages.landingDuo.gameDescription.one"),
       two: t("pages.landingDuo.gameDescription.two"),
@@ -72,16 +75,15 @@ export async function loader({ request }: LoaderFunctionArgs) {
       start5: t("pages.landingDuo.gameFlow.start-5"),
       start6: t("pages.landingDuo.gameFlow.start-6"),
     },
-    downloadRules : t("pages.landingDuo.downloadRules"),
-    onlineRules : t("pages.landingDuo.onlineRules"),
-    and : t("pages.landingDuo.and"),
-    boardRules : t("pages.landingDuo.boardRules"),
+    downloadRules: t("pages.landingDuo.downloadRules"),
+    onlineRules: t("pages.landingDuo.onlineRules"),
+    and: t("pages.landingDuo.and"),
+    boardRules: t("pages.landingDuo.boardRules"),
     downloadModal: {
       title: t("pages.landingDuo.downloadModal.title"),
       themeCards: t("pages.landingDuo.downloadModal.theme-cards"),
-      selectionCards: t("pages.landingDuo.downloadModal.selection-cards")
+      selectionCards: t("pages.landingDuo.downloadModal.selection-cards"),
     },
-
   };
 
   return json({ translations, locale });
@@ -100,60 +102,76 @@ export default function LandingDuo() {
   const loaderData = useLoaderData<typeof loader>();
   const locale = loaderData.locale;
   const translations = loaderData.translations;
-  const { isOpen, onOpen, onOpenChange } = useDisclosure()
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
     <div>
       <h1 className="font-bold text-2xl pb-4">{translations.title}</h1>
       <div className="flex flex-col xl:flex-row gap-4 justify-center items-center mb-4 flex-1">
-        <Card className="bg-default-900 h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 text-white shadow-md shadow-black" as={Link} href="https://www.roblox.com/games/5984084686/Improvisondon" target="_blank" rel="noreferrer">
-					<CardHeader className="justify-center">
-						<p className="font-bold text-xl">{translations.playOnlineCard.title}</p>
-					</CardHeader>
-					<CardBody className="items-center">
-						<Image src={Roblox_Logo} className="self-center max-h-full " alt="Logo Roblox" removeWrapper/>
-					</CardBody>
-					<CardFooter className="justify-center text-center text-sm h-full">
-						<p>{translations.playOnlineCard.description}</p>
-					</CardFooter>
-				</Card>
-				<Card 
-					className="bg-default-900 h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 text-white shadow-md shadow-black" 
-					as={Link} 
-					href={locale === 'en' 
-						? Improvison_Digital_Rules
-            : Improvison_Règles_numériques
-					}
-					target="_blank" 
-					rel="noreferrer"
-				>
-					<CardHeader className="justify-center">
-						<p className="font-bold text-xl">{translations.rulesCard.title}</p>
-					</CardHeader>
-					<CardBody className="items-center">
-						<BookOpenIcon className=" w-32"/>
-					</CardBody>
-					<CardFooter className="justify-center text-center text-sm">
-						<p>{translations.rulesCard.description}</p>
-					</CardFooter>
-				</Card>
-				<Card 
-					className="hover:opacity-80 bg-default-900 h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 text-white shadow-md shadow-black" 
-					isPressable
-					onPress={() => {
-						onOpen()
-					}}
-				>
-					<CardHeader className="justify-center">
-						<p className="font-bold text-xl">{translations.boardGameCard.title}</p>
-					</CardHeader>
-					<CardBody className="items-center">
-						<PuzzlePieceIcon className="w-32"/>
-					</CardBody>
-					<CardFooter className="justify-center text-center text-sm">
-						<p>{translations.boardGameCard.description}</p>
-					</CardFooter>
-				</Card>
-				<DownloadModal isOpen={isOpen} onOpenChange={onOpenChange}/>
+        <Card
+          className="h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 bg-primary text-white shadow-md shadow-black"
+          as={Link}
+          href="https://www.roblox.com/games/5984084686/Improvisondon"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <CardHeader className="justify-center">
+            <p className="font-bold text-xl">
+              {translations.playOnlineCard.title}
+            </p>
+          </CardHeader>
+          <CardBody className="items-center">
+            <Image
+              src={Roblox_Logo}
+              className="self-center max-h-full "
+              alt="Logo Roblox"
+              removeWrapper
+            />
+          </CardBody>
+          <CardFooter className="justify-center text-center text-sm h-full">
+            <p>{translations.playOnlineCard.description}</p>
+          </CardFooter>
+        </Card>
+        <Card
+          className="bg-primary h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 text-white shadow-md shadow-black"
+          as={Link}
+          href={
+            locale === "en"
+              ? Improvison_Digital_Rules
+              : Improvison_Règles_numériques
+          }
+          target="_blank"
+          rel="noreferrer"
+        >
+          <CardHeader className="justify-center">
+            <p className="font-bold text-xl">{translations.rulesCard.title}</p>
+          </CardHeader>
+          <CardBody className="items-center">
+            <BookOpenIcon className=" w-32" />
+          </CardBody>
+          <CardFooter className="justify-center text-center text-sm">
+            <p>{translations.rulesCard.description}</p>
+          </CardFooter>
+        </Card>
+        <Card
+          className="hover:opacity-80 bg-primary h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 text-white shadow-md shadow-black"
+          isPressable
+          onPress={() => {
+            onOpen();
+          }}
+        >
+          <CardHeader className="justify-center">
+            <p className="font-bold text-xl">
+              {translations.boardGameCard.title}
+            </p>
+          </CardHeader>
+          <CardBody className="items-center">
+            <PuzzlePieceIcon className="w-32" />
+          </CardBody>
+          <CardFooter className="justify-center text-center text-sm">
+            <p>{translations.boardGameCard.description}</p>
+          </CardFooter>
+        </Card>
+        <DownloadModal isOpen={isOpen} onOpenChange={onOpenChange} />
       </div>
       <p className="text-xl pt-4">{translations.gamePreview}</p>
       <div className="flex flex-col gap-2 mt-8">
@@ -201,7 +219,7 @@ export default function LandingDuo() {
         )}
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col font-light">
         <div className="py-8 flex flex-col">
           <h2 className="font-bold text-xl">
             {translations.gameDescription.title}
@@ -220,9 +238,7 @@ export default function LandingDuo() {
               />
             </div>
             <p>{translations.gameDescription.one}</p>
-            <p className="italic pt-2">
-              {translations.gameDescription.two}
-            </p>
+            <p className="italic pt-2">{translations.gameDescription.two}</p>
           </div>
           <div className="">
             <div className="md:float-left flex flex-col p-8 items-center">
@@ -265,9 +281,10 @@ export default function LandingDuo() {
         <div className="inline">
           {translations.downloadRules}
           <Link
-            href={locale === 'en' 
-              ? Improvison_Digital_Rules
-              : Improvison_Règles_numériques
+            href={
+              locale === "en"
+                ? Improvison_Digital_Rules
+                : Improvison_Règles_numériques
             }
             target="_blank"
             rel="noreferrer"

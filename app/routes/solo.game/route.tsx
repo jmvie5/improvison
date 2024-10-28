@@ -166,7 +166,7 @@ export default function SoloGame() {
                             {Guide.name}
                         </Button>
                     </div> */}
-          <div className="flex flex-col gap-2 max-w-[800px] self-center">
+          <div className="flex flex-col gap-2 max-w-[800px] self-center font-light">
             <h2 className="text-4xl font-bold self-center pb-2">
               {translations.title}
             </h2>

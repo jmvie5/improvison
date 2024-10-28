@@ -7,15 +7,15 @@ import {
   ScrollRestoration,
   useLoaderData,
   useRouteError,
-  useNavigate
+  useNavigate,
 } from "@remix-run/react";
-import { Button, NextUIProvider} from "@nextui-org/react";
-import {t} from 'i18next'
-import { 
+import { Button, NextUIProvider } from "@nextui-org/react";
+import { t } from "i18next";
+import {
   json,
-  type LinksFunction, 
-  type LoaderFunctionArgs 
-} from "@remix-run/node"; 
+  type LinksFunction,
+  type LoaderFunctionArgs,
+} from "@remix-run/node";
 
 import i18nServer, { lngCookie } from "./i18next.server";
 import { useChangeLanguage } from "remix-i18next/react";
@@ -29,7 +29,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const locale = await i18nServer.getLocale(request);
   return json(
     { locale },
-    { headers: { "Set-Cookie": await lngCookie.serialize(locale) } },
+    { headers: { "Set-Cookie": await lngCookie.serialize(locale) } }
   );
 }
 
@@ -60,18 +60,17 @@ export const links: LinksFunction = () => [
 ];
 
 export default function App() {
-
   const wSize = useWindowSize();
   if (wSize?.width && wSize?.height) {
-    let baseFontSize = Math.min(wSize.width, wSize.height) / 50
-    if (baseFontSize < 16) baseFontSize = 16;
+    let baseFontSize = Math.min(wSize.width, wSize.height) / 50;
+    if (baseFontSize < 18) baseFontSize = 18;
     document.documentElement.style.fontSize = baseFontSize + "px";
   }
 
   const { locale } = useLoaderData<typeof loader>();
   const { i18n } = useTranslation();
   useChangeLanguage(locale);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <html lang={locale} dir={i18n.dir()}>
@@ -110,7 +109,9 @@ export function ErrorBoundary() {
       </head>
       <body>
         <div className="flex flex-col justify-center gap-2 h-dvh bg-background text-center text-white">
-          <button className="absolute top-0 left-0 m-4"><Link to="/" >{t("error.backHome")}</Link></button>
+          <button className="absolute top-0 left-0 m-4">
+            <Link to="/">{t("error.backHome")}</Link>
+          </button>
           <h1 className="font-bold text-2xl">{t("error.title")}</h1>
           <p>{t("error.text")}</p>
         </div>

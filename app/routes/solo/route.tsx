@@ -46,9 +46,9 @@ export default function SoloLayout() {
   return (
     <div className="flex flex-col grow">
       <div className=" flex flex-col md:flex-row gap-2 p-4 shadow-lg justify-between items-center bg-primary-900">
-        <div className="flex gap-8 items-center">
+        <div className="flex gap-2 md:gap-4 lg:gap-8 items-center">
           <Link to="/">
-            <Image src={improvison_accueil} width={100} />
+            <Image src={improvison_accueil} className="w-24" />
           </Link>
           <Link
             to="/solo/game"
@@ -63,18 +63,19 @@ export default function SoloLayout() {
             {data.translations.profile}
           </Link>
         </div>
-        <Metronome />
-        <div className="flex items-center gap-2">
-          <Form className="flex gap-2 self-center" action={location}>
-            <ButtonGroup>
-              <Button type="submit" name="lng" value="fr" className="">
-                Français
-              </Button>
-              <Button type="submit" name="lng" value="en" className="">
-                English
-              </Button>
-            </ButtonGroup>
-          </Form>
+        <Form className="flex gap-2 self-center" action={location}>
+          <ButtonGroup>
+            <Button type="submit" name="lng" value="fr" className="">
+              Français
+            </Button>
+            <Button type="submit" name="lng" value="en" className="">
+              English
+            </Button>
+          </ButtonGroup>
+        </Form>
+
+        <div className="flex flex-col lg:flex-row items-center gap-2">
+          <Metronome />
           <Form className="flex gap-2 self-center">
             <ButtonGroup>
               <Button
