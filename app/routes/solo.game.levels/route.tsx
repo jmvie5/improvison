@@ -11,7 +11,6 @@ import {
   ModalBody,
   ModalFooter,
   useDisclosure,
-  Link,
 } from "@nextui-org/react";
 import { LevelInterface } from "../solo.game.$level/levels/types";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
@@ -28,7 +27,7 @@ import {
   useNavigate,
 } from "@remix-run/react";
 import MinorScale from "../solo.game.$level/levels/tutorial/MinorScale";
-import i18nextServer from "~/i18next.server";
+import i18nextServer from "../../i18next.server";
 
 export async function loader({ request, params }: LoaderFunctionArgs) {
   const t = await i18nextServer.getFixedT(request);
@@ -94,7 +93,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
  * 
  */
 
-export default function SoloGame() {
+export default function SoloGameLevels() {
   const location = useLocation().pathname;
 
   const navigate = useNavigate();
@@ -149,51 +148,38 @@ export default function SoloGame() {
           </ModalFooter>
         </ModalContent>
       </Modal>
-      {location === "/solo/game" ? (
+      {location === "/solo/game/levels" ? (
         <div className="flex flex-col gap-4 p-4">
-          {/* <div className="flex gap-4">
-                        <p>Description</p>
-                        <Button
-                            key={Guide.name}
-                            className="max-w-xs"
-                            onPress={() => {
-                                setIsMenu(false);
-                                setCurrentLvl(Guide);
-                                setCurrentSubLvl(Guide.intro);
-                            }}
-                            disabled={Guide.locked}
-                        >
-                            {Guide.name}
-                        </Button>
-                    </div> */}
-          <div className="flex flex-col gap-2 max-w-[800px] self-center">
-            <h2 className="text-4xl font-bold self-center pb-2">
-              {translations.title}
-            </h2>
-            <p className="">{translations.description}</p>
-            <p>
-              {translations.description2}
-              <span className="font-bold">
-                {translations.presentation}
-              </span>,{" "}
-              <span className="font-bold">{translations.exploration}</span>{" "}
-              {translations.and}{" "}
-              <span className="font-bold">{translations.integration}</span>.
-            </p>
-            <p>{translations.description3}</p>
-            <h3 className="text-xl font-bold pt-4">
-              {translations.playOnline}
-            </h3>
-            <p>{translations.playOnlineDesc}</p>
+          <div className="self-center text-4xl font-bold pt-4">
+            {translations.levels}
           </div>
+          <div className="flex flex-col gap-2">
+            {levelList.map((level, index) => (
+              <div
+                key={level.id}
+                className=" flex flex-col gap-2 max-w-xs items-center self-center"
+              >
+                <Button
+                  size="lg"
+                  key={level.name}
+                  onPress={() => {
+                    window.scrollTo({ top: 0 });
+                    // setCurrentLvl(level);
+                    // setCurrentSubLvl(level.intro);
+                    navigate(`/solo/game/${level.url}`); // as={Link} does not work
+                  }}
+                  isDisabled={level.locked}
+                  color={level.locked ? "danger" : "success"}
+                >
+                  {translations.lvlTitles[level.url]}
+                </Button>
 
-          <Button
-            size="lg"
-            className="scale-150 self-center m-8"
-            color="success"
-          >
-            <Link href="solo/game/levels">Jouer !</Link>
-          </Button>
+                {index !== levelList.length - 1 && (
+                  <ArrowDownIcon className="w-8" />
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       ) : (
         <Outlet context={{ transposition }} />

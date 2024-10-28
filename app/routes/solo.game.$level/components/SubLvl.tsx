@@ -1,104 +1,127 @@
-import { useEffect, useState, useCallback, forwardRef, useImperativeHandle } from "react";
+import {
+  useEffect,
+  useState,
+  useCallback,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import { Factory } from "vexflow";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
 import transpose, { transposeProps } from "../../../utils/transposition";
 import { Button, Chip, useDisclosure } from "@nextui-org/react";
 import { SubLvlInterface } from "../levels/types";
 import { CheckIcon } from "@heroicons/react/24/outline";
-import { db } from '../../../db';
-import { twMerge } from 'tailwind-merge'
+import { db } from "../../../db";
+import { twMerge } from "tailwind-merge";
 import { useLocale } from "remix-i18next/react";
 import { useTranslation } from "react-i18next";
 import ErrorModal from "~/components/ErrorModal";
 
-
 type SubLvlProps = {
-    name: string;
-    title: string;
-    description: (transposition?:string) => JSX.Element;
-    transposition: string;
-    vfTitle?: string;
-    vfProps: {
-        template: (vf: Factory, keySignature: string, scaleNotes: string[], nbBars: number, timeSignature: number, chords: string[]) => Factory;
-        keySignature: string;
-        scaleNotes: string[];
-        nbBars: number;
-        timeSignature: number;
-        chords: string[];
+  name: string;
+  title: string;
+  description: (transposition?: string) => JSX.Element;
+  transposition: string;
+  vfTitle?: string;
+  vfProps: {
+    template: (
+      vf: Factory,
+      keySignature: string,
+      scaleNotes: string[],
+      nbBars: number,
+      timeSignature: number,
+      chords: string[]
+    ) => Factory;
+    keySignature: string;
+    scaleNotes: string[];
+    nbBars: number;
+    timeSignature: number;
+    chords: string[];
+  };
+  vf_w: number;
+  vf_h: number;
+  reRender: boolean;
+};
+
+const SubLvl = forwardRef(function SubLvl(
+  {
+    name,
+    title,
+    vfTitle,
+    description,
+    transposition,
+    vfProps,
+    vf_w,
+    vf_h,
+    reRender,
+  }: SubLvlProps,
+  ref
+) {
+  const authorizationErrorModal = useDisclosure();
+  const { t, ready } = useTranslation();
+
+  const locale = useLocale();
+  const [audioUrl, setAudioUrl] = useState("");
+  const [audioBlob, setAudiBlob] = useState<Blob>();
+  const [showSaved, setShowSaved] = useState(false);
+
+  const recorderControls = useAudioRecorder(
+    { noiseSuppression: false },
+    (err) => {
+      console.table(err);
+      authorizationErrorModal.onOpen();
+    },
+    { audioBitsPerSecond: 128000 }
+  );
+
+  useImperativeHandle(ref, () => {
+    return {
+      saveAudioToProfile,
+      removeAudio,
     };
-    vf_w: number;
-    vf_h: number;
-    reRender: boolean
-}
+  });
 
-const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, transposition, vfProps, vf_w, vf_h, reRender }: SubLvlProps, ref) {
-    
-    const authorizationErrorModal = useDisclosure()
-    const { t, ready } = useTranslation()
+  const drawVf = useCallback(() => {
+    clearVf();
+    // transpose() if needed
+    let transposedVf: SubLvlInterface["vfProps"];
+    if (vfProps.template.name === "randomRhythmGenerator") {
+      transposedVf = vfProps;
+    } else {
+      const transposedVfProps: transposeProps = transpose(transposition, {
+        keySignature: vfProps.keySignature,
+        scaleNotes: vfProps.scaleNotes,
+        chords: vfProps.chords,
+      })!;
 
-    const locale = useLocale()
-    const [audioUrl, setAudioUrl] = useState("");
-    const [audioBlob, setAudiBlob] = useState<Blob>()
-    const [showSaved, setShowSaved] = useState(false)
+      transposedVf = {
+        template: vfProps.template,
+        keySignature: transposedVfProps.keySignature,
+        scaleNotes: transposedVfProps.scaleNotes,
+        nbBars: vfProps.nbBars,
+        timeSignature: vfProps.timeSignature,
+        chords: transposedVfProps.chords,
+      };
+    }
+    // create empty Factory
+    let vf = new Factory({
+      renderer: { elementId: "vf", width: -1, height: -1 },
+    });
+    // render sheet music
+    vf = transposedVf.template(
+      new Factory({
+        renderer: { elementId: "vf", width: vf_w, height: vf_h },
+      }),
+      transposedVf.keySignature,
+      transposedVf.scaleNotes,
+      transposedVf.nbBars,
+      transposedVf.timeSignature,
+      transposedVf.chords
+    );
+    vf.draw();
+  }, [transposition, vfProps, vf_w, vf_h]);
 
-    const recorderControls = useAudioRecorder(
-        {noiseSuppression:false}, 
-        (err) => {
-            console.table(err)
-            authorizationErrorModal.onOpen()
-        }, 
-        {audioBitsPerSecond: 128000}
-    )
-
-    useImperativeHandle(ref, () => {
-
-        return {
-            saveAudioToProfile,
-            removeAudio
-        }
-    })
-
-    const drawVf = useCallback(() => {
-        clearVf();
-        // transpose() if needed
-        let transposedVf:SubLvlInterface["vfProps"]
-        if (vfProps.template.name === "randomRhythmGenerator") {
-            transposedVf = vfProps;
-        } else {
-            const transposedVfProps:transposeProps = transpose(transposition, {
-                keySignature: vfProps.keySignature,
-                scaleNotes: vfProps.scaleNotes,
-                chords: vfProps.chords
-            })!
-
-            transposedVf = {
-                template: vfProps.template,
-                keySignature: transposedVfProps.keySignature,
-                scaleNotes: transposedVfProps.scaleNotes,
-                nbBars: vfProps.nbBars,
-                timeSignature: vfProps.timeSignature,
-                chords: transposedVfProps.chords
-            }
-        }
-        // create empty Factory
-        let vf = new Factory({
-            renderer: { elementId: "vf", width: -1, height: -1 },
-        });
-        // render sheet music
-        vf = transposedVf.template(
-            new Factory({
-                renderer: { elementId: "vf", width: vf_w, height: vf_h },
-            }),
-            transposedVf.keySignature,
-            transposedVf.scaleNotes,
-            transposedVf.nbBars,
-            transposedVf.timeSignature,
-            transposedVf.chords,
-        )
-        vf.draw();
-    }, [transposition, vfProps, vf_w, vf_h]);
-
-    /* useEffect(() => {
+  /* useEffect(() => {
         authService.getLoginStatus(
             (user: UserInterface) => {
                 setPlayerKey(user.transposition);
@@ -110,162 +133,165 @@ const SubLvl = forwardRef(function SubLvl({ name, title, vfTitle, description, t
         );
     }, [drawVf]); */
 
-    useEffect(() => {
-        drawVf()
-    }, [vfProps, transposition])
+  useEffect(() => {
+    drawVf();
+  }, [vfProps, transposition]);
 
-    useEffect(() => {
-        removeAudio();
-        setShowSaved(false);
-    }, [name])
+  useEffect(() => {
+    removeAudio();
+    setShowSaved(false);
+  }, [name]);
 
-
-    function clearVf() {
-        const staff = document.getElementById("vf");
-        while (staff?.hasChildNodes()) {
-            staff.removeChild(staff.lastChild!);
-        }
+  function clearVf() {
+    const staff = document.getElementById("vf");
+    while (staff?.hasChildNodes()) {
+      staff.removeChild(staff.lastChild!);
     }
+  }
 
-    const addAudioElement = (blob: Blob) => {
-        setAudiBlob(blob)
-        const url = URL.createObjectURL(blob);
-        const audio = document.createElement("audio");
-        audio.src = url;
-        audio.controls = true;
-        const audioDiv = document.getElementById("recorded-audio");
-        while (audioDiv?.hasChildNodes()) {
-            audioDiv.removeChild(audioDiv.lastChild!);
-        }
-        audioDiv?.appendChild(audio);
-        setAudioUrl(url);
-    };
-
-    function removeAudio() {
-        URL.revokeObjectURL(audioUrl);
-        const audioDiv = document.getElementById("recorded-audio");
-        while (audioDiv?.hasChildNodes()) {
-            audioDiv.removeChild(audioDiv.lastChild!);
-        }
-        setAudioUrl("");
+  const addAudioElement = (blob: Blob) => {
+    setAudiBlob(blob);
+    const url = URL.createObjectURL(blob);
+    const audio = document.createElement("audio");
+    audio.src = url;
+    audio.controls = true;
+    const audioDiv = document.getElementById("recorded-audio");
+    while (audioDiv?.hasChildNodes()) {
+      audioDiv.removeChild(audioDiv.lastChild!);
     }
+    audioDiv?.appendChild(audio);
+    setAudioUrl(url);
+  };
 
-    async function saveAudioToProfile(remove:boolean) {
-        try {
-            
-            if (audioBlob) {
-                const newRecordingId = await db.recordings.add({
-                    audioBlob: audioBlob,
-                    levelName: title,
-                });
-                console.log(`Recording successfully added. Got id ${newRecordingId}.`)
-                if (remove) {
-                    removeAudio();
-                }
-            } else {
-                console.warn('No Blob!')
-            }
-                
-        } catch (error) {
-            console.warn('Error when intereacting with db')
-        }
+  function removeAudio() {
+    URL.revokeObjectURL(audioUrl);
+    const audioDiv = document.getElementById("recorded-audio");
+    while (audioDiv?.hasChildNodes()) {
+      audioDiv.removeChild(audioDiv.lastChild!);
     }
-    if (!ready) return <div></div>;
-    return (
-        <div className="flex flex-col 2xl:flex-row h-full  mb-8 p-4 gap-4 justify-around">
-            
-            <div>
-                {/* <h2 className="mb-2 font-semibold">{title}</h2> */}
-                {description(transposition)}
-                <ErrorModal 
-                    disclosure={authorizationErrorModal} 
-                    title={t('widget.recorder.authorizationError.authModalTitle')}
-                    description={t('widget.recorder.authorizationError.authModalDescription')}
-                    closeButton={t('widget.recorder.authorizationError.authModalButton')}
-                />
-            </div>
+    setAudioUrl("");
+  }
 
-            <div className="col-span-2 flex flex-col w-full h-fit ">
-                <div className="flex flex-col gap-2 w-fit h-full bg-slate-200 ring-2 rounded ring-slate-200 border-bleu-pale border-3 roudnded-sm p-4 place-self-center">
-                    <span className="text-black text-xl font-semibold">{vfTitle}</span>
-                    <div
-                        id="vf"
-                        className={`mt-2 w-fit h-full rounded`}
-                    />
-                    <div className="flex flex-col gap-2 justify-between">
-                        <div className="flex flex-col gap-2">
-                            <div className="flex justify-between w-full border flex-wrap gap-y-4">
-
-                                <div className={twMerge(" hover:ring ring-blue-900 w-fit", recorderControls.isRecording ? "rounded-xl" : "rounded-full")}>
-                                    <AudioRecorder
-                                        onRecordingComplete={(blob) => addAudioElement(blob)}
-                                        recorderControls={recorderControls}
-                                        downloadOnSavePress={false}
-                                        downloadFileExtension="webm"
-                                        showVisualizer={true}
-                                    />
-                                </div>
-                                {reRender ? (
-                                    <Button
-                                        onClick={drawVf}
-                                        className="btn-primary col-start-2 justify-self-end self-center"
-                                        color="primary"
-                                    >
-                                        {t('pages.soloGameLevels.vf.newMotif')}
-                                    </Button>
-                                ) : (
-                                    <></>
-                                )}
-                            </div>
-                            <div className="flex flex-col gap-2 w-fit">
-                                <div id="recorded-audio"></div>
-                                {audioUrl !== "" && 
-
-                                    <div className={twMerge("grid grid-cols-2 w-full", showSaved ? "" : "")}>
-
-                                        <Button 
-                                            onPress={() => {
-                                                removeAudio();
-                                                setShowSaved(false);
-                                            }} 
-                                            className="btn-primary"
-                                        >
-                                            {t("pages.soloGameLevels.vf.deleteRecording")}
-                                        </Button>
-                                        <div className="flex flex-col sm:flex-row items-center gap-2">
-                                            <Button 
-                                                onPress={() => {
-                                                    saveAudioToProfile(false)
-                                                    setShowSaved(true)
-                                                }} 
-                                                className="btn-primary mx-2 ">
-                                                {t("pages.soloGameLevels.vf.save")}
-                                            </Button>
-                                            {showSaved &&       
-                                            <Chip
-                                                className="self-center row-span-2"
-                                                color="success"
-                                            >
-                                                <CheckIcon className="w-8 p-1" />
-                                            </Chip>
-                                        }
-                                        </div>
-                                    </div>
-                                }
-                            </div>
-                        </div>
-
-
-                    </div>
+  async function saveAudioToProfile(remove: boolean) {
+    try {
+      if (audioBlob) {
+        const newRecordingId = await db.recordings.add({
+          audioBlob: audioBlob,
+          levelName: title,
+        });
+        console.log(`Recording successfully added. Got id ${newRecordingId}.`);
+        if (remove) {
+          removeAudio();
+        }
+      } else {
+        console.warn("No Blob!");
+      }
+    } catch (error) {
+      console.warn("Error when intereacting with db");
+    }
+  }
+  if (!ready) return <div></div>;
+  return (
+    <div className="flex flex-col h-full  mb-8 p-4 gap-4 justify-around">
+      <div className="inline">
+        {/* <h2 className="mb-2 font-semibold">{title}</h2> */}
+        <div className="float-right flex flex-col gap-2 w-fit h-fit bg-slate-200 ring-2 rounded ring-slate-200 border-bleu-pale border-3 roudnded-sm p-4 m-4 place-self-center">
+          <span className="text-black text-xl font-semibold">{vfTitle}</span>
+          <div id="vf" className={`mt-2 w-fit h-fit rounded`} />
+          <div className="flex flex-col gap-2 justify-between">
+            <div className="flex flex-col gap-2">
+              <div className="flex justify-between w-full border flex-wrap gap-y-4">
+                <div
+                  className={twMerge(
+                    " hover:ring ring-blue-900 w-fit",
+                    recorderControls.isRecording ? "rounded-xl" : "rounded-full"
+                  )}
+                >
+                  <AudioRecorder
+                    onRecordingComplete={(blob) => addAudioElement(blob)}
+                    recorderControls={recorderControls}
+                    downloadOnSavePress={false}
+                    downloadFileExtension="webm"
+                    showVisualizer={true}
+                  />
                 </div>
-                <iframe 
-                    src="https://guitarapp.com/metronome.html?embed=true&tempo=120&timeSignature=2&pattern=0" 
-                    title="Online Metronome" 
-                    className="h-[520px] w-[360px] mt-4 self-center rounded"
-                /> 
+                {reRender ? (
+                  <Button
+                    onClick={drawVf}
+                    className="btn-primary col-start-2 justify-self-end self-center"
+                    color="primary"
+                  >
+                    {t("pages.soloGameLevels.vf.newMotif")}
+                  </Button>
+                ) : (
+                  <></>
+                )}
+              </div>
+              <div className="flex flex-col gap-2 w-fit">
+                <div id="recorded-audio"></div>
+                {audioUrl !== "" && (
+                  <div
+                    className={twMerge(
+                      "grid grid-cols-2 w-full",
+                      showSaved ? "" : ""
+                    )}
+                  >
+                    <Button
+                      onPress={() => {
+                        removeAudio();
+                        setShowSaved(false);
+                      }}
+                      color="danger"
+                    >
+                      {t("pages.soloGameLevels.vf.deleteRecording")}
+                    </Button>
+                    <div className="flex flex-col sm:flex-row items-center gap-2">
+                      <Button
+                        onPress={() => {
+                          saveAudioToProfile(false);
+                          setShowSaved(true);
+                        }}
+                        className="mx-2 "
+                        color="success"
+                      >
+                        {t("pages.soloGameLevels.vf.save")}
+                      </Button>
+                      {showSaved && (
+                        <Chip
+                          className="self-center row-span-2"
+                          color="success"
+                        >
+                          <CheckIcon className="w-8 p-1" />
+                        </Chip>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
+          </div>
         </div>
-    );
-})
+        {description(transposition)}
 
-export default SubLvl
+        <ErrorModal
+          disclosure={authorizationErrorModal}
+          title={t("widget.recorder.authorizationError.authModalTitle")}
+          description={t(
+            "widget.recorder.authorizationError.authModalDescription"
+          )}
+          closeButton={t("widget.recorder.authorizationError.authModalButton")}
+        />
+      </div>
+
+      <div className="col-span-2 flex flex-col w-full h-fit ">
+        <iframe
+          src="https://guitarapp.com/metronome.html?embed=true&tempo=120&timeSignature=2&pattern=0"
+          title="Online Metronome"
+          className="h-[520px] w-[360px] mt-4 self-center rounded bg-"
+        />
+      </div>
+    </div>
+  );
+});
+
+export default SubLvl;
