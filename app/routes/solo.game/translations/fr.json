@@ -12,6 +12,8 @@
         "playOnline" : "Jouer en ligne",
         "playOnlineDesc" : "Un prototype du jeu, avec quelques niveaux accessibles, est disponible gratuitement ici. "
     },
+
+    "playButton": "Jouer !",
      
     "levels" : "Niveaux",
     "lvlTitles" : {

@@ -13,6 +13,8 @@
         "playOnlineDesc" : "A prototype of the game, with some accessible levels, is available for free here."
     },
      
+    "playButton": "Play !",
+    
     "levels" : "Levels",
     "lvlTitles" : {
         "1-1" : "Major Pentatonic Scale",

@@ -3,6 +3,7 @@
     "description" : "",
     "modalBtn" : "Effacer tous les enregistrements",
     "recordings" : "Enregistrements :",
+    "noRecording" : "Aucun enregistrement",
     "modal" : {
         "title" : "Effacer tous les enregistrements",
         "content" : "Voulez-vous vraiment effacer tous vos enregistrements? Vous devez avoir au moins un enregistrement de chaque niveau pour qu'il soit inscrit comme complété.",

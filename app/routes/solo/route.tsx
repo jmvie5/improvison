@@ -6,7 +6,7 @@ import {
   useLocation,
 } from "@remix-run/react";
 import { improvison_accueil } from "~/static/images";
-import { Button, ButtonGroup, Image } from "@nextui-org/react";
+import { Button, ButtonGroup, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Image } from "@nextui-org/react";
 import {
   json,
   type LoaderFunctionArgs,
@@ -15,6 +15,8 @@ import {
 import { useState } from "react";
 import i18nextServer from "~/i18next.server";
 import Metronome from "~/components/Metronome/Metronome";
+import { LanguageIcon } from "@heroicons/react/24/outline";
+import i18n from 'i18next'
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const t = await i18nextServer.getFixedT(request);
@@ -62,37 +64,44 @@ export default function SoloLayout() {
           >
             {data.translations.profile}
           </Link>
+          
+            <Dropdown>
+              <DropdownTrigger>
+                <Button variant="light" aria-label="Lang" isIconOnly>
+                  <LanguageIcon className="size-6"/>
+                </Button>
+              </DropdownTrigger>
+              <Form action={location}>
+                <DropdownMenu selectedKeys={[i18n.language]}>
+                  <DropdownItem key="fr" className="text-foreground text-start" textValue="Français">
+                    <button type="submit" name="lng" value="fr" className="w-full">Français</button>
+                  </DropdownItem>
+                  <DropdownItem key="en" className="text-foreground" textValue="English">
+                    <button type="submit" name="lng" value="en" className="w-full">English</button>
+                  </DropdownItem>
+                </DropdownMenu>
+              </Form>
+            </Dropdown>
+          
         </div>
-        <Form className="flex gap-2 self-center" action={location}>
-          <ButtonGroup>
-            <Button type="submit" name="lng" value="fr" className="">
-              Français
-            </Button>
-            <Button type="submit" name="lng" value="en" className="">
-              English
-            </Button>
-          </ButtonGroup>
-        </Form>
-
-        <div className="flex flex-col lg:flex-row items-center gap-2">
-          <Metronome />
+        
+        <Metronome />
+        <div className="flex flex-col lg:flex-row items-center ">
+          
           <Form className="flex gap-2 self-center">
             <ButtonGroup>
               <Button
                 onPress={() => setCurrentTransposition("C")}
-                color="success"
               >
                 C
               </Button>
               <Button
                 onPress={() => setCurrentTransposition("Bb")}
-                color="success"
               >
                 Bb
               </Button>
               <Button
                 onPress={() => setCurrentTransposition("Eb")}
-                color="success"
               >
                 Eb
               </Button>

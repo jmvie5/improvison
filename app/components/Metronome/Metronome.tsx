@@ -54,6 +54,7 @@ export default function Metronome() {
         onPress={() => setIsPlaying(!isPLaying)}
         isIconOnly
         className="p-2"
+        color="success"
       >
         {isPLaying ? <PauseIcon /> : <PlayIcon />}
       </Button>

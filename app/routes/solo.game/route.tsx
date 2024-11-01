@@ -44,6 +44,7 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
     description3: t("pages.soloGame.index.description3"),
     playOnline: t("pages.soloGame.index.playOnline"),
     playOnlineDesc: t("pages.soloGame.index.playOnlineDesc"),
+    playButton: t("pages.soloGame.playButton"),
     levels: t("pages.soloGame.levels"),
     lvlTitles: {
       "1-1": t("pages.soloGame.lvlTitles.1-1"),
@@ -96,8 +97,6 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
 export default function SoloGame() {
   const location = useLocation().pathname;
-
-  const navigate = useNavigate();
 
   const { translations } = useLoaderData<typeof loader>();
   const transposition: string = useOutletContext();
@@ -188,11 +187,13 @@ export default function SoloGame() {
           </div>
 
           <Button
+            as={Link}
+            href="solo/game/levels"
             size="lg"
-            className="scale-150 self-center m-8"
+            className=" self-center m-8"
             color="success"
           >
-            <Link href="solo/game/levels">Jouer !</Link>
+            {translations.playButton}
           </Button>
         </div>
       ) : (

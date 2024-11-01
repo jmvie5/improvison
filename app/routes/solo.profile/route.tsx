@@ -11,23 +11,15 @@ export async function loader({ request }: LoaderFunctionArgs) {
 	
     const title = t("pages.soloProfile.title")
     const description = t("pages.soloProfile.description");
-    const recordings = t("pages.soloProfile.recordings");
-    const modalBtn = t("pages.soloProfile.modalBtn");
-    const modalTitle = t("pages.soloProfile.modal.title");
-    const modalContent = t("pages.soloProfile.modal.content");
-    const modalCancelBtn = t("pages.soloProfile.modal.cancelBtn");
-    const modalActionBtn = t("pages.soloProfile.modal.actionBtn")
-
-
 
     const translations = {
-        recordings: recordings,
-
-        modalBtn:modalBtn,
-        modalTitle: modalTitle,
-        modalContent: modalContent,
-        modalCancelBtn: modalCancelBtn,
-        modalActionBtn: modalActionBtn
+        recordings: t("pages.soloProfile.recordings"),
+        noRecording: t("pages.soloProfile.noRecording"),
+        modalBtn:t("pages.soloProfile.modalBtn"),
+        modalTitle: t("pages.soloProfile.modal.title"),
+        modalContent: t("pages.soloProfile.modal.content"),
+        modalCancelBtn: t("pages.soloProfile.modal.cancelBtn"),
+        modalActionBtn: t("pages.soloProfile.modal.actionBtn")
     }
 
 
@@ -45,6 +37,7 @@ export async function clientLoader({
             description:string,
             translations:{
                 recordings: string,
+                noRecording: string,
                 modalBtn:string,
                 modalTitle:string,
                 modalContent:string,
@@ -74,7 +67,7 @@ export default function SoloProfile() {
 
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
-    const { recordings, translations } = useLoaderData<typeof clientLoader>();
+    const { recordings, translations, title } = useLoaderData<typeof clientLoader>();
 
     const transposition:string = useOutletContext()
 
@@ -96,7 +89,7 @@ export default function SoloProfile() {
 
     return (
         <div className=' flex flex-col justify-items-center gap-4 p-4'>
-            <div className='self-center text-4xl font-bold p-4'>Profil</div>
+            <div className='self-center text-4xl font-bold p-4'>{title}</div>
             <div className='self-end'>Transposition : {transposition}</div>
             <div className='self-end'>
                 <Button onPress={onOpen}>{translations.modalBtn}</Button>
@@ -152,7 +145,7 @@ export default function SoloProfile() {
                             
                         ))}
                     </> 
-                ) : <div>Aucun enregisrements.</div>}
+                ) : <div>{translations.noRecording}</div>}
             </div>
             
         </div>
