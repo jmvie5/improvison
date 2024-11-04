@@ -7,6 +7,7 @@ import {
   PlayIcon,
   PauseIcon,
 } from "@heroicons/react/24/solid";
+import metronomeSound from "./metronomeSound";
 
 export default function Metronome() {
   const [metronomeWorker, setMetronomeWorker] = useState<Worker>();
@@ -14,6 +15,7 @@ export default function Metronome() {
   const [isPLaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
+    // set Worker
     const worker = new Worker(workerScript);
     worker.postMessage({ interval: 60000 / bpm });
     worker.onmessage = ({ data }) => {
@@ -28,14 +30,14 @@ export default function Metronome() {
     isPLaying
       ? metronomeWorker?.postMessage("start")
       : metronomeWorker?.postMessage("stop");
-  }, [isPLaying]);
+  }, [isPLaying, metronomeWorker]);
 
   useEffect(() => {
     metronomeWorker?.postMessage({ interval: 60000 / bpm });
-  }, [bpm]);
+  }, [bpm, metronomeWorker]);
 
   function playMetronome() {
-    console.log("tick");
+    metronomeSound.play();
   }
 
   return (
