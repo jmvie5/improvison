@@ -63,7 +63,7 @@ export default function App() {
   const wSize = useWindowSize();
   if (wSize?.width && wSize?.height) {
     let baseFontSize = Math.min(wSize.width, wSize.height) / 50;
-    if (baseFontSize < 18) baseFontSize = 18;
+    if (baseFontSize < 16) baseFontSize = 16;
     document.documentElement.style.fontSize = baseFontSize + "px";
   }
 

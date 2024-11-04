@@ -1,8 +1,9 @@
 import { useEffect, useRef, useCallback } from "react";
-import { Factory, Renderer } from "vexflow";
+import { Factory, Renderer, RenderContext } from "vexflow";
 import transpose, { transposeProps } from "../utils/transposition";
 import { Button } from "@nextui-org/react";
 import { t } from "i18next";
+import useWindowSize from "~/hooks/useWindowSize";
 
 export interface sheetMusicInterface {
   transposition?: string;
@@ -33,6 +34,7 @@ export default function SheetMusic({
   vf_w,
   reRender,
 }: sheetMusicInterface) {
+  const wSize = useWindowSize();
   const sheetId = useRef(Math.floor(Math.random() * 1000));
   const clearVf = useCallback(() => {
     const staff = document.getElementById(`sheetMusic_${sheetId.current}`);
@@ -84,24 +86,39 @@ export default function SheetMusic({
         transposedVf.timeSignature,
         transposedVf.chords
       );
+      // const context = vf.getContext();
+      // const vfWidth = wSize
+      //   ? wSize.width -
+      //     Number(document.documentElement.style.fontSize.slice(0, 2)) * 4 // to account for p-4
+      //   : vf_w;
+      // const vfScale = wSize
+      //   ? vf_w > wSize.width
+      //     ? wSize.width / vf_w
+      //     : vf_w / wSize.width
+      //   : 1;
+      // console.log(wSize!.width / vf_w);
+      // context.scale(wSize!.width / vf_w, 1);
+      // context.resize(vfWidth, vf_h);
       vf.draw();
     }
-  }, [clearVf, vfProps, vf_h, vf_w, transposition]);
+  }, [clearVf, vfProps, vf_h, vf_w, transposition /* wSize */]);
 
   useEffect(() => {
     drawVf();
   }, [transposition]); // eslint-disable-line
 
+  useEffect(() => {
+    const vfEl = document.getElementById(`sheetMusic_${sheetId.current}`);
+    console.log(vfEl!.getElementsByTagName("svg"));
+    vfEl!
+      .getElementsByTagName("svg")
+      .item(0)
+      ?.setAttribute("width", `${(vf_w * wSize!.width) / vf_w - 64}`);
+  }, [wSize]);
+
   return (
-    <div
-      className={`flex flex-col bg-slate-200 my-2 p-4 w-fit h-fit place-self-center rounded`}
-    >
-      <div
-        id={`sheetMusic_container_${sheetId.current}`}
-        className="overflow-hidden w-52"
-      >
-        <div id={`sheetMusic_${sheetId.current}`} className=""></div>
-      </div>
+    <div className={`flex flex-col bg-slate-200 my-2 p-4 w-fit h-fit rounded `}>
+      <div id={`sheetMusic_${sheetId.current}`}></div>
 
       {reRender ? (
         <Button
