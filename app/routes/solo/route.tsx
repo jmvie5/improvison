@@ -4,9 +4,18 @@ import {
   Form,
   useLoaderData,
   useLocation,
+  useSearchParams,
 } from "@remix-run/react";
 import { improvison_accueil } from "~/static/images";
-import { Button, ButtonGroup, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Image } from "@nextui-org/react";
+import {
+  Button,
+  ButtonGroup,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+  Image,
+} from "@nextui-org/react";
 import {
   json,
   type LoaderFunctionArgs,
@@ -16,7 +25,7 @@ import { useState } from "react";
 import i18nextServer from "~/i18next.server";
 import Metronome from "~/components/Metronome/Metronome";
 import { LanguageIcon } from "@heroicons/react/24/outline";
-import i18n from 'i18next'
+import i18n from "i18next";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const t = await i18nextServer.getFixedT(request);
@@ -42,6 +51,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 export default function SoloLayout() {
   const location = useLocation().pathname;
   const data = useLoaderData<typeof loader>();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const [currentTransposition, setCurrentTransposition] = useState<string>("C");
 
@@ -64,47 +74,62 @@ export default function SoloLayout() {
           >
             {data.translations.profile}
           </Link>
-          
-            <Dropdown>
-              <DropdownTrigger>
-                <Button variant="light" aria-label="Lang" isIconOnly>
-                  <LanguageIcon className="size-6"/>
-                </Button>
-              </DropdownTrigger>
-              <Form action={location}>
-                <DropdownMenu selectedKeys={[i18n.language]}>
-                  <DropdownItem key="fr" className="text-foreground text-start" textValue="Français">
-                    <button type="submit" name="lng" value="fr" className="w-full">Français</button>
-                  </DropdownItem>
-                  <DropdownItem key="en" className="text-foreground" textValue="English">
-                    <button type="submit" name="lng" value="en" className="w-full">English</button>
-                  </DropdownItem>
-                </DropdownMenu>
-              </Form>
-            </Dropdown>
-          
+
+          <Dropdown>
+            <DropdownTrigger>
+              <Button variant="light" aria-label="Lang" isIconOnly>
+                <LanguageIcon className="size-6" />
+              </Button>
+            </DropdownTrigger>
+            <Form action={location}>
+              <DropdownMenu
+                selectedKeys={
+                  searchParams.get("lng")
+                    ? [searchParams.get("lng") as string]
+                    : [i18n.language]
+                }
+                selectionMode="single"
+              >
+                <DropdownItem
+                  key="fr"
+                  className="text-foreground text-start"
+                  textValue="Français"
+                >
+                  <button
+                    type="submit"
+                    name="lng"
+                    value="fr"
+                    className="w-full"
+                  >
+                    Français
+                  </button>
+                </DropdownItem>
+                <DropdownItem
+                  key="en"
+                  className="text-foreground"
+                  textValue="English"
+                >
+                  <button
+                    type="submit"
+                    name="lng"
+                    value="en"
+                    className="w-full"
+                  >
+                    English
+                  </button>
+                </DropdownItem>
+              </DropdownMenu>
+            </Form>
+          </Dropdown>
         </div>
-        
+
         <Metronome />
         <div className="flex flex-col lg:flex-row items-center ">
-          
           <Form className="flex gap-2 self-center">
             <ButtonGroup>
-              <Button
-                onPress={() => setCurrentTransposition("C")}
-              >
-                C
-              </Button>
-              <Button
-                onPress={() => setCurrentTransposition("Bb")}
-              >
-                Bb
-              </Button>
-              <Button
-                onPress={() => setCurrentTransposition("Eb")}
-              >
-                Eb
-              </Button>
+              <Button onPress={() => setCurrentTransposition("C")}>C</Button>
+              <Button onPress={() => setCurrentTransposition("Bb")}>Bb</Button>
+              <Button onPress={() => setCurrentTransposition("Eb")}>Eb</Button>
             </ButtonGroup>
           </Form>
         </div>
