@@ -105,6 +105,7 @@ export default function Level() {
 
     return false;
   }
+
   if (isHydrated) {
     return (
       <div className="h-full flex flex-col grow justify-between">

@@ -16,6 +16,7 @@ import { twMerge } from "tailwind-merge";
 import { useLocale } from "remix-i18next/react";
 import { useTranslation } from "react-i18next";
 import ErrorModal from "~/components/ErrorModal";
+import useWindowSize from "~/hooks/useWindowSize";
 
 type SubLvlProps = {
   name: string;
@@ -64,6 +65,8 @@ const SubLvl = forwardRef(function SubLvl(
   const [audioUrl, setAudioUrl] = useState("");
   const [audioBlob, setAudiBlob] = useState<Blob>();
   const [showSaved, setShowSaved] = useState(false);
+
+  const windowSize = useWindowSize();
 
   const recorderControls = useAudioRecorder(
     { noiseSuppression: false },
@@ -120,18 +123,6 @@ const SubLvl = forwardRef(function SubLvl(
     );
     vf.draw();
   }, [transposition, vfProps, vf_w, vf_h]);
-
-  /* useEffect(() => {
-        authService.getLoginStatus(
-            (user: UserInterface) => {
-                setPlayerKey(user.transposition);
-                drawVf();
-            },
-            () => {
-                window.alert("failed to auth");
-            },
-        );
-    }, [drawVf]); */
 
   useEffect(() => {
     drawVf();
@@ -197,7 +188,7 @@ const SubLvl = forwardRef(function SubLvl(
         {/* <h2 className="mb-2 font-semibold">{title}</h2> */}
         <div className="float-right flex flex-col gap-2 w-fit h-fit bg-slate-200 ring-2 rounded ring-slate-200 border-bleu-pale border-3 roudnded-sm p-4 m-4 place-self-center">
           <span className="text-black text-xl font-semibold">{vfTitle}</span>
-          <div id="vf" className={`mt-2 w-fit h-fit rounded`} />
+          <div id="vf" className={`mt-2 w-fit h-fit rounded object-cover`} />
           <div className="flex flex-col gap-2 justify-between">
             <div className="flex flex-col gap-2">
               <div className="flex justify-between w-full border flex-wrap gap-y-4">
