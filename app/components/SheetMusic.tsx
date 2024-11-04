@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback } from "react";
-import { Factory } from "vexflow";
+import { Factory, Renderer } from "vexflow";
 import transpose, { transposeProps } from "../utils/transposition";
 import { Button } from "@nextui-org/react";
 import { t } from "i18next";
@@ -72,6 +72,7 @@ export default function SheetMusic({
       const vf = transposedVf.template(
         new Factory({
           renderer: {
+            backend: Renderer.Backends.SVG,
             elementId: `sheetMusic_${sheetId.current}`,
             width: vf_w,
             height: vf_h,
@@ -95,7 +96,13 @@ export default function SheetMusic({
     <div
       className={`flex flex-col bg-slate-200 my-2 p-4 w-fit h-fit place-self-center rounded`}
     >
-      <div id={`sheetMusic_${sheetId.current}`}></div>
+      <div
+        id={`sheetMusic_container_${sheetId.current}`}
+        className="overflow-hidden w-52"
+      >
+        <div id={`sheetMusic_${sheetId.current}`} className=""></div>
+      </div>
+
       {reRender ? (
         <Button
           onClick={drawVf}
