@@ -5,7 +5,7 @@ import { t } from "i18next";
 
 export default function ImprovisonSavoirPlusPage() {
   return (
-    <div className="grid grid-cols-1 justify-center pb-4 font-light gap-4">
+    <div className="flex flex-col pb-4 font-light gap-4">
       <h1 className="font-bold text-2xl pb-4">
         {t("pages.landingLearnMore.title")}
       </h1>
@@ -36,12 +36,12 @@ export default function ImprovisonSavoirPlusPage() {
           <li>{t("pages.landingLearnMore.strategies.desc")}</li>
         </ul>
       </div>
-      <div className="break-words grid grid-cols-1">
-        <h1 className="font-bold text-lg pb-2">
+      <div className="break-words inline">
+        <h2 className="font-bold text-lg pb-2">
           {t("pages.landingLearnMore.refTitle")}
-        </h1>
-        <ul className="inline-grid grid-col-1 gap-2 pl-4">
-          {/* <li className="-indent-4 break-words">Boller, S., et Kapp, K. (2017). Play to learn: Everything you need to know about designing effective learning games. Association for talent development.</li> */}
+        </h2>
+        <ul className="gap-2 pl-4">
+          {/* <li className="-indent-4 break-words">Boller, S., et Kapp, K. (2017). Play to learn: Everything you need to know about designing effective learning games. Association for talent development.</li> */}
           <li className="-indent-4 break-words ">
             Després, J.-P. (2017a). Processus d’apprentissage et de création des
             improvisateurs experts en musique classique. Revue musicale OICRM,

@@ -75,7 +75,7 @@ export default function LandingLayout() {
 
   return (
     <div className="flex justify-center h-dvh w-full">
-      <div className="flex flex-col justify-between max-w-screen-xl">
+      <div className="flex flex-col justify-between max-w-screen-xl w-full">
         <div className="flex flex-col sm:flex-row justify-between xl:mt-4 w-full">
           {windowSize && windowSize?.width < 640 ? (
             <ImprovisonNavbar pagesTranslatedTitle={pagesTranslatedTitle} />
@@ -142,7 +142,7 @@ export default function LandingLayout() {
             </div>
           )}
 
-          <div>
+          <div className="w-full">
             <div className="flex flex-row-reverse">
               <h1 className="text-4xl font-bold p-4 sm:mb-10 mb-6 mx-4 border-b border-secondary">
                 {slogan.learn}
