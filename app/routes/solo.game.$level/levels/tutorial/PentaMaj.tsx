@@ -14,8 +14,10 @@ const PentaMaj = {
     title: "1.1.1 : Gamme pentatonique majeure",
     description: (transposition?: string) => {
       return (
-        <div className="grid grid-cols-1 gap-2">
-          <h2 className="mb-2 font-semibold text-lg">{t("pages.soloGameLevels.pentaMaj.title")}</h2>
+        <div className="inline gap-2">
+          <h2 className="mb-2 font-semibold text-lg">
+            {t("pages.soloGameLevels.pentaMaj.title")}
+          </h2>
           <p>{t("pages.soloGameLevels.pentaMaj.intro.desc")}</p>
           <p>{t("pages.soloGameLevels.pentaMaj.intro.desc2")}</p>
           <div className="my-4 font-medium">
@@ -42,7 +44,7 @@ const PentaMaj = {
             referrerPolicy="strict-origin-when-cross-origin"
           ></iframe>
         </div>
-      )
+      );
     },
 
     vfProps: {
@@ -61,8 +63,10 @@ const PentaMaj = {
     name: "freeImprov",
     title: "1.1.2 : Gamme pentatonique majeure : Improvisation libre",
     description: (transposition?: string) => (
-      <div className="grid grid-cols-1 gap-2">
-        <h2 className="mb-2 font-semibold text-lg">{t("pages.soloGameLevels.pentaMaj.freeImprov.title")}</h2>
+      <div className="inline gap-2">
+        <h2 className="mb-2 font-semibold text-lg">
+          {t("pages.soloGameLevels.pentaMaj.freeImprov.title")}
+        </h2>
         <p>{t("pages.soloGameLevels.pentaMaj.freeImprov.desc")}</p>
         <div className="my-4">
           <p>{t("pages.soloGameLevels.pentaMaj.freeImprov.instructionDesc")}</p>
@@ -120,8 +124,10 @@ const PentaMaj = {
     name: "repertoireImprov",
     title: "1.1.3 : Gamme pentatonique majeure : Improvisation sur Blue Monk",
     description: (transposition?: string) => (
-      <div className="grid grid-cols-1 gap-2">
-        <h2 className="mb-2 font-semibold text-lg">{t("pages.soloGameLevels.pentaMaj.repertoireImprov.title")}</h2>
+      <div className="inline gap-2">
+        <h2 className="mb-2 font-semibold text-lg">
+          {t("pages.soloGameLevels.pentaMaj.repertoireImprov.title")}
+        </h2>
         <p>{t("pages.soloGameLevels.pentaMaj.repertoireImprov.subTitle")}</p>
         <p>{t("pages.soloGameLevels.pentaMaj.repertoireImprov.desc")}</p>
         <p>

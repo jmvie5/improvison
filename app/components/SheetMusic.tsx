@@ -108,12 +108,17 @@ export default function SheetMusic({
   }, [transposition]); // eslint-disable-line
 
   useEffect(() => {
+    const originalRatio = vf_w / vf_h;
+    const sheetWidth =
+      (vf_w * wSize!.width) / vf_w - 64 < vf_w
+        ? (vf_w * wSize!.width) / vf_w - 64
+        : vf_w;
+    const sheetHeight = sheetWidth / originalRatio;
     const vfEl = document.getElementById(`sheetMusic_${sheetId.current}`);
-    console.log(vfEl!.getElementsByTagName("svg"));
-    vfEl!
-      .getElementsByTagName("svg")
-      .item(0)
-      ?.setAttribute("width", `${(vf_w * wSize!.width) / vf_w - 64}`);
+    const vfSVG = vfEl!.getElementsByTagName("svg").item(0);
+
+    vfSVG?.setAttribute("height", `${sheetHeight}`);
+    vfSVG?.setAttribute("width", `${sheetWidth}`);
   }, [wSize]);
 
   return (

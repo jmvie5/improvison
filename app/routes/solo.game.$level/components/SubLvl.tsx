@@ -106,12 +106,9 @@ const SubLvl = forwardRef(function SubLvl(
         chords: transposedVfProps.chords,
       };
     }
-    // create empty Factory
-    let vf = new Factory({
-      renderer: { elementId: "vf", width: -1, height: -1 },
-    });
+
     // render sheet music
-    vf = transposedVf.template(
+    const vf = transposedVf.template(
       new Factory({
         renderer: { elementId: "vf", width: vf_w, height: vf_h },
       }),
@@ -125,6 +122,11 @@ const SubLvl = forwardRef(function SubLvl(
   }, [transposition, vfProps, vf_w, vf_h]);
 
   useEffect(() => {
+    console.log("set svg size");
+    setSVGSize();
+  }, []);
+
+  useEffect(() => {
     drawVf();
   }, [vfProps, transposition]);
 
@@ -133,11 +135,30 @@ const SubLvl = forwardRef(function SubLvl(
     setShowSaved(false);
   }, [name]);
 
+  useEffect(() => {
+    setSVGSize();
+  }, [windowSize, vfProps]);
+
   function clearVf() {
     const staff = document.getElementById("vf");
     while (staff?.hasChildNodes()) {
       staff.removeChild(staff.lastChild!);
     }
+  }
+
+  function setSVGSize() {
+    const originalRatio = vf_w / vf_h;
+    const sheetWidth =
+      (vf_w * windowSize!.width) / vf_w - 64 < vf_w
+        ? (vf_w * windowSize!.width) / vf_w - 64
+        : vf_w;
+    const sheetHeight = sheetWidth / originalRatio;
+
+    const vfEl = document.getElementById("vf");
+    const vfSVG = vfEl!.getElementsByTagName("svg").item(0);
+
+    vfSVG?.setAttribute("height", `${sheetHeight}`);
+    vfSVG?.setAttribute("width", `${sheetWidth}`);
   }
 
   const addAudioElement = (blob: Blob) => {
@@ -184,9 +205,9 @@ const SubLvl = forwardRef(function SubLvl(
   if (!ready) return <div></div>;
   return (
     <div className="flex flex-col h-full  mb-8 p-4 gap-4 justify-around">
-      <div className="inline">
+      <div className="flex flex-col lg:inline ">
         {/* <h2 className="mb-2 font-semibold">{title}</h2> */}
-        <div className="float-right flex flex-col gap-2 w-fit h-fit bg-slate-200 ring-2 rounded ring-slate-200 border-bleu-pale border-3 roudnded-sm p-4 m-4 place-self-center">
+        <div className="float-right flex flex-col place-self-center bg-slate-200 my-2 mx-4 p-4 w-fit h-fit rounded ">
           <span className="text-black text-xl font-semibold">{vfTitle}</span>
           <div id="vf" className={`mt-2 w-fit h-fit rounded object-cover`} />
           <div className="flex flex-col gap-2 justify-between">

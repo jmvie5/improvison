@@ -1,7 +1,7 @@
 import scaleGenerator from "~/utils/vexFlowGenerators/scaleGenerator";
 import randomMelodyGenerator from "~/utils/vexFlowGenerators/randomMelodyGenerator";
 import blueMonk from "~/utils/songs/blueMonk";
-import {t} from 'i18next'
+import { t } from "i18next";
 
 const MajorScale = {
   url: "1-4",
@@ -13,15 +13,10 @@ const MajorScale = {
     name: "intro",
     title: "1.4.1 : La gamme majeure",
     description: (transposition?: string, locale: string = "fr") => (
-      <div className="grid grid-cols-1 gap-2">
-        
-        <p>
-        {t("pages.soloGameLevels.majorScale.intro.desc")}
-        </p>
+      <div className="inline gap-2">
+        <p>{t("pages.soloGameLevels.majorScale.intro.desc")}</p>
         <div className="my-4 font-medium">
-          <p>
-          {t("pages.soloGameLevels.majorScale.intro.instructionDesc")}
-          </p>
+          <p>{t("pages.soloGameLevels.majorScale.intro.instructionDesc")}</p>
           <ol className=" list-inside list-disc">
             <li>{t("pages.soloGameLevels.majorScale.intro.instruction1")} </li>
             <li>{t("pages.soloGameLevels.majorScale.intro.instruction2")}</li>
@@ -29,11 +24,9 @@ const MajorScale = {
             <li>{t("pages.soloGameLevels.majorScale.intro.instruction4")}</li>
           </ol>
         </div>
-        <p>
-        {t("pages.soloGameLevels.majorScale.intro.instructionFinal")}
-        </p>
+        <p>{t("pages.soloGameLevels.majorScale.intro.instructionFinal")}</p>
         <p className="italic">
-        {t("pages.soloGameLevels.majorScale.intro.notTooFast")}
+          {t("pages.soloGameLevels.majorScale.intro.notTooFast")}
         </p>
       </div>
     ),
@@ -54,25 +47,39 @@ const MajorScale = {
     name: "freeImprov",
     title: "1.4.2 : La gamme majeure : Improvisation libre",
     description: (transposition?: string) => (
-      <div className="grid grid-cols-1 gap-2">
+      <div className="inline gap-2">
         <h2>{t("pages.soloGameLevels.majorScale.freeImprov.title")}</h2>
-        <p>
-        {t("pages.soloGameLevels.majorScale.freeImprov.desc")}
-        </p>
+        <p>{t("pages.soloGameLevels.majorScale.freeImprov.desc")}</p>
         <ol className=" list-inside list-disc">
-          <li>{t("pages.soloGameLevels.majorScale.freeImprov.instruction1")}</li>
-          <li>{t("pages.soloGameLevels.majorScale.freeImprov.instruction2")}</li>
-          <li>{t("pages.soloGameLevels.majorScale.freeImprov.instruction3")}</li>
-          <li>{t("pages.soloGameLevels.majorScale.freeImprov.instruction4")}</li>
-          <li>{t("pages.soloGameLevels.majorScale.freeImprov.instruction5")}</li>
-          <li>{t("pages.soloGameLevels.majorScale.freeImprov.instruction6")}</li>
+          <li>
+            {t("pages.soloGameLevels.majorScale.freeImprov.instruction1")}
+          </li>
+          <li>
+            {t("pages.soloGameLevels.majorScale.freeImprov.instruction2")}
+          </li>
+          <li>
+            {t("pages.soloGameLevels.majorScale.freeImprov.instruction3")}
+          </li>
+          <li>
+            {t("pages.soloGameLevels.majorScale.freeImprov.instruction4")}
+          </li>
+          <li>
+            {t("pages.soloGameLevels.majorScale.freeImprov.instruction5")}
+          </li>
+          <li>
+            {t("pages.soloGameLevels.majorScale.freeImprov.instruction6")}
+          </li>
         </ol>
-        <p>
-        {t("pages.soloGameLevels.majorScale.freeImprov.metronome")}
+        <p>{t("pages.soloGameLevels.majorScale.freeImprov.metronome")}</p>
+        <p className="font-bold pt-4">
+          {t(
+            "pages.soloGameLevels.majorScale.freeImprov.lackingInspiration.title"
+          )}
         </p>
-        <p className="font-bold pt-4">{t("pages.soloGameLevels.majorScale.freeImprov.lackingInspiration.title")}</p>
         <p>
-        {t("pages.soloGameLevels.majorScale.freeImprov.lackingInspiration.desc")}
+          {t(
+            "pages.soloGameLevels.majorScale.freeImprov.lackingInspiration.desc"
+          )}
         </p>
       </div>
     ),
@@ -92,13 +99,9 @@ const MajorScale = {
     name: "repertoireImprov",
     title: "1.4.3 : La gamme majeure : Improvisation sur Blue Monks",
     description: (transposition?: string) => (
-      <div className="grid grid-cols-1 gap-2">
-        <h2>
-        {t("pages.soloGameLevels.majorScale.repertoireImprov.title")}
-        </h2>
-        <p>
-        {t("pages.soloGameLevels.majorScale.repertoireImprov.desc")}
-        </p>
+      <div className="inline gap-2">
+        <h2>{t("pages.soloGameLevels.majorScale.repertoireImprov.title")}</h2>
+        <p>{t("pages.soloGameLevels.majorScale.repertoireImprov.desc")}</p>
         <iframe
           className="w-full aspect-video max-w-[800px]"
           src="https://www.youtube.com/embed/MgEZxg0HOJU?si=3t8IP56ZE3wNzrwr"
@@ -108,13 +111,9 @@ const MajorScale = {
         ></iframe>
 
         <div className="my-4 font-medium">
-          <p>
-          {t("pages.soloGameLevels.majorScale.repertoireImprov.goal")}
-          </p>
+          <p>{t("pages.soloGameLevels.majorScale.repertoireImprov.goal")}</p>
         </div>
-        <p>
-        {t("pages.soloGameLevels.majorScale.repertoireImprov.record")}
-        </p>
+        <p>{t("pages.soloGameLevels.majorScale.repertoireImprov.record")}</p>
       </div>
     ),
     vfProps: {
