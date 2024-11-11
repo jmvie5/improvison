@@ -5,6 +5,8 @@ import { Outlet, useLoaderData, Form, useLocation } from "@remix-run/react";
 import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { motion } from "framer-motion";
 import i18nServer from "../../i18next.server";
+import ImprovisonNavbar from "~/components/ImprovisonNavbar";
+import useWindowSize from "~/hooks/useWindowSize";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const t = await i18nServer.getFixedT(request);
@@ -46,6 +48,8 @@ export default function LandingLayout() {
 
   const slogan = translationsData.slogan;
 
+  const windowSize = useWindowSize();
+
   const menuLinks = [
     {
       name: pagesTranslatedTitle.landingIndex,
@@ -70,69 +74,73 @@ export default function LandingLayout() {
   ];
 
   return (
-    <div className="flex justify-center h-dvh">
+    <div className="flex justify-center h-dvh w-full">
       <div className="flex flex-col justify-between max-w-screen-xl">
         <div className="flex flex-col sm:flex-row justify-between xl:mt-4 w-full">
-          <div className="flex flex-col justify-center sm:justify-start sm:w-60 shrink-0">
-            <Link
-              href="/"
-              className="mt-4 mx-4 max-w-xxs self-center sm:self-start"
-            >
-              <Image src={ImprovisonLogo} alt="Logo Improvison" />
-            </Link>
-
-            <Form className="flex gap-2 self-center mt-4" action={location}>
-              <ButtonGroup>
-                <Button type="submit" name="lng" value="fr">
-                  Français
-                </Button>
-                <Button type="submit" name="lng" value="en">
-                  English
-                </Button>
-              </ButtonGroup>
-            </Form>
-
-            <nav className="flex flex-col p-4">
-              <motion.ul
-                className="flex flex-row sm:flex-col divide-x sm:divide-x-0 sm:divide-y divide-secondary-100 sm:max-w-xxs justify-center"
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: {
-                    opacity: 0,
-                  },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      delayChildren: 0.1,
-                      staggerChildren: 0.15,
-                    },
-                  },
-                }}
+          {windowSize && windowSize?.width < 640 ? (
+            <ImprovisonNavbar pagesTranslatedTitle={pagesTranslatedTitle} />
+          ) : (
+            <div className="flex flex-row sm:flex-col justify-center sm:justify-start sm:w-60 shrink-0">
+              <Link
+                href="/"
+                className="mt-4 mx-4 max-w-xxs self-center sm:self-start"
               >
-                {menuLinks.map((link) => (
-                  <motion.li
-                    key={link.name}
-                    className="flex list-none px-2 sm:px-0 sm:py-2 sm:pl-4 "
-                    variants={{
-                      hidden: {
-                        opacity: 0,
-                        x: -25,
+                <Image src={ImprovisonLogo} alt="Logo Improvison" />
+              </Link>
+
+              <Form className="flex gap-2 self-center mt-4" action={location}>
+                <ButtonGroup>
+                  <Button type="submit" name="lng" value="fr">
+                    Français
+                  </Button>
+                  <Button type="submit" name="lng" value="en">
+                    English
+                  </Button>
+                </ButtonGroup>
+              </Form>
+
+              <nav className="flex flex-col p-4">
+                <motion.ul
+                  className="flex flex-row sm:flex-col divide-x sm:divide-x-0 sm:divide-y divide-secondary-100 sm:max-w-xxs justify-center"
+                  initial="hidden"
+                  animate="visible"
+                  variants={{
+                    hidden: {
+                      opacity: 0,
+                    },
+                    visible: {
+                      opacity: 1,
+                      transition: {
+                        delayChildren: 0.1,
+                        staggerChildren: 0.15,
                       },
-                      visible: {
-                        opacity: 1,
-                        x: 0,
-                      },
-                    }}
-                  >
-                    <Link href={link.link} className="text-white self-center">
-                      {link.name}
-                    </Link>
-                  </motion.li>
-                ))}
-              </motion.ul>
-            </nav>
-          </div>
+                    },
+                  }}
+                >
+                  {menuLinks.map((link) => (
+                    <motion.li
+                      key={link.name}
+                      className="flex list-none px-2 sm:px-0 sm:py-2 sm:pl-4 "
+                      variants={{
+                        hidden: {
+                          opacity: 0,
+                          x: -25,
+                        },
+                        visible: {
+                          opacity: 1,
+                          x: 0,
+                        },
+                      }}
+                    >
+                      <Link href={link.link} className="text-white self-center">
+                        {link.name}
+                      </Link>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              </nav>
+            </div>
+          )}
 
           <div>
             <div className="flex flex-row-reverse">
