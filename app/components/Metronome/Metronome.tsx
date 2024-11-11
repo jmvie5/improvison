@@ -44,10 +44,10 @@ export default function Metronome() {
     <div className="flex items-center gap-2">
       <ButtonGroup>
         <Button isIconOnly onPress={() => setBpm(bpm + 10)} className="p-2">
-          <PlusIcon />
+          <PlusIcon className="size-6" />
         </Button>
         <Button isIconOnly onPress={() => setBpm(bpm - 10)} className="p-2">
-          <MinusIcon />
+          <MinusIcon className="size-6" />
         </Button>
       </ButtonGroup>
 
@@ -58,7 +58,11 @@ export default function Metronome() {
         className="p-2"
         color="success"
       >
-        {isPLaying ? <PauseIcon /> : <PlayIcon />}
+        {isPLaying ? (
+          <PauseIcon className="size-6" />
+        ) : (
+          <PlayIcon className="size-6" />
+        )}
       </Button>
     </div>
   );
