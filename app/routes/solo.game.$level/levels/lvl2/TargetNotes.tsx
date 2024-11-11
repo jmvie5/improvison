@@ -143,7 +143,7 @@ const TargetNotes = {
     title: "1.4.3 : La gamme majeure : Improvisation sur Blue Monks",
     description: (transposition?: string) => (
       <div className="">
-        <h2>{t("pages.soloGameLevels.targetNotes.repertoireImprov.title")}</h2>
+        {/* <h2>{t("pages.soloGameLevels.targetNotes.repertoireImprov.title")}</h2> */}
         <p>{t("pages.soloGameLevels.targetNotes.repertoireImprov.subTitle")}</p>
         <p>{t("pages.soloGameLevels.targetNotes.repertoireImprov.goal")}</p>
         <iframe

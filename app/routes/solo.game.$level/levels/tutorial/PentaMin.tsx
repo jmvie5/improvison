@@ -14,7 +14,7 @@ const PentaMin = {
     title: "1.2.1 : Gamme pentatonique mineure",
     description: (transposition?: string) => (
       <div className="inline gap-2">
-        <h2>{t("pages.soloGameLevels.pentaMin.title")}</h2>
+        {/* <h2>{t("pages.soloGameLevels.pentaMin.title")}</h2> */}
         <p>{t("pages.soloGameLevels.pentaMin.intro.desc")}</p>
         <p>{t("pages.soloGameLevels.pentaMin.intro.desc2")}</p>
         <div className="my-4 font-medium">
@@ -60,9 +60,9 @@ const PentaMin = {
     title: "1.2.2 : Gamme pentatonique mineure : Improvisation libre",
     description: (transposition?: string) => (
       <div className="inline gap-2">
-        <h2 className="mb-2 font-semibold text-lg">
+        {/* <h2 className="mb-2 font-semibold text-lg">
           {t("pages.soloGameLevels.pentaMin.freeImprov.title")}
-        </h2>
+        </h2> */}
         <p>{t("pages.soloGameLevels.pentaMin.freeImprov.desc")}</p>
         <div className="my-4">
           <p>{t("pages.soloGameLevels.pentaMin.freeImprov.instructionDesc")}</p>
@@ -121,7 +121,7 @@ const PentaMin = {
     title: "1.2.3 : Gamme pentatonique mineure : Improvisation sur Mr. P.C.",
     description: (transposition?: string) => (
       <div className="inline gap-2">
-        <h2>{t("pages.soloGameLevels.pentaMin.repertoireImprov.title")}</h2>
+        {/* <h2>{t("pages.soloGameLevels.pentaMin.repertoireImprov.title")}</h2> */}
         <p>{t("pages.soloGameLevels.pentaMin.repertoireImprov.subTitle")}</p>
         <p>{t("pages.soloGameLevels.pentaMin.repertoireImprov.desc")}</p>
         <iframe

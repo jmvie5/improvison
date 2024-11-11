@@ -15,9 +15,9 @@ const Motifs = {
     title: "1.3.1 : Les motifs rythmiques",
     description: (transposition?: string) => (
       <div className="inline gap-2">
-        <h2 className="font-boldmb-2 font-semibold text-lg">
+        {/*  <h2 className="font-boldmb-2 font-semibold text-lg">
           {t("pages.soloGameLevels.motifs.title")}
-        </h2>
+        </h2> */}
         <p>{t("pages.soloGameLevels.motifs.intro.desc")}</p>
         <p>{t("pages.soloGameLevels.motifs.intro.desc2")}</p>
         <div className="my-4 font-medium">
@@ -61,9 +61,9 @@ const Motifs = {
     title: "1.3.2 : Les motifs rythmiques : Improvisation libre",
     description: (transposition?: string) => (
       <div className="inline gap-2">
-        <h2 className="font-boldmb-2 font-semibold text-lg">
+        {/* <h2 className="font-boldmb-2 font-semibold text-lg">
           {t("pages.soloGameLevels.motifs.freeImprov.title")}
-        </h2>
+        </h2> */}
         <p>{t("pages.soloGameLevels.motifs.freeImprov.desc")}</p>
         <p>{t("pages.soloGameLevels.motifs.freeImprov.instruction")}</p>
         <p>{t("pages.soloGameLevels.motifs.freeImprov.metronome")}</p>
@@ -89,9 +89,9 @@ const Motifs = {
     title: "1.3.3 : Les motifs rythmiques : Improvisation sur Mr. P.C.",
     description: (transposition?: string) => (
       <div className="inline gap-2">
-        <h2 className="font-boldmb-2 font-semibold text-lg">
+        {/* <h2 className="font-boldmb-2 font-semibold text-lg">
           {t("pages.soloGameLevels.motifs.repertoireImprov.title")}
-        </h2>
+        </h2> */}
         <p>{t("pages.soloGameLevels.motifs.repertoireImprov.subTitle")}</p>
         <p>{t("pages.soloGameLevels.motifs.repertoireImprov.desc")}</p>
         <SheetMusic

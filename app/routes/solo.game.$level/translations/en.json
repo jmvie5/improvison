@@ -1,16 +1,16 @@
 {
-  "vf" : {
-    "randomMotif" : "Random motif",
+  "vf": {
+    "randomMotif": "Random motif",
     "save": "Save",
-    "deleteRecording" : "Delete recording",
-    "newMotif" : "New motif"
+    "deleteRecording": "Delete recording",
+    "newMotif": "New motif"
   },
-  "footer" : {
-        "backToMenu" : "Back to main menu",
-        "nextStep" : "Next step",
-        "nextLevel" : "Next level",
-        "back" : "Back"
-    },
+  "footer": {
+    "backToMenu": "Back to main menu",
+    "nextStep": "Next step",
+    "nextLevel": "Next level",
+    "back": "Back"
+  },
   "pentaMaj": {
     "title": "Major pentatonic scale",
     "intro": {
@@ -133,7 +133,7 @@
       "subTitle": "Now let's integrate this new knowledge into the repertoire.",
       "desc": "Motifs are always present in the melodies of well-known pieces. Let's take the example of Mr. P.C. and examine the following motifs:",
       "goal": "To succeed in this exercise, you must incorporate these motifs into your improvisation at least three times.",
-      "record" : "Don't forget to record yourself using the microphone at the bottom of the score to better evaluate yourself!"
+      "record": "Don't forget to record yourself using the microphone at the bottom of the score to better evaluate yourself!"
     }
   },
   "majorScale": {
@@ -169,7 +169,7 @@
       "subTitle": "Now let's integrate this new knowledge into the repertoire.",
       "desc": "Improvise with the B-flat major and E-flat major scales on Thelonious Monk's Blue Monk. Be careful not to play the major 7th too much, as it may conflict with the minor 7th chord present in the blues. Use the backing track below:",
       "goal": "To complete this exercise, you must play an improvised solo on the accompaniment track using the major scale.",
-      "record" : "Don't forget to record yourself using the microphone at the bottom of the score to better evaluate yourself!"
+      "record": "Don't forget to record yourself using the microphone at the bottom of the score to better evaluate yourself!"
     }
   },
   "minorScale": {
@@ -204,15 +204,15 @@
       "title": "Improvisation over Mr. P.C.",
       "subTitle": "Now let's integrate this new knowledge into the repertoire.",
       "goal": "To complete this exercise, improvise with the C minor scale on John Coltrane's Mr. P.C.. You can alternate between natural minor and pentatonic minor to bring variety to your solo. Use the backing track below:",
-      "record" : "Don't forget to record yourself using the microphone at the bottom of the score to better evaluate yourself!"
+      "record": "Don't forget to record yourself using the microphone at the bottom of the score to better evaluate yourself!"
     }
   },
   "targetNotes": {
     "title": "Target notes",
     "intro": {
       "title": "Concept",
-      "subTitle" : "Now that you've acquired the most important scales in your improvisation language, it's time to turn your attention to the concept of the target note. This concept is used to add coherence to your improvisation by ending lines on a predetermined note. ",
-      "important" : "It's important to remember that any note can be a target note. Each note brings a unique color depending on the chord played as accompaniment, so it's up to you to choose which color you want to use.",
+      "subTitle": "Now that you've acquired the most important scales in your improvisation language, it's time to turn your attention to the concept of the target note. This concept is used to add coherence to your improvisation by ending lines on a predetermined note. ",
+      "important": "It's important to remember that any note can be a target note. Each note brings a unique color depending on the chord played as accompaniment, so it's up to you to choose which color you want to use.",
       "desc": "For this exercise, we'll use the arpeggios of the chords in the accompaniment to find our target notes. This is a good way of finding a note that sounds in harmony with the song. Let's start with the arpeggio of B flat major concert, which will be our tonic chord later on.",
       "instruction": "Start by playing a single note of the Bb arpeggio on the first beat of each bar, then add one or two joint notes in the bar preceding your target note. For example:"
     },
@@ -232,11 +232,11 @@
       }
     },
     "repertoireImprov": {
-      "title": "Improvisation over Mr. P.C.",
+      "title": "Improvisation over Blue Monk",
       "subTitle": "Now let's integrate this new knowledge into the repertoire.",
       "goal": "To complete this exercise, improvise a solo using the target notes contained in the following score. Use the accompaniment track below:",
       "remember": "Don't feel obliged to play all the target notes written on the first beats. You can anticipate the note by playing it on the “and” of the fourth beat of the preceding bar, or on the offbeat of the first beat of the following bar.",
-      "record" : "Don't forget to record yourself using the microphone at the bottom of the score to better evaluate yourself!"
+      "record": "Don't forget to record yourself using the microphone at the bottom of the score to better evaluate yourself!"
     }
   }
 }

@@ -202,11 +202,14 @@ const SubLvl = forwardRef(function SubLvl(
       console.warn("Error when intereacting with db");
     }
   }
+
   if (!ready) return <div></div>;
   return (
     <div className="flex flex-col h-full  mb-8 p-4 gap-4 justify-around">
       <div className="flex flex-col lg:inline ">
-        {/* <h2 className="mb-2 font-semibold">{title}</h2> */}
+        <h2 className="mb-2 font-semibold">
+          {title.split(":")[title.split(":").length - 1]}
+        </h2>
         <div className="float-right flex flex-col place-self-center bg-slate-200 my-2 mx-4 p-4 w-fit h-fit rounded ">
           <span className="text-black text-xl font-semibold">{vfTitle}</span>
           <div id="vf" className={`mt-2 w-fit h-fit rounded object-cover`} />

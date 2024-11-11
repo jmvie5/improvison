@@ -48,7 +48,7 @@ const MajorScale = {
     title: "1.4.2 : La gamme majeure : Improvisation libre",
     description: (transposition?: string) => (
       <div className="inline gap-2">
-        <h2>{t("pages.soloGameLevels.majorScale.freeImprov.title")}</h2>
+        {/* <h2>{t("pages.soloGameLevels.majorScale.freeImprov.title")}</h2> */}
         <p>{t("pages.soloGameLevels.majorScale.freeImprov.desc")}</p>
         <ol className=" list-inside list-disc">
           <li>
@@ -100,7 +100,7 @@ const MajorScale = {
     title: "1.4.3 : La gamme majeure : Improvisation sur Blue Monks",
     description: (transposition?: string) => (
       <div className="inline gap-2">
-        <h2>{t("pages.soloGameLevels.majorScale.repertoireImprov.title")}</h2>
+        {/* <h2>{t("pages.soloGameLevels.majorScale.repertoireImprov.title")}</h2> */}
         <p>{t("pages.soloGameLevels.majorScale.repertoireImprov.desc")}</p>
         <iframe
           className="w-full aspect-video max-w-[800px]"

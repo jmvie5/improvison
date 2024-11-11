@@ -14,9 +14,9 @@ const MinorScale = {
     title: "1.5.1 : La gamme mineure",
     description: (transposition?: string) => (
       <div className="inline gap-2">
-        <h2 className="mb-2 font-semibold text-lg">
+        {/* <h2 className="mb-2 font-semibold text-lg">
           {t("pages.soloGameLevels.minorScale.title")}
-        </h2>
+        </h2> */}
         <p>{t("pages.soloGameLevels.minorScale.intro.desc")} </p>
         <div className="my-4 font-medium">
           <p>{t("pages.soloGameLevels.minorScale.intro.instructionDesc")}</p>
@@ -52,7 +52,7 @@ const MinorScale = {
     description: (transposition?: string) => (
       <div className="inline gap-2">
         <div className="my-4">
-          <h2>{t("pages.soloGameLevels.minorScale.freeImprov.title")}</h2>
+          {/* <h2>{t("pages.soloGameLevels.minorScale.freeImprov.title")}</h2> */}
           <p>{t("pages.soloGameLevels.minorScale.freeImprov.desc")}</p>
           <ol className=" list-inside list-disc">
             <li>
@@ -106,7 +106,7 @@ const MinorScale = {
     title: "1.5.3 : Gamme mineure : Improvisation sur Mr. P.C.",
     description: (transposition?: string) => (
       <div className="inline gap-2">
-        <h2>{t("pages.soloGameLevels.minorScale.repertoireImprov.title")}</h2>
+        {/* <h2>{t("pages.soloGameLevels.minorScale.repertoireImprov.title")}</h2> */}
         <div className="my-4 font-medium">
           <p>{t("pages.soloGameLevels.minorScale.repertoireImprov.goal")}</p>
         </div>

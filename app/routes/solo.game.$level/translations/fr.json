@@ -1,16 +1,16 @@
 {
-  "vf" : {
-    "randomMotif" : "Motif aléatoire",
+  "vf": {
+    "randomMotif": "Motif aléatoire",
     "save": "Sauvegarder",
-    "deleteRecording" : "Effacer l'enregistrement",
-    "newMotif" : "Nouveau motif"
+    "deleteRecording": "Effacer l'enregistrement",
+    "newMotif": "Nouveau motif"
   },
-  "footer" : {
-        "backToMenu" : "Retour au menu",
-        "nextStep" : "Prochaine étape",
-        "nextLevel" : "Niveau suivant",
-        "back" : "Retour"
-    },
+  "footer": {
+    "backToMenu": "Retour au menu",
+    "nextStep": "Prochaine étape",
+    "nextLevel": "Niveau suivant",
+    "back": "Retour"
+  },
   "pentaMaj": {
     "title": "Gamme pentatonique majeure",
     "intro": {
@@ -133,7 +133,7 @@
       "subTitle": "Intégrons maintenant cette nouvelle connaissance dans le répertoire.",
       "desc": "Les motifs sont toujours présent dans les mélodies de pièces connues. Prennons l'exemple de Mr. P.C. et examinons les motifs suivants:",
       "goal": "Pour réussir cet exercice, vous devez intégrer ces motifs dans votre improvisation au moins trois fois.",
-      "record" : "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
+      "record": "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
     }
   },
   "majorScale": {
@@ -169,7 +169,7 @@
       "subTitle": "Intégrons maintenant cette nouvelle connaissance dans le répertoire.",
       "desc": "Improvisez avec la gamme de si bémol majeur et mi bémol majeur sur la pièce Blue Monk de Thelonious Monk. Faites attentions de ne pas trop jouer le 7e degré majeur, car il peut entrer en conflit avec la 7e mineure des accords présente dans le blues. Utilisez la piste d’accompagnement ci-dessous :",
       "goal": "Pour réussir cet exercice, vous devez jouer un solo improvisé sur la piste d'accompagnement en utilisant la gamme majeure.",
-      "record" : "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
+      "record": "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
     }
   },
   "minorScale": {
@@ -204,15 +204,15 @@
       "title": "Improvisation sur Mr. P.C.",
       "subTitle": "Intégrons maintenant cette nouvelle connaissance dans le répertoire.",
       "goal": "Pour réussir cet exercice, improvisez avec la gamme de do mineur sur la pièce Mr. P.C. de John Coltrane. Vous pouvez alterner entre mineur ancien et gamme pentatonique mineur pour apporter de la variété dans votre solo. Utilisez la piste d’accompagnement ci-dessous :",
-      "record" : "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
+      "record": "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
     }
   },
   "targetNotes": {
     "title": "Notes cibles",
     "intro": {
       "title": "Concept",
-      "subTitle" : "Maintenant que les gammes plus importantes sont acquises dans votre langage d’improvisation, il faut s’intéresser au concept de note cible. Ce concept sert à ajouter de la cohérence dans l’improvisation en terminant les lignes sur une note prédéterminée. ",
-      "important" : "Il est important de se rappeler que n'importe quelle note peut être une note cible. Chaque note apporte une couleur unique selon l’accord joué en accompagnement, c’est à vous de choisir quelle couleur vous voulez utiliser.",
+      "subTitle": "Maintenant que les gammes plus importantes sont acquises dans votre langage d’improvisation, il faut s’intéresser au concept de note cible. Ce concept sert à ajouter de la cohérence dans l’improvisation en terminant les lignes sur une note prédéterminée. ",
+      "important": "Il est important de se rappeler que n'importe quelle note peut être une note cible. Chaque note apporte une couleur unique selon l’accord joué en accompagnement, c’est à vous de choisir quelle couleur vous voulez utiliser.",
       "desc": "Pour cet exercice, nous utiliserons les arpèges des accords de l’accompagnement pour trouver nos notes cibles. C’est une bonne façon de tomber sur une note qui sonne en harmonie avec la pièce. Commençons avec l'arpège de Si bémol majeur concert, qui sera notre accord de tonique plus tard.",
       "instruction": "Commencez par jouer une seule note de l'arpège de Bb sur le premier temps de chaque mesure, puis rajoutez une ou deux notes conjointes dans la mesure précédent votre note cible. Par exemple :"
     },
@@ -232,11 +232,11 @@
       }
     },
     "repertoireImprov": {
-      "title": "Improvisation sur Mr. P.C.",
+      "title": "Improvisation sur Blue Monk",
       "subTitle": "Intégrons maintenant cette nouvelle connaissance dans le répertoire.",
       "goal": "Pour réussir cet exercice, improviser un solo en utilisant les notes cibles contenues dans la partition suivante. Utilisez la piste d’accompagnement ci-dessous :",
       "remember": "Ne vous sentez pas obligé de jouer toutes les notes cibles écrites sur les premiers temps. Vous pouvez anticiper la note en la jouant sur le « et » du quatrième temps de la mesure précédente ou sur le contretemps du premier temps de la mesure suivante.",
-      "record" : "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
+      "record": "N'oubliez pas de vous enregistrer à l'aide du micro en bas de la partition pour mieux vous évaluer!"
     }
   }
 }
