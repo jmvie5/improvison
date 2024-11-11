@@ -59,7 +59,7 @@ const TargetNotes = {
   },
   freeImprov: {
     name: "freeImprov",
-    title: "1.4.2 : La gamme majeure : Improvisation libre",
+    title: "2.1.2 : Notes cibles de l'arpège : Improvisation libre",
     description: (transposition?: string) => (
       <div className="">
         <p>{t("pages.soloGameLevels.targetNotes.freeImprov.desc")}</p>
@@ -140,7 +140,7 @@ const TargetNotes = {
   },
   repertoireImprov: {
     name: "repertoireImprov",
-    title: "1.4.3 : La gamme majeure : Improvisation sur Blue Monks",
+    title: "2.1.3 : Notes cibles de l'arpège : Improvisation sur Blue Monks",
     description: (transposition?: string) => (
       <div className="">
         {/* <h2>{t("pages.soloGameLevels.targetNotes.repertoireImprov.title")}</h2> */}

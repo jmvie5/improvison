@@ -14,7 +14,7 @@ import chordNotation from "../chordNotation";
 export default function randomRhythmGenerator(
   vf: Factory,
   keySignature: string,
-  scaleNotes: ("h" | "q" | "2x8" | "8")[],
+  scaleNotes: string[], // ("h" | "q" | "2x8" | "8")[]
   nbBars: number,
   timeSignature: number,
   chords: string[]
