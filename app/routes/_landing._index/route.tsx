@@ -77,7 +77,7 @@ export default function LandingIndex() {
         >
           <CardHeader className="justify-around">
             <p className="font-bold text-3xl italic">Improvison – Duo </p>
-            <UsersIcon className="w-32 self-center" />
+            <UsersIcon className="w-24 sm:w-32 self-center" />
           </CardHeader>
           <Divider className="bg-white" />
           <CardBody className="flex gap-2">
@@ -100,7 +100,7 @@ export default function LandingIndex() {
         >
           <CardHeader className="justify-around">
             <p className="font-bold text-3xl italic">Improvison – Solo</p>
-            <UserIcon className="w-32 self-center" />
+            <UserIcon className="w-24 sm:w-32 self-center" />
           </CardHeader>
           <Divider className="bg-white" />
           <CardBody className="flex gap-2">

@@ -52,7 +52,7 @@ export default function LandingAbout() {
         </h2>
 
         <Image
-          className="float-right max-w-xs aspect-square rounded-lg m-2 self-center"
+          className="float-right  max-w-xxs sm:max-w-xs aspect-square rounded-lg m-2 self-center"
           src={thumbnail_Photo_JPD}
           alt="Jean-Philippe Després, Ph. D."
           removeWrapper

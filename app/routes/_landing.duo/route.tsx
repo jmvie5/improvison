@@ -108,7 +108,7 @@ export default function LandingDuo() {
       <h1 className="font-bold text-2xl pb-4">{translations.title}</h1>
       <div className="flex flex-col xl:flex-row gap-4 justify-center items-center mb-4 flex-1">
         <Card
-          className="h-full w-fit max-w-80 aspect-square xl:w-1/3 p-4 bg-primary text-white shadow-md shadow-black"
+          className="h-full w-fit max-w-80 aspect-square xl:w-1/3 p-1 sm:p-4 bg-primary text-white shadow-md shadow-black"
           as={Link}
           href="https://www.roblox.com/games/5984084686/Improvisondon"
           target="_blank"
@@ -179,18 +179,18 @@ export default function LandingDuo() {
           <>
             <Image
               src={jeu_num_fr}
-              className="w-fit self-end rounded-md"
+              className="max-w-xxs sm:max-w-xs self-end rounded-md"
               removeWrapper
               alt="Capture d'écran d'Improvison sur Roblox : page principale."
             />
             <Image
               src={jeu_num2_fr}
-              className="w-fit rounded-md"
+              className="max-w-xxs sm:max-w-xs rounded-md"
               alt="Capture d'écran d'Improvison sur Roblox : pop-up."
             />
             <Image
               src={jeu_num3_fr}
-              className="w-fit self-end rounded-md"
+              className="max-w-xxs sm:max-w-xs self-end rounded-md"
               removeWrapper
               alt="Capture d'écran d'Improvison sur Roblox : menu d'accueil"
             />
@@ -200,18 +200,18 @@ export default function LandingDuo() {
           <>
             <Image
               src={jeu_num_en}
-              className="w-fit self-end rounded-md"
+              className="max-w-xxs sm:max-w-xs self-end rounded-md"
               removeWrapper
               alt="Screenshot of Improvison on Roblox: main page."
             />
             <Image
               src={jeu_num2_en}
-              className="w-fit rounded-md"
+              className="max-w-xxs sm:max-w-xs rounded-md"
               alt="Screenshot of Improvison on Roblox: pop-up."
             />
             <Image
               src={jeu_num3_en}
-              className="w-fit self-end rounded-md"
+              className="max-w-xxs sm:max-w-xs self-end rounded-md"
               removeWrapper
               alt="Improvison on Roblox screenshot: home menu"
             />
@@ -225,7 +225,7 @@ export default function LandingDuo() {
             {translations.gameDescription.title}
           </h2>
           <div className="">
-            <div className="md:float-right flex flex-col p-8 items-center">
+            <div className="md:float-right flex flex-col p-2 sm:p-8 items-center">
               <Image
                 src={champi}
                 className="max-w-xxs -rotate-12"

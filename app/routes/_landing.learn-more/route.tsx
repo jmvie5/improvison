@@ -5,21 +5,21 @@ import { t } from "i18next";
 
 export default function ImprovisonSavoirPlusPage() {
   return (
-    <div className="grid grid-cols-1 justify-center mb-4 font-light gap-4">
+    <div className="grid grid-cols-1 justify-center pb-4 font-light gap-4">
       <h1 className="font-bold text-2xl pb-4">
         {t("pages.landingLearnMore.title")}
       </h1>
       <h2 className="font-bold text-lg pb-2">
         {t("pages.landingLearnMore.otherGames")}
       </h2>
-      <div className="flex flex-col gap-2 ml-4 pb-8">
+      <div className="flex flex-col gap-2 pl-4 pb-8">
         <Link
           to={Stratégies_d_improvisation_2022}
           className="underline text-lg hover:text-neutral-400 font-normal"
         >
           Tonic. The Music Improvisation Card Game
         </Link>
-        <ul className="ml-6 mb-2 list-disc">
+        <ul className="pl-6 pb-2 list-disc">
           <li>{t("pages.landingLearnMore.tonic1")}</li>
           <li>{t("pages.landingLearnMore.tonic2")}</li>
           <li>{t("pages.landingLearnMore.tonic3")}</li>
@@ -32,15 +32,15 @@ export default function ImprovisonSavoirPlusPage() {
         >
           {t("pages.landingLearnMore.strategies.link")}
         </Link>
-        <ul className="ml-6 mb-2 list-disc">
+        <ul className="pl-6 pb-2 list-disc">
           <li>{t("pages.landingLearnMore.strategies.desc")}</li>
         </ul>
       </div>
       <div className="break-words grid grid-cols-1">
-        <h1 className="font-bold text-lg mb-2">
+        <h1 className="font-bold text-lg pb-2">
           {t("pages.landingLearnMore.refTitle")}
         </h1>
-        <ul className="inline-grid grid-col-1 gap-2 ml-4">
+        <ul className="inline-grid grid-col-1 gap-2 pl-4">
           {/* <li className="-indent-4 break-words">Boller, S., et Kapp, K. (2017). Play to learn: Everything you need to know about designing effective learning games. Association for talent development.</li> */}
           <li className="-indent-4 break-words ">
             Després, J.-P. (2017a). Processus d’apprentissage et de création des

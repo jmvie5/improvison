@@ -152,7 +152,7 @@ export default function LandingLayout() {
                 {slogan.throughPlay}
               </h1>
             </div>
-            <div className="mx-6">
+            <div className="mx-2 sm:mx-6">
               <Outlet />
             </div>
           </div>
