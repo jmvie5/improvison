@@ -4,6 +4,7 @@ const Guide = {
   url: "0-1",
   id: "0.1",
   name: "Guide d'utilisation",
+  tString: "guide",
   locked: false,
   completed: false,
   intro: {

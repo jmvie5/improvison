@@ -7,6 +7,7 @@ const PentaMaj = {
   url: "1-1",
   id: "1.1",
   name: "Gamme pentatonique majeure",
+  tString: "pentaMaj",
   locked: false,
   completed: false,
   intro: {

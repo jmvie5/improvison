@@ -21,6 +21,7 @@ import useWindowSize from "~/hooks/useWindowSize";
 type SubLvlProps = {
   name: string;
   title: string;
+  tString: string;
   description: (transposition?: string) => JSX.Element;
   transposition: string;
   vfTitle?: string;
@@ -48,6 +49,7 @@ const SubLvl = forwardRef(function SubLvl(
   {
     name,
     title,
+    tString,
     vfTitle,
     description,
     transposition,
@@ -60,7 +62,9 @@ const SubLvl = forwardRef(function SubLvl(
 ) {
   const authorizationErrorModal = useDisclosure();
   const { t, ready } = useTranslation();
-
+  const subLvlTitle = t(`pages.soloGameLevels.${tString}.${name}.title`) === 'Concept'
+    ? t(`pages.soloGameLevels.${tString}.title`)
+    : t(`pages.soloGameLevels.${tString}.${name}.title`)
   const locale = useLocale();
   const [audioUrl, setAudioUrl] = useState("");
   const [audioBlob, setAudiBlob] = useState<Blob>();
@@ -208,7 +212,7 @@ const SubLvl = forwardRef(function SubLvl(
     <div className="flex flex-col h-full  mb-8 p-4 gap-4 justify-around">
       <div className="flex flex-col lg:inline ">
         <h2 className="mb-2 font-semibold">
-          {title.split(":")[title.split(":").length - 1]}
+          {t(subLvlTitle)}
         </h2>
         <div className="float-right flex flex-col place-self-center bg-slate-200 my-2 mx-4 p-4 w-fit h-fit rounded ">
           <span className="text-black text-xl font-semibold">{vfTitle}</span>

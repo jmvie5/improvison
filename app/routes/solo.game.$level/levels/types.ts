@@ -22,6 +22,7 @@ interface LevelInterface {
     url: string,
     id: string;
     name: string;
+    tString: string;
     locked: boolean;
     completed: boolean;
     intro: SubLvlInterface;

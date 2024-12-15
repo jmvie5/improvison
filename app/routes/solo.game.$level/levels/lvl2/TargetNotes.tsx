@@ -10,6 +10,7 @@ const TargetNotes = {
   url: "2-1",
   id: "2.1",
   name: "Notes cibles",
+  tString: "targetNotes",
   locked: false,
   completed: false,
   intro: {

@@ -1,0 +1,19 @@
+// vite.config.ts
+import { defineConfig } from "file:///home/jmvie5/webdev/improvison/node_modules/vite/dist/node/index.js";
+import { vitePlugin as remix } from "file:///home/jmvie5/webdev/improvison/node_modules/@remix-run/dev/dist/index.js";
+import { installGlobals } from "file:///home/jmvie5/webdev/improvison/node_modules/@remix-run/node/dist/index.js";
+import tsconfigPaths from "file:///home/jmvie5/webdev/improvison/node_modules/vite-tsconfig-paths/dist/index.mjs";
+import { netlifyPlugin } from "file:///home/jmvie5/webdev/improvison/node_modules/@netlify/remix-adapter/dist/vite/plugin.mjs";
+installGlobals();
+var vite_config_default = defineConfig({
+  server: {
+    port: 3e3
+  },
+  plugins: [remix({
+    ignoredRouteFiles: ["**/*.css"]
+  }), netlifyPlugin(), tsconfigPaths()]
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcudHMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCIvaG9tZS9qbXZpZTUvd2ViZGV2L2ltcHJvdmlzb25cIjtjb25zdCBfX3ZpdGVfaW5qZWN0ZWRfb3JpZ2luYWxfZmlsZW5hbWUgPSBcIi9ob21lL2ptdmllNS93ZWJkZXYvaW1wcm92aXNvbi92aXRlLmNvbmZpZy50c1wiO2NvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9pbXBvcnRfbWV0YV91cmwgPSBcImZpbGU6Ly8vaG9tZS9qbXZpZTUvd2ViZGV2L2ltcHJvdmlzb24vdml0ZS5jb25maWcudHNcIjtpbXBvcnQgeyBkZWZpbmVDb25maWcgfSBmcm9tICd2aXRlJ1xuaW1wb3J0IHsgdml0ZVBsdWdpbiBhcyByZW1peCB9IGZyb20gXCJAcmVtaXgtcnVuL2RldlwiO1xuaW1wb3J0IHsgaW5zdGFsbEdsb2JhbHMgfSBmcm9tIFwiQHJlbWl4LXJ1bi9ub2RlXCI7XG5pbXBvcnQgdHNjb25maWdQYXRocyBmcm9tIFwidml0ZS10c2NvbmZpZy1wYXRoc1wiO1xuaW1wb3J0IHsgbmV0bGlmeVBsdWdpbiB9IGZyb20gXCJAbmV0bGlmeS9yZW1peC1hZGFwdGVyL3BsdWdpblwiO1xuXG5pbnN0YWxsR2xvYmFscygpO1xuXG5leHBvcnQgZGVmYXVsdCBkZWZpbmVDb25maWcoe1xuICBzZXJ2ZXI6IHtcbiAgICBwb3J0OiAzMDAwLFxuICB9LFxuICBwbHVnaW5zOiBbcmVtaXgoe1xuICAgIGlnbm9yZWRSb3V0ZUZpbGVzOiBbXCIqKi8qLmNzc1wiXSxcbiAgfSksIG5ldGxpZnlQbHVnaW4oKSwgdHNjb25maWdQYXRocygpXSxcbn0pXG4iXSwKICAibWFwcGluZ3MiOiAiO0FBQTRRLFNBQVMsb0JBQW9CO0FBQ3pTLFNBQVMsY0FBYyxhQUFhO0FBQ3BDLFNBQVMsc0JBQXNCO0FBQy9CLE9BQU8sbUJBQW1CO0FBQzFCLFNBQVMscUJBQXFCO0FBRTlCLGVBQWU7QUFFZixJQUFPLHNCQUFRLGFBQWE7QUFBQSxFQUMxQixRQUFRO0FBQUEsSUFDTixNQUFNO0FBQUEsRUFDUjtBQUFBLEVBQ0EsU0FBUyxDQUFDLE1BQU07QUFBQSxJQUNkLG1CQUFtQixDQUFDLFVBQVU7QUFBQSxFQUNoQyxDQUFDLEdBQUcsY0FBYyxHQUFHLGNBQWMsQ0FBQztBQUN0QyxDQUFDOyIsCiAgIm5hbWVzIjogW10KfQo=

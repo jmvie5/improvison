@@ -7,6 +7,7 @@ const MinorScale = {
   url: "1-5",
   id: "1.5",
   name: "Gamme mineure",
+  tString: "minorScale",
   locked: false,
   completed: false,
   intro: {

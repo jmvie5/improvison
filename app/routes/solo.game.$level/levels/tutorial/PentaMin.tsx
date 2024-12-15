@@ -7,6 +7,7 @@ const PentaMin = {
   url: "1-2",
   id: "1.2",
   name: "Gamme pentatonique mineure",
+  tString: "pentaMin",
   locked: false,
   completed: false,
   intro: {

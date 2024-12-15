@@ -8,6 +8,7 @@ const Motifs = {
   url: "1-3",
   id: "1.3",
   name: "Motifs",
+  tString: "motifs",
   locked: false,
   completed: false,
   intro: {

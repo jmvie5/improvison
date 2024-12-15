@@ -7,6 +7,7 @@ const MajorScale = {
   url: "1-4",
   id: "1.4",
   name: "Gamme majeure",
+  tString: "majorScale",
   locked: false,
   completed: false,
   intro: {

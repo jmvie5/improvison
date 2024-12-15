@@ -132,6 +132,7 @@ export default function Level() {
         <SubLvl
           name={currentSubLvl.name}
           title={currentSubLvl.title}
+          tString={currentLvl.tString}
           description={currentSubLvl.description}
           transposition={context.transposition}
           vfTitle={currentSubLvl.vfTitle}
