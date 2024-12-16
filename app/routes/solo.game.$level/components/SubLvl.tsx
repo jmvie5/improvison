@@ -126,7 +126,7 @@ const SubLvl = forwardRef(function SubLvl(
   }, [transposition, vfProps, vf_w, vf_h]);
 
   useEffect(() => {
-    console.log("set svg size");
+
     setSVGSize();
   }, []);
 
@@ -194,8 +194,10 @@ const SubLvl = forwardRef(function SubLvl(
         const newRecordingId = await db.recordings.add({
           audioBlob: audioBlob,
           levelName: title,
+          tString: tString,
+          subLvlName: name,
         });
-        console.log(`Recording successfully added. Got id ${newRecordingId}.`);
+        // console.log(`Recording successfully added. Got id ${newRecordingId}.`);
         if (remove) {
           removeAudio();
         }

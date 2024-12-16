@@ -5,6 +5,8 @@ export interface Recording {
   id?: number;
   audioBlob: Blob;
   levelName: string;
+  tString: string;
+  subLvlName: string
   //date: string;
 
 }
@@ -16,7 +18,7 @@ export class MySubClassedDexie extends Dexie {
   constructor() {
     super('improvison');
     this.version(1).stores({
-      recordings: '++id, audioBlob, levelName', // Primary key and indexed props
+      recordings: '++id, audioBlob, levelName, tString, subLvlName', // Primary key and indexed props
     });
   }
 }

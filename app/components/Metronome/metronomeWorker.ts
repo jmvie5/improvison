@@ -4,14 +4,14 @@ const metronomeWorker = () => {
 
   onmessage = function (e) {
     if (e.data === "start") {
-      console.log("starting metronome");
+
       timerID = setInterval(() => {
         postMessage("tick");
       }, interval);
     } else if (e.data.interval) {
-      console.log("setting interval");
+
       interval = e.data.interval;
-      console.log("interval=" + interval);
+
 
       if (timerID) {
         clearInterval(timerID);
@@ -20,7 +20,7 @@ const metronomeWorker = () => {
         }, interval);
       }
     } else if (e.data == "stop") {
-      console.log("stopping metronome");
+
       clearInterval(timerID);
       timerID = undefined;
     }

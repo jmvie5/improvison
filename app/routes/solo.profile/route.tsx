@@ -20,6 +20,7 @@ import {
 } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import i18nextServer from "../../i18next.server";
+import { useTranslation } from "react-i18next";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const t = await i18nextServer.getFixedT(request);
@@ -80,18 +81,22 @@ export default function SoloProfile() {
 
   const transposition: string = useOutletContext();
 
+  const { t, ready } = useTranslation();
+
   function deleteRecording(id?: number) {
     try {
       if (id) {
         db.recordings.delete(id);
-        console.log("deleted entry");
+        // console.log("deleted entry");
       } else {
-        console.log("no entry to delete in db");
+        // console.warn("no entry to delete in db");
       }
     } catch (error) {
       console.warn("Error when deleting recording from db");
     }
   }
+
+  if (!ready) return <></>
 
   return (
     <div className=" flex flex-col justify-items-center gap-4 p-4">
@@ -144,28 +149,33 @@ export default function SoloProfile() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {recordings && recordings?.length > 0 ? (
           <>
-            {recordings.map((record) => (
-              <Card key={record.id} className="bg-bleu-pale text-white">
-                <CardHeader className="flex justify-between">
-                  {record.levelName}
-                  <Button
-                    variant="light"
-                    isIconOnly
-                    onPress={() => deleteRecording(record.id)}
-                  >
-                    <XMarkIcon className="text-white" />
-                  </Button>
-                </CardHeader>
-                <CardBody>
-                  {/* eslint-disable-next-line */}
-                  <audio
-                    className="self-center"
-                    src={URL.createObjectURL(record.audioBlob)}
-                    controls
-                  />
-                </CardBody>
-              </Card>
-            ))}
+            {recordings.map((record) => {
+
+              const lvlTitle = `${t(`pages.soloGameLevels.${record.tString}.title`)} : ${t(`pages.soloGameLevels.${record.tString}.${record.subLvlName}.title`)}`
+
+              return (
+                <Card key={record.id} className="bg-bleu-pale text-white">
+                  <CardHeader className="flex justify-between">
+                    {lvlTitle}
+                    
+                    <Button
+                      variant="light"
+                      isIconOnly
+                      onPress={() => deleteRecording(record.id)}
+                    >
+                      <XMarkIcon className="text-white" />
+                    </Button>
+                  </CardHeader>
+                  <CardBody>
+                    {/* eslint-disable-next-line */}
+                    <audio
+                      className="self-center"
+                      src={URL.createObjectURL(record.audioBlob)}
+                      controls
+                    />
+                  </CardBody>
+                </Card>
+              )})}
           </>
         ) : (
           <div>{translations.noRecording}</div>
