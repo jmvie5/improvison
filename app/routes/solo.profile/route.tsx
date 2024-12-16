@@ -154,7 +154,7 @@ export default function SoloProfile() {
               const lvlTitle = `${t(`pages.soloGameLevels.${record.tString}.title`)} : ${t(`pages.soloGameLevels.${record.tString}.${record.subLvlName}.title`)}`
 
               return (
-                <Card key={record.id} className="bg-bleu-pale text-white">
+                <Card key={record.id} className=" bg-primary text-white">
                   <CardHeader className="flex justify-between">
                     {lvlTitle}
                     
