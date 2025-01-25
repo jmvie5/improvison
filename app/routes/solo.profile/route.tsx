@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { db } from "../../db";
 import {
   Card,
@@ -79,20 +80,42 @@ export default function SoloProfile() {
   const { recordings, translations, title } =
     useLoaderData<typeof clientLoader>();
 
+  const [recordingsLocal, setRecordingsLocal] = useState(recordings);
+
   const transposition: string = useOutletContext();
 
   const { t, ready } = useTranslation();
 
   function deleteRecording(id?: number) {
+    // local
+    if (recordingsLocal) {
+      const newRecordings = recordingsLocal.filter((r) => r.id !== id);
+      setRecordingsLocal(newRecordings);
+    }
+
+    // db
     try {
       if (id) {
         db.recordings.delete(id);
         // console.log("deleted entry");
-      } else {
-        // console.warn("no entry to delete in db");
       }
     } catch (error) {
       console.warn("Error when deleting recording from db");
+    }
+  }
+
+  function deleteAllRecordings() {
+    // local
+    if (recordingsLocal) {
+      setRecordingsLocal([]);
+    }
+
+    // db
+    try {
+      db.recordings.clear();
+      // console.log("deleted all entries");
+    } catch (error) {
+      console.warn("Error when deleting all recordings from db");
     }
   }
 
@@ -129,11 +152,8 @@ export default function SoloProfile() {
                     color="danger"
                     onPress={() => {
                       onClose();
-                      if (!recordings) return;
-                      for (let i = 0; i < recordings.length; i++) {
-                        const r = recordings[i];
-                        deleteRecording(r.id);
-                      }
+                      if (!recordingsLocal) return;
+                      deleteAllRecordings()
                     }}
                   >
                     {translations.modalActionBtn}
@@ -147,9 +167,9 @@ export default function SoloProfile() {
 
       <div>{translations.recordings}</div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {recordings && recordings?.length > 0 ? (
+        {recordingsLocal && recordingsLocal?.length > 0 ? (
           <>
-            {recordings.map((record) => {
+            {recordingsLocal.map((record) => {
 
               const lvlTitle = `${t(`pages.soloGameLevels.${record.tString}.title`)} : ${t(`pages.soloGameLevels.${record.tString}.${record.subLvlName}.title`)}`
 

@@ -29,9 +29,6 @@ const MinorScale = {
           </ol>
         </div>
         <p>{t("pages.soloGameLevels.minorScale.intro.instructionFinal")}</p>
-        <p className=" italic">
-          {t("pages.soloGameLevels.minorScale.intro.instructionFinal")}
-        </p>
       </div>
     ),
 
