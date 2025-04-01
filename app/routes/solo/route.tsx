@@ -6,7 +6,7 @@ import {
   useLocation,
   useSearchParams,
 } from "@remix-run/react";
-import { improvison_accueil } from "~/static/images";
+import { improvison_accueil } from "~/assets/images";
 import {
   Button,
   ButtonGroup,

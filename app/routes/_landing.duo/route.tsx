@@ -20,7 +20,7 @@ import {
   jeu_num_en,
   jeu_num2_en,
   jeu_num3_en,
-} from "../../static/images";
+} from "../../assets/images";
 import {
   json,
   type LoaderFunctionArgs,
@@ -31,10 +31,7 @@ import i18nextServer from "~/i18next.server";
 
 import { t } from "i18next";
 import DownloadModal from "./DownloadModal";
-import {
-  Improvison_Digital_Rules,
-  Improvison_Règles_numériques,
-} from "../../static/files";
+
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const t = await i18nextServer.getFixedT(request);
@@ -136,8 +133,8 @@ export default function LandingDuo() {
           as={Link}
           href={
             locale === "en"
-              ? Improvison_Digital_Rules
-              : Improvison_Règles_numériques
+              ? "/files/improvison_digital_rules.pdf"
+              : "/files/improvison_regles_numeriques.pdf"
           }
           target="_blank"
           rel="noreferrer"
@@ -283,8 +280,8 @@ export default function LandingDuo() {
           <Link
             href={
               locale === "en"
-                ? Improvison_Digital_Rules
-                : Improvison_Règles_numériques
+                ? "/files/improvison_digital_rules.pdf"
+                : "/files/improvison_regles_numeriques.pdf"
             }
             target="_blank"
             rel="noreferrer"

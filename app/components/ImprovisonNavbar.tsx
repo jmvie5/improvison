@@ -13,7 +13,7 @@ import {
   NavbarMenuItem,
 } from "@nextui-org/react";
 import { Form, useLocation } from "@remix-run/react";
-import ImprovisonLogo from "../static/images/improvison_accueil.png";
+import ImprovisonLogo from "../assets/images/improvison_accueil.png";
 // import authService from "../services/authService";
 
 export default function ImprovisonNavbar({

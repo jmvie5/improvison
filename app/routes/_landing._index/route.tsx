@@ -22,7 +22,7 @@ import {
   Divider,
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { Roblox_Logo } from "../../static/images";
+import { Roblox_Logo } from "../../assets/images";
 import i18nextServer from "~/i18next.server";
 
 export async function loader({ request }: LoaderFunctionArgs) {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Image, Link } from "@nextui-org/react";
-import { thumbnail_Photo_JPD } from "../../static/images";
+import { thumbnail_Photo_JPD } from "../../assets/images";
 import {
   json,
   type LoaderFunctionArgs,
@@ -62,6 +62,8 @@ export default function LandingAbout() {
           <Link
             className="underline text-white decoration-secondary "
             href="https://www.mus.ulaval.ca/notre-faculte/repertoire-du-personnel/jean-philippe-despres"
+            target="_blank"
+            rel="noreferrer"
           >
             Jean-Philippe Després (Ph.D.)
           </Link>
@@ -77,12 +79,14 @@ export default function LandingAbout() {
         </h2>
         <p className="pb-2 font-light">
           {translations.giText1}{" "}
-          <a
+          <Link
             href=" https://doi.org/10.7202/1040300ar"
             className="underline hover:opacity-80 transition-opacity text-large text-white decoration-secondary"
+            target="_blank"
+            rel="noreferrer"
           >
             {translations.researchTitle}
-          </a>
+          </Link>
           {translations.giText2}
         </p>
         <p className="pb-2 font-light">{translations.giText3}</p>

@@ -13,7 +13,9 @@ export default defineConfig({
   plugins: [remix({
     ignoredRouteFiles: ["**/*.css"],
     future: {
-      v3_singleFetch: true
+      v3_singleFetch: true,
+      v3_fetcherPersist: true,
+      v3_relativeSplatPath: true
     }
   }), netlifyPlugin(), tsconfigPaths()],
 })

@@ -303,14 +303,6 @@ const SubLvl = forwardRef(function SubLvl(
           closeButton={t("widget.recorder.authorizationError.authModalButton")}
         />
       </div>
-
-      {/* <div className="col-span-2 flex flex-col w-full h-fit ">
-        <iframe
-          src="https://guitarapp.com/metronome.html?embed=true&tempo=120&timeSignature=2&pattern=0"
-          title="Online Metronome"
-          className="h-[520px] w-[360px] mt-4 self-center rounded bg-"
-        />
-      </div> */}
     </div>
   );
 });

@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Image, Button, ButtonGroup, Link } from "@nextui-org/react";
-import ImprovisonLogo from "../../static/images/improvison_accueil.png";
+import ImprovisonLogo from "../../assets/images/improvison_accueil.png";
 import { Outlet, useLoaderData, Form, useLocation } from "@remix-run/react";
 import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { motion } from "framer-motion";

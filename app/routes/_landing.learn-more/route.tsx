@@ -1,6 +1,4 @@
-import * as React from "react";
 import { Link } from "@remix-run/react";
-import { Stratégies_d_improvisation_2022 } from "../../static/files";
 import { t } from "i18next";
 
 export default function ImprovisonSavoirPlusPage() {
@@ -14,8 +12,10 @@ export default function ImprovisonSavoirPlusPage() {
       </h2>
       <div className="flex flex-col gap-2 pl-4 pb-8">
         <Link
-          to={Stratégies_d_improvisation_2022}
+          to={"https://tonicgame.com/"}
           className="underline text-lg hover:text-neutral-400 font-normal"
+          target="_blank"
+          rel="noreferrer"
         >
           Tonic. The Music Improvisation Card Game
         </Link>
@@ -26,9 +26,11 @@ export default function ImprovisonSavoirPlusPage() {
           <li>{t("pages.landingLearnMore.tonic4")}</li>
         </ul>
         <Link
-          to={Stratégies_d_improvisation_2022}
+          to={"/files/strategies_d_improvisation_2022.pdf"}
           className="underline text-lg hover:text-neutral-400 font-normal"
           aria-label="Stratégies d'improvisations (PDF)"
+          target="_blank"
+          rel="noreferrer"
         >
           {t("pages.landingLearnMore.strategies.link")}
         </Link>
@@ -49,6 +51,8 @@ export default function ImprovisonSavoirPlusPage() {
             <Link
               to="https://doi.org/10.7202/1040300ar"
               className="underline hover:text-neutral-400"
+              target="_blank"
+              rel="noreferrer"
             >
               https://doi.org/10.7202/1040300ar
             </Link>
@@ -60,6 +64,8 @@ export default function ImprovisonSavoirPlusPage() {
             <Link
               to="http://hdl.handle.net/20.500.11794/27566"
               className="underline hover:text-neutral-400"
+              target="_blank"
+              rel="noreferrer"
             >
               http://hdl.handle.net/20.500.11794/27566
             </Link>
@@ -71,6 +77,8 @@ export default function ImprovisonSavoirPlusPage() {
             <Link
               to="https://doi.org/10.1016/j.tsc.2016.10.006"
               className="underline hover:text-neutral-400"
+              target="_blank"
+              rel="noreferrer"
             >
               https://doi.org/10.1016/j.tsc.2016.10.006
             </Link>
@@ -82,6 +90,8 @@ export default function ImprovisonSavoirPlusPage() {
             <Link
               to="https://doi-org.acces.bibl.ulaval.ca/10.1177/0022429417710777"
               className="underline hover:text-neutral-400"
+              target="_blank"
+              rel="noreferrer"
             >
               https://doi-org.acces.bibl.ulaval.ca/10.1177/0022429417710777
             </Link>
@@ -98,6 +108,8 @@ export default function ImprovisonSavoirPlusPage() {
             <Link
               to="https://doi.org/10.1177/025576149502600103"
               className="underline hover:text-neutral-400"
+              target="_blank"
+              rel="noreferrer"
             >
               https://doi.org/10.1177/025576149502600103
             </Link>
