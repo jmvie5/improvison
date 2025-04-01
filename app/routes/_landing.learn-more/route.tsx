@@ -1,4 +1,5 @@
-import { Link } from "@remix-run/react";
+import { Link } from "@nextui-org/react";
+import { strategies_d_improvisation_2022 } from "~/assets/files";
 import { t } from "i18next";
 
 export default function ImprovisonSavoirPlusPage() {
@@ -12,8 +13,8 @@ export default function ImprovisonSavoirPlusPage() {
       </h2>
       <div className="flex flex-col gap-2 pl-4 pb-8">
         <Link
-          to={"https://tonicgame.com/"}
-          className="underline text-lg hover:text-neutral-400 font-normal"
+          href={"https://tonicgame.com/"}
+          className="underline text-lg hover:text-neutral-400 text-white font-normal w-fit"
           target="_blank"
           rel="noreferrer"
         >
@@ -26,8 +27,8 @@ export default function ImprovisonSavoirPlusPage() {
           <li>{t("pages.landingLearnMore.tonic4")}</li>
         </ul>
         <Link
-          to={"/files/strategies_d_improvisation_2022.pdf"}
-          className="underline text-lg hover:text-neutral-400 font-normal"
+          href={strategies_d_improvisation_2022}
+          className="underline text-lg hover:text-neutral-400 text-white font-normal w-fit"
           aria-label="Stratégies d'improvisations (PDF)"
           target="_blank"
           rel="noreferrer"
@@ -49,8 +50,8 @@ export default function ImprovisonSavoirPlusPage() {
             improvisateurs experts en musique classique. Revue musicale OICRM,
             4(1), 67‑85.{" "}
             <Link
-              to="https://doi.org/10.7202/1040300ar"
-              className="underline hover:text-neutral-400"
+              href="https://doi.org/10.7202/1040300ar"
+              className="underline hover:text-neutral-400 text-white indent-0"
               target="_blank"
               rel="noreferrer"
             >
@@ -62,8 +63,8 @@ export default function ImprovisonSavoirPlusPage() {
             improvisateurs experts en musique classique [thèse de doctorat,
             Université Laval].{" "}
             <Link
-              to="http://hdl.handle.net/20.500.11794/27566"
-              className="underline hover:text-neutral-400"
+              href="http://hdl.handle.net/20.500.11794/27566"
+              className="underline hover:text-neutral-400 text-white indent-0"
               target="_blank"
               rel="noreferrer"
             >
@@ -75,8 +76,8 @@ export default function ImprovisonSavoirPlusPage() {
             improvisers in Western classical music learning pathways. Thinking
             Skills and Creativity, 22, 167‑179.{" "}
             <Link
-              to="https://doi.org/10.1016/j.tsc.2016.10.006"
-              className="underline hover:text-neutral-400"
+              href="https://doi.org/10.1016/j.tsc.2016.10.006"
+              className="underline hover:text-neutral-400 text-white indent-0"
               target="_blank"
               rel="noreferrer"
             >
@@ -88,15 +89,14 @@ export default function ImprovisonSavoirPlusPage() {
             Western Classical Music Improvisers’ Strategies. Journal of Research
             in Music Education, 65(2), 139‑162.{" "}
             <Link
-              to="https://doi-org.acces.bibl.ulaval.ca/10.1177/0022429417710777"
-              className="underline hover:text-neutral-400"
+              href="https://doi-org.acces.bibl.ulaval.ca/10.1177/0022429417710777"
+              className="underline hover:text-neutral-400 text-white indent-0"
               target="_blank"
               rel="noreferrer"
             >
               https://doi-org.acces.bibl.ulaval.ca/10.1177/0022429417710777
             </Link>
           </li>
-          {/* <li className="-indent-4 break-words ">Easterday, M. W., Lewis, D. R., et Gerber, E. M. (2014). Design-based research process: Problems, phases, and applications. Boulder, CO: International Society of the Learning Sciences.</li> */}
           <li className="-indent-4 break-words ">
             Kratus, J. (1991). Growing with improvisation. Music Educators
             Journal, 78(4), 36‑40.
@@ -106,8 +106,8 @@ export default function ImprovisonSavoirPlusPage() {
             Improvisation. International Journal of Music Education, 26(1),
             27‑38.{" "}
             <Link
-              to="https://doi.org/10.1177/025576149502600103"
-              className="underline hover:text-neutral-400"
+              href="https://doi.org/10.1177/025576149502600103"
+              className="underline hover:text-neutral-400 text-white indent-0"
               target="_blank"
               rel="noreferrer"
             >

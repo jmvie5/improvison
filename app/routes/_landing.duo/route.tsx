@@ -28,6 +28,7 @@ import {
 } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import i18nextServer from "~/i18next.server";
+import { improvison_regles_numeriques, improvison_digital_rules } from "~/assets/files";
 
 import { t } from "i18next";
 import DownloadModal from "./DownloadModal";
@@ -133,8 +134,8 @@ export default function LandingDuo() {
           as={Link}
           href={
             locale === "en"
-              ? "/files/improvison_digital_rules.pdf"
-              : "/files/improvison_regles_numeriques.pdf"
+              ? improvison_digital_rules
+              : improvison_regles_numeriques
           }
           target="_blank"
           rel="noreferrer"
@@ -280,8 +281,8 @@ export default function LandingDuo() {
           <Link
             href={
               locale === "en"
-                ? "/files/improvison_digital_rules.pdf"
-                : "/files/improvison_regles_numeriques.pdf"
+                ? improvison_digital_rules
+                : improvison_regles_numeriques
             }
             target="_blank"
             rel="noreferrer"
